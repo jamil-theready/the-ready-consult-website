@@ -43,8 +43,9 @@ function TickerStats({ visible }: { visible: boolean }) {
         return (
           <div
             key={s.label}
-            className="rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-center transition-all duration-700"
+            className="rounded-xl bg-white p-4 text-center transition-all duration-700"
             style={{
+              boxShadow: "0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.04)",
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(20px)",
               transitionDelay: `${0.1 + i * 0.12}s`,
@@ -74,7 +75,14 @@ export default function VideoVisual() {
     const el = containerRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(false);
+          requestAnimationFrame(() => setVisible(true));
+        } else {
+          setVisible(false);
+        }
+      },
       { threshold: 0.3 }
     );
     obs.observe(el);
@@ -82,7 +90,7 @@ export default function VideoVisual() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full rounded-2xl border border-gray-200 bg-white overflow-hidden flex gap-3 p-4">
+    <div ref={containerRef} className="w-full h-full overflow-hidden flex gap-4 p-2">
       {/* iPhone mockup */}
       <div className="flex-1 flex items-center justify-center">
         <div
@@ -180,25 +188,29 @@ export default function VideoVisual() {
         </div>
       </div>
 
-      {/* Right side — Instagram Insights style */}
-      <div className="w-[220px] shrink-0 flex flex-col gap-2 self-stretch">
+      {/* Right side — floating analytics */}
+      <div className="w-[220px] shrink-0 flex flex-col gap-3 self-stretch">
         {/* Ticker stats */}
         <TickerStats visible={visible} />
 
         {/* Accounts Reached — bar chart */}
         <div
-          className="flex-1 rounded-xl border border-gray-100 bg-white p-3 flex flex-col transition-all duration-800"
-          style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transitionDelay: "0.5s" }}
+          className="flex-1 rounded-2xl bg-white p-3.5 flex flex-col transition-all duration-800"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(20px)",
+            transitionDelay: "0.5s",
+            boxShadow: "0 15px 40px -8px rgba(0,0,0,0.1), 0 6px 16px -6px rgba(0,0,0,0.06)",
+          }}
         >
           <div className="flex items-center justify-between mb-0.5">
             <span className="text-[10px] font-semibold text-gray-900">Accounts Reached</span>
-            <span className="text-[9px] font-bold text-gray-900">142.8K</span>
+            <span className="text-[9px] font-bold text-blue">142.8K</span>
           </div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[8px] text-green font-medium">+234%</span>
-            <span className="text-[8px] text-gray-400">vs previous 30 days</span>
+            <span className="text-[8px] text-blue font-medium">+234%</span>
+            <span className="text-[8px] text-gray-400">vs last 30 days</span>
           </div>
-          {/* Y axis labels + bars */}
           <div className="flex-1 flex gap-1.5">
             <div className="flex flex-col justify-between text-[7px] text-gray-300 py-0.5">
               <span>150K</span>
@@ -207,10 +219,9 @@ export default function VideoVisual() {
               <span>0</span>
             </div>
             <div className="flex-1 relative">
-              {/* Grid lines */}
               <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
                 {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className="border-t border-gray-100" />
+                  <div key={i} className="border-t border-gray-50" />
                 ))}
               </div>
               <div className="relative h-full flex items-end gap-[3px]">
@@ -220,7 +231,7 @@ export default function VideoVisual() {
                     className="flex-1 rounded-t-sm transition-all ease-out"
                     style={{
                       height: visible ? `${h}%` : "0%",
-                      background: i >= 18 ? "#1a1a1a" : i >= 12 ? "#555" : "#ccc",
+                      background: i >= 18 ? "#635bff" : i >= 12 ? "#818cf8" : "#e0e0ee",
                       transitionDuration: "900ms",
                       transitionDelay: `${0.6 + i * 0.03}s`,
                     }}
@@ -236,22 +247,27 @@ export default function VideoVisual() {
           </div>
         </div>
 
-        {/* Engagement Rate — line chart */}
+        {/* Engagement Rate — line chart with constant animation */}
         <div
-          className="flex-1 rounded-xl border border-gray-100 bg-white p-3 flex flex-col transition-all duration-800"
-          style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transitionDelay: "0.7s" }}
+          className="flex-1 rounded-2xl bg-white p-3.5 flex flex-col transition-all duration-800"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(20px)",
+            transitionDelay: "0.7s",
+            boxShadow: "0 15px 40px -8px rgba(0,0,0,0.1), 0 6px 16px -6px rgba(0,0,0,0.06)",
+          }}
         >
           <div className="flex items-center justify-between mb-0.5">
             <span className="text-[10px] font-semibold text-gray-900">Engagement Rate</span>
-            <span className="text-[9px] font-bold text-gray-900">8.4%</span>
+            <span className="text-[9px] font-bold text-blue">8.4%</span>
           </div>
           <div className="flex items-center gap-3 mb-2">
             <div className="flex items-center gap-1">
-              <span className="w-2 h-[2px] bg-gray-900 rounded inline-block" />
+              <span className="w-2 h-[2px] bg-blue rounded inline-block" />
               <span className="text-[7px] text-gray-400">This month</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="w-2 h-[2px] bg-gray-300 rounded inline-block" />
+              <span className="w-2 h-[2px] bg-blue/30 rounded inline-block" />
               <span className="text-[7px] text-gray-400">Last month</span>
             </div>
           </div>
@@ -263,35 +279,44 @@ export default function VideoVisual() {
               <span>0%</span>
             </div>
             <div className="flex-1 relative">
-              {/* Grid */}
               <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
                 {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className="border-t border-gray-100" />
+                  <div key={i} className="border-t border-gray-50" />
                 ))}
               </div>
               <svg className="relative w-full h-full" viewBox="0 0 200 80" preserveAspectRatio="none">
-                {/* Last month line (faded) */}
+                {/* Last month line */}
                 <path
                   d="M0 60 Q15 55 30 58 T60 50 T90 52 T120 46 T150 48 T180 42 T200 44"
-                  fill="none" stroke="#ddd" strokeWidth="1.5"
+                  fill="none" stroke="#635bff" strokeWidth="1.5" opacity="0.2"
                   strokeDasharray="400" strokeDashoffset={visible ? "0" : "400"}
                   style={{ transition: "stroke-dashoffset 2s ease 0.8s" }}
                 />
                 {/* This month area */}
                 <path
                   d="M0 65 Q15 58 30 52 T60 45 T90 38 T120 28 T150 20 T180 14 T200 8 V80 H0 Z"
-                  fill="rgba(0,0,0,0.03)"
+                  fill="rgba(99,91,255,0.06)"
                   style={{ opacity: visible ? 1 : 0, transition: "opacity 1.5s ease 1s" }}
                 />
                 {/* This month line */}
                 <path
                   d="M0 65 Q15 58 30 52 T60 45 T90 38 T120 28 T150 20 T180 14 T200 8"
-                  fill="none" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"
+                  fill="none" stroke="#635bff" strokeWidth="2" strokeLinecap="round"
                   strokeDasharray="400" strokeDashoffset={visible ? "0" : "400"}
                   style={{ transition: "stroke-dashoffset 2s ease 1s" }}
                 />
+                {/* Animated pulse dot that travels along the line */}
+                {visible && (
+                  <circle r="3" fill="#635bff">
+                    <animateMotion
+                      dur="4s"
+                      repeatCount="indefinite"
+                      path="M0 65 Q15 58 30 52 T60 45 T90 38 T120 28 T150 20 T180 14 T200 8"
+                    />
+                  </circle>
+                )}
                 {/* End dot */}
-                <circle cx="200" cy="8" r="3" fill="#1a1a1a"
+                <circle cx="200" cy="8" r="3.5" fill="#635bff"
                   style={{ opacity: visible ? 1 : 0, transition: "opacity 0.3s ease 2.8s" }}
                 />
               </svg>

@@ -1,44 +1,49 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const studies = [
   {
-    name: "Team Nebula AI",
+    name: "Cluely",
     tag: "AI",
-    desc: "Team Nebula scales AI-powered operations with a full-funnel growth strategy from The Ready Consult.",
-    link: "Read Team Nebula's story",
-    image: "/case-study-nebula.jpg",
-  },
-  {
-    name: "Perfecto Homes",
-    tag: "Real Estate",
-    desc: "Perfecto Homes doubles qualified leads with SEO, content automation, and listing syndication.",
-    link: "Read Perfecto's story",
-    image: "/case-study-perfecto.png",
+    desc: "Cluely scales their AI-powered platform with a full-funnel growth strategy and brand positioning.",
+    link: "Read Cluely's story",
+    image: "/cluely.png",
   },
   {
     name: "Ampere Computing",
     tag: "Video",
     desc: "Ampere Computing elevates brand storytelling with cinematic video production and distribution.",
     link: "Read Ampere's story",
-    image: "/case-study-ampere.png",
-    fallback: {
-      gradient: "bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
-      pattern: "radial-gradient(circle at 60% 40%, rgba(255,107,138,0.3) 0%, transparent 45%), radial-gradient(circle at 25% 75%, rgba(99,91,255,0.25) 0%, transparent 45%)",
-      icon: (
-        <svg viewBox="0 0 120 120" fill="none" className="w-24 h-24 md:w-32 md:h-32 opacity-80">
-          <rect x="15" y="28" width="90" height="64" rx="8" stroke="rgba(255,107,138,0.5)" strokeWidth="2" fill="rgba(255,107,138,0.06)" />
-          <path d="M50 44V76L80 60L50 44Z" fill="rgba(255,107,138,0.6)" />
-        </svg>
-      ),
-    },
+    image: "/ampere.png",
+  },
+  {
+    name: "Perfecto Homes",
+    tag: "Real Estate",
+    desc: "Perfecto Homes doubles qualified leads with SEO, content automation, and listing syndication.",
+    link: "Read Perfecto's story",
+    image: "/pefectohomes.png",
+  },
+  {
+    name: "Team Nebula AI",
+    tag: "AI",
+    desc: "Team Nebula scales AI-powered operations with automation workflows and SEO content strategy.",
+    link: "Read Nebula's story",
+    image: "/case-study-nebula.jpg",
   },
 ];
 
 export default function CaseStudies() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -50,13 +55,13 @@ export default function CaseStudies() {
   };
 
   return (
-    <section className="bg-white py-24 lg:py-32">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section className="bg-white py-16 sm:py-24 lg:py-32">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Header row */}
         <div className="flex items-end justify-between mb-10 md:mb-14">
           <div>
-            <p className="text-teal font-semibold text-[15px] mb-3">Case studies</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy tracking-tight">
+            <p className="text-gray-400 text-xs tracking-[0.3em] uppercase mb-3 flex items-center gap-2"><span className="text-[10px]">&#10022;</span> Case studies <span className="text-[10px]">&#10022;</span></p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-navy tracking-tight">
               Results that speak
             </h2>
           </div>
@@ -95,7 +100,7 @@ export default function CaseStudies() {
               key={s.name}
               className="snap-start shrink-0 group cursor-pointer"
               style={{
-                width: hovered === i ? "420px" : "400px",
+                width: isMobile ? "280px" : hovered === i ? "420px" : "400px",
                 transition: "width 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
               onMouseEnter={() => setHovered(i)}
@@ -103,8 +108,8 @@ export default function CaseStudies() {
             >
               {/* Card image area */}
               <div
-                className={`relative rounded-2xl overflow-hidden border border-gray-200 mb-5 ${s.fallback?.gradient ?? "bg-navy"}`}
-                style={{ height: "530px" }}
+                className="relative rounded-2xl overflow-hidden mb-5 bg-black h-[360px] sm:h-[440px] md:h-[530px]"
+                style={{ boxShadow: "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)" }}
               >
                 {/* Background image */}
                 <img
@@ -116,25 +121,13 @@ export default function CaseStudies() {
                   }}
                 />
 
-                {/* Fallback only — renders behind image, visible if image fails */}
-                {s.fallback && (
-                  <>
-                    <div
-                      className="absolute inset-0 opacity-80"
-                      style={{ background: s.fallback.pattern }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      {s.fallback.icon}
-                    </div>
-                  </>
-                )}
 
                 {/* Bottom gradient for text legibility */}
                 <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                 {/* Company name bottom-left */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="text-white font-bold text-xl md:text-2xl tracking-wide uppercase">
+                  <span className="text-white font-semibold text-base md:text-lg tracking-tight">
                     {s.name}
                   </span>
                 </div>

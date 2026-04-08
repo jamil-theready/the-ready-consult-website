@@ -1,8 +1,8 @@
 export default function CtaBanner() {
   return (
-    <section className="relative gradient-mesh py-24 lg:py-36 overflow-hidden">
+    <section className="relative gradient-mesh py-16 sm:py-24 lg:py-36 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan/10 rounded-full blur-[100px]" />
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-white leading-[1.1] tracking-tight">
           Stop paying for activity.<br />
           <span className="text-cyan">Start paying for outcomes.</span>

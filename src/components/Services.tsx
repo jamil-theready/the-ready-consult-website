@@ -58,11 +58,11 @@ export default function Services() {
       className="relative bg-white"
       style={{ height: `${(features.length + 1) * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen flex items-center">
-        <div className="max-w-[1440px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 lg:gap-16 items-center">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 lg:gap-16 items-start lg:items-center pt-16 lg:pt-0">
           {/* Left — feature list */}
           <div>
-            <p className="text-teal font-semibold text-[15px] mb-6">Services</p>
+            <p className="text-gray-400 text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-2"><span className="text-[10px]">&#10022;</span> Services <span className="text-[10px]">&#10022;</span></p>
             <div className="space-y-0">
               {features.map((f, i) => (
                 <div
@@ -127,6 +127,27 @@ export default function Services() {
                       : "translateX(60px) scale(0.97)",
                     transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
                     pointerEvents: i === active ? "auto" : "none",
+                  }}
+                >
+                  {f.visual}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile visual */}
+          <div className="block lg:hidden mt-4">
+            <div className="relative w-full overflow-hidden rounded-xl border border-gray-200" style={{ height: "280px" }}>
+              {features.map((f, i) => (
+                <div
+                  key={f.title}
+                  className="absolute inset-0 scale-[0.45] origin-top-left"
+                  style={{
+                    opacity: i === active ? 1 : 0,
+                    transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                    pointerEvents: i === active ? "auto" : "none",
+                    width: "222%",
+                    height: "222%",
                   }}
                 >
                   {f.visual}

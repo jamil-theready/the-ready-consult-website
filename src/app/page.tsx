@@ -1,17 +1,19 @@
+"use client";
+
+import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Mission from "@/components/Mission";
 import CaseStudyStats from "@/components/CaseStudyStats";
 import Pricing from "@/components/Pricing";
 import Testimonial from "@/components/Testimonial";
 import HowItWorks from "@/components/HowItWorks";
-import Team from "@/components/Team";
 import FAQ from "@/components/FAQ";
-import CtaBanner from "@/components/CtaBanner";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CaseStudies from "@/components/CaseStudies";
 import ScrollToTop from "@/components/ScrollToTop";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -40,23 +42,25 @@ const faqJsonLd = {
 };
 
 export default function Home() {
+  const [ready, setReady] = useState(false);
+  const handleLoadingComplete = useCallback(() => setReady(true), []);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <LoadingScreen onComplete={handleLoadingComplete} />
       <Navbar />
       <main id="main-content">
-        <Hero />
+        <Hero ready={ready} />
         <Services />
+        <Mission />
         <CaseStudyStats />
-        <Testimonial />
-        <CaseStudies />
         <HowItWorks />
         <Pricing />
-        <Team />
+        <Testimonial />
+        <CaseStudies />
         <FAQ />
-        <CtaBanner />
-        <Contact />
       </main>
       <Footer />
       <ScrollToTop />

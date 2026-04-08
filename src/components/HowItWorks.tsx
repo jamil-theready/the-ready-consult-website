@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import LogoAnimation from "./LogoAnimation";
 
 const steps = [
   {
@@ -67,20 +68,23 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="relative bg-[#f5f4f0]"
-      style={{ height: `${(steps.length + 1) * 100}vh` }}
+      className="relative bg-white"
+      style={{ height: `${(steps.length + 2) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center overflow-hidden">
         {/* Header — stays static */}
-        <div className="text-center pt-16 md:pt-20 lg:pt-24">
+        <div className="text-center pt-12 sm:pt-16 md:pt-20 lg:pt-24">
           <p className="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-2">
             <span className="text-[10px]">&#10022;</span>
             Process
             <span className="text-[10px]">&#10022;</span>
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-bold text-navy tracking-tight leading-tight">
+          <h2 className="text-[clamp(2rem,4.5vw,3.75rem)] font-medium text-navy tracking-tight leading-tight">
             A collaborative approach
           </h2>
+          <div className="mt-6 opacity-20">
+            <LogoAnimation size={50} color="#0a2540" />
+          </div>
         </div>
 
         {/* Step badge */}
@@ -88,7 +92,11 @@ export default function HowItWorks() {
           <p className="text-[10px] md:text-xs tracking-[0.2em] text-gray-500 uppercase font-medium mb-2">
             Step
           </p>
-          <div className="w-13 h-13 md:w-14 md:h-14 rounded-xl bg-teal text-white flex items-center justify-center text-xl md:text-2xl font-bold shadow-lg mx-auto">
+          <div
+            key={`badge-${activeStep}`}
+            className="w-13 h-13 md:w-14 md:h-14 rounded-xl bg-navy text-white flex items-center justify-center text-xl md:text-2xl font-bold mx-auto animate-fade-in"
+            style={{ boxShadow: "0 10px 30px -5px rgba(10,37,64,0.3)" }}
+          >
             {steps[activeStep].num}
           </div>
         </div>
@@ -97,7 +105,7 @@ export default function HowItWorks() {
         <div className="relative flex-1 w-full flex items-start justify-center">
           {/* Arc SVG — full width, curves up */}
           <svg
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px]"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] hidden sm:block"
             viewBox="0 0 1200 500"
             fill="none"
             preserveAspectRatio="xMidYMax meet"
@@ -105,21 +113,21 @@ export default function HowItWorks() {
             {/* Outer arc */}
             <path
               d="M 20 490 A 580 580 0 0 1 1180 490"
-              stroke="#ddd9d2"
+              stroke="#e8e8e8"
               strokeWidth="1.5"
               fill="none"
             />
             {/* Mid arc */}
             <path
               d="M 100 490 A 520 520 0 0 1 1100 490"
-              stroke="#e5e2dc"
+              stroke="#f0f0f0"
               strokeWidth="1"
               fill="none"
             />
             {/* Inner arc */}
             <path
               d="M 200 490 A 440 440 0 0 1 1000 490"
-              stroke="#eae7e2"
+              stroke="#f5f5f5"
               strokeWidth="0.8"
               fill="none"
             />
@@ -141,7 +149,7 @@ export default function HowItWorks() {
           {/* Previous step indicator — left, on the arc */}
           {prevStep !== null && (
             <div
-              className="absolute left-[6%] md:left-[10%] lg:left-[12%] bottom-[30%] md:bottom-[35%] z-10 transition-opacity duration-500"
+              className="absolute left-[6%] md:left-[10%] lg:left-[12%] bottom-[30%] md:bottom-[35%] z-10 transition-opacity duration-500 hidden sm:block"
               style={{ opacity: 0.5 }}
             >
               <div className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-white border border-gray-200/80 flex items-center justify-center text-base md:text-lg font-bold text-gray-400 shadow-sm backdrop-blur-sm">
@@ -151,7 +159,7 @@ export default function HowItWorks() {
           )}
 
           {/* Center content inside the arc */}
-          <div className="relative z-10 text-center max-w-lg mt-6 md:mt-10 px-6">
+          <div className="relative z-10 text-center max-w-lg mt-4 sm:mt-6 md:mt-10 px-4 sm:px-6">
             <h3
               key={`title-${activeStep}`}
               className="text-2xl md:text-3xl lg:text-[2.25rem] font-bold text-navy mb-3 md:mb-4 animate-fade-in"

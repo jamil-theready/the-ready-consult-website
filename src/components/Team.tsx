@@ -15,8 +15,8 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="bg-white py-24 lg:py-36">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section id="team" className="bg-white py-16 sm:py-24 lg:py-36">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <p className="text-teal font-semibold text-[15px] mb-4">Team</p>
         <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-navy leading-[1.1] tracking-tight max-w-md mb-16">
           Two builders, zero bloat

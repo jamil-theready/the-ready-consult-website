@@ -83,12 +83,26 @@ export default function SeoVisual() {
   const [visible, setVisible] = useState(false);
   const [visibleEmails, setVisibleEmails] = useState(0);
   const [showAi, setShowAi] = useState(false);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Reset everything and replay
+          setVisible(false);
+          setShowAi(false);
+          setVisibleEmails(0);
+          setKey((k) => k + 1);
+          requestAnimationFrame(() => setVisible(true));
+        } else {
+          setVisible(false);
+          setShowAi(false);
+          setVisibleEmails(0);
+        }
+      },
       { threshold: 0.3 }
     );
     obs.observe(el);
@@ -110,7 +124,7 @@ export default function SeoVisual() {
   );
 
   return (
-    <div ref={ref} className="w-full h-full rounded-2xl border border-gray-200 bg-white overflow-hidden flex flex-col">
+    <div ref={ref} className="w-full h-full overflow-hidden flex flex-col">
       {/* Lighthouse — BIG and dominant */}
       <div
         className="flex-1 px-6 pt-6 pb-5 flex flex-col items-center justify-center transition-all duration-1000"
@@ -136,7 +150,7 @@ export default function SeoVisual() {
       <div className="px-5 pb-5 flex gap-3">
         {/* ChatGPT */}
         <div
-          className="flex-1 rounded-xl border border-gray-200 bg-[#f7f7f8] p-3.5 flex flex-col transition-all duration-1000"
+          className="flex-1 rounded-xl bg-[#f7f7f8] shadow-lg shadow-black/5 p-3.5 flex flex-col transition-all duration-1000"
           style={{ opacity: showAi ? 1 : 0, transform: showAi ? "translateY(0)" : "translateY(12px)" }}
         >
           <div className="flex items-center gap-2.5 mb-3">
@@ -163,7 +177,7 @@ export default function SeoVisual() {
 
         {/* Gmail */}
         <div
-          className="flex-1 rounded-xl border border-gray-200 bg-white p-3.5 flex flex-col transition-all duration-1000"
+          className="flex-1 rounded-xl bg-white shadow-lg shadow-black/5 p-3.5 flex flex-col transition-all duration-1000"
           style={{ opacity: visibleEmails > 0 ? 1 : 0, transform: visibleEmails > 0 ? "translateY(0)" : "translateY(12px)" }}
         >
           <div className="flex items-center gap-2.5 mb-3">
@@ -185,7 +199,7 @@ export default function SeoVisual() {
             </div>
             <span className="text-[12px] font-bold text-gray-800">Gmail</span>
           </div>
-          <div className="flex-1 flex flex-col gap-0 rounded-lg border border-gray-100 overflow-hidden">
+          <div className="flex-1 flex flex-col gap-0 rounded-lg overflow-hidden">
             {emails.map((e, i) => (
               <div
                 key={i}

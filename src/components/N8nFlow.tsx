@@ -74,7 +74,7 @@ export default function N8nFlow() {
   }, []);
 
   return (
-    <div className="w-full h-full rounded-2xl border border-gray-200 bg-[#f9f9f8] overflow-hidden flex flex-col">
+    <div className="w-full h-full rounded-2xl bg-[#f9f9f8] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
       {/* Top bar */}
       <div className="flex items-center gap-3 px-4 py-2.5 border-b border-gray-200 bg-white">
         <div className="flex gap-1.5">

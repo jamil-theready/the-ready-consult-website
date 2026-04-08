@@ -15,10 +15,10 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-gray-50 py-24 lg:py-36">
-      <div className="max-w-[720px] mx-auto px-6">
-        <p className="text-teal font-semibold text-[15px] mb-4">FAQ</p>
-        <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-navy leading-[1.1] tracking-tight mb-12">
+    <section id="faq" className="bg-gray-50 py-16 sm:py-24 lg:py-36">
+      <div className="max-w-[720px] mx-auto px-4 sm:px-6">
+        <p className="text-gray-400 text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2"><span className="text-[10px]">&#10022;</span> FAQ <span className="text-[10px]">&#10022;</span></p>
+        <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium text-navy leading-[1.1] tracking-tight mb-12">
           Common questions
         </h2>
 

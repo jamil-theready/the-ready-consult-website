@@ -21,8 +21,8 @@ const tickerItems = [...ticker, ...ticker];
 
 export default function Testimonial() {
   return (
-    <section className="bg-navy py-24 lg:py-36 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section data-dark className="bg-[#0c0c0f] py-16 sm:py-24 lg:py-36 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="max-w-4xl">
           <div className="flex gap-1 mb-8">
             {[...Array(5)].map((_, i) => (
@@ -51,14 +51,14 @@ export default function Testimonial() {
 
       {/* Conveyor belt */}
       <div className="mt-20 relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-navy to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-navy to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0c0c0f] to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0c0c0f] to-transparent z-10" />
 
         <div className="flex gap-5 animate-ticker">
           {tickerItems.map((t, i) => (
             <div
               key={i}
-              className="shrink-0 w-[320px] rounded-xl border border-white/10 bg-white/[0.04] p-5"
+              className="shrink-0 w-[260px] sm:w-[320px] rounded-xl border border-white/10 bg-white/[0.04] p-4 sm:p-5"
             >
               <p className="text-white/60 text-sm leading-relaxed mb-4">
                 &ldquo;{t.text}&rdquo;

@@ -6,73 +6,23 @@ const links = [
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "Process", href: "#how-it-works" },
-  { label: "Team", href: "#team" },
 ];
 
 function MenuDots({ open }: { open: boolean }) {
   return (
-    <div className="relative w-10 h-10 flex items-center justify-center group/dots">
+    <div className="relative w-10 h-10 flex items-center justify-center">
       <svg width="24" height="24" viewBox="0 0 24 24" className="overflow-visible" data-menu-dots>
-        {/* 3x3 dot grid — each dot animates independently on hover */}
         {[
-          // row 1
-          { cx: 6, cy: 6, delay: 0 },
-          { cx: 12, cy: 6, delay: 0.05 },
-          { cx: 18, cy: 6, delay: 0.1 },
-          // row 2
-          { cx: 6, cy: 12, delay: 0.15 },
-          { cx: 12, cy: 12, delay: 0.2, large: true },
-          { cx: 18, cy: 12, delay: 0.25 },
-          // row 3
-          { cx: 6, cy: 18, delay: 0.3 },
-          { cx: 12, cy: 18, delay: 0.35 },
-          { cx: 18, cy: 18, delay: 0.4 },
+          { cx: 6, cy: 6 }, { cx: 12, cy: 6 }, { cx: 18, cy: 6 },
+          { cx: 6, cy: 12 }, { cx: 12, cy: 12, large: true }, { cx: 18, cy: 12 },
+          { cx: 6, cy: 18 }, { cx: 12, cy: 18 }, { cx: 18, cy: 18 },
         ].map((dot, i) => (
-          <circle
-            key={i}
-            cx={dot.cx}
-            cy={dot.cy}
-            r={dot.large ? 2.5 : 1.5}
-            fill="currentColor"
-            className="origin-center"
-            style={{
-              transition: `transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) ${dot.delay}s, r 0.3s ease ${dot.delay}s`,
-            }}
-          >
-            {!open && (
-              <animate
-                attributeName="r"
-                values={`${dot.large ? 2.5 : 1.5};${dot.large ? 3.5 : 2.5};${dot.large ? 2.5 : 1.5}`}
-                dur="1.5s"
-                begin={`${dot.delay * 2}s`}
-                repeatCount="0"
-                className="dot-pulse"
-              />
-            )}
-          </circle>
+          <circle key={i} cx={dot.cx} cy={dot.cy} r={dot.large ? 2.5 : 1.5} fill="currentColor" />
         ))}
-
-        {/* X overlay when open */}
-        <line
-          x1="6" y1="6" x2="18" y2="18"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          style={{
-            opacity: open ? 1 : 0,
-            transition: "opacity 0.2s ease",
-          }}
-        />
-        <line
-          x1="18" y1="6" x2="6" y2="18"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          style={{
-            opacity: open ? 1 : 0,
-            transition: "opacity 0.2s ease",
-          }}
-        />
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+          style={{ opacity: open ? 1 : 0, transition: "opacity 0.2s ease" }} />
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+          style={{ opacity: open ? 1 : 0, transition: "opacity 0.2s ease" }} />
       </svg>
     </div>
   );
@@ -81,18 +31,37 @@ function MenuDots({ open }: { open: boolean }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [dark, setDark] = useState(false);
+  const [inHero, setInHero] = useState(true);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setInHero(window.scrollY < window.innerHeight * 0.6);
+
+      const darkSections = document.querySelectorAll('[data-dark]');
+      let isOverDark = false;
+      darkSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 64 && rect.bottom >= 64) {
+          isOverDark = true;
+        }
+      });
+      setDark(isOverDark);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]" : ""}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      dark
+        ? "bg-[#0c0c0f]/95 backdrop-blur-xl border-b border-white/5"
+        : scrolled ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]" : ""
+    }`}>
       <nav className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5">
+        <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}>
           <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
             <rect x="2" y="2" width="17" height="17" rx="5" fill="currentColor"/>
             <rect x="24" y="2" width="17" height="17" rx="5" fill="currentColor"/>
@@ -102,34 +71,37 @@ export default function Navbar() {
             <rect x="2" y="46" width="17" height="17" rx="5" fill="currentColor"/>
             <rect x="46" y="46" width="17" height="17" rx="5" fill="currentColor"/>
           </svg>
-          <span className="font-semibold text-navy text-[15px]">The Ready Consult</span>
+          <span className="font-semibold text-[15px]">The Ready Consult</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-[15px] text-gray-600 hover:text-navy transition-colors">{l.label}</a>
+            <a key={l.href} href={l.href} className={`text-[15px] transition-colors duration-500 ${dark ? "text-white/60 hover:text-white" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
-          <a href="#contact" className="hidden sm:block text-[15px] text-gray-600 hover:text-navy transition-colors border border-gray-200 rounded-full px-4 py-2">Contact</a>
-          <a href="https://calendly.com/thereadyconsult/discovery" target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold bg-blue text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
-            Get Started <span className="ml-0.5">&rarr;</span>
+          <a
+            href="https://calendly.com/thereadyconsult/discovery"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`relative text-[15px] font-semibold px-7 py-2.5 rounded-2xl transition-all duration-500 overflow-hidden ${
+              inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
+            } ${dark ? "bg-white text-black hover:bg-gray-100" : "cta-btn text-white"}`}
+          >
+            {!dark && <span className="absolute inset-0 cta-shimmer" />}
+            <span className="relative z-10">Book a Call &rarr;</span>
           </a>
           <button
             onClick={() => setOpen(!open)}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            className={`md:hidden text-navy rounded-lg border border-gray-200 transition-colors ${hovered ? "bg-gray-50" : ""}`}
-            aria-label="Menu"
-            aria-expanded={open}
+            className={`md:hidden rounded-lg border transition-colors duration-500 ${dark ? "text-white border-white/20" : "text-navy border-gray-200"}`}
+            aria-label="Menu" aria-expanded={open}
           >
             <MenuDots open={open} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-60 bg-white/98 backdrop-blur-xl" : "max-h-0"}`}>
         <div className="px-6 py-5 space-y-4 border-t border-gray-100">
           {links.map((l) => (

@@ -64,7 +64,7 @@ export default function WebsiteVisual() {
   });
 
   return (
-    <div ref={ref} className="w-full h-full rounded-2xl border border-gray-200 bg-[#f8f8f8] overflow-hidden flex flex-col">
+    <div ref={ref} className="w-full h-full rounded-2xl bg-[#f8f8f8] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
       {/* Browser chrome */}
       <div className="flex items-center gap-2 px-4 py-2.5 bg-white border-b border-gray-200">
         <div className="flex gap-1.5">
