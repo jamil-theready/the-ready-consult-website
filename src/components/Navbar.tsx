@@ -89,6 +89,18 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Desktop CTA — hidden in hero */}
+          <a
+            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`hidden md:inline-flex relative text-[14px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
+              inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
+            } ${dark ? "bg-white text-black hover:bg-gray-100" : "cta-btn text-white"}`}
+          >
+            {!dark && <span className="absolute inset-0 cta-shimmer" />}
+            <span className="relative z-10">Book a Call &rarr;</span>
+          </a>
           <button
             onClick={() => setOpen(!open)}
             className={`md:hidden rounded-lg transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}
@@ -139,9 +151,9 @@ export default function Navbar() {
       </div>
     </header>
 
-      {/* Fixed bottom CTA — hides in hero, footer, and when menu open */}
+      {/* Fixed bottom CTA — mobile only, hides in hero, footer, and when menu open */}
       <div
-        className={`fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ${
+        className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-40 md:hidden transition-all duration-500 ${
           inHero || inFooter || open ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
         }`}
       >
