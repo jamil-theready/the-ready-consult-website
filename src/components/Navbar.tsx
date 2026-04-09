@@ -111,17 +111,18 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Black overlay */}
-      {/* Black overlay */}
+    </header>
+
+      {/* Black overlay — outside header for proper z-index */}
       <div
-        className={`fixed inset-0 bg-black/70 z-[998] md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-black/70 z-[9998] md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         onClick={() => setOpen(false)}
       />
 
-      {/* Slide-in menu from right */}
+      {/* Slide-in menu — outside header for proper z-index */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-white z-[999] md:hidden transition-transform duration-300 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
-        style={{ boxShadow: open ? "-20px 0 60px rgba(0,0,0,0.2)" : "none" }}
+        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-white z-[9999] md:hidden transition-transform duration-300 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
+        style={{ boxShadow: open ? "-20px 0 60px rgba(0,0,0,0.3)" : "none" }}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100 shrink-0">
           <span className="font-semibold text-navy text-[15px]">Menu</span>
@@ -149,7 +150,6 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-    </header>
 
       {/* Fixed bottom CTA — mobile only, hides in hero, footer, and when menu open */}
       <div
