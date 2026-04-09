@@ -15,8 +15,6 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
 
   // Scramble animation — starts immediately, runs 2 full cycles
   useEffect(() => {
-    let cycleCount = 0;
-
     const runCycle = () => {
       setIsLogo(false);
       let scrambleCount = 0;
@@ -28,7 +26,6 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
           setTimeout(() => {
             setOpacities(LOGO_STATE);
             setIsLogo(true);
-            cycleCount++;
           }, 200);
         }
       }, 150);

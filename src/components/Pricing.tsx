@@ -41,7 +41,7 @@ export default function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-[#1e2230]">
-          {plans.map((p, i) => (
+          {plans.map((p) => (
             <div
               key={p.name}
               className={`relative p-7 flex flex-col group transition-all duration-500 hover:bg-[#151a28] ${

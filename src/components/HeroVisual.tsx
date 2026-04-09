@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function useTypewriter(text: string, active: boolean, speed = 16, delay = 0) {
   const [displayed, setDisplayed] = useState("");

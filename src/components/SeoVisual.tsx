@@ -83,19 +83,15 @@ export default function SeoVisual() {
   const [visible, setVisible] = useState(false);
   const [visibleEmails, setVisibleEmails] = useState(0);
   const [showAi, setShowAi] = useState(false);
-  const [key, setKey] = useState(0);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Reset everything and replay
           setVisible(false);
           setShowAi(false);
           setVisibleEmails(0);
-          setKey((k) => k + 1);
           requestAnimationFrame(() => setVisible(true));
         } else {
           setVisible(false);
