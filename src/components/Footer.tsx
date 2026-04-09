@@ -54,7 +54,7 @@ export default function Footer() {
               <rect x="2" y="46" width="17" height="17" rx="5" fill="#0a2540"/>
               <rect x="46" y="46" width="17" height="17" rx="5" fill="#0a2540"/>
             </svg>
-            <span className="font-semibold text-navy text-[15px]">The Ready Consult</span>
+            <span className="font-semibold text-navy text-[18px] tracking-tight">The Ready</span>
           </div>
 
           <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-24">

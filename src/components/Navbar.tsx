@@ -70,7 +70,7 @@ export default function Navbar() {
     }`}>
       <nav className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}>
-          <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
+          <svg width="26" height="26" viewBox="0 0 66 66" fill="none">
             <rect x="2" y="2" width="17" height="17" rx="5" fill="currentColor"/>
             <rect x="24" y="2" width="17" height="17" rx="5" fill="currentColor"/>
             <rect x="46" y="2" width="17" height="17" rx="5" fill="currentColor"/>
@@ -79,7 +79,7 @@ export default function Navbar() {
             <rect x="2" y="46" width="17" height="17" rx="5" fill="currentColor"/>
             <rect x="46" y="46" width="17" height="17" rx="5" fill="currentColor"/>
           </svg>
-          <span className="font-semibold text-[15px]">The Ready Consult</span>
+          <span className="font-semibold text-[18px] tracking-tight">The Ready</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
