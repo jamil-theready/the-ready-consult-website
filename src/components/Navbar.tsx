@@ -100,35 +100,37 @@ export default function Navbar() {
       </nav>
 
       {/* Black overlay */}
+      {/* Black overlay */}
       <div
-        className={`fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-black/70 z-[998] md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         onClick={() => setOpen(false)}
       />
 
       {/* Slide-in menu from right */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-white z-50 md:hidden transition-transform duration-400 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
-        style={{ boxShadow: open ? "-10px 0 40px rgba(0,0,0,0.1)" : "none" }}
+        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-white z-[999] md:hidden transition-transform duration-300 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
+        style={{ boxShadow: open ? "-20px 0 60px rgba(0,0,0,0.2)" : "none" }}
       >
-        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100">
+        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100 shrink-0">
           <span className="font-semibold text-navy text-[15px]">Menu</span>
-          <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-navy transition-colors">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <button onClick={() => setOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:text-navy hover:bg-gray-200 transition-colors">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
-        <div className="px-6 py-8 space-y-6">
+        <div className="px-6 py-10 space-y-7 flex-1">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[18px] font-medium text-navy hover:text-teal transition-colors">{l.label}</a>
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[20px] font-medium text-navy hover:text-teal transition-colors">{l.label}</a>
           ))}
         </div>
-        <div className="px-6 mt-auto pb-10">
+        <div className="px-6 pb-12 shrink-0">
           <a
             href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-btn relative block text-center text-white font-semibold text-[15px] px-6 py-3.5 rounded-xl overflow-hidden"
+            onClick={() => setOpen(false)}
+            className="cta-btn relative block text-center text-white font-semibold text-[16px] px-6 py-4 rounded-2xl overflow-hidden"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Book a Call &rarr;</span>
