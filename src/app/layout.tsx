@@ -8,6 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.svg",
+  },
   title: "The Ready Consult | AI-First Growth & Media Partner",
   description:
     "AI-first consulting agency fusing strategy, content, and automation to convert attention into sustainable revenue. Fractional growth leadership, video production, SEO, and paid ads.",
