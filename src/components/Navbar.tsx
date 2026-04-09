@@ -125,7 +125,7 @@ export default function Navbar() {
         </div>
         <div className="px-6 mt-auto pb-10">
           <a
-            href="https://calendly.com/thereadyconsult/discovery"
+            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-btn relative block text-center text-white font-semibold text-[15px] px-6 py-3.5 rounded-xl overflow-hidden"
@@ -144,7 +144,7 @@ export default function Navbar() {
         }`}
       >
         <a
-          href="https://calendly.com/thereadyconsult/discovery"
+          href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
           target="_blank"
           rel="noopener noreferrer"
           className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[13px] sm:text-[15px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"

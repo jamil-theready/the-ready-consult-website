@@ -17,7 +17,7 @@ export default function Footer() {
               Try The Ready Consult for your next project.
             </p>
             <a
-              href="https://calendly.com/thereadyconsult/discovery"
+              href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[15px] px-8 py-3.5 rounded-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6"
@@ -83,7 +83,7 @@ export default function Footer() {
               <p className="text-[13px] font-semibold text-navy mb-4">Connect</p>
               <div className="space-y-3">
                 <a href="mailto:team@thereadyconsult.com" className="block text-[13px] text-gray-500 hover:text-navy transition-colors">Email</a>
-                <a href="https://calendly.com/thereadyconsult/discovery" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-gray-500 hover:text-navy transition-colors">Book a Call</a>
+                <a href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-gray-500 hover:text-navy transition-colors">Book a Call</a>
                 <a href="#contact" className="block text-[13px] text-gray-500 hover:text-navy transition-colors">Contact</a>
               </div>
             </div>

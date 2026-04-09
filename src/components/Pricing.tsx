@@ -86,7 +86,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://calendly.com/thereadyconsult/discovery"
+                href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-8 block text-center text-[14px] font-semibold py-3 rounded-xl transition-all ${
@@ -108,7 +108,7 @@ export default function Pricing() {
             <span className="text-[12px] sm:text-[13px] text-white/25 ml-2">For teams that need custom limits, dedicated support, and SLAs.</span>
           </div>
           <a
-            href="https://calendly.com/thereadyconsult/discovery"
+            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[13px] font-semibold text-white/60 border border-[#1e2230] px-5 py-2 rounded-xl hover:bg-[#1a1f2e] hover:text-white transition-all shrink-0"
