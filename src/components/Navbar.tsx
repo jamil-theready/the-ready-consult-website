@@ -10,14 +10,14 @@ const links = [
 
 function MenuDots({ open }: { open: boolean }) {
   return (
-    <div className="relative w-10 h-10 flex items-center justify-center">
-      <svg width="24" height="24" viewBox="0 0 24 24" className="overflow-visible" data-menu-dots>
+    <div className="relative w-12 h-12 flex items-center justify-center">
+      <svg width="30" height="30" viewBox="0 0 24 24" className="overflow-visible" data-menu-dots>
         {[
           { cx: 6, cy: 6 }, { cx: 12, cy: 6 }, { cx: 18, cy: 6 },
           { cx: 6, cy: 12 }, { cx: 12, cy: 12, large: true }, { cx: 18, cy: 12 },
           { cx: 6, cy: 18 }, { cx: 12, cy: 18 }, { cx: 18, cy: 18 },
         ].map((dot, i) => (
-          <circle key={i} cx={dot.cx} cy={dot.cy} r={dot.large ? 2.5 : 1.5} fill="currentColor" />
+          <circle key={i} cx={dot.cx} cy={dot.cy} r={dot.large ? 2.8 : 1.8} fill="currentColor" />
         ))}
         <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
           style={{ opacity: open ? 1 : 0, transition: "opacity 0.2s ease" }} />

@@ -59,7 +59,7 @@ export default function Services() {
       style={{ height: `${(features.length + 1) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 lg:gap-16 items-start lg:items-center pt-4 sm:pt-8 lg:pt-0">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 lg:gap-16 items-start lg:items-center pt-0 lg:pt-0">
           {/* Left — feature list */}
           <div>
             <p className="text-gray-400 text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-2"><span className="text-[10px]">&#10022;</span> Services <span className="text-[10px]">&#10022;</span></p>
