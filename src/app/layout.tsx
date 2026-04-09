@@ -28,12 +28,21 @@ export const metadata: Metadata = {
     siteName: "The Ready Consult",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://www.thereadyconsult.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Ready Consult - #1 AI-native agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "The Ready Consult | AI-First Growth & Media Partner",
     description:
       "Strategy, content, and automation to convert attention into sustainable revenue.",
+    images: ["https://www.thereadyconsult.com/og-image.png"],
   },
   robots: {
     index: true,
