@@ -8,22 +8,22 @@ import WebsiteVisual from "./WebsiteVisual";
 
 const features = [
   {
-    title: "Websites",
-    desc: "Custom Next.js sites built for speed, SEO, and conversions. Mobile-first, blazing fast, designed to grow with your business.",
+    title: "Websites That Convert",
+    desc: "Custom-built, blazing fast sites designed to turn visitors into customers. Mobile-first, SEO-ready from day one.",
     visual: <WebsiteVisual />,
   },
   {
-    title: "SEO",
-    desc: "Traditional SEO meets AI search optimization. We rank you on Google and get you cited by ChatGPT, Perplexity, and AI Overviews.",
+    title: "Rank Everywhere Online",
+    desc: "We get you found on Google, ChatGPT, Perplexity, and AI Overviews. Traditional SEO meets AI search optimization.",
     visual: <SeoVisual />,
   },
   {
-    title: "Video",
-    desc: "Scroll-stopping shorts and brand stories. 48hr turnaround, color grading, captions included.",
+    title: "Scroll Stopping Videos",
+    desc: "Brand stories and short-form content that drive engagement. 48hr turnaround, color grading, captions included.",
     visual: <VideoVisual />,
   },
   {
-    title: "AI Automations",
+    title: "Automate Your Growth",
     desc: "Custom AI agents and workflows that eliminate busywork and scale your operations without adding headcount.",
     visual: <N8nFlow />,
   },
