@@ -88,9 +88,9 @@ export default function HeroVisual() {
   });
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden h-[320px] lg:h-[700px]">
-      {/* Subtle node background */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04 }}>
+    <div ref={containerRef} className="relative w-full h-[260px] sm:h-[350px] lg:h-[700px]">
+      {/* Subtle node background — moved to Hero.tsx */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden" style={{ opacity: 0.04 }}>
         {/* Nodes */}
         {[
           { x: "8%", y: "15%" }, { x: "22%", y: "8%" }, { x: "38%", y: "20%" },
@@ -140,7 +140,7 @@ export default function HeroVisual() {
       </svg>
 
       {/* ===== 0: WEBSITE ===== */}
-      <div className="absolute inset-0 flex items-center justify-center scale-[0.38] sm:scale-[0.45] lg:scale-100 origin-center" style={panelStyle(0)}>
+      <div className="absolute inset-0 flex items-end sm:items-center justify-center scale-[0.55] sm:scale-[0.65] lg:scale-100 origin-bottom sm:origin-center" style={panelStyle(0)}>
         <div className="w-[850px] rounded-2xl overflow-hidden"
           style={{ boxShadow: "0 70px 140px -25px rgba(0,0,0,0.35), 0 35px 70px -15px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.04)" }}>
           {/* macOS chrome */}
@@ -271,7 +271,7 @@ export default function HeroVisual() {
       </div>
 
       {/* ===== 1: CHATGPT ===== */}
-      <div className="absolute inset-0 flex items-center justify-center scale-[0.42] sm:scale-[0.5] lg:scale-100 origin-center" style={panelStyle(1)}>
+      <div className="absolute inset-0 flex items-end sm:items-center justify-center scale-[0.6] sm:scale-[0.7] lg:scale-100 origin-bottom sm:origin-center" style={panelStyle(1)}>
         <div className="w-[700px] bg-[#212121] rounded-2xl overflow-hidden border border-white/10"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.5), 0 35px 70px -12px rgba(0,0,0,0.35), 0 0 100px rgba(16,163,127,0.1)" }}>
           <div className="px-5 py-3.5 flex items-center gap-3 border-b border-white/5">
@@ -325,7 +325,7 @@ export default function HeroVisual() {
       </div>
 
       {/* ===== 2: iPHONE ===== */}
-      <div className="absolute inset-0 flex items-center justify-center scale-[0.5] sm:scale-[0.55] lg:scale-100 origin-center" style={panelStyle(2)}>
+      <div className="absolute inset-0 flex items-end sm:items-center justify-center scale-[0.65] sm:scale-[0.75] lg:scale-100 origin-bottom sm:origin-center" style={panelStyle(2)}>
         <div className="w-[280px] h-[560px] bg-black rounded-[48px] border-[5px] border-gray-800 overflow-hidden relative"
           style={{ boxShadow: "0 70px 140px -15px rgba(0,0,0,0.45), 0 35px 70px -10px rgba(0,0,0,0.3), 0 0 80px rgba(45,27,105,0.15)" }}>
           <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-20" />
@@ -342,10 +342,19 @@ export default function HeroVisual() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a0533] via-[#2d1b69] to-[#0f3460]" />
-          <div className="absolute inset-0 flex items-center justify-center px-6">
+          {/* Video background */}
+          <video
+            src="/demo-video.mp4"
+            muted
+            loop
+            playsInline
+            autoPlay
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Overlay text */}
+          <div className="absolute inset-0 flex items-center justify-center px-6 bg-black/20">
             <div className="text-center">
-              <p className="text-[26px] font-bold text-white leading-tight">
+              <p className="text-[26px] font-bold text-white leading-tight drop-shadow-lg">
                 How we got<br />55+ leads/mo<br /><span className="text-[#10a37f]">with SEO</span>
               </p>
             </div>
@@ -385,7 +394,7 @@ export default function HeroVisual() {
       </div>
 
       {/* ===== 3: GMAIL ===== */}
-      <div className="absolute inset-0 flex items-center justify-center scale-[0.48] sm:scale-[0.55] lg:scale-100 origin-center" style={panelStyle(3)}>
+      <div className="absolute inset-0 flex items-end sm:items-center justify-center scale-[0.6] sm:scale-[0.7] lg:scale-100 origin-bottom sm:origin-center" style={panelStyle(3)}>
         <div className="w-[600px] bg-white rounded-2xl border border-gray-200 overflow-hidden"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.25), 0 35px 70px -12px rgba(0,0,0,0.15), 0 0 80px rgba(66,133,244,0.08)" }}>
           {/* Gmail header */}
@@ -462,7 +471,7 @@ export default function HeroVisual() {
       </div>
 
       {/* ===== 4: STATS — full analytics cards ===== */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 scale-[0.35] sm:scale-[0.45] lg:scale-100 origin-center" style={panelStyle(4)}>
+      <div className="absolute inset-0 flex items-end sm:items-center justify-center px-6 scale-[0.55] sm:scale-[0.65] lg:scale-100 origin-bottom sm:origin-center" style={panelStyle(4)}>
         <div className="flex gap-4 max-w-[900px]">
           {/* Leads — bar chart */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6 w-[200px]"

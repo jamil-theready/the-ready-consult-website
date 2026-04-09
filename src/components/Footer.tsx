@@ -90,6 +90,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-gray-300/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[12px] text-gray-400">&copy; {new Date().getFullYear()} The Ready Consult. All rights reserved.</p>
           <div className="flex items-center gap-1.5">

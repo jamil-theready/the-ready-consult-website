@@ -33,11 +33,18 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [dark, setDark] = useState(false);
   const [inHero, setInHero] = useState(true);
+  const [inFooter, setInFooter] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
       setInHero(window.scrollY < window.innerHeight * 0.6);
+
+      const footer = document.querySelector("footer");
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        setInFooter(footerRect.top < window.innerHeight);
+      }
 
       const darkSections = document.querySelectorAll('[data-dark]');
       let isOverDark = false;
@@ -55,6 +62,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       dark
         ? "bg-[#0c0c0f]/95 backdrop-blur-xl border-b border-white/5"
@@ -81,20 +89,9 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href="https://calendly.com/thereadyconsult/discovery"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`relative text-[15px] font-semibold px-7 py-2.5 rounded-2xl transition-all duration-500 overflow-hidden ${
-              inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
-            } ${dark ? "bg-white text-black hover:bg-gray-100" : "cta-btn text-white"}`}
-          >
-            {!dark && <span className="absolute inset-0 cta-shimmer" />}
-            <span className="relative z-10">Book a Call &rarr;</span>
-          </a>
           <button
             onClick={() => setOpen(!open)}
-            className={`md:hidden rounded-lg border transition-colors duration-500 ${dark ? "text-white border-white/20" : "text-navy border-gray-200"}`}
+            className={`md:hidden rounded-lg transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}
             aria-label="Menu" aria-expanded={open}
           >
             <MenuDots open={open} />
@@ -102,13 +99,62 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-60 bg-white/98 backdrop-blur-xl" : "max-h-0"}`}>
-        <div className="px-6 py-5 space-y-4 border-t border-gray-100">
+      {/* Black overlay */}
+      <div
+        className={`fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Slide-in menu from right */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[280px] bg-white z-50 md:hidden transition-transform duration-400 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
+        style={{ boxShadow: open ? "-10px 0 40px rgba(0,0,0,0.1)" : "none" }}
+      >
+        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100">
+          <span className="font-semibold text-navy text-[15px]">Menu</span>
+          <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-navy transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div className="px-6 py-8 space-y-6">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[15px] text-gray-600 hover:text-navy">{l.label}</a>
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[18px] font-medium text-navy hover:text-teal transition-colors">{l.label}</a>
           ))}
+        </div>
+        <div className="px-6 mt-auto pb-10">
+          <a
+            href="https://calendly.com/thereadyconsult/discovery"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-btn relative block text-center text-white font-semibold text-[15px] px-6 py-3.5 rounded-xl overflow-hidden"
+          >
+            <span className="absolute inset-0 cta-shimmer" />
+            <span className="relative z-10">Book a Call &rarr;</span>
+          </a>
         </div>
       </div>
     </header>
+
+      {/* Fixed bottom CTA — hides in hero, footer, and when menu open */}
+      <div
+        className={`fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ${
+          inHero || inFooter || open ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
+        }`}
+      >
+        <a
+          href="https://calendly.com/thereadyconsult/discovery"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[13px] sm:text-[15px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
+          style={{ boxShadow: "0 10px 40px -8px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.2)" }}
+        >
+          <span className="absolute inset-0 cta-shimmer" />
+          <span className="relative z-10">Book a Call</span>
+          <span className="relative z-10">&rarr;</span>
+        </a>
+      </div>
+    </>
   );
 }

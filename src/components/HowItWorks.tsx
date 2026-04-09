@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import LogoAnimation from "./LogoAnimation";
 
 const steps = [
   {
@@ -12,27 +11,15 @@ const steps = [
   },
   {
     num: "02",
-    title: "Strategy",
-    desc: "We analyze your market, competitors, and data to build a plan unique to you.",
-    tags: ["RESEARCH", "ROADMAP"],
+    title: "Build & Launch",
+    desc: "We build your website, SEO, content, and automations — then ship it fast.",
+    tags: ["EXECUTION", "AUTOMATION"],
   },
   {
     num: "03",
-    title: "Execution",
-    desc: "We launch campaigns, build systems, and deploy AI agents — fast.",
-    tags: ["CAMPAIGNS", "AUTOMATION"],
-  },
-  {
-    num: "04",
-    title: "Measurement",
-    desc: "Real-time dashboards and weekly reports so you always know what's moving.",
-    tags: ["ANALYTICS", "REPORTING"],
-  },
-  {
-    num: "05",
-    title: "Optimization",
-    desc: "We refine, test, and enhance to drive ongoing growth and impact.",
-    tags: ["TESTING", "CONTINUOUS IMPROVEMENT"],
+    title: "Scale",
+    desc: "We measure, optimize, and compound your results month over month.",
+    tags: ["ANALYTICS", "GROWTH"],
   },
 ];
 
@@ -69,11 +56,26 @@ export default function HowItWorks() {
       id="how-it-works"
       ref={sectionRef}
       className="relative bg-white"
-      style={{ height: `${(steps.length + 2) * 100}vh` }}
+      style={{ height: `${(steps.length + 3) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center overflow-hidden">
+        {/* Background dot grid animation */}
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03 }}>
+          <svg className="w-full h-full">
+            {Array.from({ length: 80 }).map((_, i) => {
+              const x = `${5 + (i % 10) * 10}%`;
+              const y = `${5 + Math.floor(i / 10) * 12}%`;
+              return (
+                <circle key={i} cx={x} cy={y} r="2" fill="currentColor">
+                  <animate attributeName="opacity" values="0.2;0.8;0.2" dur={`${3 + (i % 5)}s`} begin={`${i * 0.15}s`} repeatCount="indefinite" />
+                </circle>
+              );
+            })}
+          </svg>
+        </div>
+
         {/* Header — stays static */}
-        <div className="text-center pt-12 sm:pt-16 md:pt-20 lg:pt-24">
+        <div className="text-center pt-24 sm:pt-28 md:pt-32 lg:pt-36">
           <p className="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-2">
             <span className="text-[10px]">&#10022;</span>
             Process
@@ -82,9 +84,6 @@ export default function HowItWorks() {
           <h2 className="text-[clamp(2rem,4.5vw,3.75rem)] font-medium text-navy tracking-tight leading-tight">
             A collaborative approach
           </h2>
-          <div className="mt-6 opacity-20">
-            <LogoAnimation size={50} color="#0a2540" />
-          </div>
         </div>
 
         {/* Step badge */}
@@ -101,65 +100,9 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* Arc + content */}
-        <div className="relative flex-1 w-full flex items-start justify-center">
-          {/* Arc SVG — full width, curves up */}
-          <svg
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] hidden sm:block"
-            viewBox="0 0 1200 500"
-            fill="none"
-            preserveAspectRatio="xMidYMax meet"
-          >
-            {/* Outer arc */}
-            <path
-              d="M 20 490 A 580 580 0 0 1 1180 490"
-              stroke="#e8e8e8"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            {/* Mid arc */}
-            <path
-              d="M 100 490 A 520 520 0 0 1 1100 490"
-              stroke="#f0f0f0"
-              strokeWidth="1"
-              fill="none"
-            />
-            {/* Inner arc */}
-            <path
-              d="M 200 490 A 440 440 0 0 1 1000 490"
-              stroke="#f5f5f5"
-              strokeWidth="0.8"
-              fill="none"
-            />
-            {/* Progress arc */}
-            <path
-              d="M 20 490 A 580 580 0 0 1 1180 490"
-              stroke="var(--teal)"
-              strokeWidth="2.5"
-              fill="none"
-              strokeDasharray="1820"
-              strokeDashoffset={
-                1820 - 1820 * ((activeStep + 1) / steps.length)
-              }
-              strokeLinecap="round"
-              style={{ transition: "stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1)" }}
-            />
-          </svg>
-
-          {/* Previous step indicator — left, on the arc */}
-          {prevStep !== null && (
-            <div
-              className="absolute left-[6%] md:left-[10%] lg:left-[12%] bottom-[30%] md:bottom-[35%] z-10 transition-opacity duration-500 hidden sm:block"
-              style={{ opacity: 0.5 }}
-            >
-              <div className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-white border border-gray-200/80 flex items-center justify-center text-base md:text-lg font-bold text-gray-400 shadow-sm backdrop-blur-sm">
-                {steps[prevStep].num}
-              </div>
-            </div>
-          )}
-
-          {/* Center content inside the arc */}
-          <div className="relative z-10 text-center max-w-lg mt-4 sm:mt-6 md:mt-10 px-4 sm:px-6">
+        {/* Content — directly after badge */}
+        <div className="relative z-10 text-center max-w-lg mx-auto px-4 sm:px-6 mt-6 md:mt-8">
+          <div className="relative z-10 text-center">
             <h3
               key={`title-${activeStep}`}
               className="text-2xl md:text-3xl lg:text-[2.25rem] font-bold text-navy mb-3 md:mb-4 animate-fade-in"
@@ -194,20 +137,40 @@ export default function HowItWorks() {
               <div className="border-t border-dashed border-gray-300 mx-auto max-w-sm" />
             </div>
 
-            {/* CTA on last step */}
-            {activeStep === steps.length - 1 && (
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-teal text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-teal-light transition-all hover:scale-105 animate-fade-in mt-6"
-              >
-                Start your project
-              </a>
-            )}
           </div>
         </div>
 
+        {/* Arc — right behind content */}
+        <div className="flex-1 relative w-full -mt-60 sm:-mt-72 md:-mt-80 lg:-mt-80">
+          <svg
+            className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 w-[130%] max-w-[1500px]"
+            viewBox="0 0 1200 500"
+            fill="none"
+            preserveAspectRatio="xMidYMax meet"
+          >
+            <path d="M 20 490 A 580 580 0 0 1 1180 490" stroke="#e8e8e8" strokeWidth="1.5" fill="none" />
+            <path d="M 100 490 A 520 520 0 0 1 1100 490" stroke="#f0f0f0" strokeWidth="1" fill="none" />
+            <path d="M 200 490 A 440 440 0 0 1 1000 490" stroke="#f5f5f5" strokeWidth="0.8" fill="none" />
+            <path
+              d="M 20 490 A 580 580 0 0 1 1180 490"
+              stroke="var(--teal)" strokeWidth="2.5" fill="none"
+              strokeDasharray="1820"
+              strokeDashoffset={1820 - 1820 * ((activeStep + 1) / steps.length)}
+              strokeLinecap="round"
+              style={{ transition: "stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1)" }}
+            />
+          </svg>
+          {prevStep !== null && (
+            <div className="absolute left-[6%] md:left-[10%] lg:left-[12%] bottom-[30%] md:bottom-[35%] z-10 transition-opacity duration-500 hidden sm:block" style={{ opacity: 0.5 }}>
+              <div className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-white border border-gray-200/80 flex items-center justify-center text-base md:text-lg font-bold text-gray-400 shadow-sm backdrop-blur-sm">
+                {steps[prevStep].num}
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Bottom indicator */}
-        <div className="pb-6 md:pb-8 flex flex-col items-center gap-2.5">
+        <div className="pb-4 md:pb-6 -mt-16 sm:-mt-12 flex flex-col items-center gap-2.5 z-10">
           <span className="text-sm text-gray-400 tabular-nums font-medium tracking-wide">
             {steps[activeStep].num}/{String(steps.length).padStart(2, "0")}
           </span>

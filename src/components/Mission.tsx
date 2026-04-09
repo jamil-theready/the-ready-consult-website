@@ -24,9 +24,23 @@ export default function Mission() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-white py-16 sm:py-28 lg:py-40">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <p className="text-[clamp(2rem,4.5vw,3.75rem)] font-medium leading-[1.15] tracking-tight max-w-[900px]">
+    <section ref={ref} className="bg-white py-24 sm:py-36 lg:py-48 relative overflow-hidden">
+      {/* Subtle background dots */}
+      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.025 }}>
+        <svg className="w-full h-full">
+          {Array.from({ length: 40 }).map((_, i) => {
+            const x = `${8 + (i % 8) * 12}%`;
+            const y = `${10 + Math.floor(i / 8) * 18}%`;
+            return (
+              <circle key={i} cx={x} cy={y} r="2.5" fill="currentColor">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur={`${4 + (i % 3)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
+              </circle>
+            );
+          })}
+        </svg>
+      </div>
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6">
+        <p className="text-[clamp(1.5rem,4.5vw,3.75rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
           {words.map((word, i) => {
             const wordProgress = Math.max(0, Math.min(1, (progress * words.length - i) / 1.5));
             return (
