@@ -6,10 +6,10 @@
   --navy: #0a2540;
   --teal: #1F514C;
   --teal-light: #2A6B64;
-  --cyan: #00d4ff;
+  --cyan: #dc2626;
   --purple: #7b61ff;
   --green: #00d924;
-  --blue: #635bff;
+  --blue: #dc2626;
   --pink: #ff6b8a;
   --orange: #ff9e2c;
   --gray-50: #f6f9fc;
@@ -84,21 +84,21 @@ html { scroll-behavior: smooth; }
 
 /* CTA button */
 .cta-btn {
-  background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+  background: linear-gradient(145deg, #b91c1c 0%, #dc2626 40%, #b91c1c 100%);
   box-shadow:
-    0 6px 24px rgba(0,0,0,0.35),
+    0 6px 24px rgba(185, 28, 28, 0.35),
     0 2px 6px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.08),
-    inset 0 -1px 0 rgba(0,0,0,0.3);
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -1px 0 rgba(0,0,0,0.25);
 }
 .cta-btn:hover {
-  background: linear-gradient(145deg, #222 0%, #3a3a3a 40%, #222 100%);
+  background: linear-gradient(145deg, #dc2626 0%, #ef4444 40%, #dc2626 100%);
   box-shadow:
-    0 8px 40px rgba(0,0,0,0.45),
-    0 4px 12px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.3),
-    0 0 0 1px rgba(255,255,255,0.06);
+    0 8px 40px rgba(220, 38, 38, 0.5),
+    0 4px 12px rgba(185, 28, 28, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -1px 0 rgba(0,0,0,0.25),
+    0 0 0 1px rgba(255,255,255,0.08);
 }
 
 /* Shimmer sweep across button */

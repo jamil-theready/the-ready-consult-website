@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const LOGO_STATE = [1, 1, 1, 1, 1, 0, 1, 0, 1];
+const LOGO_STATE = [1, 1, 1, 1, 1, 0.2, 1, 0.2, 1];
 
 function randomState(): number[] {
   return Array.from({ length: 9 }, () => Math.random() > 0.4 ? 0.15 + Math.random() * 0.85 : 0.06);
@@ -53,7 +53,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
 
   const gap = 80 / 3;
   const sq = gap * 0.75;
-  const rx = sq * 0.28;
+  const r = sq * (8 / 17);
   const pad = (gap - sq) / 2;
 
   return (
@@ -66,17 +66,15 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
     >
       <svg width={80} height={80} viewBox="0 0 80 80" fill="none">
         {Array.from({ length: 9 }).map((_, i) => {
-          const x = (i % 3) * gap + pad;
-          const y = Math.floor(i / 3) * gap + pad;
+          const cx = (i % 3) * gap + pad + sq / 2;
+          const cy = Math.floor(i / 3) * gap + pad + sq / 2;
           return (
-            <rect
+            <circle
               key={i}
-              x={x}
-              y={y}
-              width={sq}
-              height={sq}
-              rx={rx}
-              fill="#0a2540"
+              cx={cx}
+              cy={cy}
+              r={r}
+              fill="#dc2626"
               opacity={opacities[i]}
               style={{
                 transition: isLogo

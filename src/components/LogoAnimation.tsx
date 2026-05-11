@@ -3,13 +3,13 @@
 import { useEffect, useState, useCallback } from "react";
 
 // 3x3 grid — R shape has these indices ON: 0,1,2,3,4,6,8
-const LOGO_STATE = [1, 1, 1, 1, 1, 0, 1, 0, 1];
+const LOGO_STATE = [1, 1, 1, 1, 1, 0.2, 1, 0.2, 1];
 
 function randomState(): number[] {
   return Array.from({ length: 9 }, () => Math.random() > 0.4 ? 0.15 + Math.random() * 0.85 : 0.06);
 }
 
-export default function LogoAnimation({ size = 140, color = "#0a2540" }: { size?: number; color?: string }) {
+export default function LogoAnimation({ size = 140, color = "#dc2626" }: { size?: number; color?: string }) {
   const [opacities, setOpacities] = useState<number[]>(LOGO_STATE);
   const [isLogo, setIsLogo] = useState(true);
 
@@ -43,23 +43,21 @@ export default function LogoAnimation({ size = 140, color = "#0a2540" }: { size?
 
   const gap = size / 3;
   const sq = gap * 0.75;
-  const rx = sq * 0.28;
+  const r = sq * (8 / 17);
   const pad = (gap - sq) / 2;
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
       {Array.from({ length: 9 }).map((_, i) => {
-        const x = (i % 3) * gap + pad;
-        const y = Math.floor(i / 3) * gap + pad;
+        const cx = (i % 3) * gap + pad + sq / 2;
+        const cy = Math.floor(i / 3) * gap + pad + sq / 2;
 
         return (
-          <rect
+          <circle
             key={i}
-            x={x}
-            y={y}
-            width={sq}
-            height={sq}
-            rx={rx}
+            cx={cx}
+            cy={cy}
+            r={r}
             fill={color}
             opacity={opacities[i]}
             style={{

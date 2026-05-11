@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           <div className="hidden md:block">
-            <LogoAnimation size={140} color="#0a2540" />
+            <LogoAnimation size={140} color="#dc2626" />
           </div>
         </div>
       </div>
@@ -46,13 +46,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="flex items-center gap-2.5">
             <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
-              <rect x="2" y="2" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="24" y="2" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="46" y="2" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="2" y="24" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="24" y="24" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="2" y="46" width="17" height="17" rx="5" fill="#0a2540"/>
-              <rect x="46" y="46" width="17" height="17" rx="5" fill="#0a2540"/>
+              <circle cx="10.5" cy="10.5" r="8" fill="#dc2626"/>
+              <circle cx="32.5" cy="10.5" r="8" fill="#dc2626"/>
+              <circle cx="54.5" cy="10.5" r="8" fill="#dc2626"/>
+              <circle cx="10.5" cy="32.5" r="8" fill="#dc2626"/>
+              <circle cx="32.5" cy="32.5" r="8" fill="#dc2626"/>
+              <circle cx="54.5" cy="32.5" r="8" fill="#dc2626" opacity="0.2"/>
+              <circle cx="10.5" cy="54.5" r="8" fill="#dc2626"/>
+              <circle cx="32.5" cy="54.5" r="8" fill="#dc2626" opacity="0.2"/>
+              <circle cx="54.5" cy="54.5" r="8" fill="#dc2626"/>
             </svg>
             <span className="font-semibold text-navy text-[18px] tracking-tight">The Ready</span>
           </div>

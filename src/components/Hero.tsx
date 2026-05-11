@@ -35,7 +35,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
   });
 
   return (
-    <section className="relative bg-white min-h-[100vh] flex flex-col overflow-hidden">
+    <section className="relative bg-white min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden">
       {/* n8n-style workflow lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.06 }}>
         {/* Nodes */}
@@ -145,11 +145,11 @@ export default function Hero({ ready }: { ready?: boolean }) {
           </a>
         </div>
 
-        <div className="mt-8 sm:mt-12 w-full" style={r(4)}>
+        <div className="mt-20 sm:mt-24 lg:mt-12 w-full" style={r(4)}>
           <div className="hidden lg:block">
             <HeroVisual />
           </div>
-          <div className="block lg:hidden mx-auto w-full" style={{ height: "260px", overflow: "visible" }}>
+          <div className="block lg:hidden mx-auto w-full" style={{ height: "420px", overflow: "visible" }}>
             <HeroVisual />
           </div>
         </div>
