@@ -50,11 +50,11 @@ export default function Pricing() {
                   : "bg-[#0f1118]"
               }`}
               style={p.pop ? {
-                boxShadow: "0 0 60px rgba(59,130,246,0.06), inset 0 1px 0 rgba(59,130,246,0.1)",
+                boxShadow: "0 0 60px rgba(220,38,38,0.1), inset 0 1px 0 rgba(220,38,38,0.18)",
               } : undefined}
             >
               {p.pop && (
-                <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#3b82f6] to-transparent" />
+                <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#dc2626] to-transparent" />
               )}
               <div className="flex items-center justify-between">
                 <p className="text-[15px] font-semibold text-white">{p.name}</p>
@@ -91,7 +91,7 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 className={`mt-8 block text-center text-[14px] font-semibold py-3 rounded-xl transition-all ${
                   p.pop
-                    ? "bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white hover:from-[#1d4ed8] hover:to-[#2563eb] shadow-[0_8px_30px_-4px_rgba(59,130,246,0.4)]"
+                    ? "bg-gradient-to-r from-[#b91c1c] to-[#dc2626] text-white hover:from-[#991b1b] hover:to-[#b91c1c] shadow-[0_8px_30px_-4px_rgba(220,38,38,0.45)]"
                     : "bg-[#1a1f2e] text-white/70 hover:bg-[#242a3a] hover:text-white border border-[#1e2230]"
                 }`}
               >

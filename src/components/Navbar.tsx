@@ -98,9 +98,9 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className={`hidden md:inline-flex relative text-[14px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
               inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
-            } ${dark ? "bg-white text-black hover:bg-gray-100" : "cta-btn text-white"}`}
+            } cta-btn text-white`}
           >
-            {!dark && <span className="absolute inset-0 cta-shimmer" />}
+            <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Book a Call &rarr;</span>
           </a>
           <button
