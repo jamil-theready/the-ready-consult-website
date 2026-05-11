@@ -16,9 +16,8 @@ export default function Mission() {
       const rect = el.getBoundingClientRect();
       const sectionHeight = el.offsetHeight;
       const vh = window.innerHeight;
-      const scrolled = vh - rect.top;
-      const total = sectionHeight + vh;
-      const p = Math.max(0, Math.min(1, scrolled / total));
+      const stickyRange = Math.max(1, sectionHeight - vh);
+      const p = Math.max(0, Math.min(1, -rect.top / stickyRange));
       setProgress(p);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -27,7 +26,7 @@ export default function Mission() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-white min-h-[200vh] sm:min-h-[220vh] flex items-center relative overflow-hidden">
+    <section ref={ref} className="bg-white relative" style={{ height: "220vh" }}>
       {/* Subtle background dots */}
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.025 }}>
         <svg className="w-full h-full">
@@ -42,8 +41,8 @@ export default function Mission() {
           })}
         </svg>
       </div>
-      <div className="sticky top-1/2 -translate-y-1/2 w-full">
-      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         <p className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
           {words.map((word, i) => {
             const wordProgress = Math.max(0, Math.min(1, (progress * words.length - i) / 1.5));
