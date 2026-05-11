@@ -48,11 +48,14 @@ export default function Mission() {
             const color = isKeyword
               ? `rgba(220, 38, 38, ${0.15 + wordProgress * 0.85})`
               : `rgba(10, 37, 64, ${0.1 + wordProgress * 0.9})`;
+            const textShadow = isKeyword
+              ? `0 0 24px rgba(220, 38, 38, ${wordProgress * 0.45}), 0 0 8px rgba(220, 38, 38, ${wordProgress * 0.35})`
+              : "none";
             return (
               <span
                 key={i}
                 className="inline-block mr-[0.3em] transition-none"
-                style={{ color }}
+                style={{ color, textShadow }}
               >
                 {word}
               </span>
