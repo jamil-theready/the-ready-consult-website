@@ -14,9 +14,11 @@ export default function Mission() {
     if (!el) return;
     const handleScroll = () => {
       const rect = el.getBoundingClientRect();
-      const start = window.innerHeight * 0.85;
-      const end = window.innerHeight * 0.15;
-      const p = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+      const sectionHeight = el.offsetHeight;
+      const vh = window.innerHeight;
+      const scrolled = vh - rect.top;
+      const total = sectionHeight + vh;
+      const p = Math.max(0, Math.min(1, scrolled / total));
       setProgress(p);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -25,7 +27,7 @@ export default function Mission() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-white py-24 sm:py-36 lg:py-48 relative overflow-hidden">
+    <section ref={ref} className="bg-white min-h-[200vh] sm:min-h-[220vh] flex items-center relative overflow-hidden">
       {/* Subtle background dots */}
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.025 }}>
         <svg className="w-full h-full">
@@ -40,8 +42,9 @@ export default function Mission() {
           })}
         </svg>
       </div>
+      <div className="sticky top-1/2 -translate-y-1/2 w-full">
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6">
-        <p className="text-[clamp(1.5rem,4.5vw,3.75rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
+        <p className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
           {words.map((word, i) => {
             const wordProgress = Math.max(0, Math.min(1, (progress * words.length - i) / 1.5));
             const isKeyword = keywordIndexes.has(i);
@@ -59,6 +62,7 @@ export default function Mission() {
             );
           })}
         </p>
+      </div>
       </div>
     </section>
   );
