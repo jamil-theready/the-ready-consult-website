@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const words = "We build your website, rank you on Google and AI search, produce content that converts, and automate everything else.".split(" ");
+const keywordIndexes = new Set([1, 4, 14, 16]);
 
 export default function Mission() {
   const ref = useRef<HTMLDivElement>(null);
@@ -43,13 +44,15 @@ export default function Mission() {
         <p className="text-[clamp(1.5rem,4.5vw,3.75rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
           {words.map((word, i) => {
             const wordProgress = Math.max(0, Math.min(1, (progress * words.length - i) / 1.5));
+            const isKeyword = keywordIndexes.has(i);
+            const color = isKeyword
+              ? `rgba(220, 38, 38, ${0.15 + wordProgress * 0.85})`
+              : `rgba(10, 37, 64, ${0.1 + wordProgress * 0.9})`;
             return (
               <span
                 key={i}
                 className="inline-block mr-[0.3em] transition-none"
-                style={{
-                  color: `rgba(10, 37, 64, ${0.1 + wordProgress * 0.9})`,
-                }}
+                style={{ color }}
               >
                 {word}
               </span>

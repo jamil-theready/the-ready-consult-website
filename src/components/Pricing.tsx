@@ -30,7 +30,7 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" data-dark className="bg-[#0c0c0f] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section id="pricing" data-dark className="bg-[#0d0a0a] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-xl mx-auto mb-16">
           <p className="text-white/30 text-xs tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-2"><span className="text-[10px]">&#10022;</span> Pricing <span className="text-[10px]">&#10022;</span></p>
@@ -40,14 +40,14 @@ export default function Pricing() {
           <p className="mt-4 text-white/30 text-lg">No hidden fees. No lock-ins.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-[#1e2230]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-[#2a1c1c]">
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative p-7 flex flex-col group transition-all duration-500 hover:bg-[#151a28] ${
+              className={`relative p-7 flex flex-col group transition-all duration-500 hover:bg-[#1a1010] ${
                 p.pop
-                  ? "bg-[#131825] md:border-x border-[#1e2230]"
-                  : "bg-[#0f1118]"
+                  ? "bg-[#1d1212] md:border-x border-[#2a1c1c]"
+                  : "bg-[#181010]"
               }`}
               style={p.pop ? {
                 boxShadow: "0 0 60px rgba(220,38,38,0.1), inset 0 1px 0 rgba(220,38,38,0.18)",
@@ -61,7 +61,7 @@ export default function Pricing() {
               </div>
               <p className="text-[12px] text-white/30 mt-0.5">{p.desc}</p>
 
-              <div className="h-px bg-[#1e2230] my-5" />
+              <div className="h-px bg-[#2a1c1c] my-5" />
 
               <div className="flex items-baseline gap-1.5">
                 <span className="text-[2rem] font-semibold text-white tracking-tight">{p.price}</span>
@@ -91,8 +91,8 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 className={`mt-8 block text-center text-[14px] font-semibold py-3 rounded-xl transition-all ${
                   p.pop
-                    ? "bg-gradient-to-r from-[#b91c1c] to-[#dc2626] text-white hover:from-[#991b1b] hover:to-[#b91c1c] shadow-[0_8px_30px_-4px_rgba(220,38,38,0.45)]"
-                    : "bg-[#1a1f2e] text-white/70 hover:bg-[#242a3a] hover:text-white border border-[#1e2230]"
+                    ? "lava-glow bg-gradient-to-r from-[#b91c1c] via-[#dc2626] to-[#ef4444] text-white hover:from-[#991b1b] hover:to-[#b91c1c]"
+                    : "bg-[#1f1515] text-white/70 hover:bg-[#2e1f1f] hover:text-white border border-[#2a1c1c]"
                 }`}
               >
                 {p.cta}
@@ -102,7 +102,7 @@ export default function Pricing() {
         </div>
 
         {/* Enterprise bar */}
-        <div className="max-w-5xl mx-auto mt-4 rounded-2xl bg-[#0f1118] border border-[#1e2230] p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="max-w-5xl mx-auto mt-4 rounded-2xl bg-[#181010] border border-[#2a1c1c] p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
             <span className="text-[14px] font-semibold text-white">Enterprise</span>
             <span className="text-[12px] sm:text-[13px] text-white/25 ml-2">For teams that need custom limits, dedicated support, and SLAs.</span>
@@ -111,7 +111,7 @@ export default function Pricing() {
             href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-semibold text-white/60 border border-[#1e2230] px-5 py-2 rounded-xl hover:bg-[#1a1f2e] hover:text-white transition-all shrink-0"
+            className="text-[13px] font-semibold text-white/60 border border-[#2a1c1c] px-5 py-2 rounded-xl hover:bg-[#1f1515] hover:text-white transition-all shrink-0"
           >
             Request trial
           </a>

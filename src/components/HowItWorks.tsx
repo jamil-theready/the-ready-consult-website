@@ -93,8 +93,8 @@ export default function HowItWorks() {
           </p>
           <div
             key={`badge-${activeStep}`}
-            className="w-13 h-13 md:w-14 md:h-14 rounded-xl bg-navy text-white flex items-center justify-center text-xl md:text-2xl font-bold mx-auto animate-fade-in"
-            style={{ boxShadow: "0 10px 30px -5px rgba(10,37,64,0.3)" }}
+            className="w-13 h-13 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#b91c1c] via-[#dc2626] to-[#ef4444] text-white flex items-center justify-center text-xl md:text-2xl font-bold mx-auto animate-fade-in"
+            style={{ boxShadow: "0 10px 30px -5px rgba(220,38,38,0.45), 0 0 40px rgba(220,38,38,0.25)" }}
           >
             {steps[activeStep].num}
           </div>
@@ -151,13 +151,20 @@ export default function HowItWorks() {
             <path d="M 20 490 A 580 580 0 0 1 1180 490" stroke="#e8e8e8" strokeWidth="1.5" fill="none" />
             <path d="M 100 490 A 520 520 0 0 1 1100 490" stroke="#f0f0f0" strokeWidth="1" fill="none" />
             <path d="M 200 490 A 440 440 0 0 1 1000 490" stroke="#f5f5f5" strokeWidth="0.8" fill="none" />
+            <defs>
+              <linearGradient id="arc-red" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#b91c1c" />
+                <stop offset="50%" stopColor="#dc2626" />
+                <stop offset="100%" stopColor="#ef4444" />
+              </linearGradient>
+            </defs>
             <path
               d="M 20 490 A 580 580 0 0 1 1180 490"
-              stroke="var(--teal)" strokeWidth="2.5" fill="none"
+              stroke="url(#arc-red)" strokeWidth="2.5" fill="none"
               strokeDasharray="1820"
               strokeDashoffset={1820 - 1820 * ((activeStep + 1) / steps.length)}
               strokeLinecap="round"
-              style={{ transition: "stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1)" }}
+              style={{ transition: "stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1)", filter: "drop-shadow(0 0 8px rgba(220,38,38,0.4))" }}
             />
           </svg>
           {prevStep !== null && (
@@ -192,9 +199,9 @@ export default function HowItWorks() {
                 aria-label={`Go to step ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeStep
-                    ? "w-3 h-3 bg-teal scale-110"
+                    ? "w-3 h-3 bg-[#dc2626] scale-110"
                     : i < activeStep
-                      ? "w-2.5 h-2.5 bg-teal/30"
+                      ? "w-2.5 h-2.5 bg-[#dc2626]/30"
                       : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
                 }`}
               />

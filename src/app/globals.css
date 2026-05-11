@@ -149,6 +149,28 @@ html { scroll-behavior: smooth; }
   animation: fade-in 0.45s ease both;
 }
 
+@keyframes lava-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(239, 68, 68, 0.55),
+      0 0 45px rgba(220, 38, 38, 0.45),
+      0 0 90px rgba(185, 28, 28, 0.35),
+      0 8px 30px -4px rgba(220, 38, 38, 0.55),
+      inset 0 1px 0 rgba(255, 200, 180, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(252, 165, 165, 0.7),
+      0 0 70px rgba(239, 68, 68, 0.6),
+      0 0 120px rgba(185, 28, 28, 0.5),
+      0 10px 40px -4px rgba(239, 68, 68, 0.65),
+      inset 0 1px 0 rgba(255, 220, 200, 0.35);
+  }
+}
+.lava-glow {
+  animation: lava-pulse 2.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
