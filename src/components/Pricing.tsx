@@ -63,11 +63,6 @@ export default function Pricing() {
 
               <div className="h-px bg-[#2a1c1c] my-5" />
 
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[2rem] font-semibold text-white tracking-tight">{p.price}</span>
-                <span className="text-[13px] text-white/25">{p.period}</span>
-              </div>
-
               <ul className="mt-6 space-y-3 flex-1">
                 {p.features.map((f, j) => (
                   <li key={f} className="flex items-start gap-3 text-[13px]">
