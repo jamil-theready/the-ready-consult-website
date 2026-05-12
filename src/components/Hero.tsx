@@ -149,7 +149,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
           <div className="hidden lg:block">
             <HeroVisual />
           </div>
-          <div className="block lg:hidden mx-auto w-full" style={{ height: "420px", overflow: "visible" }}>
+          <div className="block lg:hidden mx-auto w-full" style={{ height: "540px", overflow: "visible" }}>
             <HeroVisual />
           </div>
         </div>
