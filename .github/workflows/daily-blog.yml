@@ -1,0 +1,41 @@
+name: Daily Blog
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # 9:00 AM Peru (UTC-5)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install gspread google-auth
+
+      - name: Generate blog post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCP_SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
+        run: python scripts/daily-blog.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "trc-blog-bot"
+          git config user.email "bot@thereadyconsult.com"
+          git add content/blog/
+          if git diff --cached --quiet; then
+            echo "No new blog post to commit."
+            exit 0
+          fi
+          SLUG=$(git diff --cached --name-only -- content/blog/ | head -1 | sed 's|content/blog/||; s|\.md$||')
+          git commit -m "add: daily blog post ${SLUG}"
+          git push
