@@ -432,7 +432,19 @@ def log_to_sheet(slug: str, title: str, category: str, source: str, author: str,
         print(f"WARN: sheet log failed: {e}", file=sys.stderr)
 
 
+def already_posted_today() -> bool:
+    today = datetime.now().strftime("%Y-%m-%d")
+    for f in BLOG_DIR.glob("*.md"):
+        if f'date: "{today}"' in f.read_text():
+            print(f"Already posted today ({today}): {f.name}. Exiting cleanly.")
+            return True
+    return False
+
+
 def main() -> int:
+    if already_posted_today():
+        return 0
+
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("ERROR: GEMINI_API_KEY not set", file=sys.stderr)

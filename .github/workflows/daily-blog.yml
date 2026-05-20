@@ -2,7 +2,12 @@ name: Daily Blog
 
 on:
   schedule:
-    - cron: '0 14 * * *'  # 9:00 AM Peru (UTC-5)
+    # GitHub Actions cron is unreliable for public repos (0-3hr delays, dropped runs).
+    # Fire 4 times in a 2hr window; already_posted_today() makes follow-ups no-op.
+    - cron: '0 14 * * *'   # 9:00 AM Peru
+    - cron: '30 14 * * *'  # 9:30 AM Peru
+    - cron: '0 15 * * *'   # 10:00 AM Peru
+    - cron: '0 16 * * *'   # 11:00 AM Peru (last-ditch)
   workflow_dispatch:
 
 permissions:
