@@ -16,7 +16,7 @@ export const perfectoHomes: CaseStudy = {
   },
   tier: "A",
   liveUrl: "https://www.perfectohomesrealestate.com",
-  thumbnail: "/work/perfecto-homes/hero.png",
+  thumbnail: "/work/perfecto-homes/showcase.jpg",
   blocks: [
     {
       type: "hero",
