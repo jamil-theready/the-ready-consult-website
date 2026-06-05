@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllCases, getCaseBySlug } from "@/lib/work";
 import CaseRenderer from "@/components/work/CaseRenderer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return getAllCases().map((c) => ({ slug: c.slug }));
@@ -35,9 +37,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   };
 
   return (
-    <main>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <CaseRenderer blocks={c.blocks} currentSlug={c.slug} />
-    </main>
+      <Navbar />
+      <main>
+        <CaseRenderer blocks={c.blocks} currentSlug={c.slug} />
+      </main>
+      <Footer />
+    </>
   );
 }

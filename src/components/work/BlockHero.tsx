@@ -27,6 +27,12 @@ export default function BlockHero({
               loop
               playsInline
               className="w-full h-full object-contain"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
+              }}
             />
           ) : (
             <img src={media.src} alt={media.alt} className="w-full h-full object-cover object-top" />

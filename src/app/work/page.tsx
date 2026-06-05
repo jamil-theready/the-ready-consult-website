@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import { getFeaturedCases, getGridCases } from "@/lib/work";
 import WorkShowcase from "@/components/work/WorkShowcase";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Work — The Ready Consult",
@@ -13,7 +15,9 @@ export default function WorkIndexPage() {
   const grid = getGridCases();
 
   return (
-    <main>
+    <>
+      <Navbar />
+      <main>
       {/* Intro panel */}
       <section className="h-[70vh] flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-6xl sm:text-8xl font-semibold text-navy leading-none">Our work</h1>
@@ -37,6 +41,8 @@ export default function WorkIndexPage() {
           </div>
         </section>
       )}
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }
