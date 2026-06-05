@@ -17,7 +17,7 @@ export default function CaseRenderer({ blocks, currentSlug }: { blocks: Block[];
         switch (b.type) {
           case "hero": return <BlockHero key={i} client={b.client} headline={b.headline} meta={b.meta} media={b.media} />;
           case "text": return <BlockText key={i} subheading={b.subheading} body={b.body} />;
-          case "image": return <BlockImage key={i} media={b.media} caption={b.caption} fullBleed={b.fullBleed} />;
+          case "image": return <BlockImage key={i} media={b.media} caption={b.caption} fullBleed={b.fullBleed} mockup={b.mockup} />;
           case "gallery": return <BlockGallery key={i} items={b.items} layout={b.layout} />;
           case "metricRow": return <BlockMetricRow key={i} stats={b.stats} />;
           case "timeline": return <BlockTimeline key={i} milestones={b.milestones} />;

@@ -34,7 +34,7 @@ export interface Milestone {
 export type Block =
   | { type: "hero"; client: string; headline: string; meta: CaseMeta; media: Media }
   | { type: "text"; subheading?: string; body: string }
-  | { type: "image"; media: Media; caption?: string; fullBleed?: boolean }
+  | { type: "image"; media: Media; caption?: string; fullBleed?: boolean; mockup?: "browser" }
   | { type: "gallery"; items: Media[]; layout?: "grid" | "scroll" }
   | { type: "metricRow"; stats: Metric[] }
   | { type: "timeline"; milestones: Milestone[] }

@@ -51,7 +51,8 @@ export const perfectoHomes: CaseStudy = {
     {
       type: "image",
       media: { src: "/work/perfecto-homes/listings.png", alt: "Perfecto Homes MLS-style property listings" },
-      fullBleed: true,
+      mockup: "browser",
+      caption: "perfectohomesrealestate.com/peru",
     },
     {
       type: "text",
