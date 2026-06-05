@@ -152,7 +152,9 @@ Only real, verifiable numbers. New builds with no meaningful data (e.g. H&S, Jav
 
 ## 8. Case Inventory & Tiers
 
-Source of truth: the fill-in Google Doc ("TRC Portfolio — Work Inventory"). Tiers (`A` = full case study, `grid` = logo/thumbnail, `skip`) are finalized from the user's answers. Known candidates: Gina Notary, Perfecto Homes, Valylac, Alexa's Cleaning, JML Painting, H&S Insulation, Growth2Success/NurtureMe, Deliver Group, GreenSonqo, Justo, Javier Alvarado. Final list pending the doc.
+Source of truth: the fill-in Google Doc ("TRC Portfolio — Work Inventory"). Tiers (`A` = full case study, `grid` = logo/thumbnail, `skip`) are finalized from the user's answers. Known candidates: Gina Notary, Perfecto Homes, Valylac, Alexa's Cleaning, JML Painting, H&S Insulation, Growth2Success/NurtureMe, Deliver Group, GreenSonqo, Justo, Javier Alvarado, **Team Nebula** (TRC-built site). Final list pending the doc.
+
+**Production / subcontract pieces (honest framing):** Some pieces are video-production/editing work delivered as a subcontractor, NOT full agency engagements — e.g. **Cluely** (video editing) and **Ampere** (video). These are showcased as *video* cases (`video` + `gallery` blocks), labeled by the actual service rendered ("Video production / editing"), and must never be presented in a way that implies a full client relationship or results we didn't produce. Source videos come from TRC's edit team originals (preferred over Instagram re-compressions); Instagram links are reference only, never the embed source.
 
 ## 9. File / Directory Layout (new + touched)
 

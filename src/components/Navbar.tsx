@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Process", href: "#how-it-works" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#how-it-works" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function MenuDots({ open }: { open: boolean }) {
