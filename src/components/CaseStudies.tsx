@@ -1,37 +1,16 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { getAllCases } from "@/lib/work";
 
-const studies = [
-  {
-    name: "Cluely",
-    tag: "AI",
-    desc: "Cluely scales their AI-powered platform with a full-funnel growth strategy and brand positioning.",
-    link: "Read Cluely's story",
-    image: "/cluely.png",
-  },
-  {
-    name: "Ampere Computing",
-    tag: "Video",
-    desc: "Ampere Computing elevates brand storytelling with cinematic video production and distribution.",
-    link: "Read Ampere's story",
-    image: "/ampere.png",
-  },
-  {
-    name: "Perfecto Homes",
-    tag: "Real Estate",
-    desc: "Perfecto Homes doubles qualified leads with SEO, content automation, and listing syndication.",
-    link: "Read Perfecto's story",
-    image: "/pefectohomes.png",
-  },
-  {
-    name: "Team Nebula AI",
-    tag: "AI",
-    desc: "Team Nebula scales AI-powered operations with automation workflows and SEO content strategy.",
-    link: "Read Nebula's story",
-    image: "/case-study-nebula.jpg",
-  },
-];
+const studies = getAllCases().map((c) => ({
+  slug: c.slug,
+  name: c.client,
+  tag: c.meta.services[0] ?? "Work",
+  desc: c.headline,
+  link: `Read ${c.client}'s story`,
+  image: c.thumbnail,
+}));
 
 export default function CaseStudies() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -96,9 +75,10 @@ export default function CaseStudies() {
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {studies.map((s, i) => (
-            <article
+            <a
               key={s.name}
-              className="snap-start shrink-0 group cursor-pointer"
+              href={`/work/${s.slug}`}
+              className="block snap-start shrink-0 group cursor-pointer no-underline"
               style={{
                 width: isMobile ? "280px" : hovered === i ? "420px" : "400px",
                 transition: "width 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -106,49 +86,47 @@ export default function CaseStudies() {
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
             >
-              {/* Card image area */}
-              <div
-                className="relative rounded-2xl overflow-hidden mb-5 bg-black h-[360px] sm:h-[440px] md:h-[530px]"
-                style={{ boxShadow: "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)" }}
-              >
-                {/* Background image */}
-                <img
-                  src={s.image}
-                  alt={s.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
+              <article>
+                {/* Card image area */}
+                <div
+                  className="relative rounded-2xl overflow-hidden mb-5 bg-black h-[360px] sm:h-[440px] md:h-[530px]"
+                  style={{ boxShadow: "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)" }}
+                >
+                  {/* Background image */}
+                  <img
+                    src={s.image}
+                    alt={s.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
 
+                  {/* Bottom gradient for text legibility */}
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                {/* Bottom gradient for text legibility */}
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-                {/* Company name bottom-left */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="text-white font-semibold text-base md:text-lg tracking-tight">
-                    {s.name}
-                  </span>
+                  {/* Company name bottom-left */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <span className="text-white font-semibold text-base md:text-lg tracking-tight">
+                      {s.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Description */}
-              <p className="text-gray-600 text-[15px] md:text-base leading-relaxed mb-3 pr-4">
-                {s.desc}
-              </p>
+                {/* Description */}
+                <p className="text-gray-600 text-[15px] md:text-base leading-relaxed mb-3 pr-4">
+                  {s.desc}
+                </p>
 
-              {/* Link */}
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 text-teal font-semibold text-[15px] group-hover:gap-2.5 transition-all"
-              >
-                {s.link}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </a>
-            </article>
+                {/* Link */}
+                <span className="inline-flex items-center gap-1.5 text-teal font-semibold text-[15px] group-hover:gap-2.5 transition-all">
+                  {s.link}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </span>
+              </article>
+            </a>
           ))}
         </div>
       </div>
