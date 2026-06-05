@@ -7,12 +7,13 @@ import { useCountUp } from "@/lib/useCountUp";
 function Stat({ m, active }: { m: Metric; active: boolean }) {
   const value = useCountUp(m.value, active);
   return (
-    <div className="text-center">
-      <div className="text-4xl sm:text-5xl font-semibold text-navy">
-        {m.prefix}{value.toLocaleString()}{m.suffix}{m.unit ? ` ${m.unit}` : ""}
+    <div className="text-center px-4">
+      <div className="text-6xl sm:text-7xl font-semibold text-navy tracking-tight tabular-nums leading-none">
+        {m.prefix}{value.toLocaleString()}{m.suffix}
       </div>
-      <div className="mt-2 text-gray-700">{m.label}</div>
-      <div className="mt-1 text-xs text-gray-400">{m.source} · {m.asOf}</div>
+      {m.unit && <div className="mt-2 text-lg text-gray-500">{m.unit}</div>}
+      <div className="mt-4 text-base text-navy/80">{m.label}</div>
+      <div className="mt-2 text-[11px] uppercase tracking-wider text-gray-400">{m.source} · {m.asOf}</div>
     </div>
   );
 }
@@ -28,8 +29,14 @@ export default function BlockMetricRow({ stats }: { stats: Metric[] }) {
     return () => obs.disconnect();
   }, []);
   return (
-    <section ref={ref} className="max-w-[1400px] mx-auto px-4 sm:px-6 my-16 grid grid-cols-1 sm:grid-cols-3 gap-10">
-      {stats.map((m, i) => <Stat key={i} m={m} active={active} />)}
+    <section ref={ref} className="bg-gray-50 my-16 sm:my-24 py-16 sm:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-14 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+        {stats.map((m, i) => (
+          <div key={i} className="pt-14 first:pt-0 sm:pt-0">
+            <Stat m={m} active={active} />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
