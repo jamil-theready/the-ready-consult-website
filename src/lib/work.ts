@@ -1,4 +1,5 @@
 // src/lib/work.ts
+// `content/` lives outside `src/`, so the `@/` alias does not cover it — relative import is intentional.
 import { CASES } from "../../content/work";
 import * as S from "./work-select";
 import type { CaseStudy } from "./work-types";

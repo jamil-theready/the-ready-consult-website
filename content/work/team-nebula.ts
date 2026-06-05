@@ -25,7 +25,7 @@ export const teamNebula: CaseStudy = {
         role: "Design, build, content",
         location: "Remote",
       },
-      media: { src: "/case-study-nebula.png", alt: "Team Nebula website", kind: "image" },
+      media: { src: "/case-study-nebula.jpg", alt: "Team Nebula website", kind: "image" },
     },
     {
       type: "text",

@@ -2,7 +2,7 @@ import { getNextCase } from "@/lib/work";
 
 export default function BlockNextCase({ currentSlug }: { currentSlug: string }) {
   const next = getNextCase(currentSlug);
-  if (!next) return null;
+  if (!next || next.slug === currentSlug) return null;
   return (
     <a href={`/work/${next.slug}`} className="block relative mt-24 min-h-screen overflow-hidden group">
       <img src={next.thumbnail} alt={next.client} className="absolute inset-0 w-full h-full object-cover" />
