@@ -43,7 +43,7 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
         </a>
       )}
 
-      {/* Full-screen case panels */}
+      {/* Full-screen case panels — thin white frame via inset gutter */}
       {cases.map((c, i) => (
         <section
           key={c.slug}
@@ -51,9 +51,12 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
           ref={(el) => {
             refs.current[i] = el;
           }}
-          className="relative h-screen w-full"
+          className="relative h-screen w-full bg-white p-2 sm:p-3"
         >
-          <a href={`/work/${c.slug}`} className="block w-full h-full">
+          <a
+            href={`/work/${c.slug}`}
+            className="block w-full h-full overflow-hidden rounded-2xl"
+          >
             <img src={c.thumbnail} alt={c.client} className="w-full h-full object-cover" />
           </a>
         </section>
