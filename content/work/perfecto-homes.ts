@@ -28,7 +28,7 @@ export const perfectoHomes: CaseStudy = {
         role: "Design, build, SEO, content automation",
         location: "Cusco, Peru",
       },
-      media: { src: "/work/perfecto-homes/hero.png", alt: "Perfecto Homes real-estate website homepage", kind: "image" },
+      media: { src: "/work/perfecto-homes/hero.mp4", alt: "Perfecto Homes logo animation", kind: "video" },
     },
     {
       type: "text",
