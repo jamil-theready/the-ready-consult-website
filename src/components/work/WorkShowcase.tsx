@@ -4,19 +4,22 @@ import { useEffect, useRef, useState } from "react";
 import type { CaseStudy } from "@/lib/work-types";
 
 // Full-bleed vertical scroll of case panels with a floating pill that tracks
-// whichever case is currently in view (Analogue-style /work index).
+// whichever case is currently in view (Analogue-style). The pill only shows
+// while a panel is actually on screen, so it can live on a multi-section page.
 export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
-  const [current, setCurrent] = useState(0);
+  const [visible, setVisible] = useState<number[]>([]);
   const refs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
+    const inView = new Set<number>();
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setCurrent(Number((e.target as HTMLElement).dataset.idx));
-          }
+          const idx = Number((e.target as HTMLElement).dataset.idx);
+          if (e.isIntersecting) inView.add(idx);
+          else inView.delete(idx);
         });
+        setVisible([...inView].sort((a, b) => a - b));
       },
       { threshold: 0.5 }
     );
@@ -24,11 +27,11 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
     return () => obs.disconnect();
   }, []);
 
-  const active = cases[current];
+  const active = visible.length ? cases[visible[0]] : null;
 
   return (
     <>
-      {/* Floating tracking pill */}
+      {/* Floating tracking pill — only while a panel is in view */}
       {active && (
         <a
           href={`/work/${active.slug}`}

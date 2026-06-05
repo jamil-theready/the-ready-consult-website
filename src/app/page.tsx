@@ -11,7 +11,7 @@ import Testimonial from "@/components/Testimonial";
 import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import CaseStudies from "@/components/CaseStudies";
+import WorkSection from "@/components/work/WorkSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -53,13 +53,13 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero ready={ready} />
+        <WorkSection />
         <Services />
         <Mission />
         <CaseStudyStats />
         <HowItWorks />
         <Pricing />
         <Testimonial />
-        <CaseStudies />
         <FAQ />
       </main>
       <Footer />
