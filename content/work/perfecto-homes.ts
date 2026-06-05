@@ -16,7 +16,7 @@ export const perfectoHomes: CaseStudy = {
   },
   tier: "A",
   liveUrl: "https://www.perfectohomesrealestate.com",
-  thumbnail: "/case-study-perfecto.png",
+  thumbnail: "/work/perfecto-homes/hero.png",
   blocks: [
     {
       type: "hero",
@@ -28,7 +28,7 @@ export const perfectoHomes: CaseStudy = {
         role: "Design, build, SEO, content automation",
         location: "Cusco, Peru",
       },
-      media: { src: "/case-study-perfecto.png", alt: "Perfecto Homes real-estate website", kind: "image" },
+      media: { src: "/work/perfecto-homes/hero.png", alt: "Perfecto Homes real-estate website homepage", kind: "image" },
     },
     {
       type: "text",
@@ -50,7 +50,7 @@ export const perfectoHomes: CaseStudy = {
     },
     {
       type: "image",
-      media: { src: "/case-study-perfecto.png", alt: "Perfecto Homes MLS-style listings" },
+      media: { src: "/work/perfecto-homes/listings.png", alt: "Perfecto Homes MLS-style property listings" },
       fullBleed: true,
     },
     {
