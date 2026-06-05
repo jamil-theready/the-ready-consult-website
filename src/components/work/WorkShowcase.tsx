@@ -51,7 +51,7 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
           ref={(el) => {
             refs.current[i] = el;
           }}
-          className="relative h-screen w-full bg-white p-2 sm:p-3"
+          className="relative h-screen w-full bg-white p-2 sm:p-3 snap-start"
         >
           <a
             href={`/work/${c.slug}`}
