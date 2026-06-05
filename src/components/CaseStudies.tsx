@@ -76,7 +76,7 @@ export default function CaseStudies() {
         >
           {studies.map((s, i) => (
             <a
-              key={s.name}
+              key={s.slug}
               href={`/work/${s.slug}`}
               className="block snap-start shrink-0 group cursor-pointer no-underline"
               style={{
