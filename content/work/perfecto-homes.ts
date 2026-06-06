@@ -49,10 +49,10 @@ export const perfectoHomes: CaseStudy = {
       ],
     },
     {
-      type: "image",
-      media: { src: "/work/perfecto-homes/listings.png", alt: "Perfecto Homes MLS-style property listings" },
-      mockup: "browser",
-      caption: "perfectohomesrealestate.com/peru",
+      type: "devices",
+      desktop: { src: "/work/perfecto-homes/device-desktop.jpg", alt: "Perfecto Homes listings on desktop" },
+      mobile: { src: "/work/perfecto-homes/device-mobile.jpg", alt: "Perfecto Homes listings on mobile" },
+      tone: "light",
     },
     {
       type: "text",
