@@ -1,38 +1,42 @@
 // content/work/ampere.ts
-// NOTE: demo stub content. Ampere = VIDEO work (subcontract), NOT a full agency
-// engagement. Grid-tier so it appears in "More work". Replace copy + real video later.
+// Ampere = VIDEO PRODUCTION / EDITING work (TRC edit team, Shawn-sourced). NOT the chip
+// company "Ampere Computing" — this is a different "Ampere" (mountain/arch logo, red brand).
+// ⚠️ Copy below is HONEST-MINIMAL pending real details (industry, what the video was, the
+// actual video file). Do not fabricate the company type or results.
 import type { CaseStudy } from "@/lib/work-types";
 
 export const ampere: CaseStudy = {
   slug: "ampere",
-  client: "Ampere Computing",
-  headline: "Cinematic brand video for an enterprise compute company.",
+  client: "Ampere",
+  headline: "Brand video production for Ampere.",
   meta: {
     year: "2026",
-    services: ["Video production"],
-    role: "Video",
-    location: "Remote",
+    services: ["Video production", "Editing"],
+    role: "Video editing",
+    location: "United States",
   },
-  tier: "grid",
-  thumbnail: "/ampere.png",
+  tier: "A",
+  liveUrl: "",
+  thumbnail: "/work/ampere/hero.jpg",
   blocks: [
     {
       type: "hero",
-      client: "Ampere Computing",
-      headline: "Cinematic brand video for an enterprise compute company.",
+      client: "Ampere",
+      headline: "Brand video production for Ampere.",
       meta: {
         year: "2026",
-        services: ["Video production"],
-        role: "Video",
-        location: "Remote",
+        services: ["Video production", "Editing"],
+        role: "Video editing",
+        location: "United States",
       },
-      media: { src: "/ampere.png", alt: "Ampere brand video", kind: "image" },
+      media: { src: "/work/ampere/hero.jpg", alt: "Ampere brand video still", kind: "image" },
     },
     {
       type: "text",
       subheading: "The work",
-      body: "Brand video production for Ampere, delivered as a video partner — not a full agency engagement.",
+      body: "Our edit team produced brand video for Ampere as a production partner. This is video work, not a full agency engagement.",
     },
+    // TODO: embed the actual Ampere video (video block) once the file/link is provided.
     { type: "nextCase" },
   ],
 };
