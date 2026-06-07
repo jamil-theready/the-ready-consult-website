@@ -1,66 +1,56 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import type { CaseStudy } from "@/lib/work-types";
 
-// Full-bleed vertical scroll of case panels with a floating pill that tracks
-// whichever case is currently in view (Analogue-style). The pill only shows
-// while a panel is actually on screen, so it can live on a multi-section page.
+// Full-bleed vertical scroll of case panels (Analogue-style). Each panel is a
+// designed case cover: full-bleed media + scrim + editorial label.
 export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
-  const [visible, setVisible] = useState<number[]>([]);
-  const refs = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    const inView = new Set<number>();
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          const idx = Number((e.target as HTMLElement).dataset.idx);
-          if (e.isIntersecting) inView.add(idx);
-          else inView.delete(idx);
-        });
-        setVisible([...inView].sort((a, b) => a - b));
-      },
-      { threshold: 0.5 }
-    );
-    refs.current.forEach((el) => el && obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-
-  const active = visible.length ? cases[visible[0]] : null;
-
   return (
     <>
-      {/* Floating tracking pill — only while a panel is in view */}
-      {active && (
-        <a
-          href={`/work/${active.slug}`}
-          className="fixed top-20 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 rounded-full bg-white/90 backdrop-blur px-3 py-2 pr-5 shadow-lg ring-1 ring-black/5 no-underline transition-all"
-        >
-          <img src={active.thumbnail} alt="" className="w-9 h-9 rounded-full object-cover" />
-          <span className="text-sm font-semibold text-navy">{active.client}</span>
-          <span className="text-xs uppercase tracking-wide text-gray-400 ml-2">See case →</span>
-        </a>
-      )}
-
-      {/* Full-screen case panels — thin white frame via inset gutter */}
-      {cases.map((c, i) => (
-        <section
-          key={c.slug}
-          data-idx={i}
-          ref={(el) => {
-            refs.current[i] = el;
-          }}
-          className="relative h-screen w-full bg-white p-2 sm:p-3 snap-start"
-        >
-          <a
-            href={`/work/${c.slug}`}
-            className="block w-full h-full overflow-hidden rounded-2xl"
+      {cases.map((c) => {
+        const isVideo = /\.(mp4|webm|mov)$/i.test(c.thumbnail);
+        return (
+          <section
+            key={c.slug}
+            className="relative h-screen w-full bg-white p-2 sm:p-3 snap-start"
           >
-            <img src={c.thumbnail} alt={c.client} className="w-full h-full object-cover" />
-          </a>
-        </section>
-      ))}
+            <a
+              href={`/work/${c.slug}`}
+              className="group relative block w-full h-full overflow-hidden rounded-2xl"
+            >
+              {isVideo ? (
+                <video
+                  src={c.thumbnail}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={c.thumbnail}
+                  alt={c.client}
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                />
+              )}
+
+              {/* Unifying scrim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/15" />
+
+              {/* Editorial cover label */}
+              <div className="absolute left-6 sm:left-12 bottom-10 sm:bottom-14 right-6 text-white">
+                <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
+                  {c.meta.services.join(" · ")}
+                </p>
+                <h3 className="mt-3 text-4xl sm:text-6xl font-semibold tracking-tight">{c.client}</h3>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white/90">
+                  View case
+                  <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </span>
+              </div>
+            </a>
+          </section>
+        );
+      })}
     </>
   );
 }
