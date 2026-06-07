@@ -14,7 +14,7 @@ export const cluely: CaseStudy = {
     location: "Remote",
   },
   tier: "A",
-  thumbnail: "/cluely.png",
+  thumbnail: "/work/cluely/hero.jpg",
   blocks: [
     {
       type: "hero",
@@ -26,17 +26,12 @@ export const cluely: CaseStudy = {
         role: "Video editing",
         location: "Remote",
       },
-      media: { src: "/cluely.png", alt: "Cluely video work", kind: "image" },
+      media: { src: "/work/cluely/hero.jpg", alt: "Cluely brand video still", kind: "image" },
     },
     {
       type: "text",
       subheading: "The work",
       body: "Our edit team produced short-form social video for Cluely. This is video editing work delivered as a production partner, not a full agency engagement.",
-    },
-    {
-      type: "image",
-      media: { src: "/cluely.png", alt: "Cluely video still" },
-      fullBleed: true,
     },
     { type: "nextCase" },
   ],
