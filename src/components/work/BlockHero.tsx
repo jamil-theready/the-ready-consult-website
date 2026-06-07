@@ -13,12 +13,13 @@ export default function BlockHero({
   client, headline, meta, media,
 }: { client: string; headline: string; meta: CaseMeta; media: Media }) {
   const isVideo = media.kind === "video" || /\.(mp4|webm|mov)$/i.test(media.src);
+  const contain = (media.fit ?? "cover") === "contain";
 
   return (
     <header>
-      {/* Hero animation — 60% viewport height */}
+      {/* Hero media — 60% viewport height */}
       {media.src && (
-        <div className="w-full h-[60vh] bg-white flex items-center justify-center overflow-hidden">
+        <div className={"w-full h-[60vh] overflow-hidden " + (contain ? "bg-white flex items-center justify-center" : "")}>
           {isVideo ? (
             <video
               src={media.src}
@@ -26,16 +27,22 @@ export default function BlockHero({
               muted
               loop
               playsInline
-              className="w-full h-full object-contain"
-              style={{
-                WebkitMaskImage:
-                  "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
-                maskImage:
-                  "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
-              }}
+              className={contain ? "w-full h-full object-contain" : "w-full h-full object-cover"}
+              style={
+                contain
+                  ? {
+                      WebkitMaskImage: "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
+                      maskImage: "radial-gradient(120% 120% at 50% 50%, #000 70%, transparent 100%)",
+                    }
+                  : undefined
+              }
             />
           ) : (
-            <img src={media.src} alt={media.alt} className="w-full h-full object-cover object-top" />
+            <img
+              src={media.src}
+              alt={media.alt}
+              className={contain ? "w-full h-full object-contain" : "w-full h-full object-cover object-top"}
+            />
           )}
         </div>
       )}

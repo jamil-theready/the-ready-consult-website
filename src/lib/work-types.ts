@@ -12,6 +12,7 @@ export interface Media {
   src: string;        // repo path ("/work/...") OR full Cloudinary URL
   alt: string;
   kind?: "image" | "video";
+  fit?: "cover" | "contain"; // hero media: "cover" = immersive (default), "contain" = logo-on-white
 }
 
 export interface Metric {

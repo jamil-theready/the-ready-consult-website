@@ -29,7 +29,7 @@ export const teamNebula: CaseStudy = {
         role: "Design, build, motion",
         location: "United States",
       },
-      media: { src: "/work/team-nebula/hero.jpg", alt: "Team Nebula AI homepage hero", kind: "image" },
+      media: { src: "/work/team-nebula/hero.mp4", alt: "Team Nebula AI cosmic hero animation", kind: "video" },
     },
     {
       type: "text",
