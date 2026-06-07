@@ -36,6 +36,9 @@ export type Block =
   | { type: "text"; subheading?: string; body: string }
   | { type: "image"; media: Media; caption?: string; fullBleed?: boolean; mockup?: "browser" }
   | { type: "devices"; desktop: Media; mobile?: Media; tone?: "light" | "dark" }
+  | { type: "statement"; text: string; tone?: "light" | "dark" }
+  | { type: "split"; subheading?: string; body: string; media: Media; flip?: boolean; tone?: "light" | "dark" }
+  | { type: "grid"; items: Media[]; columns?: 2 | 3 }
   | { type: "gallery"; items: Media[]; layout?: "grid" | "scroll" }
   | { type: "metricRow"; stats: Metric[] }
   | { type: "timeline"; milestones: Milestone[] }
