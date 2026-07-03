@@ -1,0 +1,22 @@
+# The Ready Consult
+
+> AI-first growth agency: fractional CMO strategy, content, video production, SEO, and paid ads that convert attention into sustainable revenue.
+
+The Ready Consult builds Next.js websites and layers on SEO, content, video production, paid ads, and AI-driven automation for growing B2B SaaS, ecommerce, and professional-services companies. Engagements run as embedded growth partnerships — outcome-driven pricing, live dashboards, weekly syncs.
+
+## Services
+- Fractional CMO / growth strategy
+- Website design and development (Next.js)
+- SEO and AEO/GEO (AI search optimization)
+- Video production
+- Paid ads management
+- AI workflow automation
+
+## Pages
+- [Homepage](https://www.thereadyconsult.com/): overview of services, process, and case studies
+- [Blog](https://www.thereadyconsult.com/blog): growth, SEO, AI automation, and marketing systems articles
+- [Contact](https://www.thereadyconsult.com/contact): book a call
+
+## Contact
+- Email: jamil@thereadyconsult.com
+- Founder: Jamil Gonzales

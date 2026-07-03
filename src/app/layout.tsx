@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   title: "The Ready Consult | AI-First Growth & Media Partner",
   description:
-    "AI-first consulting agency fusing strategy, content, and automation to convert attention into sustainable revenue. Fractional growth leadership, video production, SEO, and paid ads.",
+    "AI-first growth agency: fractional CMO strategy, content, video production, SEO, and paid ads that convert attention into sustainable revenue.",
   keywords:
     "AI consulting, growth marketing, fractional CMO, video production, SEO, paid ads, content strategy, AI marketing agency",
   metadataBase: new URL("https://www.thereadyconsult.com"),

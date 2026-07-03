@@ -21,11 +21,15 @@ const jsonLd = {
   name: "The Ready Consult",
   description: "AI-first consulting agency fusing strategy, content, and automation to convert attention into sustainable revenue.",
   url: "https://www.thereadyconsult.com",
-  email: "team@thereadyconsult.com",
+  email: "jamil@thereadyconsult.com",
+  sameAs: [
+    "https://www.linkedin.com/in/jamilgonzales/",
+    "https://twitter.com/jamilgonzales",
+    "https://github.com/The-Ready-Collective",
+  ],
   serviceType: ["Growth Consulting", "Fractional CMO", "Video Production", "SEO", "Paid Ads Management", "Email Marketing"],
   founder: [
     { "@type": "Person", name: "Jamil Gonzales", jobTitle: "CEO & Growth Strategist" },
-    { "@type": "Person", name: "Shawn Reddy", jobTitle: "Co-Founder & AI Architect" },
   ],
 };
 
