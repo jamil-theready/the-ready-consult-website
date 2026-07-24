@@ -122,7 +122,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
 
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4" style={r(3)}>
           <a
-            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
+            href="https://calendly.com/thereadyconsult/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[16px] px-10 py-4.5 rounded-2xl hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"

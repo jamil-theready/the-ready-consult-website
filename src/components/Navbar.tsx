@@ -93,7 +93,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Desktop CTA — hidden in hero */}
           <a
-            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
+            href="https://calendly.com/thereadyconsult/30min"
             target="_blank"
             rel="noopener noreferrer"
             className={`hidden md:inline-flex relative text-[14px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
@@ -141,7 +141,7 @@ export default function Navbar() {
         </div>
         <div className="px-6 pb-12 shrink-0">
           <a
-            href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
+            href="https://calendly.com/thereadyconsult/30min"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
@@ -160,7 +160,7 @@ export default function Navbar() {
         }`}
       >
         <a
-          href="https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs"
+          href="https://calendly.com/thereadyconsult/30min"
           target="_blank"
           rel="noopener noreferrer"
           className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[13px] sm:text-[15px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
