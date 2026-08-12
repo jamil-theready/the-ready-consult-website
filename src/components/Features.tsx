@@ -82,7 +82,9 @@ export default function Features() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="group relative bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/5 transition-all duration-300"
+              // Wash, not a lift (rule 77): the card brightens and its border
+              // warms, but it does not rise off the page.
+              className="group relative bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-teal/30 hover:bg-white transition-all duration-300"
             >
               <div className="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-6 text-teal group-hover:bg-teal group-hover:text-white transition-colors duration-300">
                 {feature.icon}

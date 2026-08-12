@@ -15,8 +15,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = getCaseBySlug(slug);
   if (!c) return {};
   return {
-    title: `${c.client} — Case Study | The Ready Consult`,
+    title: `${c.client} Case Study | The Ready Consult`,
     description: c.headline,
+    // Every case study was emitting the HOMEPAGE canonical, because Next falls
+    // back to metadataBase when a page declares none. Four distinct case studies
+    // all telling Google "I am the homepage" is a stronger duplicate-content
+    // signal than the /work index that this branch set out to fix.
+    alternates: { canonical: `/work/${slug}` },
   };
 }
 

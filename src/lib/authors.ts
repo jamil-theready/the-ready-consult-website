@@ -17,7 +17,7 @@ export const AUTHORS: Record<string, Author> = {
     jobTitle: "CEO & Growth Strategist, The Ready Consult",
     bio: "Co-founder of The Ready Consult. Runs growth operations, paid media, and AI workflows for $1M–$20M companies.",
     bioLong:
-      "Jamil Gonzales is the co-founder and CEO of The Ready Consult. He spent the last decade running growth for SaaS, ecommerce, and service businesses — designing the content engines, paid-media systems, and AI workflows that move pipeline. He leads client strategy and day-to-day operations.",
+      "Jamil Gonzales is the co-founder and CEO of The Ready Consult. He spent the last decade running growth for SaaS, ecommerce, and service businesses, designing the content engines, paid-media systems, and AI workflows that move pipeline. He leads client strategy and day-to-day operations.",
     image: "/team/jamil.jpg",
     knowsAbout: [
       "Growth Marketing",

@@ -6,8 +6,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Work — The Ready Consult",
+  title: "Work | The Ready Consult",
   description: "Selected websites, video, and marketing work by The Ready Consult.",
+  // Without this, Next falls back to metadataBase and /work emits the HOMEPAGE
+  // canonical — telling Google the two are the same page. /blog already declares
+  // its own; /work was the one that didn't, and it was the last piece of the
+  // duplicate-content signal this branch set out to remove.
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkIndexPage() {

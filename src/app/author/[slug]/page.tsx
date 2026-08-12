@@ -22,11 +22,11 @@ export async function generateMetadata({
   if (!author) return {};
   const url = `https://www.thereadyconsult.com/author/${slug}`;
   return {
-    title: `${author.name} — ${author.jobTitle}`,
+    title: `${author.name} | ${author.jobTitle}`,
     description: author.bio,
     alternates: { canonical: url },
     openGraph: {
-      title: `${author.name} — The Ready Consult`,
+      title: `${author.name} | The Ready Consult`,
       description: author.bio,
       url,
       type: "profile",
