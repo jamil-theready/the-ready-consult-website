@@ -74,6 +74,7 @@ export default function Footer() {
                 {[
                   { l: "Pricing", h: "#pricing" },
                   { l: "Process", h: "#how-it-works" },
+                  { l: "Work", h: "/work" },
                   { l: "Team", h: "#team" },
                   { l: "FAQ", h: "#faq" },
                 ].map((i) => (
