@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const CALENDLY_URL = "https://calendly.com/d/ct8x-wk4-gsx/the-ready-consult-execs";
+const CALENDLY_URL = "https://calendly.com/thereadyconsult/30min";
 
 export default function ContactPage() {
   const CONTAINER = "max-w-[1280px] mx-auto px-6";

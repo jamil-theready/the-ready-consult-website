@@ -9,7 +9,7 @@ export default function CtaBanner() {
         </h2>
         <p className="mt-6 text-white/40 text-lg">One conversation to start. No pitch decks, no pressure.</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="https://calendly.com/thereadyconsult/discovery" target="_blank" rel="noopener noreferrer" className="bg-white text-navy font-semibold text-[15px] px-6 py-3.5 rounded-full hover:bg-gray-100 transition-colors">
+          <a href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer" className="bg-white text-navy font-semibold text-[15px] px-6 py-3.5 rounded-full hover:bg-gray-100 transition-colors">
             Book a discovery call <span>&rarr;</span>
           </a>
           <a href="mailto:team@thereadyconsult.com" className="text-white/60 font-semibold text-[15px] px-6 py-3.5 rounded-full border border-white/15 hover:text-white hover:border-white/30 transition-all">
