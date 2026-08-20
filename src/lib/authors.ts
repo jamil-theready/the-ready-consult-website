@@ -37,10 +37,14 @@ export const AUTHORS: Record<string, Author> = {
   "shawn-reddy": {
     slug: "shawn-reddy",
     name: "Shawn Reddy",
-    jobTitle: "Co-Founder & AI Architect, The Ready Consult",
-    bio: "Co-founder of The Ready Consult. AI architect for content systems, automation, and growth experimentation.",
+    // Shawn departed The Ready Consult in June 2026. The entry is kept so his
+    // existing byline keeps a valid Person/author reference (and /author/
+    // shawn-reddy does not 404), but the copy is past tense — he is no longer
+    // presented as current staff on the team or contact pages.
+    jobTitle: "Former Co-Founder & AI Architect, The Ready Consult",
+    bio: "Former co-founder of The Ready Consult. Wrote on AI content systems, automation, and growth experimentation.",
     bioLong:
-      "Shawn Reddy is the co-founder and AI architect of The Ready Consult. He designs the agentic systems, automation graphs, and AI infrastructure that power our client engagements. He leads partner sourcing, technical strategy, and the AI roadmap.",
+      "Shawn Reddy is a former co-founder and AI architect of The Ready Consult, where he designed agentic systems, automation graphs, and AI infrastructure for client engagements. He contributed writing on automation and B2B growth strategy.",
     image: "/team/shawn.jpg",
     knowsAbout: [
       "AI Architecture",

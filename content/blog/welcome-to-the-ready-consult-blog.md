@@ -24,7 +24,7 @@ faq:
   - question: "How often does The Ready Consult publish new blog posts?"
     answer: "Weekly across three editorial lanes — AI workflows, growth experiments, and content systems — with occasional bonus posts when a live client engagement surfaces something worth sharing."
   - question: "Who writes the posts on The Ready Consult blog?"
-    answer: "Our partners (Jamil Gonzales and Shawn Reddy) plus AI agents we operate and review before publishing. Every post is human-reviewed before it ships — no autopilot content."
+    answer: "Jamil Gonzales plus AI agents we operate and review before publishing. Every post is human-reviewed before it ships — no autopilot content."
   - question: "Can I copy the AI workflows and templates from these posts?"
     answer: "Yes. We open-source the n8n graphs, prompts, and guardrails wherever we can. Subscribe and we'll send the latest templates straight to your inbox so you don't have to dig for them."
   - question: "Who is The Ready Consult blog for?"

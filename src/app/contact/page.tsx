@@ -81,10 +81,6 @@ export default function ContactPage() {
                     <span className="font-semibold">Jamil Gonzales</span>{" "}
                     <span className="text-gray-500">— CEO & Growth Strategist</span>
                   </li>
-                  <li>
-                    <span className="font-semibold">Shawn Reddy</span>{" "}
-                    <span className="text-gray-500">— Co-Founder & AI Architect</span>
-                  </li>
                 </ul>
               </div>
             </div>

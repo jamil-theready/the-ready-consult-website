@@ -5,12 +5,6 @@ const team = [
     bio: "10+ years building growth systems across SEO, UX, and brand identity. Turns attention into revenue.",
     gradient: "from-teal to-cyan",
   },
-  {
-    name: "Shawn Reddy",
-    role: "Co-Founder & AI Architect",
-    bio: "Built AI systems analyzing 900B+ data points. 60%+ response boosts through automation at scale.",
-    gradient: "from-purple to-blue",
-  },
 ];
 
 export default function Team() {
