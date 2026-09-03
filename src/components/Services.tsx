@@ -5,6 +5,7 @@ import N8nFlow from "./N8nFlow";
 import VideoVisual from "./VideoVisual";
 import SeoVisual from "./SeoVisual";
 import WebsiteVisual from "./WebsiteVisual";
+import MetaAdsVisual from "./MetaAdsVisual";
 
 const features = [
   {
@@ -26,6 +27,11 @@ const features = [
     title: "Automate Your Growth",
     desc: "Custom AI agents and workflows that eliminate busywork and scale your operations without adding headcount.",
     visual: <N8nFlow />,
+  },
+  {
+    title: "Meta Ads That Convert",
+    desc: "Facebook and Instagram campaigns built on real competitive research, not guesswork. Targeted, tested, and optimized for cost per lead.",
+    visual: <MetaAdsVisual />,
   },
 ];
 
