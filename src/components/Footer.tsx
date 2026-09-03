@@ -63,7 +63,7 @@ export default function Footer() {
             <div>
               <p className="text-[13px] font-semibold text-navy mb-4">Services</p>
               <div className="space-y-3">
-                {["Websites", "SEO", "Video", "AI Automations"].map((l) => (
+                {["Websites", "SEO", "Video", "AI Automations", "Meta Ads"].map((l) => (
                   <a key={l} href="#services" className="block text-[13px] text-gray-500 hover:text-navy transition-colors">{l}</a>
                 ))}
               </div>
