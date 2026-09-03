@@ -201,3 +201,63 @@ html { scroll-behavior: smooth; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Services: a pan act carrying four tabs, modelled on the reference site's
+   "inside the community" block. Only this page's own classes are styled here;
+   no .sc- class and no [data-sc-*] selector is touched, because those are the
+   engine's mechanism, not our surface.
+   --------------------------------------------------------------------------- */
+.services__stage {
+  /* The stage is one viewport tall and sticky. Everything inside has to fit it,
+     or centring pushes the heading off the top and the captions off the bottom. */
+  height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  gap: 28px; padding: 92px 0 40px; overflow: hidden;
+}
+.services__head  { max-width: 1280px; margin: 0 auto; padding: 0 24px; width: 100%; }
+.services__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.services__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 500; line-height: 1.12;
+  letter-spacing: -0.02em; color: var(--sc-ink); margin-top: 12px; max-width: 620px;
+}
+
+.services__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.services__tab {
+  position: relative; display: inline-flex; align-items: baseline; gap: 10px;
+  padding: 10px 16px 12px; border-radius: 10px; cursor: pointer;
+  background: transparent; transition: background .35s var(--trc-ease);
+}
+.services__tab.is-active { background: var(--sc-surface); }
+.services__tab::after {
+  content: ""; position: absolute; left: 16px; right: 16px; bottom: 4px; height: 2px;
+  background: var(--sc-accent); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .35s var(--trc-ease);
+}
+.services__tab.is-active::after { transform: scaleX(1); }
+
+.services__tabn    { font-size: 11px; color: var(--sc-accent); letter-spacing: .1em; }
+.services__tabname { font-size: 15px; font-weight: 500;
+  color: color-mix(in oklab, var(--sc-ink) 40%, transparent);
+  transition: color .35s var(--trc-ease); }
+.services__tab.is-active .services__tabname { color: var(--sc-ink); }
+
+.services__rail { display: flex; gap: 24px; padding: 0 24px; will-change: transform;
+  flex: 1 1 auto; min-height: 0; align-items: stretch; }
+.services__item {
+  flex: 0 0 min(62vw, 760px); margin: 0;
+  display: flex; flex-direction: column; gap: 14px; min-height: 0;
+}
+.services__visual {
+  border: 1px solid var(--sc-hairline); border-radius: 18px; overflow: hidden;
+  background: var(--sc-surface); padding: 16px;
+  flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center;
+}
+.services__cap     { display: flex; flex-direction: column; gap: 6px; max-width: 620px; }
+.services__capline { font-size: 18px; font-weight: 600; color: var(--sc-ink); }
+.services__capbody { font-size: 15px; line-height: 1.6; color: var(--sc-ink-soft); }
+
+@media (max-width: 640px) {
+  .services__item { flex: 0 0 84vw; }
+  .services__visual { padding: 10px; }
+  .services__stage { padding-top: 76px; gap: 20px; }
+}
