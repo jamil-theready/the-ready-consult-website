@@ -66,7 +66,11 @@
 }
 
 body {
-  background: var(--background);
+  /* The engine interpolates --sc-canvas as you scroll (data-sc-drift). Painting
+     the body from it is what makes the ground actually move; binding to the
+     static --background instead silently swallows every drift. --sc-canvas
+     defaults to #ffffff, so pages with no acts are unchanged. */
+  background: var(--sc-canvas, var(--background));
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;

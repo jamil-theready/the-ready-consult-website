@@ -1,67 +1,43 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
-const words = "We build your website, rank you on Google and AI search, produce content that converts, and automate everything else.".split(" ");
-const keywordIndexes = new Set([1, 4, 14, 16]);
-
+// Pinned act. The engine drives the word reveal through its cue system, so the
+// hand-rolled scroll listener this component used to carry is gone: one scroll
+// listener on the page, owned by the engine.
+//
+// PROOF LINE: the agency runs this system for a number of paying clients, and
+// that count belongs here. It is deliberately absent until it can be read from
+// live Stripe. This session could only reach the sandbox account, and an
+// unverified figure on a public page is exactly the failure the standing rules
+// warn about. Add it back the moment Stripe livemode is reachable.
 export default function Mission() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const handleScroll = () => {
-      const rect = el.getBoundingClientRect();
-      const sectionHeight = el.offsetHeight;
-      const vh = window.innerHeight;
-      const stickyRange = Math.max(1, sectionHeight - vh);
-      const p = Math.max(0, Math.min(1, -rect.top / stickyRange));
-      setProgress(p);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section ref={ref} className="bg-white relative" style={{ height: "220vh" }}>
-      {/* Subtle background dots */}
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.025 }}>
-        <svg className="w-full h-full">
-          {Array.from({ length: 40 }).map((_, i) => {
-            const x = `${8 + (i % 8) * 12}%`;
-            const y = `${10 + Math.floor(i / 8) * 18}%`;
-            return (
-              <circle key={i} cx={x} cy={y} r="2.5" fill="currentColor">
-                <animate attributeName="opacity" values="0.3;1;0.3" dur={`${4 + (i % 3)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
-              </circle>
-            );
-          })}
-        </svg>
-      </div>
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
-        <p className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.2] tracking-tight max-w-[900px]">
-          {words.map((word, i) => {
-            const wordProgress = Math.max(0, Math.min(1, (progress * words.length - i) / 1.5));
-            const isKeyword = keywordIndexes.has(i);
-            const color = isKeyword
-              ? `rgba(220, 38, 38, ${0.15 + wordProgress * 0.85})`
-              : `rgba(10, 37, 64, ${0.1 + wordProgress * 0.9})`;
-            return (
-              <span
-                key={i}
-                className="inline-block mr-[0.3em] transition-none"
-                style={{ color }}
-              >
-                {word}
-              </span>
-            );
-          })}
-        </p>
-      </div>
+    <section
+      className="sc-section relative"
+      data-sc-act="pin"
+      data-sc-span="2.4"
+      data-sc-drift="#f6f9fc"
+    >
+      <div data-sc-stage className="flex items-center">
+        <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
+          <p className="sc-mono text-[12px] tracking-[0.28em] uppercase text-gray-400 mb-8">
+            What we do
+          </p>
+
+          <p
+            className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.15] tracking-tight max-w-[980px] text-navy"
+            data-sc-cue="0 0.92 0"
+            data-sc-kinetic="words"
+          >
+            We build your website, get you found on Google, and make sure every
+            call and form gets followed up.
+          </p>
+
+          <p
+            className="mt-10 text-[17px] text-gray-500 max-w-[560px] leading-relaxed"
+            data-sc-cue="0.45"
+          >
+            One system, running every month, so the work keeps coming in
+            without you chasing it.
+          </p>
+        </div>
       </div>
     </section>
   );
