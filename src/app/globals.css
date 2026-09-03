@@ -1,3 +1,6 @@
+/* scroll-craft engine, loaded FIRST so globals below win on any conflict.
+   The engine declares a bare body{} rule. Never edit the engine itself. */
+@import "../../public/scrollcraft.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -21,6 +24,21 @@
   --gray-500: #697386;
   --gray-600: #525f7f;
   --gray-900: #0a2540;
+}
+
+/* scroll-craft rebrand. Override these six roles and the engine is themed;
+   its defaults are dark, so this is required, not optional. */
+:root {
+  --sc-canvas:      #ffffff;
+  --sc-surface:     #f6f9fc;
+  --sc-ink:         #0a2540;
+  --sc-ink-soft:    #525f7f;
+  --sc-accent:      #dc2626;
+  --sc-accent-ink:  #ffffff;
+  --sc-font-display: var(--font-inter), system-ui, sans-serif;
+  --sc-font-text:    var(--font-inter), system-ui, sans-serif;
+  --sc-font-mono:    var(--font-roboto-mono), ui-monospace, monospace;
+  --trc-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 @theme inline {
@@ -54,7 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html { scroll-behavior: smooth; }
 ::selection { background-color: var(--blue); color: white; }
 
 :focus-visible {

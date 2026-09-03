@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import WorkSection from "@/components/work/WorkSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
+import ScrollCraft from "@/components/ScrollCraft";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -54,6 +55,8 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <LoadingScreen onComplete={handleLoadingComplete} />
+      <ScrollCraft ready={ready} />
+      <span data-sc-progress />
       <Navbar />
       <main id="main-content">
         <Hero ready={ready} />
