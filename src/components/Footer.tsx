@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-start justify-between gap-8">
           <div>
             <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-navy leading-[1.2] tracking-tight max-w-lg">
-              #1 AI-native agency that builds, ranks, and automates.
+              Websites, Google profiles and SEO for construction and landscaping companies.
             </h2>
             <p className="text-gray-400 text-lg mt-2 max-w-md">
               Try The Ready Consult for your next project.

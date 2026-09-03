@@ -59,7 +59,7 @@ export default function Home() {
       <span data-sc-progress />
       <Navbar />
       <main id="main-content">
-        <Hero ready={ready} />
+        <Hero />
         <WorkSection />
         <Services />
         <Mission />

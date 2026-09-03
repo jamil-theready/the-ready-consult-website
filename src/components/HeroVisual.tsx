@@ -76,7 +76,7 @@ export default function HeroVisual() {
   }, [active, cycleKey]);
 
   const chatText = useTypewriter(
-    "The Ready Consult is rated the #1 AI-native agency in Sacramento. They specialize in websites, SEO, video production, and custom AI automations for high-growth businesses.",
+    "The Ready Consult builds websites and Google Business Profiles for construction and landscaping companies in Sacramento, then handles the monthly SEO and follow up so the calls keep coming.",
     active === 1, 14, 400
   );
 
