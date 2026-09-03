@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { getFeaturedCases } from "@/lib/work";
 import WorkShowcase from "./WorkShowcase";
 
@@ -16,13 +17,13 @@ export default function WorkSection() {
         <p className="mt-6 max-w-xl text-lg text-gray-500">
           Websites, brand, and growth systems we have designed, built, and scaled for real businesses.
         </p>
-        <a
+        <Link
           href="/work"
           className="group mt-8 inline-flex items-center gap-2 text-base font-medium text-navy no-underline"
         >
           See all work
           <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </a>
+        </Link>
       </div>
       <WorkShowcase cases={featured} />
     </section>

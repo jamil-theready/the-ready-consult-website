@@ -99,70 +99,95 @@ export default function CaseStudyStats() {
 
         {/* Cards grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-          {stats.map((s, i) => {
-            const count = useCountUp(s.value, visible, 2200, 300 + i * 250);
-            const isHovered = hovered === i;
-
-            return (
-              <div
-                key={s.service}
-                className="relative rounded-2xl border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
-                  transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${0.1 + i * 0.12}s`,
-                  boxShadow: isHovered
-                    ? "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)"
-                    : "0 2px 8px rgba(0,0,0,0.04)",
-                }}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-              >
-                {/* Gradient bg on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
-
-                {/* Icon + service */}
-                <div className="flex items-center justify-between mb-5 relative">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white shadow-lg transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}
-                    style={{ boxShadow: isHovered ? `0 8px 20px -4px rgba(0,0,0,0.2)` : undefined }}>
-                    {s.icon}
-                  </div>
-                  <span className={`text-[11px] font-semibold px-3 py-1 rounded-full transition-all duration-300 ${isHovered ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
-                    {s.service}
-                  </span>
-                </div>
-
-                {/* Big number */}
-                <div className="relative">
-                  <span className="text-[2rem] sm:text-[3rem] font-bold tracking-tight leading-none tabular-nums text-navy">
-                    {count}{s.suffix}
-                  </span>
-                </div>
-
-                {/* Unit + label */}
-                <p className="text-sm font-medium text-navy/70 mt-1">{s.unit}</p>
-                <p className="text-[13px] text-gray-400 mt-0.5">{s.label}</p>
-
-                {/* Mini bar chart */}
-                <div className="h-12 flex items-end gap-[3px] mt-5 relative">
-                  {s.barHeights.map((h, j) => (
-                    <div
-                      key={j}
-                      className={`flex-1 rounded-t-sm bg-gradient-to-t ${s.gradient} transition-all ease-out`}
-                      style={{
-                        height: visible ? `${h}%` : "0%",
-                        opacity: visible ? (j >= 8 ? 1 : 0.3 + (j / 12) * 0.7) : 0,
-                        transitionDuration: "900ms",
-                        transitionDelay: `${0.5 + i * 0.15 + j * 0.04}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          {stats.map((s, i) => (
+            <StatCard
+              key={s.service}
+              stat={s}
+              index={i}
+              visible={visible}
+              hovered={hovered === i}
+              onEnter={() => setHovered(i)}
+              onLeave={() => setHovered(null)}
+            />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+type Stat = (typeof stats)[number];
+
+// One card, one hook call. useCountUp was being called inside the map, which
+// makes the hook count depend on the array and breaks the rules of hooks.
+function StatCard({
+  stat: s,
+  index: i,
+  visible,
+  hovered: isHovered,
+  onEnter,
+  onLeave,
+}: {
+  stat: Stat;
+  index: number;
+  visible: boolean;
+  hovered: boolean;
+  onEnter: () => void;
+  onLeave: () => void;
+}) {
+  const count = useCountUp(s.value, visible, 2200, 300 + i * 250);
+
+  return (
+    <div
+      className="relative rounded-2xl border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
+        transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${0.1 + i * 0.12}s`,
+        boxShadow: isHovered
+          ? "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)"
+          : "0 2px 8px rgba(0,0,0,0.04)",
+      }}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
+
+      <div className="flex items-center justify-between mb-5 relative">
+        <div
+          className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white shadow-lg transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}
+          style={{ boxShadow: isHovered ? `0 8px 20px -4px rgba(0,0,0,0.2)` : undefined }}
+        >
+          {s.icon}
+        </div>
+        <span className={`text-[11px] font-semibold px-3 py-1 rounded-full transition-all duration-300 ${isHovered ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
+          {s.service}
+        </span>
+      </div>
+
+      <div className="relative">
+        <span className="text-[2rem] sm:text-[3rem] font-bold tracking-tight leading-none tabular-nums text-navy">
+          {count}{s.suffix}
+        </span>
+      </div>
+
+      <p className="text-sm font-medium text-navy/70 mt-1">{s.unit}</p>
+      <p className="text-[13px] text-gray-400 mt-0.5">{s.label}</p>
+
+      <div className="h-12 flex items-end gap-[3px] mt-5 relative">
+        {s.barHeights.map((h, j) => (
+          <div
+            key={j}
+            className={`flex-1 rounded-t-sm bg-gradient-to-t ${s.gradient} transition-all ease-out`}
+            style={{
+              height: visible ? `${h}%` : "0%",
+              opacity: visible ? (j >= 8 ? 1 : 0.3 + (j / 12) * 0.7) : 0,
+              transitionDuration: "900ms",
+              transitionDelay: `${0.5 + i * 0.15 + j * 0.04}s`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

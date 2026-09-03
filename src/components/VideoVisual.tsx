@@ -32,32 +32,40 @@ function TickerStats({ visible }: { visible: boolean }) {
 
   return (
     <div className="grid grid-cols-2 gap-2">
-      {stats.map((s, i) => {
-        const raw = useCountUp(s.target, visible, 1600, 100 + i * 150);
-        const display = s.divide
-          ? (raw / s.divide).toFixed(1)
-          : s.format
-            ? raw >= 1000 ? `${(raw / 1000).toFixed(1)}K` : String(raw)
-            : String(raw);
+      {stats.map((s, i) => (
+        <StatTile key={s.label} stat={s} index={i} visible={visible} />
+      ))}
+    </div>
+  );
+}
 
-        return (
-          <div
-            key={s.label}
-            className="rounded-xl bg-white p-4 text-center transition-all duration-700"
-            style={{
-              boxShadow: "0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.04)",
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(20px)",
-              transitionDelay: `${0.1 + i * 0.12}s`,
-            }}
-          >
-            <p className="text-2xl font-bold text-gray-900 tabular-nums leading-none">
-              {display}{s.suffix}
-            </p>
-            <p className="text-[10px] text-gray-400 mt-1.5">{s.label}</p>
-          </div>
-        );
-      })}
+type Stat = { label: string; target: number; suffix: string; format?: boolean; divide?: number };
+
+// One tile, one hook call. Calling useCountUp inside the map broke the rules of
+// hooks: the call count changed with the array, so React could mismatch state
+// between renders.
+function StatTile({ stat: s, index: i, visible }: { stat: Stat; index: number; visible: boolean }) {
+  const raw = useCountUp(s.target, visible, 1600, 100 + i * 150);
+  const display = s.divide
+    ? (raw / s.divide).toFixed(1)
+    : s.format
+      ? raw >= 1000 ? `${(raw / 1000).toFixed(1)}K` : String(raw)
+      : String(raw);
+
+  return (
+    <div
+      className="rounded-xl bg-white p-4 text-center transition-all duration-700"
+      style={{
+        boxShadow: "0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.04)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transitionDelay: `${0.1 + i * 0.12}s`,
+      }}
+    >
+      <p className="text-2xl font-bold text-gray-900 tabular-nums leading-none">
+        {display}{s.suffix}
+      </p>
+      <p className="text-[10px] text-gray-400 mt-1.5">{s.label}</p>
     </div>
   );
 }

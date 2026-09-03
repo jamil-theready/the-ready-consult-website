@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 
+// Labelled the way a contractor would describe their own follow up, not the way
+// the tools are named. Clearbit, OpenAI and HubSpot mean nothing on a job site.
 const nodes = [
-  { id: "trigger", x: 40, y: 180, label: "New Lead", sub: "Webhook", color: "#9b59b6", icon: "webhook" },
-  { id: "enrich", x: 220, y: 100, label: "Enrich Data", sub: "Clearbit", color: "#e67e22", icon: "data" },
-  { id: "ai", x: 220, y: 260, label: "AI Score", sub: "OpenAI", color: "#10a37f", icon: "ai" },
-  { id: "router", x: 420, y: 180, label: "Score Router", sub: "IF", color: "#3498db", icon: "split" },
-  { id: "hot", x: 600, y: 100, label: "Slack Alert", sub: "Hot Lead", color: "#e74c3c", icon: "slack" },
-  { id: "warm", x: 600, y: 260, label: "Email Drip", sub: "Warm Lead", color: "#2ecc71", icon: "email" },
-  { id: "crm", x: 780, y: 180, label: "Update CRM", sub: "HubSpot", color: "#ff7a59", icon: "crm" },
+  { id: "trigger", x: 40, y: 180, label: "New lead", sub: "Call or form", color: "#9b59b6", icon: "webhook" },
+  { id: "enrich", x: 220, y: 100, label: "Logged", sub: "Your dashboard", color: "#e67e22", icon: "data" },
+  { id: "ai", x: 220, y: 260, label: "Text back", sub: "Within a minute", color: "#10a37f", icon: "ai" },
+  { id: "router", x: 420, y: 180, label: "Did they reply?", sub: "Check", color: "#3498db", icon: "split" },
+  { id: "hot", x: 600, y: 100, label: "Book estimate", sub: "Straight to your calendar", color: "#e74c3c", icon: "slack" },
+  { id: "warm", x: 600, y: 260, label: "Follow up", sub: "Day two and day five", color: "#2ecc71", icon: "email" },
+  { id: "crm", x: 780, y: 180, label: "Job won", sub: "Marked in your dashboard", color: "#ff7a59", icon: "crm" },
 ];
 
 const connections = [
@@ -86,7 +88,7 @@ export default function N8nFlow() {
           <svg className="w-4 h-4 text-[#ff6d5a]" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
           </svg>
-          <span className="text-xs font-semibold text-gray-600">Lead Scoring Workflow</span>
+          <span className="text-xs font-semibold text-gray-600">Lead follow up</span>
           <div className="flex items-center gap-1 ml-2 bg-green/10 px-2 py-0.5 rounded-full">
             <div className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
             <span className="text-[10px] font-medium text-green">Active</span>
@@ -210,9 +212,9 @@ export default function N8nFlow() {
 
         {/* Execution counter */}
         <div className="absolute bottom-3 left-4 flex items-center gap-4 text-[10px] text-gray-400">
-          <span>Executions: <strong className="text-navy">1,247</strong></span>
-          <span>Success: <strong className="text-green">99.2%</strong></span>
-          <span>Avg: <strong className="text-navy">1.3s</strong></span>
+          <span>Leads handled: <strong className="text-navy">every one</strong></span>
+          <span>Reply time: <strong className="text-green">under a minute</strong></span>
+          <span>Your effort: <strong className="text-navy">none</strong></span>
         </div>
 
         {/* Mini map hint */}

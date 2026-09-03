@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import SeoVisual from "./SeoVisual";
 import WebsiteVisual from "./WebsiteVisual";
 import MetaAdsVisual from "./MetaAdsVisual";
-import VideoVisual from "./VideoVisual";
+import N8nFlow from "./N8nFlow";
 
 type Tab = {
   n: string;
@@ -44,7 +44,7 @@ const TABS: Tab[] = [
     name: "Follow Up",
     line: "No estimate goes cold.",
     body: "Every call and form is logged and followed up automatically. Your dashboard shows what is bringing work in.",
-    visual: <VideoVisual />,
+    visual: <N8nFlow />,
   },
 ];
 
@@ -93,8 +93,8 @@ export default function ServicesTabs() {
     >
       <div data-sc-stage className="services__stage">
         <div className="services__head">
-          <p className="sc-mono services__eyebrow">How it works</p>
-          <h2 className="services__title" data-sc-cue="0 0.95 0" data-sc-kinetic="lines">
+          <p className="sc-label services__eyebrow">How it works</p>
+          <h2 className="services__title" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">
             Four steps to a phone that keeps ringing.
           </h2>
 
@@ -108,7 +108,7 @@ export default function ServicesTabs() {
                 className={`services__tab${active === i ? " is-active" : ""}`}
                 aria-selected={active === i}
               >
-                <span className="sc-mono services__tabn">{t.n}</span>
+                <span className="sc-label services__tabn">{t.n}</span>
                 <span className="services__tabname">{t.name}</span>
               </button>
             ))}

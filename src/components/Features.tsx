@@ -71,7 +71,7 @@ export default function Features() {
             Key Benefits
           </div>
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
-            Everything you need to scale, nothing you don't
+            Everything you need to scale, nothing you don&apos;t
           </h2>
           <p className="mt-4 text-gray-500 text-lg">
             Six capabilities that turn marketing from a cost center into a growth engine.

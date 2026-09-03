@@ -5,18 +5,18 @@ export default function Pricing() {
   return (
     <section id="pricing" className="sc-section pricing" data-sc-act="flow" data-sc-drift="#ffffff">
       <div className="pricing__wrap">
-        <p className="sc-mono pricing__eyebrow">Pricing</p>
-        <h2 className="pricing__title" data-sc-cue="0 0.95 0" data-sc-kinetic="lines">
+        <p className="sc-label pricing__eyebrow">Pricing</p>
+        <h2 className="pricing__title" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">
           Two ways to work with us.
         </h2>
 
         <div className="pricing__grid" data-sc-in data-sc-stagger="90">
           {PLANS.map((p, i) => (
             <div key={p.name} className={`plan${i === 1 ? " is-featured" : ""}`}>
-              <p className="sc-mono plan__name">{p.name}</p>
+              <p className="sc-label plan__name">{p.name}</p>
               <p className="plan__price">
                 <span className="plan__figure">{p.price}</span>
-                <span className="sc-mono plan__period">{p.period}</span>
+                <span className="sc-label plan__period">{p.period}</span>
               </p>
               <p className="plan__desc">{p.desc}</p>
 
