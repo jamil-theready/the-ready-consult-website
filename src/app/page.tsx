@@ -3,15 +3,10 @@
 import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import ServicesTabs from "@/components/ServicesTabs";
 import Mission from "@/components/Mission";
-import CaseStudyStats from "@/components/CaseStudyStats";
 import Pricing from "@/components/Pricing";
-import Testimonial from "@/components/Testimonial";
-import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import WorkSection from "@/components/work/WorkSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollCraft from "@/components/ScrollCraft";
@@ -60,16 +55,11 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <WorkSection />
-        <Services />
         <Mission />
-        <CaseStudyStats />
-        <HowItWorks />
+        <ServicesTabs />
         <Pricing />
-        <Testimonial />
         <FAQ />
       </main>
-      <Footer />
       <ScrollToTop />
     </>
   );
