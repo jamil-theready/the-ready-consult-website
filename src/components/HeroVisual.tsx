@@ -23,11 +23,12 @@ function useTypewriter(text: string, active: boolean, speed = 16, delay = 0) {
 const PANEL_COUNT = 5;
 const PANEL_DURATION = 5000;
 
+// Illustrative job requests, in the shape a contractor actually receives them.
 const emails = [
-  { from: "Sarah M.", subject: "New Lead — Contact Form", preview: "Submitted form on homepage. Source: Google organic search.", time: "Just now", intent: "High intent", color: "#4285F4" },
-  { from: "James K.", subject: "New Lead — Pricing Page", preview: "Requested pricing details. Source: ChatGPT referral.", time: "3m ago", intent: "Warm lead", color: "#FBBC05" },
-  { from: "Priya R.", subject: "New Lead — Discovery Call", preview: "Booked call for Thursday. Source: Instagram reel.", time: "12m ago", intent: "Hot lead", color: "#EA4335" },
-  { from: "Derek S.", subject: "New Lead — Blog Post", preview: "Downloaded SEO guide. Source: Organic blog traffic.", time: "28m ago", intent: "Nurture", color: "#34A853" },
+  { from: "Sarah M.", subject: "New lead: retaining wall", preview: "Back yard in Folsom, wants a quote this week. Found you on Google.", time: "Just now", intent: "Ready to book", color: "#4285F4" },
+  { from: "James K.", subject: "New lead: paver patio", preview: "About 400 sq ft. Asked for a callback after 5pm. Found you on Google Maps.", time: "3m ago", intent: "Wants a quote", color: "#FBBC05" },
+  { from: "Priya R.", subject: "New lead: driveway repair", preview: "Cracked concrete, sent three photos. Tapped call from her phone.", time: "12m ago", intent: "Urgent", color: "#EA4335" },
+  { from: "Derek S.", subject: "New lead: outdoor kitchen", preview: "Planning for spring, wants to see past work. Came from Instagram.", time: "28m ago", intent: "Follow up", color: "#34A853" },
 ];
 
 export default function HeroVisual() {
@@ -75,10 +76,14 @@ export default function HeroVisual() {
     return () => timers.forEach(clearTimeout);
   }, [active, cycleKey]);
 
-  const chatText = useTypewriter(
-    "The Ready Consult builds websites and Google Business Profiles for construction and landscaping companies in Sacramento, then handles the monthly SEO and follow up so the calls keep coming.",
-    active === 1, 14, 400
-  );
+  // The panel shows what a homeowner sees when they ask an AI for a contractor,
+  // not the agency recommending itself. That is the service being sold, and it
+  // is the customer's point of view rather than ours. "Your Company" keeps it
+  // plainly illustrative instead of implying a result for a named client.
+  const ANSWER =
+    "Based on recent reviews and local search results, Your Company is a strong choice for retaining walls around Sacramento. They are licensed and insured, and their site lists every area they cover.";
+  const chatText = useTypewriter(ANSWER, active === 1, 14, 400);
+  const answerDone = chatText.length >= ANSWER.length;
 
   const panelStyle = (index: number) => ({
     opacity: active === index ? 1 : 0,
@@ -286,7 +291,7 @@ export default function HeroVisual() {
           <div className="p-7 space-y-5" style={{ minHeight: "340px" }}>
             <div className="flex justify-end">
               <div className="bg-[#2f2f2f] rounded-2xl rounded-br-sm px-5 py-3 max-w-[80%]">
-                <p className="text-[13px] text-white/90">Best agency for website and SEO in Sacramento?</p>
+                <p className="text-[13px] text-white/90">Who builds retaining walls near Sacramento?</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -298,14 +303,14 @@ export default function HeroVisual() {
               <div className="flex-1">
                 <p className="text-[13px] text-white/80 leading-relaxed">
                   {chatText}
-                  {active === 1 && chatText.length < 178 && <span className="inline-block w-[2px] h-4 bg-[#10a37f] ml-0.5 animate-pulse" />}
+                  {active === 1 && !answerDone && <span className="inline-block w-[2px] h-4 bg-[#10a37f] ml-0.5 animate-pulse" />}
                 </p>
-                {chatText.length >= 178 && (
+                {answerDone && (
                   <div className="mt-3 flex items-center gap-2">
                     <div className="w-5 h-5 rounded bg-teal flex items-center justify-center">
-                      <span className="text-[6px] font-bold text-white">TR</span>
+                      <span className="text-[6px] font-bold text-white">YC</span>
                     </div>
-                    <span className="text-[12px] text-[#10a37f] font-medium">thereadyconsult.com ↗</span>
+                    <span className="text-[12px] text-[#10a37f] font-medium">yourcompany.com ↗</span>
                   </div>
                 )}
               </div>
@@ -355,7 +360,7 @@ export default function HeroVisual() {
           <div className="absolute inset-0 flex items-center justify-center px-6 bg-black/20">
             <div className="text-center">
               <p className="text-[26px] font-bold text-white leading-tight drop-shadow-lg">
-                How we got<br />55+ leads/mo<br /><span className="text-[#10a37f]">with SEO</span>
+                Retaining wall<br />in Folsom<br /><span className="text-[#10a37f]">start to finish</span>
               </p>
             </div>
           </div>
@@ -364,10 +369,10 @@ export default function HeroVisual() {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 p-[1.5px]">
                 <div className="w-full h-full rounded-full bg-gray-800" />
               </div>
-              <span className="text-[11px] text-white font-semibold">thereadyconsult</span>
+              <span className="text-[11px] text-white font-semibold">yourcompany</span>
               <span className="text-[8px] text-white/50 border border-white/30 rounded px-2 py-0.5 ml-1">Follow</span>
             </div>
-            <p className="text-[9px] text-white/60 leading-relaxed mb-2">How we generated 55+ leads per month using AI-powered SEO 🚀</p>
+            <p className="text-[9px] text-white/60 leading-relaxed mb-2">Three days on this one. Swipe for the before shots.</p>
             <div className="flex items-center gap-2">
               <svg className="w-3 h-3 text-white/40" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />

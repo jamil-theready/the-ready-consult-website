@@ -3,16 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 
 const buildLogs = [
-  "$ npx create-next-app client-site",
-  "Installing dependencies...",
-  "✓ Tailwind CSS configured",
-  "✓ TypeScript ready",
-  "Building components...",
-  "✓ Navbar.tsx",
-  "✓ Hero.tsx",
-  "✓ Features.tsx — dashboard cards",
-  "✓ Team.tsx",
-  "✓ Pricing.tsx",
+  "Building yoursite.com",
+  "Setting up hosting...",
+  "Mobile layout ready",
+  "Fast on phone data",
+  "Adding your pages...",
+  "Service area pages",
+  "Tap to call button",
+  "Photos of your work",
+  "Google Business Profile",
+  "Quote request form",
   "Optimizing assets...",
   "Running lighthouse audit...",
   "✓ Performance: 100",
@@ -129,13 +129,13 @@ export default function WebsiteVisual() {
               className="text-[22px] font-bold text-gray-900 leading-tight mb-2.5 tracking-tight"
               style={show(2)}
             >
-              Streamline your<br />growing startup
+              Stonework built<br />to last in Sacramento
             </h2>
             <p
               className="text-[9px] text-gray-400 leading-relaxed max-w-[260px] mb-4"
               style={show(3)}
             >
-              Say goodbye to admin headaches and say hello to efficiency. Onboard employees, track projects, and manage performance.
+              Patios, retaining walls and driveways. Licensed, insured, and booking work across the Sacramento area.
             </p>
             <div className="flex gap-2" style={show(4)}>
               <div className="bg-[#3b2fc9] text-white text-[8px] font-semibold px-4 py-2 rounded-full">Get started →</div>

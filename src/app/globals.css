@@ -215,7 +215,7 @@ html { scroll-behavior: smooth; }
   gap: 28px; padding: 92px 0 40px; overflow: hidden;
 }
 .services__head  { max-width: 1280px; margin: 0 auto; padding: 0 24px; width: 100%; }
-.services__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.services__eyebrow { font-size: 12px; letter-spacing: .28em; }
 .services__title {
   font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 500; line-height: 1.12;
   letter-spacing: -0.02em; color: var(--sc-ink); margin-top: 12px; max-width: 620px;
@@ -237,7 +237,7 @@ html { scroll-behavior: smooth; }
 
 .services__tabn    { font-size: 11px; color: var(--sc-accent); letter-spacing: .1em; }
 .services__tabname { font-size: 15px; font-weight: 500;
-  color: color-mix(in oklab, var(--sc-ink) 40%, transparent);
+  color: color-mix(in oklab, var(--sc-ink) 68%, transparent);
   transition: color .35s var(--trc-ease); }
 .services__tab.is-active .services__tabname { color: var(--sc-ink); }
 
@@ -267,7 +267,7 @@ html { scroll-behavior: smooth; }
    .sc- classes and [data-sc-*] hooks are left alone.
    --------------------------------------------------------------------------- */
 .pricing__wrap { max-width: 1080px; margin: 0 auto; padding: 96px 24px; }
-.pricing__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.pricing__eyebrow { font-size: 12px; letter-spacing: .28em; }
 .pricing__title {
   font-size: clamp(1.9rem, 3.4vw, 2.75rem); font-weight: 500; line-height: 1.12;
   letter-spacing: -0.02em; color: var(--sc-ink); margin: 12px 0 44px; max-width: 620px;
@@ -324,7 +324,7 @@ html { scroll-behavior: smooth; }
 .faq__stage { display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
 .faq__inner { max-width: 760px; margin: 0 auto; padding: 88px 24px 40px; width: 100%; flex: 1 1 auto;
   display: flex; flex-direction: column; justify-content: center; }
-.faq__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.faq__eyebrow { font-size: 12px; letter-spacing: .28em; }
 .faq__title { font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em;
   color: var(--sc-ink); margin: 12px 0 28px; }
 .faq__list { border-top: 1px solid var(--sc-hairline); }
@@ -351,4 +351,12 @@ html { scroll-behavior: smooth; }
 @media (max-width: 640px) {
   .faq__inner { padding: 72px 20px 32px; }
   .faq__close { flex-direction: column; align-items: flex-start; }
+}
+
+/* The tab mockups reveal themselves on intersection. Under reduced motion the
+   engine hands the rail back as a horizontal scroll region, so a mockup the
+   reader has not scrolled to never intersects and never reveals: the device
+   degrades into missing content. Show them already assembled instead. */
+@media (prefers-reduced-motion: reduce) {
+  .services__visual * { opacity: 1 !important; }
 }

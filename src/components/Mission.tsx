@@ -17,7 +17,7 @@ export default function Mission() {
     >
       <div data-sc-stage className="flex items-center">
         <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
-          <p className="sc-mono text-[12px] tracking-[0.28em] uppercase text-gray-400 mb-8">
+          <p className="sc-label text-[12px] tracking-[0.28em] mb-8">
             What we do
           </p>
 

@@ -90,7 +90,7 @@ export default function Hero() {
       </svg>
 
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-4 sm:pb-12 flex-1 flex flex-col justify-start items-center text-center">
-        <p className="sc-mono text-[13px] text-gray-500 mb-6 tracking-[0.18em] uppercase">
+        <p className="sc-label text-[13px] mb-6 tracking-[0.18em]">
           For construction and landscaping
         </p>
 

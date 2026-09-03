@@ -13,7 +13,9 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   const [opacities, setOpacities] = useState<number[]>(LOGO_STATE);
   const [isLogo, setIsLogo] = useState(true);
 
-  // Scramble animation — starts immediately, runs 2 full cycles
+  // One scramble cycle, not two. This screen used to hold the page for 4.6s
+  // before a visitor saw anything; on phone data that is a bounce, and it also
+  // spent the hero's entrance behind an opaque overlay. Budget is now ~1.2s.
   useEffect(() => {
     const runCycle = () => {
       setIsLogo(false);
@@ -21,31 +23,27 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
       const scrambleInterval = setInterval(() => {
         setOpacities(randomState());
         scrambleCount++;
-        if (scrambleCount >= 6) {
+        if (scrambleCount >= 4) {
           clearInterval(scrambleInterval);
           setTimeout(() => {
             setOpacities(LOGO_STATE);
             setIsLogo(true);
-          }, 200);
+          }, 140);
         }
-      }, 150);
+      }, 110);
     };
 
-    // First scramble at 500ms
-    const t1 = setTimeout(runCycle, 500);
-    // Second scramble at 2200ms
-    const t2 = setTimeout(runCycle, 2200);
-
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t1 = setTimeout(runCycle, 100);
+    return () => clearTimeout(t1);
   }, []);
 
   // Phase transitions
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setPhase("fadeout"), 3800);
+    const fadeTimer = setTimeout(() => setPhase("fadeout"), 820);
     const doneTimer = setTimeout(() => {
       setPhase("done");
       onComplete();
-    }, 4600);
+    }, 1200);
     return () => { clearTimeout(fadeTimer); clearTimeout(doneTimer); };
   }, [onComplete]);
 
