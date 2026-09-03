@@ -220,7 +220,7 @@ export default function HeroVisual() {
                           <svg key={i} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                         ))}
                       </div>
-                      <span className="text-[9px] text-gray-400">2,847 reviews</span>
+                      <span className="text-[9px] text-gray-400">127 reviews</span>
                     </div>
                   </div>
                 </div>
@@ -228,11 +228,11 @@ export default function HeroVisual() {
                 {/* Dashboard card */}
                 <div className="w-[300px] bg-white rounded-2xl border border-gray-100 p-5 shadow-xl shadow-gray-200/50">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[12px] font-semibold text-gray-800">Revenue Overview</span>
+                    <span className="text-[12px] font-semibold text-gray-800">Calls this month</span>
                     <span className="text-[10px] bg-green/10 text-green font-semibold px-2 py-0.5 rounded-full">↑ 24%</span>
                   </div>
-                  <p className="text-[28px] font-bold text-gray-900 tracking-tight">$48,290</p>
-                  <p className="text-[10px] text-gray-400 mb-4">Monthly recurring revenue</p>
+                  <p className="text-[28px] font-bold text-gray-900 tracking-tight">38</p>
+                  <p className="text-[10px] text-gray-400 mb-4">From your website and Google profile</p>
 
                   <div className="h-24 flex items-end gap-[3px] mb-4">
                     {[15, 22, 18, 30, 25, 42, 38, 55, 48, 62, 58, 72, 68, 82, 78, 88, 85, 95].map((h, i) => (

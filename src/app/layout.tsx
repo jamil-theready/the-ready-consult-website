@@ -22,19 +22,19 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
-  title: "The Ready Consult | AI-First Growth & Media Partner",
+  title: "The Ready Consult | Websites and SEO for Contractors",
   description:
-    "AI-first growth agency: fractional CMO strategy, content, video production, SEO, and paid ads that convert attention into sustainable revenue.",
+    "We build websites and Google Business Profiles for construction and landscaping companies, then keep you showing up so the calls keep coming.",
   keywords:
-    "AI consulting, growth marketing, fractional CMO, video production, SEO, paid ads, content strategy, AI marketing agency",
+    "contractor website, masonry marketing, landscaping SEO, Google Business Profile, local SEO for contractors, construction lead generation",
   metadataBase: new URL("https://www.thereadyconsult.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "The Ready Consult | AI-First Growth & Media Partner",
+    title: "The Ready Consult | Websites and SEO for Contractors",
     description:
-      "Strategy, content, and automation to convert attention into sustainable revenue.",
+      "Websites, Google Business Profiles and SEO for construction and landscaping companies.",
     url: "https://www.thereadyconsult.com",
     siteName: "The Ready Consult",
     type: "website",
@@ -44,15 +44,15 @@ export const metadata: Metadata = {
         url: "https://www.thereadyconsult.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "The Ready Consult - #1 AI-native agency",
+        alt: "The Ready Consult, websites and SEO for contractors",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Ready Consult | AI-First Growth & Media Partner",
+    title: "The Ready Consult | Websites and SEO for Contractors",
     description:
-      "Strategy, content, and automation to convert attention into sustainable revenue.",
+      "Websites, Google Business Profiles and SEO for construction and landscaping companies.",
     images: ["https://www.thereadyconsult.com/og-image.png"],
   },
   robots: {

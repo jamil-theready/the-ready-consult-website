@@ -261,3 +261,94 @@ html { scroll-behavior: smooth; }
   .services__visual { padding: 10px; }
   .services__stage { padding-top: 76px; gap: 20px; }
 }
+
+/* ---------------------------------------------------------------------------
+   Pricing. Two cards, light. Only this page's own classes; the engine's
+   .sc- classes and [data-sc-*] hooks are left alone.
+   --------------------------------------------------------------------------- */
+.pricing__wrap { max-width: 1080px; margin: 0 auto; padding: 96px 24px; }
+.pricing__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.pricing__title {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem); font-weight: 500; line-height: 1.12;
+  letter-spacing: -0.02em; color: var(--sc-ink); margin: 12px 0 44px; max-width: 620px;
+}
+.pricing__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+
+.plan {
+  background: var(--sc-surface); border: 1px solid var(--sc-hairline);
+  border-radius: 18px; padding: 30px; display: flex; flex-direction: column;
+  transition: border-color .4s var(--trc-ease);
+}
+.plan.is-featured { border-color: color-mix(in oklab, var(--sc-accent) 38%, transparent); }
+.plan__name   { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--sc-accent); }
+.plan__price  { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 6px; flex-wrap: wrap; }
+.plan__figure { font-size: clamp(2rem, 3.6vw, 2.9rem); font-weight: 600; letter-spacing: -0.03em; color: var(--sc-ink); }
+.plan__period { font-size: 12px; color: var(--sc-ink-soft); }
+.plan__desc   { font-size: 15px; line-height: 1.6; color: var(--sc-ink-soft); max-width: 44ch; }
+.plan__features { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.plan__features li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--sc-ink); }
+.plan__features svg { color: var(--sc-accent); flex: none; margin-top: 3px; }
+.plan__cta {
+  margin-top: 30px; text-align: center; padding: 14px 20px; border-radius: 12px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  background: #fff; color: var(--sc-ink); border: 1px solid var(--sc-hairline);
+  transition: background .3s var(--trc-ease), color .3s var(--trc-ease), border-color .3s var(--trc-ease);
+}
+.plan__cta:hover { border-color: var(--sc-ink-soft); }
+.plan.is-featured .plan__cta { background: var(--sc-accent); color: var(--sc-accent-ink); border-color: transparent; }
+.plan.is-featured .plan__cta:hover { background: #b91c1c; }
+
+/* The signature move: the six pieces draw themselves into one loop as the act
+   advances, then the whole diagram leans toward the pointer. */
+.system { margin: 24px 0 4px; }
+.system svg { width: 100%; height: auto; max-height: 240px; display: block; }
+.system__wires line {
+  stroke: color-mix(in oklab, var(--sc-accent) 55%, transparent); stroke-width: 1.25;
+  stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--sc-p, 0));
+}
+.system__hub  { fill: none; stroke: var(--sc-accent); stroke-width: 1.5; }
+.system__hubt { fill: var(--sc-ink); font-size: 11px; font-family: var(--sc-font-mono); }
+.system__node circle { fill: var(--sc-accent); }
+.system__node text   { fill: var(--sc-ink-soft); font-size: 9.5px; font-family: var(--sc-font-mono); }
+
+@media (max-width: 760px) {
+  .pricing__grid { grid-template-columns: 1fr; }
+  .pricing__wrap { padding: 64px 20px; }
+  .plan { padding: 24px; }
+}
+
+/* ---------------------------------------------------------------------------
+   FAQ + the closing act. Footer sits inside the stage so the page ends on the
+   call to action rather than on empty scroll.
+   --------------------------------------------------------------------------- */
+.faq__stage { display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+.faq__inner { max-width: 760px; margin: 0 auto; padding: 88px 24px 40px; width: 100%; flex: 1 1 auto;
+  display: flex; flex-direction: column; justify-content: center; }
+.faq__eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gray-400); }
+.faq__title { font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em;
+  color: var(--sc-ink); margin: 12px 0 28px; }
+.faq__list { border-top: 1px solid var(--sc-hairline); }
+.faq__item { border-bottom: 1px solid var(--sc-hairline); }
+.faq__q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 18px 0; text-align: left; cursor: pointer; background: none; border: 0;
+  font-size: 15px; font-weight: 500; color: var(--sc-ink); }
+.faq__plus { color: var(--gray-400); flex: none; transition: transform .3s var(--trc-ease); }
+.faq__plus.is-open { transform: rotate(45deg); }
+.faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s var(--trc-ease); }
+.faq__a.is-open { grid-template-rows: 1fr; }
+.faq__a > div { overflow: hidden; }
+.faq__a p { font-size: 15px; line-height: 1.65; color: var(--sc-ink-soft); padding-bottom: 18px; margin: 0; }
+
+.faq__close { margin-top: 40px; display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; padding: 24px 26px; border-radius: 16px;
+  background: #fff; border: 1px solid var(--sc-hairline); }
+.faq__closeh { font-size: 18px; font-weight: 600; color: var(--sc-ink); margin: 0; }
+.faq__cta { display: inline-block; padding: 13px 26px; border-radius: 12px; text-decoration: none;
+  font-size: 15px; font-weight: 600; background: var(--sc-accent); color: var(--sc-accent-ink);
+  transition: background .3s var(--trc-ease); }
+.faq__cta:hover { background: #b91c1c; }
+
+@media (max-width: 640px) {
+  .faq__inner { padding: 72px 20px 32px; }
+  .faq__close { flex-direction: column; align-items: flex-start; }
+}

@@ -1,115 +1,43 @@
-const plans = [
-  {
-    name: "Video Production",
-    desc: "Scroll-stopping content",
-    price: "$1,200",
-    period: "per month",
-    features: ["4 videos per month", "Color grading & captions", "Social-ready formats", "48hr turnaround", "2 revision rounds", "Content calendar"],
-    pop: false,
-    cta: "Start with Video",
-  },
-  {
-    name: "Website & SEO",
-    desc: "Growing online presence",
-    price: "$2,400",
-    period: "per month",
-    features: ["Everything from Video, plus:", "Custom Next.js website", "On-page & technical SEO", "Content strategy", "Monthly performance reports", "Google Business Profile"],
-    pop: false,
-    cta: "Start with Website",
-  },
-  {
-    name: "Enterprise",
-    desc: "Full-service, custom scope",
-    price: "Custom",
-    period: "tailored pricing",
-    features: ["Everything from Website, plus:", "AI-powered automations", "Dedicated growth strategist", "Priority support & SLAs", "Custom reporting dashboards", "Unlimited revisions"],
-    pop: true,
-    cta: "Start with Enterprise",
-  },
-];
+import { PLANS } from "./pricing-data";
+import SystemDiagram from "./SystemDiagram";
 
 export default function Pricing() {
   return (
-    <section id="pricing" data-dark className="bg-[#0d0a0a] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
-      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-xl mx-auto mb-16">
-          <p className="text-white/30 text-xs tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-2"><span className="text-[10px]">&#10022;</span> Pricing <span className="text-[10px]">&#10022;</span></p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-medium text-white leading-[1.1] tracking-tight">
-            Simple, transparent pricing
-          </h2>
-          <p className="mt-4 text-white/30 text-lg">No hidden fees. No lock-ins.</p>
-        </div>
+    <section id="pricing" className="sc-section pricing" data-sc-act="flow" data-sc-drift="#ffffff">
+      <div className="pricing__wrap">
+        <p className="sc-mono pricing__eyebrow">Pricing</p>
+        <h2 className="pricing__title" data-sc-cue="0 0.95 0" data-sc-kinetic="lines">
+          Two ways to work with us.
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-[#2a1c1c]">
-          {plans.map((p) => (
-            <div
-              key={p.name}
-              className={`relative p-7 flex flex-col group transition-all duration-500 hover:bg-[#1a1010] ${
-                p.pop
-                  ? "bg-[#1d1212] md:border-x border-[#2a1c1c]"
-                  : "bg-[#181010]"
-              }`}
-              style={p.pop ? {
-                boxShadow: "0 0 60px rgba(220,38,38,0.1), inset 0 1px 0 rgba(220,38,38,0.18)",
-              } : undefined}
-            >
-              {p.pop && (
-                <div className="absolute -top-px left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#dc2626] to-transparent" />
-              )}
-              <div className="flex items-center justify-between">
-                <p className="text-[15px] font-semibold text-white">{p.name}</p>
-              </div>
-              <p className="text-[12px] text-white/30 mt-0.5">{p.desc}</p>
+        <div className="pricing__grid" data-sc-in data-sc-stagger="90">
+          {PLANS.map((p, i) => (
+            <div key={p.name} className={`plan${i === 1 ? " is-featured" : ""}`}>
+              <p className="sc-mono plan__name">{p.name}</p>
+              <p className="plan__price">
+                <span className="plan__figure">{p.price}</span>
+                <span className="sc-mono plan__period">{p.period}</span>
+              </p>
+              <p className="plan__desc">{p.desc}</p>
 
-              <div className="h-px bg-[#2a1c1c] my-5" />
+              {i === 1 && <SystemDiagram />}
 
-              <ul className="mt-6 space-y-3 flex-1">
-                {p.features.map((f, j) => (
-                  <li key={f} className="flex items-start gap-3 text-[13px]">
-                    {j === 0 && f.includes("Everything") ? (
-                      <span className="text-white/25 text-[12px]">{f}</span>
-                    ) : (
-                      <>
-                        <svg className="w-4 h-4 text-white/20 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="3.5" />
-                        </svg>
-                        <span className="text-white/45">{f}</span>
-                      </>
-                    )}
+              <ul className="plan__features">
+                {p.features.map((f) => (
+                  <li key={f}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="3.5" fill="currentColor" />
+                    </svg>
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
 
-              <a
-                href="https://calendly.com/thereadyconsult/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-8 block text-center text-[14px] font-semibold py-3 rounded-xl transition-all ${
-                  p.pop
-                    ? "lava-glow bg-gradient-to-r from-[#b91c1c] via-[#dc2626] to-[#ef4444] text-white hover:from-[#991b1b] hover:to-[#b91c1c]"
-                    : "bg-[#1f1515] text-white/70 hover:bg-[#2e1f1f] hover:text-white border border-[#2a1c1c]"
-                }`}
-              >
+              <a className="plan__cta" href={p.href}>
                 {p.cta}
               </a>
             </div>
           ))}
-        </div>
-
-        {/* Enterprise bar */}
-        <div className="max-w-5xl mx-auto mt-4 rounded-2xl bg-[#181010] border border-[#2a1c1c] p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <span className="text-[14px] font-semibold text-white">Enterprise</span>
-            <span className="text-[12px] sm:text-[13px] text-white/25 ml-2">For teams that need custom limits, dedicated support, and SLAs.</span>
-          </div>
-          <a
-            href="https://calendly.com/thereadyconsult/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[13px] font-semibold text-white/60 border border-[#2a1c1c] px-5 py-2 rounded-xl hover:bg-[#1f1515] hover:text-white transition-all shrink-0"
-          >
-            Request trial
-          </a>
         </div>
       </div>
     </section>
