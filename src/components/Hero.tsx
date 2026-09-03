@@ -1,43 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import HeroVisual from "./HeroVisual";
 
-export default function Hero({ ready }: { ready?: boolean }) {
-  const [count, setCount] = useState(0);
-  const [reveal, setReveal] = useState(0);
-
-  useEffect(() => {
-    if (!ready) return;
-    // Stagger reveal: 0=stat, 1=headline, 2=ctas, 3=visual, 4=logos
-    [0, 200, 400, 700, 1000].forEach((d, i) => {
-      setTimeout(() => setReveal(i + 1), d);
-    });
-
-    let current = 0;
-    const target = 2400000;
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    const interval = duration / steps;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) { current = target; clearInterval(timer); }
-      setCount(Math.floor(current));
-    }, interval);
-    return () => clearInterval(timer);
-  }, [ready]);
-
-  const r = (step: number) => ({
-    opacity: reveal >= step ? 1 : 0,
-    transform: reveal >= step ? "translateY(0)" : "translateY(30px)",
-    transition: "opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-  });
-
+// Entrance is driven by the scroll-craft engine (data-sc-in / data-sc-stagger),
+// which mounts only after the loading screen resolves, so the reveal is not
+// spent behind the splash. No local reveal state, no timers.
+export default function Hero() {
   return (
-    <section className="relative bg-white min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden">
+    <section
+      className="sc-section relative bg-white min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden"
+      data-sc-act="flow"
+      data-sc-drift="#ffffff"
+      data-sc-in
+      data-sc-stagger="70"
+    >
       {/* n8n-style workflow lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.06 }}>
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ opacity: 0.06 }}
+        data-sc-parallax="0.30"
+        aria-hidden="true"
+      >
         {/* Nodes */}
         {[
           { x: 80, y: 120 }, { x: 250, y: 80 }, { x: 440, y: 150 },
@@ -105,22 +90,24 @@ export default function Hero({ ready }: { ready?: boolean }) {
       </svg>
 
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-4 sm:pb-12 flex-1 flex flex-col justify-start items-center text-center">
-        <p className="text-[14px] text-gray-500 mb-6" style={r(1)}>
-          Revenue influenced for clients:{" "}
-          <span className="text-blue font-medium">
-            ${count.toLocaleString()}+
-          </span>
+        <p className="sc-mono text-[13px] text-gray-500 mb-6 tracking-[0.18em] uppercase">
+          For construction and landscaping
         </p>
 
-        <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] max-w-[860px]" style={r(2)}>
-          <span className="text-navy">#1 AI-native agency</span>
-          <br />
-          <span className="text-gray-400">that builds, ranks,</span>
-          <br />
-          <span className="text-gray-400">and automates.</span>
+        <h1
+          className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] max-w-[900px] text-navy"
+          data-sc-cue="0 0.78 0"
+          data-sc-kinetic="lines"
+        >
+          The website and Google profile that get your phone ringing.
         </h1>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4" style={r(3)}>
+        <p className="mt-6 text-[17px] text-gray-500 max-w-[560px] leading-relaxed">
+          We build it, keep it running, and make sure the people searching for
+          your trade in your area find you first.
+        </p>
+
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
           <a
             href="https://calendly.com/thereadyconsult/30min"
             target="_blank"
@@ -134,7 +121,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
             <svg className="w-5 h-5 relative z-10 group-hover:rotate-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span className="relative z-10">Book a Call</span>
+            <span className="relative z-10">Book a call</span>
             <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
           </a>
           <a
@@ -145,7 +132,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
           </a>
         </div>
 
-        <div className="mt-20 sm:mt-24 lg:mt-12 w-full" style={r(4)}>
+        <div className="mt-20 sm:mt-24 lg:mt-12 w-full" data-sc-parallax="0.08">
           <div className="hidden lg:block">
             <HeroVisual />
           </div>
