@@ -1,3 +1,6 @@
+/* scroll-craft engine, loaded FIRST so globals below win on any conflict.
+   The engine declares a bare body{} rule. Never edit the engine itself. */
+@import "../../public/scrollcraft.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -21,6 +24,21 @@
   --gray-500: #697386;
   --gray-600: #525f7f;
   --gray-900: #0a2540;
+}
+
+/* scroll-craft rebrand. Override these six roles and the engine is themed;
+   its defaults are dark, so this is required, not optional. */
+:root {
+  --sc-canvas:      #ffffff;
+  --sc-surface:     #f6f9fc;
+  --sc-ink:         #0a2540;
+  --sc-ink-soft:    #525f7f;
+  --sc-accent:      #dc2626;
+  --sc-accent-ink:  #ffffff;
+  --sc-font-display: var(--font-inter), system-ui, sans-serif;
+  --sc-font-text:    var(--font-inter), system-ui, sans-serif;
+  --sc-font-mono:    var(--font-roboto-mono), ui-monospace, monospace;
+  --trc-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 @theme inline {
@@ -54,50 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────
-   DISPLAY TYPE SCALE — use these, do not hand-roll a clamp.
-
-   Added 2026-09-04 after three pages ended up with three different "h1"s:
-   the homepage at clamp(2.5rem,5.5vw,4.5rem)/1.08, contact at
-   clamp(2.5rem,5.2vw,4.5rem)/1.02 and thank-you at
-   clamp(2.25rem,4.6vw,3.75rem)/1.05. All close enough to look like a mistake
-   rather than a decision, and the contact one read heaviest because the tighter
-   leading made the same size feel bigger.
-
-   One size per rank. If a page needs something different, change the rank here
-   so every page moves together — a one-off clamp in a component is how this
-   drifted in the first place.
-
-   .t-display  page title. One per page, top of the page.
-   .t-h2       section heading inside a page.
-   .t-h3       sub-heading / card title.
-   .t-lead     the paragraph directly under a display title.
-   ───────────────────────────────────────────────────────────────────────── */
-.t-display {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  font-weight: 600;
-}
-.t-h2 {
-  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-.t-h3 {
-  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-.t-lead {
-  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
-  line-height: 1.4;
-  color: var(--gray-500);
-}
-
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html { scroll-behavior: smooth; }
 ::selection { background-color: var(--blue); color: white; }
 
 :focus-visible {

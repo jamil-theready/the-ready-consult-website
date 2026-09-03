@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -8,6 +8,14 @@ const GA_MEASUREMENT_ID = "G-4HYJNLYDBD";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+// Mono carries the eyebrows, labels, counters and captions. It is the most
+// recognisable trait of the reference design and costs one font load.
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -66,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
