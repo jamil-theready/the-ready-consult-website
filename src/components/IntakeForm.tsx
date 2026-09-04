@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { WEB3FORMS_KEY } from "@/lib/forms";
@@ -44,6 +45,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 export default function IntakeForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const router = useRouter();
   const [need, setNeed] = useState("");
   const [how, setHow] = useState("WhatsApp");
   const loadedAt = useRef<number>(0);
@@ -59,17 +61,21 @@ export default function IntakeForm() {
     const fd = new FormData(e.currentTarget);
     const get = (k: string) => (fd.get(k) ?? "").toString().trim();
 
-    // 1. Honeypot — invisible to people, irresistible to bots. Fake a success so it doesn't retry.
+    // 1. Honeypot — invisible to people, irresistible to bots. Send nothing, and
+    // show the thank-you page so the bot has no signal to retry against.
     if (get("website_url")) {
-      setStatus("sent");
+      router.push("/thank-you");
       return;
     }
 
-    // 2. Time trap — nobody completes this in under four seconds.
-    if (Date.now() - loadedAt.current < 4000) {
-      setStatus("sent");
-      return;
-    }
+    // 2. Speed. This used to discard anything submitted within four seconds the
+    // same way as the honeypot — a fake success and no send. Browser autofill
+    // fills name, business, city and phone in about a second, so a real
+    // contractor with autofill on got "Got it" and became no lead at all, and
+    // there was no way to know it had happened. Speed alone is not proof of a
+    // bot: it is now a FLAG on a message that still gets sent, and the honeypot
+    // above stays the thing that actually blocks.
+    const fast = Date.now() - loadedAt.current < 4000;
 
     // 3. Required fields
     const missing: string[] = [];
@@ -111,7 +117,9 @@ export default function IntakeForm() {
           access_key: WEB3FORMS_KEY,
           subject: flagged
             ? `[REVIEW — likely agency] ${get("biz")}`
-            : `New lead from thereadyconsult.com — ${get("biz")}`,
+            : fast
+              ? `[CHECK — fast submit] ${get("biz")}`
+              : `New lead from thereadyconsult.com — ${get("biz")}`,
           from_name: "The Ready Consult",
           name: get("name"),
           business: get("biz"),
@@ -122,7 +130,8 @@ export default function IntakeForm() {
           contact_via: how,
           message: get("msg"),
           routing: flagged ? "REVIEW_QUEUE" : need,
-          spam_flags: hits.join(", ") || "none",
+          spam_flags: [hits.join(", "), fast ? "submitted in under 4s" : ""]
+            .filter(Boolean).join(" · ") || "none",
           lead_page: typeof window !== "undefined" ? window.location.pathname : "",
           lead_referrer: typeof document !== "undefined" ? document.referrer : "",
         }),
@@ -130,6 +139,7 @@ export default function IntakeForm() {
       const json = await res.json();
       if (!res.ok || !json.success) throw new Error(json.message || "Submission failed");
       setStatus("sent");
+      router.push("/thank-you");
     } catch (err) {
       setStatus("error");
       setError(

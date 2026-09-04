@@ -15,19 +15,13 @@
  * hiding it in an env var, and an env var is one more thing that can silently
  * be missing at build time.
  *
- * ⛔ ONE STEP REMAINS, AND ONLY JAMIL CAN DO IT.
- * Web3Forms is behind a Cloudflare bot check and Google OAuth, so it cannot be
- * automated. Two minutes:
- *   1. web3forms.com → sign in as jamil@thereadyconsult.com
- *   2. Create an access key for "The Ready Consult — Site" with the inbox set
- *      to jamil@thereadyconsult.com
- *   3. Paste it below, replacing null, and deploy
- * Then send one test through /contact using 916-555-01xx and confirm it lands.
+ * ✅ LIVE since 2026-09-04 — form "TRC Contact form", created by Jamil.
+ * Verified end to end with a real browser submission from /contact.
  *
- * Until that is done the form does NOT silently fail: it says it cannot take
- * the message and offers the call and the email address instead.
+ * If this is ever set back to null the form does NOT silently fail: it says it
+ * cannot take the message and offers the call and the email address instead.
  */
-export const WEB3FORMS_KEY: string | null = null;
+export const WEB3FORMS_KEY: string | null = "ceeca694-d4b0-4e82-ba31-26508257f8d6";
 
 /**
  * ⛔ Leave this null. Turnstile is a Web3Forms PRO feature: on the free plan a
