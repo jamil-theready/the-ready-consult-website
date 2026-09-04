@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import IntakeForm from "@/components/IntakeForm";
 
 export const metadata: Metadata = {
   title: "Contact | The Ready Consult",
@@ -83,6 +84,24 @@ export default function ContactPage() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${CONTAINER} mt-20`} id="write">
+          <div className="border-t border-navy pt-12">
+            <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
+              03 · Or just tell us what&apos;s going on
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-[-0.02em] mb-4">
+              No call needed.
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-10 max-w-2xl">
+              Tell us about the business and what isn&apos;t working. We&apos;ll come back with
+              what we&apos;d do about it.
+            </p>
+            <div className="max-w-3xl">
+              <IntakeForm />
             </div>
           </div>
         </section>
