@@ -91,7 +91,12 @@ export default function IntakeForm() {
     }
 
     // 4. Pitch-language scan — routes agencies to review instead of the leads list.
-    const msg = get("msg").toLowerCase();
+    // Scans the whole submission, not just the message: an agency pitch often
+    // arrives with the sales language in the business name ("Growth Partners
+    // SEO") and the message left short or empty, which slipped straight through
+    // when only `msg` was read.
+    const msg = [get("msg"), get("biz"), get("name"), get("city")]
+      .join(" ").toLowerCase();
     const hits = PITCH_TERMS.filter((p) => msg.includes(p));
     const flagged = hits.length >= 2;
 
