@@ -25,10 +25,10 @@ export default function ThankYouPage() {
             <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-6">
               Message received
             </p>
-            <h1 className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-navy">
+            <h1 className="t-display text-navy">
               Got it. We&apos;ll be in touch.
             </h1>
-            <p className="text-xl text-gray-500 leading-snug mt-8">
+            <p className="t-lead mt-8">
               Someone reads every one of these — usually the same day, always within one
               business day.
             </p>

@@ -112,7 +112,7 @@ export default function Hero({ ready }: { ready?: boolean }) {
           </span>
         </p>
 
-        <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] max-w-[860px]" style={r(2)}>
+        <h1 className="t-display max-w-[860px]" style={r(2)}>
           <span className="text-navy">#1 AI-native agency</span>
           <br />
           <span className="text-gray-400">that builds, ranks,</span>

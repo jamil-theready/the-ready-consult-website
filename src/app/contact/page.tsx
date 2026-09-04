@@ -24,10 +24,10 @@ export default function ContactPage() {
             <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-6">
               Get in touch
             </p>
-            <h1 className="text-[clamp(2.5rem,5.2vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-navy">
+            <h1 className="t-display text-navy">
               Let&apos;s talk about your growth motion.
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-500 leading-snug mt-8 max-w-2xl">
+            <p className="t-lead mt-8 max-w-2xl">
               The fastest path is a 30-minute call. We&apos;ll walk through where your pipeline actually leaks and whether we&apos;re the right partner.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
               <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
                 01 · Book a discovery call
               </p>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-[-0.02em] mb-4">
+              <h2 className="t-h2 text-navy mb-4">
                 30 minutes, no pitch deck.
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6 max-w-xl">
@@ -60,7 +60,7 @@ export default function ContactPage() {
               <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
                 02 · Or send a note
               </p>
-              <h2 className="text-2xl font-semibold text-navy tracking-[-0.02em] mb-4">
+              <h2 className="t-h2 text-navy mb-4">
                 Email works too.
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
@@ -93,7 +93,7 @@ export default function ContactPage() {
             <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
               03 · Or just tell us what&apos;s going on
             </p>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-[-0.02em] mb-4">
+            <h2 className="t-h2 text-navy mb-4">
               No call needed.
             </h2>
             <p className="text-gray-600 leading-relaxed mb-10 max-w-2xl">
