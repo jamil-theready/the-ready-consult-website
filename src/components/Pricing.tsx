@@ -5,7 +5,6 @@ export default function Pricing() {
   return (
     <section id="pricing" className="sc-section pricing" data-sc-act="flow" data-sc-drift="#ffffff">
       <div className="pricing__wrap">
-        <p className="sc-label pricing__eyebrow">Pricing</p>
         <h2 className="pricing__title" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">
           Two ways to work with us.
         </h2>

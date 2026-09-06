@@ -62,7 +62,7 @@ export default function ServicesTabs() {
       const el = ref.current;
       if (el) {
         const p = parseFloat(getComputedStyle(el).getPropertyValue("--sc-p")) || 0;
-        const i = Math.min(TABS.length - 1, Math.max(0, Math.floor(p * TABS.length)));
+        const i = Math.min(TABS.length - 1, Math.max(0, Math.round(p * (TABS.length - 1))));
         if (i !== last) { last = i; setActive(i); }
       }
       raf = requestAnimationFrame(tick);
@@ -79,7 +79,7 @@ export default function ServicesTabs() {
     if (!act) return;
     const top = act.getBoundingClientRect().top + window.scrollY;
     const range = act.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: top + (range * (i + 0.35)) / TABS.length, behavior: "smooth" });
+    window.scrollTo({ top: top + (range * i) / (TABS.length - 1), behavior: "smooth" });
   };
 
   return (
@@ -93,9 +93,14 @@ export default function ServicesTabs() {
     >
       <div data-sc-stage className="services__stage">
         <div className="services__head">
-          <p className="sc-label services__eyebrow">How it works</p>
-          <h2 className="services__title" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">
-            Four steps to a phone that keeps ringing.
+          {/* The heading IS the card you are on. It was a fixed line that sat
+              still while four cards panned past it, so it stopped meaning
+              anything after the first one. Keyed on `active` so React swaps the
+              node and the CSS fade runs on every change. */}
+          <h2 className="services__title services__title--live" data-sc-cue="0 1 0 0">
+            <span key={active} className="services__titleline">
+              {TABS[active].line}
+            </span>
           </h2>
 
           <div role="tablist" aria-label="How it works" className="services__tabs">
@@ -115,7 +120,7 @@ export default function ServicesTabs() {
           </div>
         </div>
 
-        <div className="services__rail" data-sc-pan="0.06">
+        <div className="services__rail" data-sc-pan="0">
           {TABS.map((t) => (
             <figure key={t.name} className="services__item">
               <div className="services__visual" data-sc-tilt="6">
