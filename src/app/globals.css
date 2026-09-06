@@ -335,9 +335,10 @@ html { scroll-behavior: smooth; }
   flex: 0 0 var(--card); margin: 0;
   display: flex; flex-direction: column; gap: 14px; min-height: 0;
 }
+/* The card treatment moved to the hero stage. What is left is a plain
+   container: the services artwork now sits directly on the page ground. */
 .services__visual {
-  border: 1px solid var(--sc-hairline); border-radius: 18px; overflow: hidden;
-  background: var(--sc-surface); padding: 16px;
+  overflow: hidden;
   flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center;
 }
 .services__cap     { display: flex; flex-direction: column; gap: 6px; max-width: 620px; }
@@ -346,7 +347,6 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 640px) {
   .services__rail { --card: 84vw; }
-  .services__visual { padding: 10px; }
   .services__stage { padding-top: 76px; gap: 20px; }
 }
 
@@ -530,7 +530,21 @@ html { scroll-behavior: smooth; }
 
 /* The mockup is authored at 700px and its panels are positioned in px, so
    reflowing it clips the copy inside. Scale the whole device instead. */
-.hero-stage { position: relative; }
+.hero-stage {
+  position: relative;
+  /* The card treatment, moved here off .services__visual. Same hairline and
+     18px radius; the ring + inset bevel + amber lift is the edge language from
+     the Cluely study, so the stage reads as one physical panel. */
+  border: 1px solid var(--sc-hairline);
+  border-radius: 18px;
+  background: var(--sc-surface);
+  padding: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(233,166,60,.10),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 26px 60px -28px rgba(233,166,60,.26);
+}
 .hero-stage__scale {
   /* One box, one size. It used to scale 0.54-0.84 off viewport height, so the
      same element was a different size on every laptop. Fixed height, no
@@ -551,13 +565,12 @@ html { scroll-behavior: smooth; }
   transition: width 460ms var(--trc-ease);
 }
 .rw__in  { display: inline-block; animation: rw-in 420ms var(--trc-ease) both; }
-.rw__out {
-  position: absolute; inset-inline-start: 0; top: 0; white-space: nowrap;
-  animation: rw-out 420ms var(--trc-ease) both;
-}
+/* .rw__out is GONE. It was absolutely positioned inside .rw and painted a
+   SECOND copy of the trade over the start of line 1 — captured with "masonry"
+   in the slot and simultaneously struck across "AI solutions for your". One
+   word in flow cannot double, so the swap is now the incoming word alone. */
 
-/* Both halves travel the same way, so the swap reads as one vertical ticker
-   rather than two words crossing in the middle. */
+/* The word rises into place. */
 @keyframes rw-in  { from { opacity: 0; transform: translateY(0.34em); }
                     to   { opacity: 1; transform: none; } }
 @keyframes rw-out { from { opacity: 1; transform: none; }
@@ -745,8 +758,18 @@ a, button, .cta-btn, [class*="hover:"] {
    The animation approach did not hold, so this is the blunt version: the
    section is VISIBLE by default and the engine's .sc-in only drives the
    transition. A cosmetic entrance is not worth a hero that can vanish.
-   Higher specificity than the engine's `[data-sc-in]{opacity:0}`. */
-html [data-sc-in], html [data-sc-cue] { opacity: 1; }
+   Higher specificity than the engine's `[data-sc-in]{opacity:0}`.
+
+   ⚠️ `[data-sc-stagger] > *` IS THE ONE THAT ACTUALLY BLANKED THE HERO, and it
+   took the longest to find because it names none of its victims: the hero
+   section carries data-sc-stagger, so the rule hides its CHILDREN. The h1
+   itself always measured opacity 1 with real dimensions and live rotating
+   text — its parent wrapper was the invisible one, with no inline style and no
+   data-sc-* attribute of its own to point at. Any override here must cover all
+   three selectors or the section still renders as an empty ground. */
+html [data-sc-in],
+html [data-sc-cue],
+html [data-sc-stagger] > * { opacity: 1; }
 
 /* ── DISPLAY SCALE ──
    This repo had EIGHT hand-rolled heading clamps, every one different
@@ -761,8 +784,18 @@ html [data-sc-in], html [data-sc-cue] { opacity: 1; }
    it emitted `to right in oklab;background-image:...` and the heading lost
    the gradient entirely. Plain `to right` survives.
    🔴 Reverses design rule 40, which bans gradient text as a lazy default. */
-.t-display, .t-h2 {
-  font-weight: 500;
+.t-display, .t-h2 { font-weight: 500; }
+
+/* The gradient lives on SECTION HEADINGS ONLY, which is what the reference
+   actually does — its H1 is flat white and only the H2s run ink -> grey.
+   It also has to be this way here: `background-clip: text` on the hero H1
+   ghosted it. The H1 contains .rw, an inline-block whose width transitions on
+   every trade swap, and the clipped paint left a stale copy of line 1 struck
+   across itself. Proven by elimination — clearing the fill colour at runtime
+   rendered the heading perfectly with the DOM untouched, and the ghost
+   survived a 960ms settled layout, so it was neither the swap nor capture
+   tearing. Do not put this on .t-display unless .rw stops animating width. */
+.t-h2 {
   background: linear-gradient(to right, var(--foreground) 0%, var(--dust) 100%);
   -webkit-background-clip: text;
   background-clip: text;

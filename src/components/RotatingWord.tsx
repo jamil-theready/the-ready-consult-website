@@ -28,10 +28,12 @@ const SWAP_MS = 420;
    the word changes. */
 export default function RotatingWord() {
   const [i, setI] = useState(0);
-  const [leaving, setLeaving] = useState<number | null>(null);
   const [width, setWidth] = useState<number | undefined>(undefined);
   const live = useRef<HTMLSpanElement>(null);
 
+  // The slot is measured from the live word and the width is transitioned, so
+  // the heading re-centres smoothly instead of jumping. Pinning it to the
+  // widest trade held the line still but left a dead gap after short words.
   const measure = () => {
     if (live.current) setWidth(live.current.offsetWidth);
   };
@@ -49,27 +51,14 @@ export default function RotatingWord() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let clear: ReturnType<typeof setTimeout>;
     const tick = setInterval(() => {
-      setI((n) => {
-        setLeaving(n);
-        clear = setTimeout(() => setLeaving(null), SWAP_MS);
-        return (n + 1) % TRADES.length;
-      });
+      setI((n) => (n + 1) % TRADES.length);
     }, HOLD_MS);
-    return () => {
-      clearInterval(tick);
-      clearTimeout(clear);
-    };
+    return () => clearInterval(tick);
   }, []);
 
   return (
     <span className="rw" style={width ? { width } : undefined}>
-      {leaving !== null && (
-        <span className="rw__out" key={`out-${leaving}`} aria-hidden="true">
-          {TRADES[leaving]}
-        </span>
-      )}
       <span className="rw__in" key={i} ref={live}>
         {TRADES[i]}
       </span>
