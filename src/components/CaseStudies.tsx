@@ -34,7 +34,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <section className="bg-background py-16 sm:py-24 lg:py-32">
+    <section className="bg-background py-16 sm:py-24 lg:py-32 rounded-[12px]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Header row */}
         <div className="flex items-end justify-between mb-10 md:mb-14">

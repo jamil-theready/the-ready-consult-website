@@ -54,7 +54,7 @@ function StatTile({ stat: s, index: i, visible }: { stat: Stat; index: number; v
 
   return (
     <div
-      className="bg-background p-4 text-center transition-all duration-700"
+      className="bg-background p-4 text-center transition-all duration-700 rounded-[12px]"
       style={{
         boxShadow: "0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.04)",
         opacity: visible ? 1 : 0,
@@ -156,7 +156,7 @@ export default function VideoVisual() {
                     <div className="w-full h-full rounded-full bg-gray-300" />
                   </div>
                   <span className="text-[11px] font-semibold text-foreground">thereadyconsult</span>
-                  <button className="text-[9px] font-semibold text-foreground border border-white/40 px-2 py-0.5 ml-1">Follow</button>
+                  <button className="text-[9px] font-semibold text-foreground border border-white/40 px-2 py-0.5 ml-1 rounded-[12px]">Follow</button>
                 </div>
                 <p className="text-[10px] text-foreground/80 leading-relaxed">Your brand deserves better content 🎥</p>
               </div>
@@ -203,7 +203,7 @@ export default function VideoVisual() {
 
         {/* Accounts Reached — bar chart */}
         <div
-          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800 rounded-[12px]"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -257,7 +257,7 @@ export default function VideoVisual() {
 
         {/* Engagement Rate — line chart with constant animation */}
         <div
-          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800 rounded-[12px]"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(20px)",

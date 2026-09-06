@@ -66,7 +66,7 @@ export default function WebsiteVisual() {
   return (
     <div ref={ref} className="w-full h-full bg-[#16110A] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
       {/* Browser chrome */}
-      <div className="flex items-center gap-2 px-4 py-2.5 bg-slab border-b border-gray-200">
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-slab border-b border-gray-200 rounded-[12px]">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
           <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
@@ -105,7 +105,7 @@ export default function WebsiteVisual() {
         {/* Site — Wedge-style SaaS */}
         <div className="absolute inset-0 flex flex-col bg-background" style={{ opacity: showSite ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
           {/* Navbar */}
-          <div className="px-5 py-2.5 flex items-center justify-between border-b border-gray-100" style={show(1)}>
+          <div className="px-5 py-2.5 flex items-center justify-between border-b border-gray-100 rounded-[12px]" style={show(1)}>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5">
                 <div className="w-5 h-5 bg-[#3b2fc9] flex items-center justify-center">
@@ -145,7 +145,7 @@ export default function WebsiteVisual() {
             {/* Dashboard cards row */}
             <div className="flex gap-2.5 mt-6 w-full px-2" style={show(5)}>
               {/* Card 1 — avatars */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(6)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(6)}>
                 <div className="flex -space-x-2 mb-2">
                   {["#e9d5ff", "#bfdbfe", "#fde68a", "#bbf7d0", "#fecaca"].map((c, i) => (
                     <div key={i} className="w-6 h-6 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
@@ -155,7 +155,7 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 2 — progress */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(7)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(7)}>
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-4 h-4 bg-[#3b2fc9]/10 flex items-center justify-center">
                     <div className="w-2 h-2 bg-[#3b2fc9]" />
@@ -183,12 +183,12 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 3 — team list */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(8, 0.1)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(8, 0.1)}>
                 {[
                   { name: "Freddy", role: "Marketing", color: "#e9d5ff" },
                   { name: "Iliana", role: "Design", color: "#bfdbfe" },
                 ].map((p) => (
-                  <div key={p.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-b-0">
+                  <div key={p.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-b-0 rounded-[12px]">
                     <div className="flex items-center gap-1.5">
                       <div className="w-5 h-5 rounded-full" style={{ backgroundColor: p.color }} />
                       <span className="text-[8px] font-medium text-gray-700">{p.name}</span>
@@ -199,7 +199,7 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 4 — expense categories */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(9, 0.2)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(9, 0.2)}>
                 <span className="text-[8px] font-semibold text-gray-700 block mb-2">Expense categories</span>
                 <div className="flex gap-1 mb-2">
                   {[60, 25, 15].map((w, i) => (

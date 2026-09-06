@@ -188,7 +188,7 @@ export default async function BlogPostPage({
 
               {/* Mobile-only TOC */}
               {headings.length >= 2 && (
-                <aside className="xl:hidden mb-12 border-t border-b border-gray-200 py-6">
+                <aside className="xl:hidden mb-12 border-t border-b border-gray-200 py-6 rounded-[12px]">
                   <p className="text-[10px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">In This Article</p>
                   <ol className="space-y-2">
                     {headings.map((h, i) => (

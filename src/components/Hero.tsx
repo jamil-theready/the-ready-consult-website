@@ -13,7 +13,6 @@ export default function Hero() {
       id="hero"
       className="sc-section relative bg-background min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden"
       data-sc-act="flow"
-      data-sc-drift="#0D0A05"
       data-sc-in
       data-sc-stagger="70"
     >
@@ -94,7 +93,7 @@ export default function Hero() {
 
       <HeroDiorama />
 
-      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-0 flex-1 flex flex-col justify-start items-center text-center">
+      <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-0 flex-1 flex flex-col justify-start items-center text-center">
         <h1
           className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] max-w-[900px] text-navy"
           data-sc-cue="0 0.78 0"
@@ -113,7 +112,7 @@ export default function Hero() {
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
           <a
             href="/contact"
-            className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[15px] px-8 py-3.5 hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"
+            className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[15px] px-8 py-3.5 hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group rounded-[6px]"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
@@ -127,7 +126,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[14px] px-6 py-3.5 border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all"
+            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[14px] px-6 py-3.5 border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all rounded-[6px]"
           >
             See how it works
           </a>

@@ -10,7 +10,7 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
         return (
           <section
             key={c.slug}
-            className="relative h-screen w-full bg-background p-2 sm:p-3 snap-start"
+            className="relative h-screen w-full bg-background p-2 sm:p-3 snap-start rounded-[12px]"
           >
             <a
               href={`/work/${c.slug}`}

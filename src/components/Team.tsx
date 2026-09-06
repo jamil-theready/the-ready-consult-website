@@ -9,7 +9,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="bg-background py-24 lg:py-36">
+    <section id="team" className="bg-background py-24 lg:py-36 rounded-[12px]">
       <div className="max-w-[1280px] mx-auto px-6">
         <p className="text-teal font-semibold text-[15px] mb-4">Team</p>
         <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-navy leading-[1.1] tracking-tight max-w-md mb-16">
@@ -20,7 +20,7 @@ export default function Team() {
           {team.map((m) => (
             <div key={m.name} className="group">
               <div className={`h-2 bg-gradient-to-r ${m.gradient}`} />
-              <div className="bg-gray-50 p-8">
+              <div className="bg-gray-50 p-8 rounded-[12px]">
                 <div className={`w-14 h-14 bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5`}>
                   <span className="text-foreground font-bold text-lg">
                     {m.name.split(" ").map((n) => n[0]).join("")}

@@ -22,10 +22,10 @@
 :root {
   color-scheme: dark;
 
-  --void:       #050302;
-  --background: #0D0A05;
-  --slab:       #16110A;
-  --seam:       #2C2417;
+  --void:       #030201;
+  --background: #080603;
+  --slab:       #110D07;
+  --seam:       #241E13;
 
   --foreground: #F7F0E2;
   --dust:       #BCAC8C;
@@ -50,9 +50,9 @@
   --pink:       #E9A63C;
   --orange:     #E9A63C;
 
-  --gray-50:  #100C06;
-  --gray-100: #16110A;
-  --gray-200: #2C2417;
+  --gray-50:  #0B0804;
+  --gray-100: #110D07;
+  --gray-200: #241E13;
   --gray-300: #4A3F2C;
   --gray-400: #9A8A6C;
   --gray-500: #BCAC8C;
@@ -156,11 +156,10 @@
 }
 
 body {
-  /* The engine interpolates --sc-canvas as you scroll (data-sc-drift). Painting
-     the body from it is what makes the ground actually move; binding to the
-     static --background instead silently swallows every drift. --sc-canvas
-     defaults to #ffffff, so pages with no acts are unchanged. */
-  background: var(--sc-canvas, var(--background));
+  /* Bound straight to --background. The engine used to interpolate --sc-canvas
+     as you scrolled (data-sc-drift) and the page drifted lighter on the way
+     down; those attributes are gone, so the ground stays put. */
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -195,12 +194,23 @@ html { scroll-behavior: smooth; }
 .cta-btn {
   background: var(--amber);
   color: var(--background);
-  box-shadow: 0 0 48px rgba(233,166,60,.26);
+  border-radius: var(--r-control);
+  box-shadow:
+    0 0 0 1px rgba(133,85,8,.55),
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -1px 0 rgba(0,0,0,.18),
+    0 14px 34px -12px rgba(233,166,60,.45);
+  transition: background var(--t) var(--ease), box-shadow var(--t) var(--ease),
+              transform var(--t-fast) var(--ease);
 }
+.cta-btn:active { transform: translateY(1px); }
 .cta-btn, .cta-btn * { color: var(--background); }
 .cta-btn:hover {
   background: var(--glow);
-  box-shadow: 0 0 64px rgba(255,208,123,.34);
+  box-shadow:
+    0 0 0 1px rgba(133,85,8,.5),
+    inset 0 1px 0 rgba(255,255,255,.34),
+    0 18px 44px -12px rgba(255,208,123,.5);
 }
 
 /* Shimmer sweep across button */
@@ -368,8 +378,9 @@ html { scroll-behavior: smooth; }
 .plan__cta {
   margin-top: 30px; text-align: center; padding: 14px 20px; border-radius: 12px;
   font-size: 14px; font-weight: 600; text-decoration: none;
-  background: #fff; color: var(--sc-ink); border: 1px solid var(--sc-hairline);
+  background: transparent; color: var(--sc-ink); border: 1px solid var(--sc-hairline);
   transition: background .3s var(--trc-ease), color .3s var(--trc-ease), border-color .3s var(--trc-ease);
+  border-radius: var(--r-control);
 }
 .plan__cta:hover { border-color: var(--sc-ink-soft); }
 .plan.is-featured .plan__cta { background: var(--sc-accent); color: var(--sc-accent-ink); border-color: transparent; }
@@ -428,7 +439,7 @@ html { scroll-behavior: smooth; }
 
 .faq__close { margin-top: 40px; display: flex; align-items: center; justify-content: space-between;
   gap: 20px; flex-wrap: wrap; padding: 24px 26px; border-radius: 16px;
-  background: #fff; border: 1px solid var(--sc-hairline); }
+  background: var(--slab); border: 1px solid var(--sc-hairline); }
 .faq__closeh { font-size: 16px; font-weight: 600; color: var(--sc-ink); margin: 0; }
 .faq__cta { display: inline-block; padding: 13px 26px; border-radius: 12px; text-decoration: none;
   font-size: 14px; font-weight: 600; background: var(--sc-accent); color: var(--sc-accent-ink);
@@ -464,13 +475,14 @@ html { scroll-behavior: smooth; }
   position: absolute; inset: 0;
   pointer-events: none; overflow: hidden;
   /* The ground plane. Without it the near layers end on a hard line and the
-     page shows through beneath them as they slide. Its colour is the Mission
-     section's drift target, so the section seam is invisible once you reach it. */
+     page shows through beneath them as they slide. It used to be the Mission
+     section's drift target (#f4f8fa); with the drift removed that was a pale
+     blue-white wedge on a near-black page, so it is the ground itself now. */
   background: linear-gradient(to bottom,
     transparent 0,
     transparent calc(100vh - 300px * var(--u)),
-    #f4f8fa calc(100vh - 130px * var(--u)),
-    #f4f8fa 100%);
+    var(--background) calc(100vh - 130px * var(--u)),
+    var(--background) 100%);
   /* The scene is clipped by the hero's bottom edge. A saturated block wall cut
      on that line reads as a mistake, so dissolve the whole band into the page
      instead of ending it. */
@@ -494,8 +506,8 @@ html { scroll-behavior: smooth; }
 .hd__sky {
   top: 0; height: calc(100vh - 120px * var(--u));
   background:
-    radial-gradient(56% 66% at 80% 54%, rgba(255, 214, 172, .34) 0%, transparent 62%),
-    radial-gradient(70% 62% at 16% 66%, rgba(196, 222, 235, .38) 0%, transparent 66%);
+    radial-gradient(56% 66% at 80% 54%, rgba(233, 166, 60, .20) 0%, transparent 62%),
+    radial-gradient(70% 62% at 16% 66%, rgba(133,  85,  8, .22) 0%, transparent 66%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 46%);
 }
 
@@ -615,9 +627,27 @@ body::after {
 /* SEAM — the only line work in the brand. Structure, never decoration. */
 .seam { height: 1px; background: var(--seam); border: 0; }
 
-/* BLOOM — light spreading through haze. Zero y-offset; an offset shadow is
-   elevation and is banned. */
+/* ── EDGE & LIGHT ──
+   🔴 REVERSES "no box-shadow with a y-offset". Cluely never uses a generic
+   black drop shadow either — every shadow is tinted with the element's own
+   colour and paired with an INSET top highlight, which is what makes a button
+   read as a physical object catching light from above. Three parts:
+     ring      a half-pixel hairline in the accent hue, darker than the fill
+     bevel     inset 0 1px 0 white at ~10%, the lit top edge
+     lift      a wide, soft, AMBER-tinted shadow. never rgba(0,0,0,x)  */
 .bloom { box-shadow: 0 0 48px rgba(233,166,60,.24); }
+
+.edge {
+  box-shadow:
+    0 0 0 1px rgba(233,166,60,.16),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+.edge-lift {
+  box-shadow:
+    0 0 0 1px rgba(233,166,60,.18),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 18px 40px -16px rgba(233,166,60,.22);
+}
 
 /* THE MARK — white core, amber bloom. White is a light SOURCE, never type. */
 .lit   { fill: #fff; filter:
@@ -641,34 +671,38 @@ body::after {
 :root[data-theme="light"] .theme-ico-moon { display: block; }
 :root[data-theme="light"] .theme-ico-sun  { display: none; }
 
-/* ZERO RADIUS — the dots in the mark are the only curve in the brand.
-   NOTE: this does NOT beat a Tailwind rounded-* utility (a class selector
-   outranks *), so radius also has to come out of the markup. */
-*, *::before, *::after { border-radius: 0; }
+/* ── RADIUS LADDER ──
+   🔴 REVERSES the zero-radius rule. Cluely does not use one radius, it uses a
+   ladder that scales with the element: 4-6px on controls, 12px on cards, 24px
+   on feature panels, full pills on chips. Square corners on everything read as
+   a constraint, not a decision. The dots in the mark are still the only circle. */
+:root {
+  --r-control: 6px;
+  --r-card:    12px;
+  --r-panel:   20px;
+  --r-pill:    9999px;
+
+  /* ── MOTION ──
+     Cluely's durations cluster hard at 150ms and 200ms with a single easing
+     curve used 56 times. Fast, and only one curve for the whole site. */
+  --t-fast: 150ms;
+  --t:      200ms;
+  --ease:   cubic-bezier(.4, 0, .2, 1);
+}
+button, input, textarea, select, .cta-btn, .btn { border-radius: var(--r-control); }
 .rounded-full { border-radius: 9999px; }
 
 /* No heading is ever left unbalanced (design rule A15.2b). */
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 p, li, blockquote { text-wrap: pretty; }
 
-/* ── SCROLL DRIFT vs THE THEME ──
-   The engine parses data-sc-drift ONCE at init and then writes --sc-canvas
-   inline on every frame, so an inline style always beats a stylesheet rule
-   and the drift colours cannot be CSS variables. They are pinned to the dark
-   ground, which keeps the drift working in the default theme.
-
-   In light mode we take the ground back. The page loses the drift there, but
-   a dark body under light content is the alternative, and that is worse. To
-   give light mode its own drift the engine would have to be re-initialised on
-   theme change; that is a bigger change than this rebrand. */
-:root[data-theme="light"] body { background: var(--background) !important; }
 
 /* CHROME-DARK — a mockup depicts ANOTHER product's interface. ChatGPT's window
    is dark whatever theme thereadyconsult.com is in, and a terminal is always a
    terminal. These subtrees pin the dark tokens so the illustration stays
    honest while the page around it changes. */
 .chrome-dark {
-  --background: #0D0A05; --void: #050302; --slab: #16110A; --seam: #2C2417;
+  --background: #080603; --void: #050302; --slab: #16110A; --seam: #2C2417;
   --foreground: #F7F0E2; --dust: #BCAC8C; --unlit: #3E3426;
   --amber: #E9A63C; --glow: #FFD07B; --navy: #F7F0E2;
   --fg-rgb: 247, 240, 226; --amber-rgb: 233, 166, 60;
@@ -676,4 +710,11 @@ p, li, blockquote { text-wrap: pretty; }
   --gray-300: #4A3F2C; --gray-400: #9A8A6C; --gray-500: #BCAC8C;
   --gray-600: #D2C4A6; --gray-700: #E4D9C2; --gray-800: #EDE4D2; --gray-900: #F7F0E2;
   color: var(--foreground);
+}
+
+/* Cluely runs 150-200ms on ONE curve across the whole site. Anything slower
+   reads as lag; anything bouncier reads as a toy. */
+a, button, .cta-btn, [class*="hover:"] {
+  transition-timing-function: var(--ease);
+  transition-duration: var(--t);
 }

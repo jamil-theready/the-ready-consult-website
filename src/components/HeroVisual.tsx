@@ -149,14 +149,14 @@ export default function HeroVisual() {
         <div className="w-[850px] overflow-hidden"
           style={{ boxShadow: "0 70px 140px -25px rgba(0,0,0,0.35), 0 35px 70px -15px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.04)" }}>
           {/* macOS chrome */}
-          <div className="bg-gradient-to-b from-[#ececec] to-[#e0e0e0] border-b border-[#ccc] px-5 py-3 flex items-center">
+          <div className="bg-gradient-to-b from-[#ececec] to-[#e0e0e0] border-b border-[#ccc] px-5 py-3 flex items-center rounded-[12px]">
             <div className="flex gap-2">
               <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57] " />
               <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e] " />
               <div className="w-3.5 h-3.5 rounded-full bg-[#28c840] " />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="bg-slab/80 backdrop-blur border border-gray-300/60 px-4 py-1.5 flex items-center gap-2 w-[340px] ">
+              <div className="bg-slab/80 backdrop-blur border border-gray-300/60 px-4 py-1.5 flex items-center gap-2 w-[340px]  rounded-[12px]">
                 <svg className="w-3.5 h-3.5 text-green" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                 </svg>
@@ -210,7 +210,7 @@ export default function HeroVisual() {
                   </p>
                   <div className="flex gap-3 mt-6">
                     <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-foreground text-[12px] font-semibold px-6 py-3 ">Get started free →</div>
-                    <div className="bg-slab border border-gray-200 text-gray-700 text-[12px] font-medium px-6 py-3 ">Watch demo</div>
+                    <div className="bg-slab border border-gray-200 text-gray-700 text-[12px] font-medium px-6 py-3  rounded-[12px]">Watch demo</div>
                   </div>
                   {/* Social proof */}
                   <div className="flex items-center gap-3 mt-6">
@@ -231,7 +231,7 @@ export default function HeroVisual() {
                 </div>
 
                 {/* Dashboard card */}
-                <div className="w-[300px] bg-slab border border-gray-100 p-5 ">
+                <div className="w-[300px] bg-slab border border-gray-100 p-5  rounded-[12px]">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[12px] font-semibold text-gray-800">Calls this month</span>
                     <span className="text-[10px] bg-green/10 text-green font-semibold px-2 py-0.5 rounded-full">↑ 24%</span>
@@ -256,7 +256,7 @@ export default function HeroVisual() {
                       { label: "Conversion", value: "4.2%", change: "+0.8%" },
                       { label: "Churn", value: "1.1%", change: "-0.3%" },
                     ].map((s) => (
-                      <div key={s.label} className="bg-gray-50 p-2.5">
+                      <div key={s.label} className="bg-gray-50 p-2.5 rounded-[12px]">
                         <p className="text-[12px] font-bold text-gray-900">{s.value}</p>
                         <div className="flex items-center gap-1">
                           <p className="text-[8px] text-gray-400">{s.label}</p>
@@ -279,7 +279,7 @@ export default function HeroVisual() {
       <div className="absolute inset-0 flex items-center justify-center scale-[0.6] sm:scale-[0.75] lg:scale-100 origin-center" style={panelStyle(1)}>
         <div className="w-[700px] bg-[#212121] overflow-hidden border border-white/10"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.5), 0 35px 70px -12px rgba(0,0,0,0.35), 0 0 100px rgba(16,163,127,0.1)" }}>
-          <div className="px-5 py-3.5 flex items-center gap-3 border-b border-white/5">
+          <div className="px-5 py-3.5 flex items-center gap-3 border-b border-white/5 rounded-[12px]">
             <div className="w-8 h-8 rounded-full bg-[#10a37f] flex items-center justify-center">
               <svg className="w-5 h-5 text-foreground" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364l2.0201-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4091-.6765zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0974-2.3616l2.603-1.5018 2.6032 1.5018v3.0036l-2.6032 1.5018-2.603-1.5018z" />
@@ -357,7 +357,7 @@ export default function HeroVisual() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* Overlay text */}
-          <div className="absolute inset-0 flex items-center justify-center px-6 bg-void/20">
+          <div className="absolute inset-0 flex items-center justify-center px-6 bg-void/20 rounded-[12px]">
             <div className="text-center">
               <p className="text-[26px] font-bold text-foreground leading-tight drop-">
                 Retaining wall<br />in Folsom<br /><span className="text-[#10a37f]">start to finish</span>
@@ -370,7 +370,7 @@ export default function HeroVisual() {
                 <div className="w-full h-full rounded-full bg-seam" />
               </div>
               <span className="text-[11px] text-foreground font-semibold">yourcompany</span>
-              <span className="text-[8px] text-foreground/50 border border-white/30 px-2 py-0.5 ml-1">Follow</span>
+              <span className="text-[8px] text-foreground/50 border border-white/30 px-2 py-0.5 ml-1 rounded-[12px]">Follow</span>
             </div>
             <p className="text-[9px] text-foreground/60 leading-relaxed mb-2">Three days on this one. Swipe for the before shots.</p>
             <div className="flex items-center gap-2">
@@ -403,9 +403,9 @@ export default function HeroVisual() {
         <div className="w-[600px] bg-slab border border-gray-200 overflow-hidden"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.25), 0 35px 70px -12px rgba(0,0,0,0.15), 0 0 80px rgba(66,133,244,0.08)" }}>
           {/* Gmail header */}
-          <div className="px-6 py-4 flex items-center gap-3 border-b border-gray-100">
+          <div className="px-6 py-4 flex items-center gap-3 border-b border-gray-100 rounded-[12px]">
             <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-              <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="#fff"/>
+              <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="var(--foreground)"/>
               <path d="M2 6l10 7 10-7" fill="#EA4335"/>
               <path d="M2 6v12h4V10l6 4.5L18 10v8h4V6L12 13 2 6z" fill="#EA4335"/>
               <path d="M2 6v12h4V10l6 4.5" fill="#4285F4"/>
@@ -483,7 +483,7 @@ export default function HeroVisual() {
       <div className="absolute inset-0 flex items-center justify-center px-6 scale-[0.5] sm:scale-[0.65] lg:scale-100 origin-center" style={panelStyle(4)}>
         <div className="flex gap-4 max-w-[900px]">
           {/* Leads — bar chart */}
-          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px] rounded-[12px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -513,7 +513,7 @@ export default function HeroVisual() {
           </div>
 
           {/* Views — area chart */}
-          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px] rounded-[12px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -539,7 +539,7 @@ export default function HeroVisual() {
           </div>
 
           {/* Hours saved — donut */}
-          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px] rounded-[12px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -578,7 +578,7 @@ export default function HeroVisual() {
           </div>
 
           {/* Speed — gauge */}
-          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px] rounded-[12px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
