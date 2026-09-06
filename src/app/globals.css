@@ -209,25 +209,41 @@ html { scroll-behavior: smooth; }
 
 /* CTA button */
 .cta-btn {
-  background: var(--amber);
+  /* Modelled on the reference's primary CTA, measured rather than eyeballed:
+     12px radius, 44px tall, 10px/20px padding, 16px/500 with -0.13px tracking,
+     and a THREE-part shadow — a large COLOURED drop offset down-right, a light
+     inset from the top-left (the bevel), and a dark inset from the bottom-right
+     (the depth). The fill is two stacked radials: the base lit from the
+     upper-left, and a white sheen blooming from the lower-right.
+
+     One deliberate departure: the reference puts WHITE type on its blue. White
+     on this amber is 2.1:1, so the ink stays --background at 9.40:1
+     (design rule 70 / 21d). The form is copied, the contrast failure is not. */
+  background-image:
+    radial-gradient(101.79% 101.79% at 65.61% 81.79%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 100%),
+    radial-gradient(114.65% 114.65% at 9.73% 17.27%, var(--glow) 0%, var(--amber) 100%);
   color: var(--background);
-  border-radius: var(--r-control);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.008em;
   box-shadow:
-    0 0 0 1px rgba(133,85,8,.55),
-    inset 0 1px 0 rgba(255,255,255,.28),
-    inset 0 -1px 0 rgba(0,0,0,.18),
-    0 14px 34px -12px rgba(233,166,60,.45);
-  transition: background var(--t) var(--ease), box-shadow var(--t) var(--ease),
-              transform var(--t-fast) var(--ease);
+    rgba(233,166,60,.34) 18px 18px 26px 0,
+    rgba(255,224,176,.45) -3px -3px 4px 0 inset,
+    rgba(90,52,4,.20) 4px 4px 5px 0 inset;
+  transition: box-shadow var(--t) var(--ease), transform var(--t-fast) var(--ease),
+              filter var(--t) var(--ease);
 }
+.cta-btn:active { transform: translateY(1px); }
 .cta-btn:active { transform: translateY(1px); }
 .cta-btn, .cta-btn * { color: var(--background); }
 .cta-btn:hover {
-  background: var(--glow);
+  filter: brightness(1.06);
   box-shadow:
-    0 0 0 1px rgba(133,85,8,.5),
-    inset 0 1px 0 rgba(255,255,255,.34),
-    0 18px 44px -12px rgba(255,208,123,.5);
+    rgba(255,208,123,.42) 20px 20px 30px 0,
+    rgba(255,232,196,.55) -3px -3px 4px 0 inset,
+    rgba(90,52,4,.18) 4px 4px 5px 0 inset;
 }
 
 /* Shimmer sweep across button */
@@ -731,7 +747,10 @@ body::after {
   --t:      200ms;
   --ease:   cubic-bezier(.4, 0, .2, 1);
 }
-button, input, textarea, select, .cta-btn, .btn { border-radius: var(--r-control); }
+/* .cta-btn is deliberately NOT in this list: the primary CTA carries its own
+   12px, and having it here meant the ladder and the button rule fought over
+   the same property — the ladder won and the CTA silently stayed 6px. */
+button, input, textarea, select, .btn { border-radius: var(--r-control); }
 .rounded-full { border-radius: 9999px; }
 
 /* No heading is ever left unbalanced (design rule A15.2b). */
