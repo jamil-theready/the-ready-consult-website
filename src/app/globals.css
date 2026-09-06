@@ -107,6 +107,13 @@ html { scroll-behavior: smooth; }
 
 /* CTA button */
 .cta-btn {
+  /* 🔴 The colour is set HERE, not by the `text-white` class the buttons carry.
+     Tailwind is emitting no utilities at all on this branch — not .text-white,
+     not even .flex — so every one of those classes is inert and the buttons
+     inherited body colour: navy #0a2540 on a red gradient, unreadable. Setting
+     it in this file is the fix that holds while that is sorted out; see the
+     note at the top of the file. */
+  color: #fff;
   background: linear-gradient(145deg, #b91c1c 0%, #dc2626 40%, #b91c1c 100%);
   box-shadow:
     0 6px 24px rgba(185, 28, 28, 0.35),
@@ -114,6 +121,7 @@ html { scroll-behavior: smooth; }
     inset 0 1px 0 rgba(255,255,255,0.12),
     inset 0 -1px 0 rgba(0,0,0,0.25);
 }
+.cta-btn, .cta-btn * { color: #fff; }
 .cta-btn:hover {
   background: linear-gradient(145deg, #dc2626 0%, #ef4444 40%, #dc2626 100%);
   box-shadow:
@@ -215,10 +223,9 @@ html { scroll-behavior: smooth; }
   gap: 28px; padding: 92px 0 40px; overflow: hidden;
 }
 .services__head  { max-width: 1280px; margin: 0 auto; padding: 0 24px; width: 100%; }
-.services__eyebrow { font-size: 12px; letter-spacing: .28em; }
 .services__title {
-  font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 500; line-height: 1.12;
-  letter-spacing: -0.02em; color: var(--sc-ink); margin-top: 12px; max-width: 620px;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem); font-weight: 500; line-height: 1.12;
+  letter-spacing: -0.02em; color: var(--sc-ink); margin-top: 0; max-width: 620px;
 }
 
 .services__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
@@ -236,15 +243,29 @@ html { scroll-behavior: smooth; }
 .services__tab.is-active::after { transform: scaleX(1); }
 
 .services__tabn    { font-size: 11px; color: var(--sc-accent); letter-spacing: .1em; }
-.services__tabname { font-size: 15px; font-weight: 500;
+.services__tabname { font-size: 14px; font-weight: 500;
   color: color-mix(in oklab, var(--sc-ink) 68%, transparent);
   transition: color .35s var(--trc-ease); }
 .services__tab.is-active .services__tabname { color: var(--sc-ink); }
 
-.services__rail { display: flex; gap: 24px; padding: 0 24px; will-change: transform;
-  flex: 1 1 auto; min-height: 0; align-items: stretch; }
+.services__rail {
+  --card: min(62vw, 760px);
+  --gap: 24px;
+  display: flex; gap: var(--gap); padding: 0; will-change: transform;
+  flex: 1 1 auto; min-height: 0; align-items: stretch;
+}
+/* The engine pans the rail from x=0 to x=-(scrollWidth - viewport), so without
+   these the first card starts flush left and the last ends flush right, and a
+   card is only ever centred by accident. Half a viewport of empty rail at each
+   end makes both ends of that same travel a centred card. Pseudo-elements on a
+   flex container are flex items, so they measure into scrollWidth, which
+   trailing padding does not reliably do. */
+.services__rail::before,
+.services__rail::after {
+  content: ""; flex: 0 0 max(0px, calc((100vw - var(--card)) / 2 - var(--gap)));
+}
 .services__item {
-  flex: 0 0 min(62vw, 760px); margin: 0;
+  flex: 0 0 var(--card); margin: 0;
   display: flex; flex-direction: column; gap: 14px; min-height: 0;
 }
 .services__visual {
@@ -253,11 +274,11 @@ html { scroll-behavior: smooth; }
   flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center;
 }
 .services__cap     { display: flex; flex-direction: column; gap: 6px; max-width: 620px; }
-.services__capline { font-size: 18px; font-weight: 600; color: var(--sc-ink); }
-.services__capbody { font-size: 15px; line-height: 1.6; color: var(--sc-ink-soft); }
+.services__capline { font-size: 16px; font-weight: 600; color: var(--sc-ink); }
+.services__capbody { font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); }
 
 @media (max-width: 640px) {
-  .services__item { flex: 0 0 84vw; }
+  .services__rail { --card: 84vw; }
   .services__visual { padding: 10px; }
   .services__stage { padding-top: 76px; gap: 20px; }
 }
@@ -267,10 +288,9 @@ html { scroll-behavior: smooth; }
    .sc- classes and [data-sc-*] hooks are left alone.
    --------------------------------------------------------------------------- */
 .pricing__wrap { max-width: 1080px; margin: 0 auto; padding: 96px 24px; }
-.pricing__eyebrow { font-size: 12px; letter-spacing: .28em; }
 .pricing__title {
-  font-size: clamp(1.9rem, 3.4vw, 2.75rem); font-weight: 500; line-height: 1.12;
-  letter-spacing: -0.02em; color: var(--sc-ink); margin: 12px 0 44px; max-width: 620px;
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 500; line-height: 1.12;
+  letter-spacing: -0.02em; color: var(--sc-ink); margin: 0 0 44px; max-width: 620px;
 }
 .pricing__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
 
@@ -282,15 +302,15 @@ html { scroll-behavior: smooth; }
 .plan.is-featured { border-color: color-mix(in oklab, var(--sc-accent) 38%, transparent); }
 .plan__name   { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--sc-accent); }
 .plan__price  { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 6px; flex-wrap: wrap; }
-.plan__figure { font-size: clamp(2rem, 3.6vw, 2.9rem); font-weight: 600; letter-spacing: -0.03em; color: var(--sc-ink); }
+.plan__figure { font-size: clamp(1.75rem, 3vw, 2.45rem); font-weight: 600; letter-spacing: -0.03em; color: var(--sc-ink); }
 .plan__period { font-size: 12px; color: var(--sc-ink-soft); }
-.plan__desc   { font-size: 15px; line-height: 1.6; color: var(--sc-ink-soft); max-width: 44ch; }
+.plan__desc   { font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); max-width: 44ch; }
 .plan__features { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.plan__features li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--sc-ink); }
+.plan__features li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--sc-ink); }
 .plan__features svg { color: var(--sc-accent); flex: none; margin-top: 3px; }
 .plan__cta {
   margin-top: 30px; text-align: center; padding: 14px 20px; border-radius: 12px;
-  font-size: 15px; font-weight: 600; text-decoration: none;
+  font-size: 14px; font-weight: 600; text-decoration: none;
   background: #fff; color: var(--sc-ink); border: 1px solid var(--sc-hairline);
   transition: background .3s var(--trc-ease), color .3s var(--trc-ease), border-color .3s var(--trc-ease);
 }
@@ -324,29 +344,39 @@ html { scroll-behavior: smooth; }
 .faq__stage { display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
 .faq__inner { max-width: 760px; margin: 0 auto; padding: 88px 24px 40px; width: 100%; flex: 1 1 auto;
   display: flex; flex-direction: column; justify-content: center; }
-.faq__eyebrow { font-size: 12px; letter-spacing: .28em; }
-.faq__title { font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em;
-  color: var(--sc-ink); margin: 12px 0 28px; }
+.faq__title { font-size: clamp(1.55rem, 2.7vw, 2.1rem); font-weight: 500; letter-spacing: -0.02em;
+  color: var(--sc-ink); margin: 0 0 28px; }
+.services__title--live { min-height: 1.15em; }
+.services__titleline { display: inline-block; animation: svc-swap .45s var(--trc-ease) both; }
+@keyframes svc-swap {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .services__titleline { animation: none; } }
+/* The service names inside the about copy. Weight and colour, no decoration —
+   a highlighted word should read as emphasis, not as a link. */
+.mission__k { font-style: normal; font-weight: 600; color: var(--sc-accent); }
+
 .faq__list { border-top: 1px solid var(--sc-hairline); }
 .faq__item { border-bottom: 1px solid var(--sc-hairline); }
 .faq__q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
   padding: 18px 0; text-align: left; cursor: pointer; background: none; border: 0;
-  font-size: 15px; font-weight: 500; color: var(--sc-ink); }
+  font-size: 14px; font-weight: 500; color: var(--sc-ink); }
 .faq__plus { color: var(--gray-400); flex: none; transition: transform .3s var(--trc-ease); }
 .faq__plus.is-open { transform: rotate(45deg); }
 .faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s var(--trc-ease); }
 .faq__a.is-open { grid-template-rows: 1fr; }
 .faq__a > div { overflow: hidden; }
-.faq__a p { font-size: 15px; line-height: 1.65; color: var(--sc-ink-soft); padding-bottom: 18px; margin: 0; }
+.faq__a p { font-size: 14px; line-height: 1.65; color: var(--sc-ink-soft); padding-bottom: 18px; margin: 0; }
 
 .faq__close { margin-top: 40px; display: flex; align-items: center; justify-content: space-between;
   gap: 20px; flex-wrap: wrap; padding: 24px 26px; border-radius: 16px;
   background: #fff; border: 1px solid var(--sc-hairline); }
-.faq__closeh { font-size: 18px; font-weight: 600; color: var(--sc-ink); margin: 0; }
+.faq__closeh { font-size: 16px; font-weight: 600; color: var(--sc-ink); margin: 0; }
 .faq__cta { display: inline-block; padding: 13px 26px; border-radius: 12px; text-decoration: none;
-  font-size: 15px; font-weight: 600; background: var(--sc-accent); color: var(--sc-accent-ink);
+  font-size: 14px; font-weight: 600; background: var(--sc-accent); color: var(--sc-accent-ink);
   transition: background .3s var(--trc-ease); }
-.faq__cta:hover { background: #b91c1c; }
+/* No hover state on the FAQ CTA — Jamil's call, 2026-09-04. */
 
 @media (max-width: 640px) {
   .faq__inner { padding: 72px 20px 32px; }
@@ -359,4 +389,141 @@ html { scroll-behavior: smooth; }
    degrades into missing content. Show them already assembled instead. */
 @media (prefers-reduced-motion: reduce) {
   .services__visual * { opacity: 1 !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero diorama: a back yard in six layers, each on its own parallax rate.
+   Rates are NOT viewport fractions. The engine writes
+     translate3d(0, rate * (p - 0.5) * 100px, 0)
+   so a rate reads as "hundreds of px of travel across the act". The hero's
+   original 0.30 and 0.08 moved 15px and 4px, which is why it read as static.
+
+   The band is anchored to the bottom of the hero and is deliberately taller
+   than the gap left below the fold, so its horizon is already on screen at
+   rest and scrolling separates the layers rather than introducing them.
+   --------------------------------------------------------------------------- */
+.hd {
+  --u: 1;                        /* whole-scene scale, dialled down on phones */
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: hidden;
+  /* The ground plane. Without it the near layers end on a hard line and the
+     page shows through beneath them as they slide. Its colour is the Mission
+     section's drift target, so the section seam is invisible once you reach it. */
+  background: linear-gradient(to bottom,
+    transparent 0,
+    transparent calc(100vh - 300px * var(--u)),
+    #f4f8fa calc(100vh - 130px * var(--u)),
+    #f4f8fa 100%);
+  /* The scene is clipped by the hero's bottom edge. A saturated block wall cut
+     on that line reads as a mistake, so dissolve the whole band into the page
+     instead of ending it. */
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
+}
+
+/* Every layer is a fixed-height box whose artwork is anchored to its bottom
+   edge (preserveAspectRatio yMax), so the box bottom IS that layer's horizon.
+   Heights must be fixed: a `slice` SVG scales to COVER its box, so tying the
+   box to the band makes the distant rooflines larger than the near shrubs.
+   The horizons then step down from the fold, which is the depth cue. */
+.hd__l { position: absolute; inset-inline: -5%; will-change: transform; }
+.hd__l > svg { display: block; width: 100%; height: 100%; }
+
+.hd__ridge { height: calc(300px * var(--u)); top: calc(100vh - 550px * var(--u)); }
+.hd__roofs { height: calc(300px * var(--u)); top: calc(100vh - 486px * var(--u)); }
+.hd__trees { height: calc(300px * var(--u)); top: calc(100vh - 414px * var(--u)); }
+.hd__hard  { height: calc(320px * var(--u)); top: calc(100vh - 336px * var(--u)); }
+.hd__fore  { height: calc(300px * var(--u)); top: calc(100vh - 196px * var(--u)); }
+
+.hd__sky {
+  top: 0; height: calc(100vh - 120px * var(--u));
+  background:
+    radial-gradient(56% 66% at 80% 54%, rgba(255, 214, 172, .34) 0%, transparent 62%),
+    radial-gradient(70% 62% at 16% 66%, rgba(196, 222, 235, .38) 0%, transparent 66%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 46%);
+}
+
+@media (max-width: 640px) { .hd { --u: .58; } }
+
+/* The layers exist to be moved. With motion off they are decoration that
+   crowds the copy, so retire the near ones and keep a quiet horizon. */
+@media (prefers-reduced-motion: reduce) {
+  .hd { --u: .62; }
+  .hd__hard, .hd__fore { display: none; }
+  .hd__l { opacity: .7; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero frame. scrollcraft gives .sc-section 16vh of vertical padding, which on
+   the hero pushes the horizon a screen and a half down and out of sight. The
+   hero carries its own padding, so take the engine's back here only.
+   --------------------------------------------------------------------------- */
+#hero.sc-section { padding-block: 7vh; }
+
+/* The mockup is authored at 700px and its panels are positioned in px, so
+   reflowing it clips the copy inside. Scale the whole device instead. */
+.hero-stage { position: relative; }
+.hero-stage__scale {
+  --hv: 0.72;
+  transform: scale(var(--hv)); transform-origin: top center;
+  height: calc(700px * var(--hv));
+}
+@media (min-height: 1040px) { .hero-stage__scale { --hv: 0.84; } }
+@media (max-height: 800px)  { .hero-stage__scale { --hv: 0.64; } }
+@media (max-height: 700px)  { .hero-stage__scale { --hv: 0.54; } }
+
+/* ---------------------------------------------------------------------------
+   The rotating trade in the headline. The live word stays in flow so it owns
+   the line box and the baseline; the word leaving is lifted out of flow for
+   the length of the swap so the two never push each other around.
+   --------------------------------------------------------------------------- */
+.rw {
+  position: relative; display: inline-block; vertical-align: baseline;
+  white-space: nowrap; color: var(--sc-accent);
+  transition: width 460ms var(--trc-ease);
+}
+.rw__in  { display: inline-block; animation: rw-in 420ms var(--trc-ease) both; }
+.rw__out {
+  position: absolute; inset-inline-start: 0; top: 0; white-space: nowrap;
+  animation: rw-out 420ms var(--trc-ease) both;
+}
+
+/* Both halves travel the same way, so the swap reads as one vertical ticker
+   rather than two words crossing in the middle. */
+@keyframes rw-in  { from { opacity: 0; transform: translateY(0.34em); }
+                    to   { opacity: 1; transform: none; } }
+@keyframes rw-out { from { opacity: 1; transform: none; }
+                    to   { opacity: 0; transform: translateY(-0.34em); } }
+
+@media (prefers-reduced-motion: reduce) { .rw { transition: none; } }
+
+/* ---------------------------------------------------------------------------
+   Mission, on the reference site's About block. One narrow column set off the
+   page centre, oversized paragraphs, and generous air above and below so a
+   paragraph can actually reach the middle of the screen and light up. The
+   engine's own .sc-section padding is too tight for that, so it is replaced.
+   --------------------------------------------------------------------------- */
+.mission.sc-section { padding-block: 22vh 20vh; }
+.mission__inner {
+  max-width: 620px; margin: 0 auto; padding: 0 24px;
+  transform: translateX(-110px);
+}
+.mission__p {
+  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+  line-height: 1.22; letter-spacing: -0.025em; font-weight: 400;
+  color: var(--sc-ink); margin: 34px 0 0;
+  /* Opacity is written every frame from JS. The transition is what turns those
+     per-frame values into an eased follow rather than a hard tracking. */
+  transition: opacity 380ms var(--trc-ease);
+}
+.mission__p:first-child { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .mission.sc-section { padding-block: 14vh 12vh; }
+  .mission__inner { transform: none; padding: 0 20px; max-width: 560px; }
+}
+
+/* Nothing dims when motion is off: the effect is the only thing holding those
+   paragraphs below full contrast, so without it they must simply be readable. */
+@media (prefers-reduced-motion: reduce) {
+  .mission__p { opacity: 1 !important; transition: none; }
 }

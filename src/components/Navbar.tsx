@@ -82,27 +82,25 @@ export default function Navbar() {
             <circle cx="32.5" cy="54.5" r="8" fill="#dc2626" opacity="0.2"/>
             <circle cx="54.5" cy="54.5" r="8" fill="#dc2626"/>
           </svg>
-          <span className="font-semibold text-[18px] tracking-tight">The Ready</span>
+          <span className="font-semibold text-[16px] tracking-tight">The Ready</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className={`text-[15px] transition-colors duration-500 ${dark ? "text-white/60 hover:text-white" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
+            <a key={l.href} href={l.href} className={`text-[14px] transition-colors duration-500 ${dark ? "text-white/60 hover:text-white" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
           {/* Desktop CTA — hidden in hero */}
           <a
-            href="https://calendly.com/thereadyconsult/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`hidden md:inline-flex relative text-[14px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
+            href="/contact"
+            className={`hidden md:inline-flex relative text-[13px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
               inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
             } cta-btn text-white`}
           >
             <span className="absolute inset-0 cta-shimmer" />
-            <span className="relative z-10">Book a Call &rarr;</span>
+            <span className="relative z-10">Sign up &rarr;</span>
           </a>
           <button
             onClick={() => setOpen(!open)}
@@ -128,7 +126,7 @@ export default function Navbar() {
         style={{ boxShadow: open ? "-20px 0 60px rgba(0,0,0,0.3)" : "none" }}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100 shrink-0">
-          <span className="font-semibold text-navy text-[15px]">Menu</span>
+          <span className="font-semibold text-navy text-[14px]">Menu</span>
           <button onClick={() => setOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:text-navy hover:bg-gray-200 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -137,19 +135,17 @@ export default function Navbar() {
         </div>
         <div className="px-6 py-10 space-y-7 flex-1">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[20px] font-medium text-navy hover:text-teal transition-colors">{l.label}</a>
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-[18px] font-medium text-navy hover:text-teal transition-colors">{l.label}</a>
           ))}
         </div>
         <div className="px-6 pb-12 shrink-0">
           <a
-            href="https://calendly.com/thereadyconsult/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             onClick={() => setOpen(false)}
-            className="cta-btn relative block text-center text-white font-semibold text-[16px] px-6 py-4 rounded-2xl overflow-hidden"
+            className="cta-btn relative block text-center text-white font-semibold text-[14px] px-6 py-4 rounded-2xl overflow-hidden"
           >
             <span className="absolute inset-0 cta-shimmer" />
-            <span className="relative z-10">Book a Call &rarr;</span>
+            <span className="relative z-10">Sign up &rarr;</span>
           </a>
         </div>
       </div>
@@ -161,15 +157,12 @@ export default function Navbar() {
         }`}
       >
         <a
-          href="https://calendly.com/thereadyconsult/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[13px] sm:text-[15px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
+          href="/contact"
+          className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[12px] sm:text-[14px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
           style={{ boxShadow: "0 10px 40px -8px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.2)" }}
         >
           <span className="absolute inset-0 cta-shimmer" />
-          <span className="relative z-10">Book a Call</span>
-          <span className="relative z-10">&rarr;</span>
+          <span className="relative z-10">Sign up &rarr;</span>
         </a>
       </div>
     </>

@@ -1,6 +1,8 @@
 "use client";
 
 import HeroVisual from "./HeroVisual";
+import HeroDiorama from "./HeroDiorama";
+import RotatingWord from "./RotatingWord";
 
 // Entrance is driven by the scroll-craft engine (data-sc-in / data-sc-stagger),
 // which mounts only after the loading screen resolves, so the reveal is not
@@ -8,6 +10,7 @@ import HeroVisual from "./HeroVisual";
 export default function Hero() {
   return (
     <section
+      id="hero"
       className="sc-section relative bg-white min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden"
       data-sc-act="flow"
       data-sc-drift="#ffffff"
@@ -16,11 +19,11 @@ export default function Hero() {
     >
       {/* n8n-style workflow lines */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute -inset-y-[18%] inset-x-0 w-full h-[136%] pointer-events-none"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
         style={{ opacity: 0.06 }}
-        data-sc-parallax="0.30"
+        data-sc-parallax="2.4"
         aria-hidden="true"
       >
         {/* Nodes */}
@@ -89,51 +92,49 @@ export default function Hero() {
         ))}
       </svg>
 
-      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-4 sm:pb-12 flex-1 flex flex-col justify-start items-center text-center">
-        <p className="sc-label text-[13px] mb-6 tracking-[0.18em]">
-          For construction and landscaping
-        </p>
+      <HeroDiorama />
 
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-0 flex-1 flex flex-col justify-start items-center text-center">
         <h1
-          className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] max-w-[900px] text-navy"
+          className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] max-w-[900px] text-navy"
           data-sc-cue="0 0.78 0"
-          data-sc-kinetic="lines"
         >
-          The website and Google profile that get your phone ringing.
+          <span className="block">AI solutions for your</span>
+          <span className="block">
+            <RotatingWord /> business.
+          </span>
         </h1>
 
-        <p className="mt-6 text-[17px] text-gray-500 max-w-[560px] leading-relaxed">
-          We build it, keep it running, and make sure the people searching for
-          your trade in your area find you first.
+        <p className="mt-5 text-[15px] text-gray-500 max-w-[540px] leading-relaxed">
+          We build the site, run the Google profile, and keep the content
+          coming, so the people searching for your trade find you first.
         </p>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
           <a
-            href="https://calendly.com/thereadyconsult/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[16px] px-10 py-4.5 rounded-2xl hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"
+            href="/contact"
+            className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[15px] px-8 py-3.5 rounded-xl hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
               boxShadow: "inset 0 0 20px rgba(255,255,255,0.08), 0 0 40px rgba(255,255,255,0.06)",
             }} />
             <svg className="w-5 h-5 relative z-10 group-hover:rotate-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
             </svg>
-            <span className="relative z-10">Book a call</span>
+            <span className="relative z-10">Sign up</span>
             <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
           </a>
           <a
             href="#services"
-            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[15px] px-7 py-4 rounded-xl border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all"
+            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[14px] px-6 py-3.5 rounded-xl border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all"
           >
             See how it works
           </a>
         </div>
 
-        <div className="mt-20 sm:mt-24 lg:mt-12 w-full" data-sc-parallax="0.08">
-          <div className="hidden lg:block">
+        <div className="hero-stage mt-14 sm:mt-16 lg:mt-6 w-full" data-sc-parallax="-0.7">
+          <div className="hidden lg:block hero-stage__scale">
             <HeroVisual />
           </div>
           <div className="block lg:hidden mx-auto w-full" style={{ height: "540px", overflow: "visible" }}>
