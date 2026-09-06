@@ -68,8 +68,8 @@ export default function Navbar() {
     <>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       dark
-        ? "bg-[#0d0a0a]/65 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
-        : "bg-slab/65 backdrop-blur-2xl backdrop-saturate-150 border-b border-seam] "
+        ? "bg-[#0d0a0a]/65 backdrop-blur-2xl backdrop-saturate-150"
+        : "bg-slab/65 backdrop-blur-2xl backdrop-saturate-150 "
     }`}>
       <nav className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-foreground" : "text-navy"}`}>

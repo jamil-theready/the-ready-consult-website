@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
         <div className="flex flex-col sm:flex-row items-start justify-between gap-8">
           <div>
-            <h2 className="text-[clamp(1.35rem,2.9vw,2.1rem)] font-semibold text-navy leading-[1.2] tracking-tight max-w-lg">
+            <h2 className="t-h2 text-navy max-w-lg">
               Websites, Google profiles and SEO for construction and landscaping companies.
             </h2>
             <p className="text-gray-400 text-lg mt-2 max-w-md">

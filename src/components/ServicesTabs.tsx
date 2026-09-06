@@ -89,7 +89,7 @@ export default function ServicesTabs() {
       className="sc-section services"
       data-sc-act="pan"
       data-sc-span="5"
-      data-sc-drift="#ffffff"
+      data-sc-drift="#0B0804"
     >
       <div data-sc-stage className="services__stage">
         <div className="services__head">

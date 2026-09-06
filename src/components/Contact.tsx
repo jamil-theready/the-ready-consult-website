@@ -4,7 +4,7 @@ export default function Contact() {
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-teal font-semibold text-[15px] mb-4">Get started</p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-navy leading-[1.1] tracking-tight">
+          <h2 className="t-h2 text-navy ">
             Ready to grow?
           </h2>
           <p className="mt-4 text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">

@@ -3,7 +3,7 @@ export default function CtaBanner() {
     <section className="relative gradient-mesh py-24 lg:py-36 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan/10 rounded-full blur-[100px]" />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-foreground leading-[1.1] tracking-tight">
+        <h2 className="t-h2 text-foreground ">
           Stop paying for activity.<br />
           <span className="text-cyan">Start paying for outcomes.</span>
         </h2>

@@ -92,7 +92,7 @@ export default function CaseStudyStats() {
         {/* Heading */}
         <div className="max-w-2xl mb-10 sm:mb-16">
           <p className="text-gray-400 text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2"><span className="text-[10px]">&#10022;</span> Case study <span className="text-[10px]">&#10022;</span></p>
-          <h2 className="text-[clamp(2rem,4.5vw,3.75rem)] font-medium text-navy leading-[1.08] tracking-tight">
+          <h2 className="t-h2 text-navy ">
             The results behind<br />the partnership
           </h2>
         </div>
