@@ -10,11 +10,11 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
         return (
           <section
             key={c.slug}
-            className="relative h-screen w-full bg-white p-2 sm:p-3 snap-start"
+            className="relative h-screen w-full bg-background p-2 sm:p-3 snap-start"
           >
             <a
               href={`/work/${c.slug}`}
-              className="group relative block w-full h-full overflow-hidden rounded-2xl"
+              className="group relative block w-full h-full overflow-hidden "
             >
               {isVideo ? (
                 <video
@@ -37,12 +37,9 @@ export default function WorkShowcase({ cases }: { cases: CaseStudy[] }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/15" />
 
               {/* Editorial cover label */}
-              <div className="absolute left-6 sm:left-12 bottom-10 sm:bottom-14 right-6 text-white">
-                <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
-                  {c.meta.services.join(" · ")}
-                </p>
+              <div className="absolute left-6 sm:left-12 bottom-10 sm:bottom-14 right-6 text-foreground">
                 <h3 className="mt-3 text-4xl sm:text-6xl font-semibold tracking-tight">{c.client}</h3>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white/90">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground/90">
                   View case
                   <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 </span>

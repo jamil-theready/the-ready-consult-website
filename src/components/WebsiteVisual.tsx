@@ -64,9 +64,9 @@ export default function WebsiteVisual() {
   });
 
   return (
-    <div ref={ref} className="w-full h-full rounded-2xl bg-[#f8f8f8] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
+    <div ref={ref} className="w-full h-full bg-[#16110A] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
       {/* Browser chrome */}
-      <div className="flex items-center gap-2 px-4 py-2.5 bg-white border-b border-gray-200">
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-slab border-b border-gray-200">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
           <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
@@ -90,7 +90,7 @@ export default function WebsiteVisual() {
         >
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[10px] text-green font-mono font-medium">~/client-site</span>
-            <span className="text-[10px] text-white/30 font-mono">main</span>
+            <span className="text-[10px] text-foreground/30 font-mono">main</span>
           </div>
           <div className="flex-1 overflow-hidden font-mono text-[9px] leading-relaxed space-y-0.5">
             {buildLogs.slice(0, logIndex).map((log, i) => (
@@ -103,13 +103,13 @@ export default function WebsiteVisual() {
         </div>
 
         {/* Site — Wedge-style SaaS */}
-        <div className="absolute inset-0 flex flex-col bg-white" style={{ opacity: showSite ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
+        <div className="absolute inset-0 flex flex-col bg-background" style={{ opacity: showSite ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
           {/* Navbar */}
           <div className="px-5 py-2.5 flex items-center justify-between border-b border-gray-100" style={show(1)}>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5">
-                <div className="w-5 h-5 rounded-md bg-[#3b2fc9] flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <div className="w-5 h-5 bg-[#3b2fc9] flex items-center justify-center">
+                  <svg className="w-3 h-3 text-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <span className="text-[11px] font-bold text-gray-900">Wedge</span>
               </div>
@@ -119,7 +119,7 @@ export default function WebsiteVisual() {
             </div>
             <div className="flex items-center gap-2.5">
               <span className="text-[8px] text-gray-500">Log in</span>
-              <div className="bg-[#3b2fc9] text-white text-[7px] font-semibold px-2.5 py-1 rounded-full">Get started →</div>
+              <div className="bg-[#3b2fc9] text-foreground text-[7px] font-semibold px-2.5 py-1 rounded-full">Get started →</div>
             </div>
           </div>
 
@@ -138,14 +138,14 @@ export default function WebsiteVisual() {
               Patios, retaining walls and driveways. Licensed, insured, and booking work across the Sacramento area.
             </p>
             <div className="flex gap-2" style={show(4)}>
-              <div className="bg-[#3b2fc9] text-white text-[8px] font-semibold px-4 py-2 rounded-full">Get started →</div>
+              <div className="bg-[#3b2fc9] text-foreground text-[8px] font-semibold px-4 py-2 rounded-full">Get started →</div>
               <div className="border border-gray-200 text-gray-600 text-[8px] font-medium px-4 py-2 rounded-full">Learn more →</div>
             </div>
 
             {/* Dashboard cards row */}
             <div className="flex gap-2.5 mt-6 w-full px-2" style={show(5)}>
               {/* Card 1 — avatars */}
-              <div className="flex-1 bg-white rounded-xl border border-gray-100 p-3 shadow-sm" style={showScale(6)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(6)}>
                 <div className="flex -space-x-2 mb-2">
                   {["#e9d5ff", "#bfdbfe", "#fde68a", "#bbf7d0", "#fecaca"].map((c, i) => (
                     <div key={i} className="w-6 h-6 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
@@ -155,10 +155,10 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 2 — progress */}
-              <div className="flex-1 bg-white rounded-xl border border-gray-100 p-3 shadow-sm" style={showScale(7)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(7)}>
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-4 h-4 rounded bg-[#3b2fc9]/10 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-sm bg-[#3b2fc9]" />
+                  <div className="w-4 h-4 bg-[#3b2fc9]/10 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-[#3b2fc9]" />
                   </div>
                   <span className="text-[8px] text-gray-700">Finance reporting</span>
                 </div>
@@ -169,8 +169,8 @@ export default function WebsiteVisual() {
                   <span className="text-[7px] text-gray-400">84%</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
-                  <div className="w-4 h-4 rounded bg-green/10 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-sm bg-green" />
+                  <div className="w-4 h-4 bg-green/10 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-green" />
                   </div>
                   <span className="text-[8px] text-gray-700">Business proposal</span>
                 </div>
@@ -183,7 +183,7 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 3 — team list */}
-              <div className="flex-1 bg-white rounded-xl border border-gray-100 p-3 shadow-sm" style={showScale(8, 0.1)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(8, 0.1)}>
                 {[
                   { name: "Freddy", role: "Marketing", color: "#e9d5ff" },
                   { name: "Iliana", role: "Design", color: "#bfdbfe" },
@@ -199,7 +199,7 @@ export default function WebsiteVisual() {
               </div>
 
               {/* Card 4 — expense categories */}
-              <div className="flex-1 bg-white rounded-xl border border-gray-100 p-3 shadow-sm" style={showScale(9, 0.2)}>
+              <div className="flex-1 bg-slab border border-gray-100 p-3 " style={showScale(9, 0.2)}>
                 <span className="text-[8px] font-semibold text-gray-700 block mb-2">Expense categories</span>
                 <div className="flex gap-1 mb-2">
                   {[60, 25, 15].map((w, i) => (

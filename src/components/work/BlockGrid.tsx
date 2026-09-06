@@ -10,7 +10,7 @@ export default function BlockGrid({ items, columns = 2 }: { items: Media[]; colu
             key={i}
             src={m.src}
             alt={m.alt}
-            className="w-full rounded-xl object-cover aspect-[4/3] ring-1 ring-black/5"
+            className="w-full object-cover aspect-[4/3] ring-1 ring-black/5"
           />
         ))}
       </div>

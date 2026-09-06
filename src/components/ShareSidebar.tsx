@@ -63,7 +63,7 @@ export default function ShareSidebar({ url, title }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={l.label}
-              className="w-10 h-10 rounded-full border border-gray-200 bg-white text-gray-500 hover:text-teal hover:border-teal flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full border border-gray-200 bg-slab text-gray-500 hover:text-teal hover:border-teal flex items-center justify-center transition-colors"
             >
               {l.icon}
             </a>
@@ -71,7 +71,7 @@ export default function ShareSidebar({ url, title }: Props) {
           <button
             onClick={copy}
             aria-label="Copy link"
-            className="w-10 h-10 rounded-full border border-gray-200 bg-white text-gray-500 hover:text-teal hover:border-teal flex items-center justify-center transition-colors"
+            className="w-10 h-10 rounded-full border border-gray-200 bg-slab text-gray-500 hover:text-teal hover:border-teal flex items-center justify-center transition-colors"
           >
             {copied ? (
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4">

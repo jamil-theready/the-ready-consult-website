@@ -84,7 +84,7 @@ export default async function AuthorPage({
         <section className={CONTAINER}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-4">
-              <div className="aspect-square overflow-hidden bg-navy flex items-center justify-center">
+              <div className="aspect-square overflow-hidden bg-void flex items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={author.image}
@@ -95,9 +95,6 @@ export default async function AuthorPage({
             </div>
 
             <div className="lg:col-span-8">
-              <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-4">
-                The Ready Consult Partner
-              </p>
               <h1 className="text-[clamp(2.5rem,4.8vw,4rem)] font-semibold text-navy leading-[1.02] tracking-[-0.03em]">
                 {author.name}
               </h1>
@@ -110,7 +107,7 @@ export default async function AuthorPage({
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-navy text-white text-[15px] font-semibold px-7 py-3.5 hover:bg-cyan transition-colors"
+                  className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-3.5 hover:bg-cyan transition-colors"
                 >
                   Book a Call with {author.name.split(" ")[0]}
                   <span aria-hidden="true">→</span>

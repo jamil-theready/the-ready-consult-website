@@ -16,13 +16,13 @@ function MacBook({ media }: { media: Media }) {
   return (
     <div className="w-full">
       {/* Lid / screen */}
-      <div className="relative bg-[#0c0c0e] rounded-t-[14px] p-[0.7%] ring-1 ring-black/40 shadow-[0_40px_70px_-24px_rgba(0,0,0,0.5)]">
+      <div className="relative bg-[#0c0c0e] rounded-t-[14px] p-[0.7%] ring-1 ring-black/40 ">
         <img src={media.src} alt={media.alt} className="block w-full rounded-[5px]" />
         <Gloss />
       </div>
       {/* Base / deck (wider than the lid) */}
       <div className="relative mx-[-3.4%]">
-        <div className="h-[15px] sm:h-[20px] bg-gradient-to-b from-[#dee1e5] via-[#c2c6cb] to-[#979ba1] rounded-b-[13px] rounded-t-[2px] shadow-[0_10px_18px_-8px_rgba(0,0,0,0.5)]" />
+        <div className="h-[15px] sm:h-[20px] bg-gradient-to-b from-[#dee1e5] via-[#c2c6cb] to-[#979ba1] rounded-b-[13px] rounded-t-[2px] " />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[15%] h-[44%] bg-gradient-to-b from-[#a6abb1] to-[#b9bdc2] rounded-b-[9px]" />
       </div>
     </div>
@@ -31,9 +31,9 @@ function MacBook({ media }: { media: Media }) {
 
 function IPhone({ media }: { media: Media }) {
   return (
-    <div className="relative bg-[#0b0b0d] rounded-[2rem] p-[5px] ring-1 ring-black/40 shadow-[0_30px_55px_-14px_rgba(0,0,0,0.6)]">
+    <div className="relative bg-[#0b0b0d] rounded-[2rem] p-[5px] ring-1 ring-black/40 ">
       <img src={media.src} alt={media.alt} className="block w-full rounded-[1.7rem]" />
-      <div className="absolute top-[12px] left-1/2 -translate-x-1/2 w-[30%] h-[13px] bg-black rounded-full" />
+      <div className="absolute top-[12px] left-1/2 -translate-x-1/2 w-[30%] h-[13px] bg-void rounded-full" />
       <Gloss />
     </div>
   );
@@ -56,7 +56,7 @@ export default function BlockDevices({
           style={{ transform: "rotateY(-11deg) rotateX(4deg)", transformStyle: "preserve-3d" }}
         >
           {/* grounded floor shadow */}
-          <div className="absolute left-[8%] right-[10%] bottom-[-4%] h-12 bg-black/30 blur-[40px] rounded-[50%]" />
+          <div className="absolute left-[8%] right-[10%] bottom-[-4%] h-12 bg-void/30 blur-[40px] rounded-[50%]" />
 
           {/* MacBook */}
           <div className="relative z-10 w-[82%]">

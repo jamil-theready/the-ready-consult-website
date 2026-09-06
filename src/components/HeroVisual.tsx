@@ -146,17 +146,17 @@ export default function HeroVisual() {
 
       {/* ===== 0: WEBSITE ===== */}
       <div className="absolute inset-0 flex items-center justify-center scale-[0.55] sm:scale-[0.7] lg:scale-100 origin-center" style={panelStyle(0)}>
-        <div className="w-[850px] rounded-2xl overflow-hidden"
+        <div className="w-[850px] overflow-hidden"
           style={{ boxShadow: "0 70px 140px -25px rgba(0,0,0,0.35), 0 35px 70px -15px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.04)" }}>
           {/* macOS chrome */}
           <div className="bg-gradient-to-b from-[#ececec] to-[#e0e0e0] border-b border-[#ccc] px-5 py-3 flex items-center">
             <div className="flex gap-2">
-              <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57] shadow-inner" />
-              <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e] shadow-inner" />
-              <div className="w-3.5 h-3.5 rounded-full bg-[#28c840] shadow-inner" />
+              <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57] " />
+              <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e] " />
+              <div className="w-3.5 h-3.5 rounded-full bg-[#28c840] " />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="bg-white/80 backdrop-blur rounded-lg border border-gray-300/60 px-4 py-1.5 flex items-center gap-2 w-[340px] shadow-sm">
+              <div className="bg-slab/80 backdrop-blur border border-gray-300/60 px-4 py-1.5 flex items-center gap-2 w-[340px] ">
                 <svg className="w-3.5 h-3.5 text-green" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                 </svg>
@@ -164,23 +164,23 @@ export default function HeroVisual() {
               </div>
             </div>
             <div className="flex gap-2">
-              <div className="w-5 h-5 rounded bg-black/5 flex items-center justify-center">
+              <div className="w-5 h-5 bg-void/5 flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               </div>
-              <div className="w-5 h-5 rounded bg-black/5 flex items-center justify-center">
+              <div className="w-5 h-5 bg-void/5 flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
               </div>
             </div>
           </div>
 
           {/* Website */}
-          <div className="bg-white" style={{ height: "520px", overflow: "hidden" }}>
+          <div className="bg-background" style={{ height: "520px", overflow: "hidden" }}>
             {/* Nav */}
             <div className="px-8 py-4 flex items-center justify-between">
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shadow-md shadow-indigo-200">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center ">
+                    <svg className="w-4 h-4 text-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                   </div>
                   <span className="text-[15px] font-bold text-gray-900 tracking-tight">Nexus</span>
                 </div>
@@ -190,7 +190,7 @@ export default function HeroVisual() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-[12px] text-gray-500">Sign in</span>
-                <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-[11px] font-semibold px-5 py-2.5 rounded-lg shadow-md shadow-indigo-200">Start free trial →</div>
+                <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-foreground text-[11px] font-semibold px-5 py-2.5 ">Start free trial →</div>
               </div>
             </div>
 
@@ -209,14 +209,14 @@ export default function HeroVisual() {
                     Automate workflows, manage teams, and scale operations. Trusted by 2,000+ companies.
                   </p>
                   <div className="flex gap-3 mt-6">
-                    <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-[12px] font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-200/50">Get started free →</div>
-                    <div className="bg-white border border-gray-200 text-gray-700 text-[12px] font-medium px-6 py-3 rounded-xl shadow-sm">Watch demo</div>
+                    <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-foreground text-[12px] font-semibold px-6 py-3 ">Get started free →</div>
+                    <div className="bg-slab border border-gray-200 text-gray-700 text-[12px] font-medium px-6 py-3 ">Watch demo</div>
                   </div>
                   {/* Social proof */}
                   <div className="flex items-center gap-3 mt-6">
                     <div className="flex -space-x-2">
-                      {["#8b5cf6", "#3b82f6", "#10b981", "#f59e0b", "#ef4444"].map((c, i) => (
-                        <div key={i} className="w-7 h-7 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: c }} />
+                      {["#8b5cf6", "#3b82f6", "#10b981", "#f59e0b", "var(--glow)"].map((c, i) => (
+                        <div key={i} className="w-7 h-7 rounded-full border-2 border-white " style={{ backgroundColor: c }} />
                       ))}
                     </div>
                     <div>
@@ -231,7 +231,7 @@ export default function HeroVisual() {
                 </div>
 
                 {/* Dashboard card */}
-                <div className="w-[300px] bg-white rounded-2xl border border-gray-100 p-5 shadow-xl shadow-gray-200/50">
+                <div className="w-[300px] bg-slab border border-gray-100 p-5 ">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[12px] font-semibold text-gray-800">Calls this month</span>
                     <span className="text-[10px] bg-green/10 text-green font-semibold px-2 py-0.5 rounded-full">↑ 24%</span>
@@ -241,10 +241,10 @@ export default function HeroVisual() {
 
                   <div className="h-24 flex items-end gap-[3px] mb-4">
                     {[15, 22, 18, 30, 25, 42, 38, 55, 48, 62, 58, 72, 68, 82, 78, 88, 85, 95].map((h, i) => (
-                      <div key={i} className="flex-1 rounded-t-sm transition-all duration-800"
+                      <div key={i} className="flex-1 transition-all duration-800"
                         style={{
                           height: active === 0 ? `${h}%` : "0%",
-                          background: i >= 14 ? "linear-gradient(to top, #6366f1, #818cf8)" : i >= 8 ? "#c7d2fe" : "#e8e8ee",
+                          background: i >= 14 ? "linear-gradient(to top, #E9A63C, #FFD07B)" : i >= 8 ? "#8A6B2E" : "#2C2417",
                           transitionDelay: `${0.4 + i * 0.04}s`,
                         }} />
                     ))}
@@ -256,7 +256,7 @@ export default function HeroVisual() {
                       { label: "Conversion", value: "4.2%", change: "+0.8%" },
                       { label: "Churn", value: "1.1%", change: "-0.3%" },
                     ].map((s) => (
-                      <div key={s.label} className="bg-gray-50 rounded-lg p-2.5">
+                      <div key={s.label} className="bg-gray-50 p-2.5">
                         <p className="text-[12px] font-bold text-gray-900">{s.value}</p>
                         <div className="flex items-center gap-1">
                           <p className="text-[8px] text-gray-400">{s.label}</p>
@@ -277,38 +277,38 @@ export default function HeroVisual() {
 
       {/* ===== 1: CHATGPT ===== */}
       <div className="absolute inset-0 flex items-center justify-center scale-[0.6] sm:scale-[0.75] lg:scale-100 origin-center" style={panelStyle(1)}>
-        <div className="w-[700px] bg-[#212121] rounded-2xl overflow-hidden border border-white/10"
+        <div className="w-[700px] bg-[#212121] overflow-hidden border border-white/10"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.5), 0 35px 70px -12px rgba(0,0,0,0.35), 0 0 100px rgba(16,163,127,0.1)" }}>
           <div className="px-5 py-3.5 flex items-center gap-3 border-b border-white/5">
             <div className="w-8 h-8 rounded-full bg-[#10a37f] flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-5 h-5 text-foreground" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364l2.0201-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4091-.6765zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0974-2.3616l2.603-1.5018 2.6032 1.5018v3.0036l-2.6032 1.5018-2.603-1.5018z" />
               </svg>
             </div>
-            <span className="text-[15px] font-semibold text-white">ChatGPT</span>
-            <span className="text-[11px] text-white/30 ml-auto">GPT-4o</span>
+            <span className="text-[15px] font-semibold text-foreground">ChatGPT</span>
+            <span className="text-[11px] text-foreground/30 ml-auto">GPT-4o</span>
           </div>
           <div className="p-7 space-y-5" style={{ minHeight: "340px" }}>
             <div className="flex justify-end">
-              <div className="bg-[#2f2f2f] rounded-2xl rounded-br-sm px-5 py-3 max-w-[80%]">
-                <p className="text-[13px] text-white/90">Who builds retaining walls near Sacramento?</p>
+              <div className="bg-[#2f2f2f] px-5 py-3 max-w-[80%]">
+                <p className="text-[13px] text-foreground/90">Who builds retaining walls near Sacramento?</p>
               </div>
             </div>
             <div className="flex gap-3">
               <div className="w-7 h-7 rounded-full bg-[#10a37f] flex items-center justify-center shrink-0 mt-0.5">
-                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-4 h-4 text-foreground" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364l2.0201-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4091-.6765zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0974-2.3616l2.603-1.5018 2.6032 1.5018v3.0036l-2.6032 1.5018-2.603-1.5018z" />
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-[13px] text-white/80 leading-relaxed">
+                <p className="text-[13px] text-foreground/80 leading-relaxed">
                   {chatText}
                   {active === 1 && !answerDone && <span className="inline-block w-[2px] h-4 bg-[#10a37f] ml-0.5 animate-pulse" />}
                 </p>
                 {answerDone && (
                   <div className="mt-3 flex items-center gap-2">
-                    <div className="w-5 h-5 rounded bg-teal flex items-center justify-center">
-                      <span className="text-[6px] font-bold text-white">YC</span>
+                    <div className="w-5 h-5 bg-teal flex items-center justify-center">
+                      <span className="text-[6px] font-bold text-foreground">YC</span>
                     </div>
                     <span className="text-[12px] text-[#10a37f] font-medium">yourcompany.com ↗</span>
                   </div>
@@ -317,10 +317,10 @@ export default function HeroVisual() {
             </div>
           </div>
           <div className="px-5 pb-4">
-            <div className="bg-[#2f2f2f] rounded-xl px-5 py-3 flex items-center">
-              <span className="text-[12px] text-white/25 flex-1">Ask anything...</span>
-              <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center">
-                <svg className="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#2f2f2f] px-5 py-3 flex items-center">
+              <span className="text-[12px] text-foreground/25 flex-1">Ask anything...</span>
+              <div className="w-7 h-7 bg-background/10 flex items-center justify-center">
+                <svg className="w-3.5 h-3.5 text-foreground/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 </svg>
               </div>
@@ -331,19 +331,19 @@ export default function HeroVisual() {
 
       {/* ===== 2: iPHONE ===== */}
       <div className="absolute inset-0 flex items-center justify-center scale-[0.75] sm:scale-[0.85] lg:scale-100 origin-center" style={panelStyle(2)}>
-        <div className="w-[280px] h-[560px] bg-black rounded-[48px] border-[5px] border-gray-800 overflow-hidden relative"
+        <div className="w-[280px] h-[560px] bg-void rounded-[48px] border-[5px] border-gray-800 overflow-hidden relative"
           style={{ boxShadow: "0 70px 140px -15px rgba(0,0,0,0.45), 0 35px 70px -10px rgba(0,0,0,0.3), 0 0 80px rgba(45,27,105,0.15)" }}>
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-20" />
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-void rounded-full z-20" />
           <div className="absolute top-0 left-0 right-0 z-10 px-6 pt-3 flex items-center justify-between">
-            <span className="text-[10px] font-semibold text-white/80">9:41</span>
+            <span className="text-[10px] font-semibold text-foreground/80">9:41</span>
             <div className="flex items-center gap-1">
-              <svg className="w-4 h-3 text-white/70" fill="currentColor" viewBox="0 0 24 16">
+              <svg className="w-4 h-3 text-foreground/70" fill="currentColor" viewBox="0 0 24 16">
                 <rect x="16.5" y="0" width="4" height="14" rx="1" />
                 <rect x="11" y="3" width="4" height="11" rx="1" opacity="0.7" />
                 <rect x="5.5" y="6" width="4" height="8" rx="1" opacity="0.4" />
               </svg>
-              <div className="w-6 h-3 rounded-sm border border-white/50 relative ml-0.5">
-                <div className="absolute inset-[1.5px] rounded-[1px] bg-white/70" style={{ width: "65%" }} />
+              <div className="w-6 h-3 border border-white/50 relative ml-0.5">
+                <div className="absolute inset-[1.5px] rounded-[1px] bg-background/70" style={{ width: "65%" }} />
               </div>
             </div>
           </div>
@@ -357,9 +357,9 @@ export default function HeroVisual() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* Overlay text */}
-          <div className="absolute inset-0 flex items-center justify-center px-6 bg-black/20">
+          <div className="absolute inset-0 flex items-center justify-center px-6 bg-void/20">
             <div className="text-center">
-              <p className="text-[26px] font-bold text-white leading-tight drop-shadow-lg">
+              <p className="text-[26px] font-bold text-foreground leading-tight drop-">
                 Retaining wall<br />in Folsom<br /><span className="text-[#10a37f]">start to finish</span>
               </p>
             </div>
@@ -367,19 +367,19 @@ export default function HeroVisual() {
           <div className="absolute bottom-0 inset-x-0 z-10 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 p-[1.5px]">
-                <div className="w-full h-full rounded-full bg-gray-800" />
+                <div className="w-full h-full rounded-full bg-seam" />
               </div>
-              <span className="text-[11px] text-white font-semibold">yourcompany</span>
-              <span className="text-[8px] text-white/50 border border-white/30 rounded px-2 py-0.5 ml-1">Follow</span>
+              <span className="text-[11px] text-foreground font-semibold">yourcompany</span>
+              <span className="text-[8px] text-foreground/50 border border-white/30 px-2 py-0.5 ml-1">Follow</span>
             </div>
-            <p className="text-[9px] text-white/60 leading-relaxed mb-2">Three days on this one. Swipe for the before shots.</p>
+            <p className="text-[9px] text-foreground/60 leading-relaxed mb-2">Three days on this one. Swipe for the before shots.</p>
             <div className="flex items-center gap-2">
-              <svg className="w-3 h-3 text-white/40" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 text-foreground/40" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
               </svg>
-              <div className="flex-1 h-[2px] bg-white/15 rounded-full"><div className="h-full w-1/3 bg-white/50 rounded-full" /></div>
+              <div className="flex-1 h-[2px] bg-background/15 rounded-full"><div className="h-full w-1/3 bg-background/50 rounded-full" /></div>
             </div>
-            <div className="w-24 h-1 bg-white/25 rounded-full mx-auto mt-3" />
+            <div className="w-24 h-1 bg-background/25 rounded-full mx-auto mt-3" />
           </div>
           <div className="absolute right-3 bottom-28 flex flex-col items-center gap-4 z-10">
             {[
@@ -388,10 +388,10 @@ export default function HeroVisual() {
               { icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8", count: "312" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center">
-                <svg className="w-7 h-7 text-white drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-7 h-7 text-foreground drop-" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
                 </svg>
-                <span className="text-[8px] text-white font-medium mt-0.5">{item.count}</span>
+                <span className="text-[8px] text-foreground font-medium mt-0.5">{item.count}</span>
               </div>
             ))}
           </div>
@@ -400,7 +400,7 @@ export default function HeroVisual() {
 
       {/* ===== 3: GMAIL ===== */}
       <div className="absolute inset-0 flex items-center justify-center scale-[0.65] sm:scale-[0.8] lg:scale-100 origin-center" style={panelStyle(3)}>
-        <div className="w-[600px] bg-white rounded-2xl border border-gray-200 overflow-hidden"
+        <div className="w-[600px] bg-slab border border-gray-200 overflow-hidden"
           style={{ boxShadow: "0 70px 140px -20px rgba(0,0,0,0.25), 0 35px 70px -12px rgba(0,0,0,0.15), 0 0 80px rgba(66,133,244,0.08)" }}>
           {/* Gmail header */}
           <div className="px-6 py-4 flex items-center gap-3 border-b border-gray-100">
@@ -417,15 +417,15 @@ export default function HeroVisual() {
             <span className="text-[15px] font-bold text-gray-800">Gmail</span>
             <span className="text-[13px] text-gray-400">Inbox</span>
             {emailCount > 0 && (
-              <span className="bg-red-500 text-white text-[11px] font-bold rounded-full min-w-[24px] h-[24px] flex items-center justify-center shadow-md animate-bounce ml-1" style={{ animationDuration: "1.5s", animationIterationCount: 2 }}>
+              <span className="bg-red-500 text-foreground text-[11px] font-bold rounded-full min-w-[24px] h-[24px] flex items-center justify-center animate-bounce ml-1" style={{ animationDuration: "1.5s", animationIterationCount: 2 }}>
                 {emailCount}
               </span>
             )}
             <div className="ml-auto flex gap-2">
-              <div className="w-5 h-5 rounded bg-gray-100 flex items-center justify-center">
+              <div className="w-5 h-5 bg-gray-100 flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               </div>
-              <div className="w-5 h-5 rounded bg-gray-100 flex items-center justify-center">
+              <div className="w-5 h-5 bg-gray-100 flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" /></svg>
               </div>
             </div>
@@ -441,14 +441,14 @@ export default function HeroVisual() {
                   opacity: i < emailCount ? 1 : 0,
                   transform: i < emailCount ? "translateY(0) translateX(0)" : "translateY(20px) translateX(-10px)",
                   transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1)`,
-                  backgroundColor: i < emailCount ? (i === 0 ? "#f8faff" : "white") : "white",
+                  backgroundColor: i < emailCount ? (i === 0 ? "#1C1710" : "#16110A") : "#16110A",
                 }}
               >
                 {/* Unread indicator */}
-                <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: i < emailCount ? email.color : "#e5e7eb" }} />
+                <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: i < emailCount ? email.color : "#2C2417" }} />
 
                 {/* Avatar */}
-                <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-white font-bold text-[12px]"
+                <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-foreground font-bold text-[12px]"
                   style={{ backgroundColor: email.color }}>
                   {email.from.charAt(0)}
                 </div>
@@ -483,7 +483,7 @@ export default function HeroVisual() {
       <div className="absolute inset-0 flex items-center justify-center px-6 scale-[0.5] sm:scale-[0.65] lg:scale-100 origin-center" style={panelStyle(4)}>
         <div className="flex gap-4 max-w-[900px]">
           {/* Leads — bar chart */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -497,7 +497,7 @@ export default function HeroVisual() {
             <p className="text-[11px] text-gray-400 mt-1 mb-4">from SEO</p>
             <div className="h-16 flex items-end gap-[3px]">
               {[12, 18, 15, 28, 22, 35, 30, 45, 40, 55, 50, 68, 62, 78, 72, 88].map((h, j) => (
-                <div key={j} className="flex-1 rounded-t-sm transition-all ease-out"
+                <div key={j} className="flex-1 transition-all ease-out"
                   style={{
                     height: active === 4 ? `${h}%` : "0%",
                     background: j >= 12 ? "#1a1a1a" : j >= 8 ? "#888" : "#ddd",
@@ -507,13 +507,13 @@ export default function HeroVisual() {
               ))}
             </div>
             <div className="flex justify-between mt-1">
-              <span className="text-[7px] text-gray-300">Jan</span>
-              <span className="text-[7px] text-gray-300">Now</span>
+              <span className="text-[7px] text-gray-400">Jan</span>
+              <span className="text-[7px] text-gray-400">Now</span>
             </div>
           </div>
 
           {/* Views — area chart */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -539,7 +539,7 @@ export default function HeroVisual() {
           </div>
 
           {/* Hours saved — donut */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -570,7 +570,7 @@ export default function HeroVisual() {
                   <span className="text-[8px] text-gray-500">Automated</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#eee]" />
+                  <span className="w-2 h-2 rounded-full bg-[#16110A]" />
                   <span className="text-[8px] text-gray-500">Manual</span>
                 </div>
               </div>
@@ -578,7 +578,7 @@ export default function HeroVisual() {
           </div>
 
           {/* Speed — gauge */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 w-[200px]"
+          <div className="bg-slab border border-gray-200 p-6 w-[200px]"
             style={{
               boxShadow: "0 40px 80px -10px rgba(0,0,0,0.18), 0 20px 40px -8px rgba(0,0,0,0.12)",
               opacity: active === 4 ? 1 : 0, transform: active === 4 ? "translateY(0)" : "translateY(30px)",
@@ -620,7 +620,7 @@ export default function HeroVisual() {
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-50">
         {[0, 1, 2, 3, 4].map((i) => (
           <button key={i} onClick={() => setActive(i)}
-            className={`rounded-full transition-all duration-500 ${active === i ? "w-7 h-2.5 bg-gray-900" : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"}`}
+            className={`rounded-full transition-all duration-500 ${active === i ? "w-7 h-2.5 bg-void" : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"}`}
           />
         ))}
       </div>

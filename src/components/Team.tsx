@@ -9,7 +9,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="bg-white py-24 lg:py-36">
+    <section id="team" className="bg-background py-24 lg:py-36">
       <div className="max-w-[1280px] mx-auto px-6">
         <p className="text-teal font-semibold text-[15px] mb-4">Team</p>
         <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-navy leading-[1.1] tracking-tight max-w-md mb-16">
@@ -19,10 +19,10 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
           {team.map((m) => (
             <div key={m.name} className="group">
-              <div className={`h-2 rounded-t-2xl bg-gradient-to-r ${m.gradient}`} />
-              <div className="bg-gray-50 rounded-b-2xl p-8">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5`}>
-                  <span className="text-white font-bold text-lg">
+              <div className={`h-2 bg-gradient-to-r ${m.gradient}`} />
+              <div className="bg-gray-50 p-8">
+                <div className={`w-14 h-14 bg-gradient-to-br ${m.gradient} flex items-center justify-center mb-5`}>
+                  <span className="text-foreground font-bold text-lg">
                     {m.name.split(" ").map((n) => n[0]).join("")}
                   </span>
                 </div>

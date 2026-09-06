@@ -19,7 +19,7 @@ export default function BlockHero({
     <header>
       {/* Hero media — 60% viewport height */}
       {media.src && (
-        <div className={"w-full h-[60vh] overflow-hidden " + (contain ? "bg-white flex items-center justify-center" : "")}>
+        <div className={"w-full h-[60vh] overflow-hidden " + (contain ? "bg-slab flex items-center justify-center" : "")}>
           {isVideo ? (
             <video
               src={media.src}

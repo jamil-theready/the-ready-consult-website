@@ -37,9 +37,6 @@ export default function StartPage() {
       <main id="main-content" className="pt-32 pb-24 sm:pt-40">
         <section className={CONTAINER}>
           <div className="max-w-3xl">
-            <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan">
-              Free Google review
-            </p>
             <h1 className="text-[clamp(2.5rem,5.2vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-navy">
               Find out what&rsquo;s costing you calls.
             </h1>
@@ -77,7 +74,7 @@ export default function StartPage() {
                 ))}
               </ol>
 
-              <div className="mt-12 rounded-2xl bg-gray-50 p-6">
+              <div className="mt-12 bg-gray-50 p-6">
                 <p className="text-[15px] leading-relaxed text-gray-600">
                   <span className="font-semibold text-navy">We work with trades.</span> Masonry,
                   concrete, hardscape, pools, landscaping, painting. If you run the crew and answer

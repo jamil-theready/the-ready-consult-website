@@ -26,7 +26,7 @@ export default function WorkIndexPage() {
       {/* Intro panel */}
       <section className="h-[70vh] flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-6xl sm:text-8xl font-semibold text-navy leading-none">Our work</h1>
-        <p className="mt-2 text-4xl sm:text-6xl text-gray-300 font-semibold leading-none">See all</p>
+        <p className="mt-2 text-4xl sm:text-6xl text-gray-400 font-semibold leading-none">See all</p>
       </section>
 
       {/* Full-bleed scroll of featured cases + tracking pill */}
@@ -39,7 +39,7 @@ export default function WorkIndexPage() {
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {grid.map((c) => (
               <a key={c.slug} href={`/work/${c.slug}`} className="group block no-underline">
-                <img src={c.thumbnail} alt={c.client} className="w-full aspect-square object-cover rounded-lg" />
+                <img src={c.thumbnail} alt={c.client} className="w-full aspect-square object-cover " />
                 <p className="mt-2 text-sm text-navy">{c.client}</p>
               </a>
             ))}

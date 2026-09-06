@@ -11,9 +11,9 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="sc-section relative bg-white min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden"
+      className="sc-section relative bg-background min-h-[100vh] flex flex-col overflow-x-clip lg:overflow-hidden"
       data-sc-act="flow"
-      data-sc-drift="#ffffff"
+      data-sc-drift="#0D0A05"
       data-sc-in
       data-sc-stagger="70"
     >
@@ -113,10 +113,10 @@ export default function Hero() {
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
           <a
             href="/contact"
-            className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[15px] px-8 py-3.5 rounded-xl hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"
+            className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[15px] px-8 py-3.5 hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group"
           >
             <span className="absolute inset-0 cta-shimmer" />
-            <span className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
+            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
               boxShadow: "inset 0 0 20px rgba(255,255,255,0.08), 0 0 40px rgba(255,255,255,0.06)",
             }} />
             <svg className="w-5 h-5 relative z-10 group-hover:rotate-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[14px] px-6 py-3.5 rounded-xl border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all"
+            className="inline-flex items-center gap-2 text-gray-500 font-semibold text-[14px] px-6 py-3.5 border border-gray-200 hover:bg-gray-50 hover:text-navy transition-all"
           >
             See how it works
           </a>

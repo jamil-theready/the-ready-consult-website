@@ -31,16 +31,16 @@ export default function Testimonial() {
               </svg>
             ))}
           </div>
-          <blockquote className="text-[clamp(1.5rem,3.5vw,2.75rem)] font-bold text-white leading-[1.2] tracking-tight">
+          <blockquote className="text-[clamp(1.5rem,3.5vw,2.75rem)] font-bold text-foreground leading-[1.2] tracking-tight">
             &ldquo;{mainQuote.text}&rdquo;
           </blockquote>
           <div className="mt-8 flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal to-cyan flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{mainQuote.initials}</span>
+              <span className="text-foreground font-bold text-sm">{mainQuote.initials}</span>
             </div>
             <div>
-              <p className="font-semibold text-white">{mainQuote.name}</p>
-              <p className="text-[14px] text-white/40">
+              <p className="font-semibold text-foreground">{mainQuote.name}</p>
+              <p className="text-[14px] text-foreground/40">
                 {mainQuote.role} &middot;{" "}
                 <span className="text-cyan font-medium">{mainQuote.result}</span>
               </p>
@@ -58,20 +58,20 @@ export default function Testimonial() {
           {tickerItems.map((t, i) => (
             <div
               key={i}
-              className="shrink-0 w-[260px] sm:w-[320px] rounded-xl border border-white/10 bg-white/[0.04] p-4 sm:p-5"
+              className="shrink-0 w-[260px] sm:w-[320px] border border-white/10 bg-slab/[0.04] p-4 sm:p-5"
             >
-              <p className="text-white/60 text-sm leading-relaxed mb-4">
+              <p className="text-foreground/60 text-sm leading-relaxed mb-4">
                 &ldquo;{t.text}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-white/60 text-xs font-bold">
+                <div className="w-8 h-8 rounded-full bg-background/10 flex items-center justify-center">
+                  <span className="text-foreground/60 text-xs font-bold">
                     {t.name.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <p className="text-white/80 text-xs font-semibold">{t.name}</p>
-                  <p className="text-white/30 text-xs">{t.role}</p>
+                  <p className="text-foreground/80 text-xs font-semibold">{t.name}</p>
+                  <p className="text-foreground/30 text-xs">{t.role}</p>
                 </div>
               </div>
             </div>

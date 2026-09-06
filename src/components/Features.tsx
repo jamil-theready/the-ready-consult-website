@@ -63,7 +63,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 lg:py-32 bg-white">
+    <section id="features" className="py-20 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-teal/10 text-teal px-4 py-1.5 rounded-full text-sm font-medium mb-6">
@@ -84,9 +84,9 @@ export default function Features() {
               key={feature.title}
               // Wash, not a lift (rule 77): the card brightens and its border
               // warms, but it does not rise off the page.
-              className="group relative bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-teal/30 hover:bg-white transition-all duration-300"
+              className="group relative bg-gray-50 p-8 border border-gray-200 hover:border-teal/30 hover:bg-slab transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-6 text-teal group-hover:bg-teal group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 bg-teal/10 flex items-center justify-center mb-6 text-teal group-hover:bg-teal group-hover:text-foreground transition-colors duration-300">
                 {feature.icon}
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">

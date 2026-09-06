@@ -4,41 +4,131 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ─────────────────────────────────────────────────────────────────────────
+   TRC / WALLACE — one hue, value does everything.
+   Rebrand 2026-09-06, from three Blade Runner 2049 frames: the Vegas ruins
+   for light-in-haze depth, the Wallace lobby for slab-and-seam surfaces.
+
+   The grey ramp is INVERTED in dark. gray-50 was the lightest surface and is
+   now the darkest; gray-900 was the darkest ink and is now the lightest. That
+   is what lets the ~500 existing colour classes land correctly without
+   editing them one by one. Light mode restores the natural order.
+
+   Verified on the rendered page, canvas-resolved, never by regex:
+     foreground 17.42:1 · glow 13.70:1 · gray-600 11.47:1 · dust 8.86:1
+     amber 9.40:1 · ground ink on the amber fill 9.40:1 · alarm 5.07:1
+   gray-50/100/200/300 are SURFACES. Never put text on them at text size.
+   ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #0a2540;
-  --navy: #0a2540;
-  --teal: #1F514C;
-  --teal-light: #2A6B64;
-  --cyan: #dc2626;
-  --purple: #7b61ff;
-  --green: #00d924;
-  --blue: #dc2626;
-  --pink: #ff6b8a;
-  --orange: #ff9e2c;
-  --gray-50: #f6f9fc;
-  --gray-100: #edf1f7;
-  --gray-200: #e3e8ee;
-  --gray-300: #c1c9d2;
-  --gray-400: #8898aa;
-  --gray-500: #697386;
-  --gray-600: #525f7f;
-  --gray-900: #0a2540;
+  color-scheme: dark;
+
+  --void:       #050302;
+  --background: #0D0A05;
+  --slab:       #16110A;
+  --seam:       #2C2417;
+
+  --foreground: #F7F0E2;
+  --dust:       #BCAC8C;
+
+  --amber:      #E9A63C;   /* the accent. the only one. */
+  --glow:       #FFD07B;
+  --unlit:      #3E3426;   /* a fixture switched off */
+  --alarm:      #D9573F;   /* real failure ONLY. never decorative. */
+
+  /* channel triples: the only way an rgba() composed in JS follows the theme */
+  --fg-rgb:    247, 240, 226;
+  --amber-rgb: 233, 166, 60;
+
+  /* legacy names, remapped so existing markup keeps working */
+  --navy:       #F7F0E2;
+  --teal:       #E9A63C;
+  --teal-light: #FFD07B;
+  --cyan:       #E9A63C;
+  --purple:     #E9A63C;
+  --green:      #FFD07B;
+  --blue:       #E9A63C;
+  --pink:       #E9A63C;
+  --orange:     #E9A63C;
+
+  --gray-50:  #100C06;
+  --gray-100: #16110A;
+  --gray-200: #2C2417;
+  --gray-300: #4A3F2C;
+  --gray-400: #9A8A6C;
+  --gray-500: #BCAC8C;
+  --gray-600: #D2C4A6;
+  --gray-700: #E4D9C2;
+  --gray-800: #EDE4D2;
+  --gray-900: #F7F0E2;
 }
 
 /* scroll-craft rebrand. Override these six roles and the engine is themed;
    its defaults are dark, so this is required, not optional. */
+/* scroll-craft rebrand. Override these roles and the engine is themed; its
+   defaults are dark, so this is required, not optional. They are driven off
+   the tokens above so the engine follows the theme toggle for free. */
 :root {
-  --sc-canvas:      #ffffff;
-  --sc-surface:     #f6f9fc;
-  --sc-ink:         #0a2540;
-  --sc-ink-soft:    #525f7f;
-  --sc-accent:      #dc2626;
-  --sc-accent-ink:  #ffffff;
+  --sc-canvas:      var(--background);
+  --sc-surface:     var(--slab);
+  --sc-ink:         var(--foreground);
+  --sc-ink-soft:    var(--dust);
+  --sc-accent:      var(--amber);
+  --sc-accent-ink:  var(--background);
+  --sc-hairline:    var(--seam);
   --sc-font-display: var(--font-inter), system-ui, sans-serif;
   --sc-font-text:    var(--font-inter), system-ui, sans-serif;
   --sc-font-mono:    var(--font-roboto-mono), ui-monospace, monospace;
   --trc-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   LIGHT MODE — the Wallace lobby in daylight, not an inversion of the dark.
+   Warm limestone ground, warm near-black ink, and an amber that had to go
+   DEEP: #E9A63C on sand is 1.9:1 and would fail every piece of text.
+
+   Verified against the HARDEST ground on the page (--void, the tinted band):
+     foreground 13.92:1 · gray-600 6.35:1 · gray-500 5.88:1 · gray-400 4.78:1
+     amber 4.82:1 · sand ink on the amber fill 5.47:1 · alarm 5.29:1
+   ───────────────────────────────────────────────────────────────────────── */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --void:       #E9DFCC;
+  --background: #F4EDE1;
+  --slab:       #FBF7ED;
+  --seam:       #DDD0B8;
+
+  --foreground: #1A130A;
+  --dust:       #5C513F;
+
+  --amber:      #855508;
+  --glow:       #6B4306;   /* a highlight on a light ground is more ink, not more light */
+  --unlit:      transparent;
+  --alarm:      #A82A11;
+
+  --fg-rgb:    26, 19, 10;
+  --amber-rgb: 133, 85, 8;
+
+  --navy:       #1A130A;
+  --teal:       #855508;
+  --teal-light: #6B4306;
+  --cyan:       #855508;
+  --purple:     #855508;
+  --green:      #6B4306;
+  --blue:       #855508;
+  --pink:       #855508;
+  --orange:     #855508;
+
+  --gray-50:  #FAF6EC;
+  --gray-100: #F2EADC;
+  --gray-200: #E3D8C4;
+  --gray-300: #CDBFA6;
+  --gray-400: #6B5E4B;
+  --gray-500: #5C513F;
+  --gray-600: #4A4132;
+  --gray-700: #372F24;
+  --gray-800: #262016;
+  --gray-900: #1A130A;
 }
 
 @theme inline {
@@ -77,17 +167,17 @@ body {
 }
 
 html { scroll-behavior: smooth; }
-::selection { background-color: var(--blue); color: white; }
+::selection { background-color: var(--amber); color: var(--background); }
 
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--amber);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 .skip-to-content {
   position: absolute; top: -100%; left: 16px; z-index: 100;
-  padding: 8px 16px; background: var(--blue); color: white;
+  padding: 8px 16px; background: var(--amber); color: var(--background);
   border-radius: 0 0 8px 8px; font-size: 14px; font-weight: 500;
   transition: top 0.2s;
 }
@@ -96,40 +186,21 @@ html { scroll-behavior: smooth; }
 /* Legacy gradient mesh - kept for potential dark sections */
 .gradient-mesh {
   background:
-    radial-gradient(ellipse 80% 60% at 15% 80%, rgba(0, 212, 255, 0.4) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(123, 97, 255, 0.5) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 60%, rgba(99, 91, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 70% 90%, rgba(0, 217, 36, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 30% 20%, rgba(255, 107, 138, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 30% at 90% 60%, rgba(255, 158, 44, 0.15) 0%, transparent 50%),
-    linear-gradient(180deg, #0b1a33 0%, #0d2240 30%, #101b38 70%, #0a1628 100%);
+    radial-gradient(ellipse 90% 70% at 20% 10%, rgba(233,166,60,.20) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 88% 85%, rgba(233,166,60,.10) 0%, transparent 58%),
+    var(--void);
 }
 
 /* CTA button */
 .cta-btn {
-  /* 🔴 The colour is set HERE, not by the `text-white` class the buttons carry.
-     Tailwind is emitting no utilities at all on this branch — not .text-white,
-     not even .flex — so every one of those classes is inert and the buttons
-     inherited body colour: navy #0a2540 on a red gradient, unreadable. Setting
-     it in this file is the fix that holds while that is sorted out; see the
-     note at the top of the file. */
-  color: #fff;
-  background: linear-gradient(145deg, #b91c1c 0%, #dc2626 40%, #b91c1c 100%);
-  box-shadow:
-    0 6px 24px rgba(185, 28, 28, 0.35),
-    0 2px 6px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.25);
+  background: var(--amber);
+  color: var(--background);
+  box-shadow: 0 0 48px rgba(233,166,60,.26);
 }
-.cta-btn, .cta-btn * { color: #fff; }
+.cta-btn, .cta-btn * { color: var(--background); }
 .cta-btn:hover {
-  background: linear-gradient(145deg, #dc2626 0%, #ef4444 40%, #dc2626 100%);
-  box-shadow:
-    0 8px 40px rgba(220, 38, 38, 0.5),
-    0 4px 12px rgba(185, 28, 28, 0.3),
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    inset 0 -1px 0 rgba(0,0,0,0.25),
-    0 0 0 1px rgba(255,255,255,0.08);
+  background: var(--glow);
+  box-shadow: 0 0 64px rgba(255,208,123,.34);
 }
 
 /* Shimmer sweep across button */
@@ -181,22 +252,8 @@ html { scroll-behavior: smooth; }
 }
 
 @keyframes lava-pulse {
-  0%, 100% {
-    box-shadow:
-      0 0 20px rgba(239, 68, 68, 0.55),
-      0 0 45px rgba(220, 38, 38, 0.45),
-      0 0 90px rgba(185, 28, 28, 0.35),
-      0 8px 30px -4px rgba(220, 38, 38, 0.55),
-      inset 0 1px 0 rgba(255, 200, 180, 0.25);
-  }
-  50% {
-    box-shadow:
-      0 0 30px rgba(252, 165, 165, 0.7),
-      0 0 70px rgba(239, 68, 68, 0.6),
-      0 0 120px rgba(185, 28, 28, 0.5),
-      0 10px 40px -4px rgba(239, 68, 68, 0.65),
-      inset 0 1px 0 rgba(255, 220, 200, 0.35);
-  }
+  0%, 100% { box-shadow: 0 0 24px rgba(233,166,60,.42), 0 0 60px rgba(233,166,60,.26); }
+  50%      { box-shadow: 0 0 36px rgba(255,208,123,.58), 0 0 96px rgba(233,166,60,.34); }
 }
 .lava-glow {
   animation: lava-pulse 2.4s ease-in-out infinite;
@@ -316,7 +373,7 @@ html { scroll-behavior: smooth; }
 }
 .plan__cta:hover { border-color: var(--sc-ink-soft); }
 .plan.is-featured .plan__cta { background: var(--sc-accent); color: var(--sc-accent-ink); border-color: transparent; }
-.plan.is-featured .plan__cta:hover { background: #b91c1c; }
+.plan.is-featured .plan__cta:hover { background: var(--glow); }
 
 /* The signature move: the six pieces draw themselves into one loop as the act
    advances, then the whole diagram leans toward the pointer. */
@@ -526,4 +583,97 @@ html { scroll-behavior: smooth; }
    paragraphs below full contrast, so without it they must simply be readable. */
 @media (prefers-reduced-motion: reduce) {
   .mission__p { opacity: 1 !important; transition: none; }
+}
+
+
+/* ══ WALLACE DEVICES ══════════════════════════════════════════════════════ */
+
+/* HAZE — a barely-there amber lift so no region is ever flat. Depth in this
+   brand is distance from a light, never a shadow underneath. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(120vw 90vh at 8% 4%,  rgba(233,166,60,.12), transparent 62%),
+    radial-gradient(80vw 70vh at 96% 78%, rgba(233,166,60,.06), transparent 60%);
+}
+/* GRAIN — the air in the room. Fixed, so it does NOT scroll with the page.
+   Cheapest element in the system and the one that decides whether this reads
+   as a lit space or a generic dark theme. */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme="light"] body::before {
+  background:
+    radial-gradient(120vw 90vh at 8% 4%,  rgba(133,85,8,.07), transparent 62%),
+    radial-gradient(80vw 70vh at 96% 78%, rgba(133,85,8,.04), transparent 60%);
+}
+/* noise on a light ground darkens instead of lifting, so it needs far less */
+:root[data-theme="light"] body::after { opacity: .028; }
+
+/* SEAM — the only line work in the brand. Structure, never decoration. */
+.seam { height: 1px; background: var(--seam); border: 0; }
+
+/* BLOOM — light spreading through haze. Zero y-offset; an offset shadow is
+   elevation and is banned. */
+.bloom { box-shadow: 0 0 48px rgba(233,166,60,.24); }
+
+/* THE MARK — white core, amber bloom. White is a light SOURCE, never type. */
+.lit   { fill: #fff; filter:
+           drop-shadow(0 0 6px  rgba(255,208,123,.95))
+           drop-shadow(0 0 20px rgba(233,166,60,.60))
+           drop-shadow(0 0 44px rgba(233,166,60,.30)); }
+.unlit { fill: var(--unlit); }
+/* On a light ground the mark is INK, not light: no bloom, and the two unlit
+   cells are left BLANK rather than drawn as grey circles. */
+:root[data-theme="light"] .lit   { fill: var(--foreground); filter: none; }
+:root[data-theme="light"] .unlit { fill: none; }
+
+/* THE VOID — every page opens on an empty band. It is a third of the Wallace
+   lobby frame and it is why that image reads expensive. */
+.void { height: 26vh; min-height: 170px; }
+
+/* THE TOGGLE — both icons always in the DOM, CSS picks one. That is what
+   keeps server and client markup identical: no theme in React state, so no
+   hydration mismatch and nothing to flash. */
+.theme-ico-moon { display: none; }
+:root[data-theme="light"] .theme-ico-moon { display: block; }
+:root[data-theme="light"] .theme-ico-sun  { display: none; }
+
+/* ZERO RADIUS — the dots in the mark are the only curve in the brand.
+   NOTE: this does NOT beat a Tailwind rounded-* utility (a class selector
+   outranks *), so radius also has to come out of the markup. */
+*, *::before, *::after { border-radius: 0; }
+.rounded-full { border-radius: 9999px; }
+
+/* No heading is ever left unbalanced (design rule A15.2b). */
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+p, li, blockquote { text-wrap: pretty; }
+
+/* ── SCROLL DRIFT vs THE THEME ──
+   The engine parses data-sc-drift ONCE at init and then writes --sc-canvas
+   inline on every frame, so an inline style always beats a stylesheet rule
+   and the drift colours cannot be CSS variables. They are pinned to the dark
+   ground, which keeps the drift working in the default theme.
+
+   In light mode we take the ground back. The page loses the drift there, but
+   a dark body under light content is the alternative, and that is worse. To
+   give light mode its own drift the engine would have to be re-initialised on
+   theme change; that is a bigger change than this rebrand. */
+:root[data-theme="light"] body { background: var(--background) !important; }
+
+/* CHROME-DARK — a mockup depicts ANOTHER product's interface. ChatGPT's window
+   is dark whatever theme thereadyconsult.com is in, and a terminal is always a
+   terminal. These subtrees pin the dark tokens so the illustration stays
+   honest while the page around it changes. */
+.chrome-dark {
+  --background: #0D0A05; --void: #050302; --slab: #16110A; --seam: #2C2417;
+  --foreground: #F7F0E2; --dust: #BCAC8C; --unlit: #3E3426;
+  --amber: #E9A63C; --glow: #FFD07B; --navy: #F7F0E2;
+  --fg-rgb: 247, 240, 226; --amber-rgb: 233, 166, 60;
+  --gray-50: #100C06; --gray-100: #16110A; --gray-200: #2C2417;
+  --gray-300: #4A3F2C; --gray-400: #9A8A6C; --gray-500: #BCAC8C;
+  --gray-600: #D2C4A6; --gray-700: #E4D9C2; --gray-800: #EDE4D2; --gray-900: #F7F0E2;
+  color: var(--foreground);
 }

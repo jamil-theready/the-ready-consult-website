@@ -49,8 +49,8 @@ export default function HeroDiorama() {
 
       <div className="hd__l hd__ridge" data-sc-parallax="3.6">
         <svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
-          <path d={RIDGE_FAR} fill="#eef4f8" />
-          <path d={RIDGE_NEAR} fill="#e3ecf3" />
+          <path d={RIDGE_FAR} fill="#bba180" />
+          <path d={RIDGE_NEAR} fill="#b89e7b" />
         </svg>
       </div>
 
@@ -60,12 +60,12 @@ export default function HeroDiorama() {
             const base = 420;
             const top = base - h;
             return (
-              <g key={i} fill="#d6e2ec">
+              <g key={i} fill="#b59975">
                 {chimney && <rect x={x + w * 0.66} y={top - rise - 26} width={16} height={40} rx={2} />}
                 <path d={`M${x - 10} ${top} L${x + w / 2} ${top - rise} L${x + w + 10} ${top} Z`} />
                 <rect x={x} y={top} width={w} height={h} />
-                <rect x={x + w * 0.2} y={top + h * 0.28} width={w * 0.16} height={h * 0.3} fill="#c4d4e1" />
-                <rect x={x + w * 0.62} y={top + h * 0.28} width={w * 0.16} height={h * 0.3} fill="#c4d4e1" />
+                <rect x={x + w * 0.2} y={top + h * 0.28} width={w * 0.16} height={h * 0.3} fill="#ad926e" />
+                <rect x={x + w * 0.62} y={top + h * 0.28} width={w * 0.16} height={h * 0.3} fill="#ad926e" />
               </g>
             );
           })}
@@ -75,10 +75,10 @@ export default function HeroDiorama() {
       <div className="hd__l hd__trees" data-sc-parallax="1.7">
         <svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
           {CONIFERS.map((x, i) => (
-            <path key={`c${i}`} d={`M${x} ${420 - 168} L${x + 34} 420 L${x - 34} 420 Z`} fill="#b6d0c8" />
+            <path key={`c${i}`} d={`M${x} ${420 - 168} L${x + 34} 420 L${x - 34} 420 Z`} fill="#a18a6c" />
           ))}
           {PALMS.map((x, i) => (
-            <g key={`p${i}`} fill="none" stroke="#a9c8bf" strokeWidth="7" strokeLinecap="round">
+            <g key={`p${i}`} fill="none" stroke="#9d8566" strokeWidth="7" strokeLinecap="round">
               <path d={`M${x} 420 C ${x - 6} 360 ${x + 4} 320 ${x} 288`} />
               {[-1, 1].map((s) =>
                 [0, 1, 2].map((k) => (
@@ -91,8 +91,8 @@ export default function HeroDiorama() {
             </g>
           ))}
           {TREES.map(([x, r, t], i) => (
-            <g key={`t${i}`} fill="#c3d8d0">
-              <rect x={x - 4} y={420 - t} width={8} height={t} fill="#b0c8bf" />
+            <g key={`t${i}`} fill="#a48f72">
+              <rect x={x - 4} y={420 - t} width={8} height={t} fill="#9c866a" />
               <circle cx={x} cy={420 - t - r * 0.72} r={r} />
               <circle cx={x - r * 0.62} cy={420 - t - r * 0.34} r={r * 0.66} />
               <circle cx={x + r * 0.6} cy={420 - t - r * 0.4} r={r * 0.6} />
@@ -104,29 +104,29 @@ export default function HeroDiorama() {
       <div className="hd__l hd__hard" data-sc-parallax="0.8">
         <svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
           {/* paver patio, laid in perspective */}
-          <path d="M120 420 L1480 420 L1330 268 L270 268 Z" fill="#e6edf2" />
+          <path d="M120 420 L1480 420 L1330 268 L270 268 Z" fill="#b69e7e" />
           {Array.from({ length: 9 }, (_, i) => {
             const t = (i + 1) / 10;
             const y = 268 + t * 152;
             const xl = 270 - t * 150;
             const xr = 1330 + t * 150;
-            return <line key={`h${i}`} x1={xl} y1={y} x2={xr} y2={y} stroke="#d3dee6" strokeWidth="2" />;
+            return <line key={`h${i}`} x1={xl} y1={y} x2={xr} y2={y} stroke="#ae9677" strokeWidth="2" />;
           })}
           {Array.from({ length: 13 }, (_, i) => {
             const t = (i + 1) / 14;
             const xTop = 270 + t * 1060;
             const xBot = 120 + t * 1360;
-            return <line key={`v${i}`} x1={xTop} y1={268} x2={xBot} y2={420} stroke="#d3dee6" strokeWidth="2" />;
+            return <line key={`v${i}`} x1={xTop} y1={268} x2={xBot} y2={420} stroke="#ae9677" strokeWidth="2" />;
           })}
           {/* gunite pool with coping */}
-          <ellipse cx="1090" cy="336" rx="270" ry="60" fill="#eff5f8" />
-          <ellipse cx="1090" cy="336" rx="248" ry="46" fill="#a9cfcb" />
-          <ellipse cx="1090" cy="330" rx="200" ry="28" fill="#bcdcd8" opacity="0.7" />
+          <ellipse cx="1090" cy="336" rx="270" ry="60" fill="#bba280" />
+          <ellipse cx="1090" cy="336" rx="248" ry="46" fill="#a38763" />
+          <ellipse cx="1090" cy="330" rx="200" ry="28" fill="#aa8f6b" opacity="0.7" />
           {/* fire pit. Sits high on the patio: down at the coping line the hedge
               covers the basin and the flame reads as a blob in mid air. */}
-          <ellipse cx="430" cy="312" rx="76" ry="23" fill="#e0e8ee" />
-          <ellipse cx="430" cy="305" rx="54" ry="15" fill="#cbd8e1" />
-          <path d="M430 305 C 419 288 439 284 430 269 C 450 283 446 298 430 305 Z" fill="#f0a58a" opacity="0.85" />
+          <ellipse cx="430" cy="312" rx="76" ry="23" fill="#b39b7d" />
+          <ellipse cx="430" cy="305" rx="54" ry="15" fill="#ab9374" />
+          <path d="M430 305 C 419 288 439 284 430 269 C 450 283 446 298 430 305 Z" fill="#a9885e" opacity="0.85" />
         </svg>
       </div>
 
@@ -136,11 +136,11 @@ export default function HeroDiorama() {
           {Array.from({ length: 26 }, (_, i) => {
             const x = i * 64 + (i % 3) * 9;
             const r = 26 + (i % 4) * 9;
-            return <circle key={`s${i}`} cx={x} cy={286} r={r} fill="#5f857c" />;
+            return <circle key={`s${i}`} cx={x} cy={286} r={r} fill="#72624d" />;
           })}
           {/* stacked block retaining wall */}
-          <rect x="0" y="286" width="1600" height="18" rx="4" fill="#7f9c94" />
-          <rect x="0" y="304" width="1600" height="116" fill="#6f8f87" />
+          <rect x="0" y="286" width="1600" height="18" rx="4" fill="#7f6f5a" />
+          <rect x="0" y="304" width="1600" height="116" fill="#776855" />
           {[0, 1, 2].map((row) =>
             Array.from({ length: 17 }, (_, i) => (
               <rect
@@ -151,7 +151,7 @@ export default function HeroDiorama() {
                 height={34}
                 rx={3}
                 fill="none"
-                stroke="#628078"
+                stroke="#6f614f"
                 strokeWidth="2"
               />
             ))

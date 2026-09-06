@@ -67,7 +67,7 @@ export default function MetaAdsVisual() {
     <div ref={ref} className="w-full h-full overflow-hidden flex flex-col gap-3 p-1">
       {/* Ad card — Instagram-style */}
       <div
-        className="rounded-2xl bg-white overflow-hidden transition-all duration-1000"
+        className="bg-background overflow-hidden transition-all duration-1000"
         style={{
           boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)",
           opacity: visible ? 1 : 0,
@@ -76,7 +76,7 @@ export default function MetaAdsVisual() {
       >
         <div className="flex items-center gap-2 px-4 py-3">
           <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal to-navy flex items-center justify-center">
-            <span className="text-white text-[10px] font-bold">TR</span>
+            <span className="text-foreground text-[10px] font-bold">TR</span>
           </div>
           <div className="flex-1">
             <p className="text-[11px] font-semibold text-gray-900 leading-none">Your Business</p>
@@ -88,7 +88,7 @@ export default function MetaAdsVisual() {
           </svg>
         </div>
         <div className="h-32 bg-gradient-to-br from-navy/90 to-teal/80 flex items-center justify-center relative overflow-hidden">
-          <span className="text-white text-[13px] font-bold text-center px-6 leading-snug">
+          <span className="text-foreground text-[13px] font-bold text-center px-6 leading-snug">
             Now Booking — Limited Spots This Month
           </span>
         </div>
@@ -96,14 +96,14 @@ export default function MetaAdsVisual() {
           <p className="text-[9px] text-gray-400 uppercase tracking-wide mb-1">yourbusiness.com</p>
           <div className="flex items-center justify-between">
             <p className="text-[10px] font-semibold text-gray-800">Get Your Free Quote Today</p>
-            <div className="bg-gray-100 text-gray-700 text-[9px] font-semibold px-3 py-1.5 rounded-md shrink-0">Learn More</div>
+            <div className="bg-gray-100 text-gray-700 text-[9px] font-semibold px-3 py-1.5 shrink-0">Learn More</div>
           </div>
         </div>
       </div>
 
       {/* Ads Manager metrics strip */}
       <div
-        className="rounded-xl bg-white shadow-lg shadow-black/5 px-4 py-3 flex items-center justify-between transition-all duration-1000"
+        className="bg-background px-4 py-3 flex items-center justify-between transition-all duration-1000"
         style={{
           opacity: showMetrics ? 1 : 0,
           transform: showMetrics ? "translateY(0)" : "translateY(12px)",

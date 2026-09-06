@@ -55,7 +55,7 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="relative bg-white"
+      className="relative bg-background"
       style={{ height: `${(steps.length + 3) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center overflow-hidden">
@@ -93,7 +93,7 @@ export default function HowItWorks() {
           </p>
           <div
             key={`badge-${activeStep}`}
-            className="w-13 h-13 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#b91c1c] via-[#dc2626] to-[#ef4444] text-white flex items-center justify-center text-xl md:text-2xl font-bold mx-auto animate-fade-in"
+            className="w-13 h-13 md:w-14 md:h-14 bg-gradient-to-br from-[var(--amber)] via-[var(--amber)] to-[var(--glow)] text-foreground flex items-center justify-center text-xl md:text-2xl font-bold mx-auto animate-fade-in"
             style={{ boxShadow: "0 10px 30px -5px rgba(220,38,38,0.45), 0 0 40px rgba(220,38,38,0.25)" }}
           >
             {steps[activeStep].num}
@@ -153,9 +153,9 @@ export default function HowItWorks() {
             <path d="M 200 490 A 440 440 0 0 1 1000 490" stroke="#f5f5f5" strokeWidth="0.8" fill="none" />
             <defs>
               <linearGradient id="arc-red" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#b91c1c" />
-                <stop offset="50%" stopColor="#dc2626" />
-                <stop offset="100%" stopColor="#ef4444" />
+                <stop offset="0%" stopColor="var(--amber)" />
+                <stop offset="50%" stopColor="var(--amber)" />
+                <stop offset="100%" stopColor="var(--glow)" />
               </linearGradient>
             </defs>
             <path
@@ -169,7 +169,7 @@ export default function HowItWorks() {
           </svg>
           {prevStep !== null && (
             <div className="absolute left-[6%] md:left-[10%] lg:left-[12%] bottom-[30%] md:bottom-[35%] z-10 transition-opacity duration-500 hidden sm:block" style={{ opacity: 0.5 }}>
-              <div className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-white border border-gray-200/80 flex items-center justify-center text-base md:text-lg font-bold text-gray-400 shadow-sm backdrop-blur-sm">
+              <div className="w-11 h-11 md:w-13 md:h-13 bg-slab border border-gray-200/80 flex items-center justify-center text-base md:text-lg font-bold text-gray-400 backdrop-blur-sm">
                 {steps[prevStep].num}
               </div>
             </div>
@@ -199,9 +199,9 @@ export default function HowItWorks() {
                 aria-label={`Go to step ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeStep
-                    ? "w-3 h-3 bg-[#dc2626] scale-110"
+                    ? "w-3 h-3 bg-[var(--amber)] scale-110"
                     : i < activeStep
-                      ? "w-2.5 h-2.5 bg-[#dc2626]/30"
+                      ? "w-2.5 h-2.5 bg-[var(--amber)]/30"
                       : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
                 }`}
               />
