@@ -156,10 +156,10 @@
 }
 
 body {
-  /* Bound straight to --background. The engine used to interpolate --sc-canvas
-     as you scrolled (data-sc-drift) and the page drifted lighter on the way
-     down; those attributes are gone, so the ground stays put. */
-  background: var(--background);
+  /* Back on --sc-canvas so the HERO can drift again. The drift target is
+     #030201, DARKER than the ground, so the page deepens on the way down
+     instead of lightening. Mission's drift stays removed. */
+  background: var(--sc-canvas, var(--background));
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -532,13 +532,12 @@ html { scroll-behavior: smooth; }
    reflowing it clips the copy inside. Scale the whole device instead. */
 .hero-stage { position: relative; }
 .hero-stage__scale {
-  --hv: 0.72;
-  transform: scale(var(--hv)); transform-origin: top center;
-  height: calc(700px * var(--hv));
+  /* One box, one size. It used to scale 0.54-0.84 off viewport height, so the
+     same element was a different size on every laptop. Fixed height, no
+     transform: it is big, it is anchored to the bottom of the hero, and it
+     does not resize. */
+  height: 700px;
 }
-@media (min-height: 1040px) { .hero-stage__scale { --hv: 0.84; } }
-@media (max-height: 800px)  { .hero-stage__scale { --hv: 0.64; } }
-@media (max-height: 700px)  { .hero-stage__scale { --hv: 0.54; } }
 
 /* ---------------------------------------------------------------------------
    The rotating trade in the headline. The live word stays in flow so it owns
@@ -548,6 +547,7 @@ html { scroll-behavior: smooth; }
 .rw {
   position: relative; display: inline-block; vertical-align: baseline;
   white-space: nowrap; color: var(--sc-accent);
+  -webkit-text-fill-color: var(--sc-accent);
   transition: width 460ms var(--trc-ease);
 }
 .rw__in  { display: inline-block; animation: rw-in 420ms var(--trc-ease) both; }
@@ -718,3 +718,59 @@ a, button, .cta-btn, [class*="hover:"] {
   transition-timing-function: var(--ease);
   transition-duration: var(--t);
 }
+
+/* The engine writes --sc-canvas inline from the DARK drift targets, and an
+   inline style beats any rule, so light mode would inherit a dark body. Light
+   takes its ground back. It has no drift as a result, which is the same
+   trade as before: a dark body under light copy is the alternative. */
+:root[data-theme="light"] body { background: var(--background) !important; }
+
+/* ── FAIL-SAFE for the flow reveal ──
+   🔴 A blank hero on cold load, and it is NOT a styling bug.
+   scroll-craft collects [data-sc-in] ONCE at init (`root.querySelectorAll`)
+   and hands them to an IntersectionObserver. If the engine initialises before
+   those sections have mounted it observes nothing, `.sc-in` is never added,
+   and the engine's own `[data-sc-in]{opacity:0}` leaves the section invisible
+   FOREVER — no scroll, no timer, nothing recovers it. Confirmed: 2 cue
+   elements on the homepage, 0 revealed, unchanged after 9s and after scroll.
+
+   It is a race, which is why it looked intermittent: a warm reload usually
+   wins it, a cold load usually does not. Predates the rebrand (reproduced at
+   6c2d120).
+
+   This reveals anything the engine has not claimed after 1.2s. When the engine
+   works, .sc-in lands long before that and cancels this. The engine itself is
+   never edited.
+
+   The animation approach did not hold, so this is the blunt version: the
+   section is VISIBLE by default and the engine's .sc-in only drives the
+   transition. A cosmetic entrance is not worth a hero that can vanish.
+   Higher specificity than the engine's `[data-sc-in]{opacity:0}`. */
+html [data-sc-in], html [data-sc-cue] { opacity: 1; }
+
+/* ── DISPLAY SCALE ──
+   This repo had EIGHT hand-rolled heading clamps, every one different
+   (4vw/4.4vw/4.5vw, 3.5rem/3.75rem) at three different weights. One rank, one
+   definition, so they can no longer drift apart.
+
+   Cluely's posture: a single weight (500) and tracking that scales with size.
+   The gradient is theirs too — their section H2s run ink -> grey left to
+   right. On this ground it runs bright cream -> dust. Both endpoints clear
+   contrast on their own (17.4:1 and 8.9:1), which is what makes it safe.
+   NOTE: `in oklab` inside the gradient is mangled by the CSS pipeline —
+   it emitted `to right in oklab;background-image:...` and the heading lost
+   the gradient entirely. Plain `to right` survives.
+   🔴 Reverses design rule 40, which bans gradient text as a lazy default. */
+.t-display, .t-h2 {
+  font-weight: 500;
+  background: linear-gradient(to right, var(--foreground) 0%, var(--dust) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.t-display { font-size: clamp(2.4rem, 5.2vw, 4.1rem); line-height: 1.06; letter-spacing: -0.025em; }
+.t-h2      { font-size: clamp(1.9rem, 3.6vw, 3rem);   line-height: 1.14; letter-spacing: -0.022em; }
+
+/* the rotating trade sits INSIDE the h1; a transparent text-fill on the parent
+   would swallow its amber, so it takes its own fill back. */
+.rw, .t-display .rw { -webkit-text-fill-color: var(--sc-accent); }

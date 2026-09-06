@@ -3,7 +3,7 @@ import SystemDiagram from "./SystemDiagram";
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="sc-section pricing" data-sc-act="flow" data-sc-drift="#ffffff">
+    <section id="pricing" className="sc-section pricing" data-sc-act="flow" data-sc-drift="#080603">
       <div className="pricing__wrap">
         <h2 className="pricing__title" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">
           Two ways to work with us.

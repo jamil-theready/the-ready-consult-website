@@ -15,7 +15,7 @@ export default function WhyUs() {
 
       <div className="relative max-w-[1280px] mx-auto px-6">
         <p className="text-cyan font-semibold text-[15px] mb-4">Why us</p>
-        <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-foreground leading-[1.1] tracking-tight max-w-xl mb-16">
+        <h2 className="t-h2 text-foreground max-w-xl mb-16">
           The difference is measurable
         </h2>
 

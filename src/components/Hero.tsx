@@ -95,7 +95,7 @@ export default function Hero() {
 
       <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-0 flex-1 flex flex-col justify-start items-center text-center">
         <h1
-          className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold leading-[1.12] tracking-[-0.03em] max-w-[900px] text-navy"
+          className="t-display max-w-[900px] text-navy"
           data-sc-cue="0 0.78 0"
         >
           <span className="block">AI solutions for your</span>

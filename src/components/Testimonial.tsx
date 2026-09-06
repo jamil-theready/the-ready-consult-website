@@ -31,7 +31,7 @@ export default function Testimonial() {
               </svg>
             ))}
           </div>
-          <blockquote className="text-[clamp(1.5rem,3.5vw,2.75rem)] font-bold text-foreground leading-[1.2] tracking-tight">
+          <blockquote className="t-h2 text-foreground ">
             &ldquo;{mainQuote.text}&rdquo;
           </blockquote>
           <div className="mt-8 flex items-center gap-4">

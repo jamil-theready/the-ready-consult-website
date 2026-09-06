@@ -81,7 +81,7 @@ export default function HowItWorks() {
             Process
             <span className="text-[10px]">&#10022;</span>
           </p>
-          <h2 className="text-[clamp(2rem,4.5vw,3.75rem)] font-medium text-navy tracking-tight leading-tight">
+          <h2 className="t-h2 text-navy leading-tight">
             A collaborative approach
           </h2>
         </div>

@@ -11,7 +11,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="sc-section faq" data-sc-act="pin" data-sc-span="1.6" data-sc-drift="#f6f9fc">
+    <section id="faq" className="sc-section faq" data-sc-act="pin" data-sc-span="1.6" data-sc-drift="#050302">
       <div data-sc-stage className="faq__stage" data-sc-spotlight>
         <div className="faq__inner">
           <h2 className="faq__title">Common questions</h2>
