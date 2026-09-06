@@ -99,7 +99,7 @@ export default function Navbar() {
             href="/contact"
             className={`hidden md:inline-flex relative text-[13px] font-semibold px-6 py-2.5 transition-all duration-500 overflow-hidden ${
               inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
-            } cta-btn rounded-[6px]`}
+            } cta-btn rounded-[12px]`}
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Sign up &rarr;</span>
@@ -144,7 +144,7 @@ export default function Navbar() {
           <a
             href="/contact"
             onClick={() => setOpen(false)}
-            className="cta-btn relative block text-center font-medium text-[14px] px-6 py-4 overflow-hidden rounded-[6px]"
+            className="cta-btn relative block text-center font-medium text-[14px] px-6 py-4 overflow-hidden rounded-[12px]"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Sign up &rarr;</span>
@@ -160,7 +160,7 @@ export default function Navbar() {
       >
         <a
           href="/contact"
-          className="cta-btn relative inline-flex items-center gap-2 font-medium text-[12px] sm:text-[14px] px-6 sm:px-8 py-3 sm:py-3.5 overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200 rounded-[6px]"
+          className="cta-btn relative inline-flex items-center gap-2 font-medium text-[12px] sm:text-[14px] px-6 sm:px-8 py-3 sm:py-3.5 overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200 rounded-[12px]"
           style={{ boxShadow: "0 10px 40px -8px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.2)" }}
         >
           <span className="absolute inset-0 cta-shimmer" />

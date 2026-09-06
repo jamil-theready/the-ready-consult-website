@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4">
           <a
             href="/contact"
-            className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[15px] px-8 py-3.5 hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group rounded-[6px]"
+            className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[15px] px-8 py-3.5 hover:scale-[1.04] active:scale-[0.97] transition-all duration-300 overflow-hidden group rounded-[12px]"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
