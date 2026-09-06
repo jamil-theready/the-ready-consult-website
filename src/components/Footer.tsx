@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://calendly.com/thereadyconsult/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-btn relative inline-flex items-center gap-2.5 text-white font-semibold text-[14px] px-8 py-3.5 rounded-xl hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6"
+              className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[14px] px-8 py-3.5 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6"
             >
               <span className="absolute inset-0 cta-shimmer" />
               <svg className="w-4.5 h-4.5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           <div className="hidden md:block">
-            <LogoAnimation size={140} color="#dc2626" />
+            <LogoAnimation size={140} color="var(--amber)" />
           </div>
         </div>
       </div>
@@ -46,15 +46,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="flex items-center gap-2.5">
             <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
-              <circle cx="10.5" cy="10.5" r="8" fill="#dc2626"/>
-              <circle cx="32.5" cy="10.5" r="8" fill="#dc2626"/>
-              <circle cx="54.5" cy="10.5" r="8" fill="#dc2626"/>
-              <circle cx="10.5" cy="32.5" r="8" fill="#dc2626"/>
-              <circle cx="32.5" cy="32.5" r="8" fill="#dc2626"/>
-              <circle cx="54.5" cy="32.5" r="8" fill="#dc2626" opacity="0.2"/>
-              <circle cx="10.5" cy="54.5" r="8" fill="#dc2626"/>
-              <circle cx="32.5" cy="54.5" r="8" fill="#dc2626" opacity="0.2"/>
-              <circle cx="54.5" cy="54.5" r="8" fill="#dc2626"/>
+              <circle cx="10.5" cy="10.5" r="8" fill="var(--amber)"/>
+              <circle cx="32.5" cy="10.5" r="8" fill="var(--amber)"/>
+              <circle cx="54.5" cy="10.5" r="8" fill="var(--amber)"/>
+              <circle cx="10.5" cy="32.5" r="8" fill="var(--amber)"/>
+              <circle cx="32.5" cy="32.5" r="8" fill="var(--amber)"/>
+              <circle cx="54.5" cy="32.5" r="8" fill="var(--amber)" opacity="0.2"/>
+              <circle cx="10.5" cy="54.5" r="8" fill="var(--amber)"/>
+              <circle cx="32.5" cy="54.5" r="8" fill="var(--amber)" opacity="0.2"/>
+              <circle cx="54.5" cy="54.5" r="8" fill="var(--amber)"/>
             </svg>
             <span className="font-semibold text-navy text-[16px] tracking-tight">The Ready</span>
           </div>

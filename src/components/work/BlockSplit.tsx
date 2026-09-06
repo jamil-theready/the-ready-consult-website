@@ -3,9 +3,9 @@ import type { Media } from "@/lib/work-types";
 function Frame({ media }: { media: Media }) {
   const isVideo = media.kind === "video" || /\.(mp4|webm|mov)$/i.test(media.src);
   return isVideo ? (
-    <video src={media.src} autoPlay muted loop playsInline className="w-full rounded-2xl shadow-xl ring-1 ring-black/10" />
+    <video src={media.src} autoPlay muted loop playsInline className="w-full ring-1 ring-black/10" />
   ) : (
-    <img src={media.src} alt={media.alt} className="w-full rounded-2xl shadow-xl ring-1 ring-black/10" />
+    <img src={media.src} alt={media.alt} className="w-full ring-1 ring-black/10" />
   );
 }
 
@@ -15,7 +15,7 @@ export default function BlockSplit({
 }: { subheading?: string; body: string; media: Media; flip?: boolean; tone?: "light" | "dark" }) {
   const dark = tone === "dark";
   return (
-    <section className={(dark ? "bg-navy" : "") + " py-14 sm:py-20"}>
+    <section className={(dark ? "bg-void" : "") + " py-14 sm:py-20"}>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className={flip ? "md:order-2" : ""}>
           {subheading && (

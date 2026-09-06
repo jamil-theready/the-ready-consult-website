@@ -39,7 +39,7 @@ function LighthouseGauge({
           <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#f0f0f0" strokeWidth="5" />
           <circle
             cx={size / 2} cy={size / 2} r={radius} fill="none"
-            stroke={value >= 90 ? "#22c55e" : value >= 50 ? "#f59e0b" : "#ef4444"}
+            stroke={value >= 90 ? "#22c55e" : value >= 50 ? "#f59e0b" : "var(--glow)"}
             strokeWidth="5" strokeLinecap="round"
             strokeDasharray={circumference} strokeDashoffset={offset}
             style={{ transition: "stroke-dashoffset 0.05s linear" }}
@@ -146,12 +146,12 @@ export default function SeoVisual() {
       <div className="px-5 pb-5 flex gap-3">
         {/* ChatGPT */}
         <div
-          className="flex-1 rounded-xl bg-[#f7f7f8] shadow-lg shadow-black/5 p-3.5 flex flex-col transition-all duration-1000"
+          className="flex-1 bg-[#16110A] p-3.5 flex flex-col transition-all duration-1000"
           style={{ opacity: showAi ? 1 : 0, transform: showAi ? "translateY(0)" : "translateY(12px)" }}
         >
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="w-9 h-9 rounded-full bg-[#10a37f] flex items-center justify-center shadow-md shadow-[#10a37f]/20">
-              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <div className="w-9 h-9 rounded-full bg-[#10a37f] flex items-center justify-center /20">
+              <svg className="w-5 h-5 text-foreground" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364l2.0201-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4091-.6765zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0974-2.3616l2.603-1.5018 2.6032 1.5018v3.0036l-2.6032 1.5018-2.603-1.5018z" />
               </svg>
             </div>
@@ -163,8 +163,8 @@ export default function SeoVisual() {
           </p>
           {aiText.length >= 170 && (
             <div className="mt-2.5 flex items-center gap-1.5">
-              <div className="w-4 h-4 rounded bg-teal flex items-center justify-center">
-                <span className="text-[5px] font-bold text-white">TR</span>
+              <div className="w-4 h-4 bg-teal flex items-center justify-center">
+                <span className="text-[5px] font-bold text-foreground">TR</span>
               </div>
               <span className="text-[9px] text-[#10a37f] font-medium">thereadyconsult.com</span>
             </div>
@@ -173,7 +173,7 @@ export default function SeoVisual() {
 
         {/* Gmail */}
         <div
-          className="flex-1 rounded-xl bg-white shadow-lg shadow-black/5 p-3.5 flex flex-col transition-all duration-1000"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-1000"
           style={{ opacity: visibleEmails > 0 ? 1 : 0, transform: visibleEmails > 0 ? "translateY(0)" : "translateY(12px)" }}
         >
           <div className="flex items-center gap-2.5 mb-3">
@@ -188,14 +188,14 @@ export default function SeoVisual() {
               </svg>
               {/* Badge */}
               {visibleEmails > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[8px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center min-w-[18px] min-h-[18px] shadow-sm">
+                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-foreground text-[8px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center min-w-[18px] min-h-[18px] ">
                   {visibleEmails}
                 </span>
               )}
             </div>
             <span className="text-[12px] font-bold text-gray-800">Gmail</span>
           </div>
-          <div className="flex-1 flex flex-col gap-0 rounded-lg overflow-hidden">
+          <div className="flex-1 flex flex-col gap-0 overflow-hidden">
             {emails.map((e, i) => (
               <div
                 key={i}

@@ -18,7 +18,7 @@ export default function BlockStatement({ text, tone = "light" }: { text: string;
   const words = text.split(" ");
 
   return (
-    <section ref={ref} className={(dark ? "bg-navy" : "bg-white") + " py-28 sm:py-40 px-6"}>
+    <section ref={ref} className={(dark ? "bg-void" : "bg-slab") + " py-28 sm:py-40 px-6"}>
       <p
         className={
           "max-w-5xl mx-auto text-center text-3xl sm:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight " +

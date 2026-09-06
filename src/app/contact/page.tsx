@@ -20,9 +20,6 @@ export default function ContactPage() {
       <main id="main-content" className="pt-32 sm:pt-40 pb-24">
         <section className={CONTAINER}>
           <div className="max-w-3xl">
-            <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-6">
-              Get in touch
-            </p>
             <h1 className="text-[clamp(2.5rem,5.2vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-navy">
               Let&apos;s talk about your growth motion.
             </h1>
@@ -35,9 +32,6 @@ export default function ContactPage() {
         <section className={`${CONTAINER} mt-16`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 border-t border-navy pt-12">
             <div className="lg:col-span-7">
-              <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
-                01 · Book a discovery call
-              </p>
               <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-[-0.02em] mb-4">
                 30 minutes, no pitch deck.
               </h2>
@@ -48,7 +42,7 @@ export default function ContactPage() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-navy text-white text-[15px] font-semibold px-7 py-4 hover:bg-cyan transition-colors"
+                className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-4 hover:bg-cyan transition-colors"
               >
                 Book a Call
                 <span aria-hidden="true">→</span>
@@ -56,9 +50,6 @@ export default function ContactPage() {
             </div>
 
             <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-12 pt-12 lg:pt-0">
-              <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 font-semibold mb-4">
-                02 · Or send a note
-              </p>
               <h2 className="text-2xl font-semibold text-navy tracking-[-0.02em] mb-4">
                 Email works too.
               </h2>

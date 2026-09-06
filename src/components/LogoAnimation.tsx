@@ -9,7 +9,7 @@ function randomState(): number[] {
   return Array.from({ length: 9 }, () => Math.random() > 0.4 ? 0.15 + Math.random() * 0.85 : 0.06);
 }
 
-export default function LogoAnimation({ size = 140, color = "#dc2626" }: { size?: number; color?: string }) {
+export default function LogoAnimation({ size = 140, color = "var(--amber)" }: { size?: number; color?: string }) {
   const [opacities, setOpacities] = useState<number[]>(LOGO_STATE);
   const [isLogo, setIsLogo] = useState(true);
 
@@ -47,7 +47,7 @@ export default function LogoAnimation({ size = 140, color = "#dc2626" }: { size?
   const pad = (gap - sq) / 2;
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" style={{ overflow: "visible" }}>
       {Array.from({ length: 9 }).map((_, i) => {
         const cx = (i % 3) * gap + pad + sq / 2;
         const cy = Math.floor(i / 3) * gap + pad + sq / 2;
@@ -55,15 +55,14 @@ export default function LogoAnimation({ size = 140, color = "#dc2626" }: { size?
         return (
           <circle
             key={i}
+            className={opacities[i] > 0.5 ? "lit" : "unlit"}
             cx={cx}
             cy={cy}
             r={r}
-            fill={color}
-            opacity={opacities[i]}
             style={{
               transition: isLogo
-                ? "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-                : "opacity 0.15s ease",
+                ? "fill 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+                : "fill 0.15s ease, filter 0.15s ease",
             }}
           />
         );

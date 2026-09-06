@@ -2,12 +2,12 @@ import type { Media } from "@/lib/work-types";
 
 function BrowserMockup({ media, url }: { media: Media; url?: string }) {
   return (
-    <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 bg-white">
+    <div className="overflow-hidden ring-1 ring-black/10 bg-background">
       <div className="flex items-center gap-2 h-10 px-4 bg-gray-100 border-b border-gray-200">
         <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
         <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
         <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <div className="ml-3 flex-1 max-w-md h-6 rounded-md bg-white border border-gray-200 flex items-center px-3 text-[11px] text-gray-400 truncate">
+        <div className="ml-3 flex-1 max-w-md h-6 bg-slab border border-gray-200 flex items-center px-3 text-[11px] text-gray-400 truncate">
           {url ?? ""}
         </div>
       </div>

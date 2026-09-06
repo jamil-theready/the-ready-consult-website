@@ -1,5 +1,7 @@
 "use client";
 
+import ThemeToggle from "./ThemeToggle";
+
 import { useState, useEffect } from "react";
 
 const links = [
@@ -67,44 +69,46 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       dark
         ? "bg-[#0d0a0a]/65 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10"
-        : "bg-white/65 backdrop-blur-2xl backdrop-saturate-150 border-b border-black/[0.06] shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+        : "bg-slab/65 backdrop-blur-2xl backdrop-saturate-150 border-b border-seam] "
     }`}>
       <nav className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}>
-          <svg width="26" height="26" viewBox="0 0 66 66" fill="none">
-            <circle cx="10.5" cy="10.5" r="8" fill="#dc2626"/>
-            <circle cx="32.5" cy="10.5" r="8" fill="#dc2626"/>
-            <circle cx="54.5" cy="10.5" r="8" fill="#dc2626"/>
-            <circle cx="10.5" cy="32.5" r="8" fill="#dc2626"/>
-            <circle cx="32.5" cy="32.5" r="8" fill="#dc2626"/>
-            <circle cx="54.5" cy="32.5" r="8" fill="#dc2626" opacity="0.2"/>
-            <circle cx="10.5" cy="54.5" r="8" fill="#dc2626"/>
-            <circle cx="32.5" cy="54.5" r="8" fill="#dc2626" opacity="0.2"/>
-            <circle cx="54.5" cy="54.5" r="8" fill="#dc2626"/>
+        <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-foreground" : "text-navy"}`}>
+          <svg width="26" height="26" viewBox="0 0 66 66" fill="none" className="overflow-visible">
+            {/* White is the light SOURCE, never type. Amber is what the air does to it. */}
+            <circle className="lit"   cx="10.5" cy="10.5" r="8"/>
+            <circle className="lit"   cx="32.5" cy="10.5" r="8"/>
+            <circle className="lit"   cx="54.5" cy="10.5" r="8"/>
+            <circle className="lit"   cx="10.5" cy="32.5" r="8"/>
+            <circle className="lit"   cx="32.5" cy="32.5" r="8"/>
+            <circle className="unlit" cx="54.5" cy="32.5" r="8"/>
+            <circle className="lit"   cx="10.5" cy="54.5" r="8"/>
+            <circle className="unlit" cx="32.5" cy="54.5" r="8"/>
+            <circle className="lit"   cx="54.5" cy="54.5" r="8"/>
           </svg>
           <span className="font-semibold text-[16px] tracking-tight">The Ready</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className={`text-[14px] transition-colors duration-500 ${dark ? "text-white/60 hover:text-white" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
+            <a key={l.href} href={l.href} className={`text-[14px] transition-colors duration-500 ${dark ? "text-foreground/60 hover:text-foreground" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           {/* Desktop CTA — hidden in hero */}
           <a
             href="/contact"
-            className={`hidden md:inline-flex relative text-[13px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-500 overflow-hidden ${
+            className={`hidden md:inline-flex relative text-[13px] font-semibold px-6 py-2.5 transition-all duration-500 overflow-hidden ${
               inHero ? "opacity-0 translate-y-2 pointer-events-none" : "opacity-100 translate-y-0"
-            } cta-btn text-white`}
+            } cta-btn text-foreground`}
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Sign up &rarr;</span>
           </a>
           <button
             onClick={() => setOpen(!open)}
-            className={`md:hidden rounded-lg transition-colors duration-500 ${dark ? "text-white" : "text-navy"}`}
+            className={`md:hidden transition-colors duration-500 ${dark ? "text-foreground" : "text-navy"}`}
             aria-label="Menu" aria-expanded={open}
           >
             <MenuDots open={open} />
@@ -116,13 +120,13 @@ export default function Navbar() {
 
       {/* Black overlay — outside header for proper z-index */}
       <div
-        className={`fixed inset-0 bg-black/70 z-[9998] md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-void/70 z-[9998] md:hidden transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         onClick={() => setOpen(false)}
       />
 
       {/* Slide-in menu — outside header for proper z-index */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-white z-[9999] md:hidden transition-transform duration-300 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-background z-[9999] md:hidden transition-transform duration-300 ease-out flex flex-col ${open ? "translate-x-0" : "translate-x-full"}`}
         style={{ boxShadow: open ? "-20px 0 60px rgba(0,0,0,0.3)" : "none" }}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100 shrink-0">
@@ -142,7 +146,7 @@ export default function Navbar() {
           <a
             href="/contact"
             onClick={() => setOpen(false)}
-            className="cta-btn relative block text-center text-white font-semibold text-[14px] px-6 py-4 rounded-2xl overflow-hidden"
+            className="cta-btn relative block text-center text-foreground font-semibold text-[14px] px-6 py-4 overflow-hidden"
           >
             <span className="absolute inset-0 cta-shimmer" />
             <span className="relative z-10">Sign up &rarr;</span>
@@ -158,7 +162,7 @@ export default function Navbar() {
       >
         <a
           href="/contact"
-          className="cta-btn relative inline-flex items-center gap-2 text-white font-semibold text-[12px] sm:text-[14px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-2xl overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
+          className="cta-btn relative inline-flex items-center gap-2 text-foreground font-semibold text-[12px] sm:text-[14px] px-6 sm:px-8 py-3 sm:py-3.5 overflow-hidden hover:scale-[1.03] active:scale-[0.97] transition-transform duration-200"
           style={{ boxShadow: "0 10px 40px -8px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.2)" }}
         >
           <span className="absolute inset-0 cta-shimmer" />

@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section id="contact" className="bg-white py-24 lg:py-36">
+    <section id="contact" className="bg-background py-24 lg:py-36">
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-teal font-semibold text-[15px] mb-4">Get started</p>
@@ -17,7 +17,7 @@ export default function Contact() {
               href="https://calendly.com/thereadyconsult/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-teal text-white font-semibold text-[15px] px-8 py-4 rounded-full hover:bg-teal-light transition-colors"
+              className="inline-flex items-center gap-2 bg-teal text-foreground font-semibold text-[15px] px-8 py-4 rounded-full hover:bg-teal-light transition-colors"
             >
               Book a discovery call <span>&rarr;</span>
             </a>
@@ -29,7 +29,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <div className="mt-14 p-6 rounded-2xl bg-gray-50 max-w-md mx-auto">
+          <div className="mt-14 p-6 bg-gray-50 max-w-md mx-auto">
             <div className="flex gap-0.5 justify-center mb-3">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} className="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 24 24">

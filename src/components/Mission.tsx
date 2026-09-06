@@ -69,7 +69,7 @@ export default function Mission() {
       id="about"
       className="sc-section mission"
       data-sc-act="flow"
-      data-sc-drift="#f6f9fc"
+      data-sc-drift="#16110A"
     >
       <div className="mission__inner">
         <p className="mission__p">

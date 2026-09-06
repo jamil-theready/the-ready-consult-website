@@ -218,7 +218,6 @@ export default async function BlogPostPage({
               {/* FAQ — numbered accordion */}
               {post.faq && post.faq.length > 0 && (
                 <section className="mt-20 pt-12 border-t border-navy">
-                  <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-3">Q & A</p>
                   <h2 className="text-3xl sm:text-4xl font-semibold text-navy tracking-[-0.02em] mb-8">
                     {post.faqTitle || "Frequently Asked Questions"}
                   </h2>
@@ -282,7 +281,7 @@ export default async function BlogPostPage({
                         />
                       </div>
                     ) : (
-                      <div className="aspect-[4/5] mb-5 bg-navy" />
+                      <div className="aspect-[4/5] mb-5 bg-void" />
                     )}
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-cyan text-base font-semibold leading-none tabular-nums">

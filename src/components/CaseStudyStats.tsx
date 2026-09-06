@@ -87,7 +87,7 @@ export default function CaseStudyStats() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-white py-16 sm:py-24 lg:py-36 overflow-hidden">
+    <section ref={ref} className="bg-background py-16 sm:py-24 lg:py-36 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Heading */}
         <div className="max-w-2xl mb-10 sm:mb-16">
@@ -139,7 +139,7 @@ function StatCard({
 
   return (
     <div
-      className="relative rounded-2xl border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group"
+      className="relative border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
@@ -155,12 +155,12 @@ function StatCard({
 
       <div className="flex items-center justify-between mb-5 relative">
         <div
-          className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white shadow-lg transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}
+          className={`w-10 h-10 bg-gradient-to-br ${s.gradient} flex items-center justify-center text-foreground transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}
           style={{ boxShadow: isHovered ? `0 8px 20px -4px rgba(0,0,0,0.2)` : undefined }}
         >
           {s.icon}
         </div>
-        <span className={`text-[11px] font-semibold px-3 py-1 rounded-full transition-all duration-300 ${isHovered ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
+        <span className={`text-[11px] font-semibold px-3 py-1 rounded-full transition-all duration-300 ${isHovered ? "bg-void text-foreground" : "bg-gray-100 text-gray-500"}`}>
           {s.service}
         </span>
       </div>
@@ -178,7 +178,7 @@ function StatCard({
         {s.barHeights.map((h, j) => (
           <div
             key={j}
-            className={`flex-1 rounded-t-sm bg-gradient-to-t ${s.gradient} transition-all ease-out`}
+            className={`flex-1 bg-gradient-to-t ${s.gradient} transition-all ease-out`}
             style={{
               height: visible ? `${h}%` : "0%",
               opacity: visible ? (j >= 8 ? 1 : 0.3 + (j / 12) * 0.7) : 0,

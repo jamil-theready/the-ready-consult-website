@@ -34,7 +34,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32">
+    <section className="bg-background py-16 sm:py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Header row */}
         <div className="flex items-end justify-between mb-10 md:mb-14">
@@ -50,7 +50,7 @@ export default function CaseStudies() {
             <button
               onClick={() => scroll("left")}
               aria-label="Previous case study"
-              className="w-11 h-11 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-gray-400 transition-colors"
+              className="w-11 h-11 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-gray-400 transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -59,7 +59,7 @@ export default function CaseStudies() {
             <button
               onClick={() => scroll("right")}
               aria-label="Next case study"
-              className="w-11 h-11 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-gray-400 transition-colors"
+              className="w-11 h-11 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-gray-400 transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -89,7 +89,7 @@ export default function CaseStudies() {
               <article>
                 {/* Card image area */}
                 <div
-                  className="relative rounded-2xl overflow-hidden mb-5 bg-black h-[360px] sm:h-[440px] md:h-[530px]"
+                  className="relative overflow-hidden mb-5 bg-void h-[360px] sm:h-[440px] md:h-[530px]"
                   style={{ boxShadow: "0 20px 50px -12px rgba(0,0,0,0.15), 0 8px 20px -8px rgba(0,0,0,0.1)" }}
                 >
                   {/* Background image */}
@@ -107,7 +107,7 @@ export default function CaseStudies() {
 
                   {/* Company name bottom-left */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <span className="text-white font-semibold text-base md:text-lg tracking-tight">
+                    <span className="text-foreground font-semibold text-base md:text-lg tracking-tight">
                       {s.name}
                     </span>
                   </div>

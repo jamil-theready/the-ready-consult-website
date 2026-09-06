@@ -61,7 +61,7 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative bg-white"
+      className="relative bg-background"
       style={{ height: `${(features.length + 1) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
@@ -87,7 +87,7 @@ export default function Services() {
                   >
                     <h3
                       className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-300 ${
-                        i === active ? "text-navy" : "text-gray-300"
+                        i === active ? "text-navy" : "text-gray-400"
                       }`}
                     >
                       {f.title}
@@ -143,7 +143,7 @@ export default function Services() {
 
           {/* Mobile visual */}
           <div className="block lg:hidden mt-4">
-            <div className="relative w-full overflow-hidden rounded-xl" style={{ height: "350px" }}>
+            <div className="relative w-full overflow-hidden " style={{ height: "350px" }}>
               {features.map((f, i) => (
                 <div
                   key={f.title}

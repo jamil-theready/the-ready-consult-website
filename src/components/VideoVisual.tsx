@@ -54,7 +54,7 @@ function StatTile({ stat: s, index: i, visible }: { stat: Stat; index: number; v
 
   return (
     <div
-      className="rounded-xl bg-white p-4 text-center transition-all duration-700"
+      className="bg-background p-4 text-center transition-all duration-700"
       style={{
         boxShadow: "0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.04)",
         opacity: visible ? 1 : 0,
@@ -102,7 +102,7 @@ export default function VideoVisual() {
       {/* iPhone mockup */}
       <div className="flex-1 flex items-center justify-center">
         <div
-          className="relative w-[270px] h-full bg-black rounded-[44px] overflow-hidden"
+          className="relative w-[270px] h-full bg-void rounded-[44px] overflow-hidden"
           style={{
             boxShadow: "0 25px 60px -12px rgba(0,0,0,0.4), 0 10px 20px -8px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.08)",
             border: "4px solid #2a2a2a",
@@ -112,25 +112,25 @@ export default function VideoVisual() {
           <div className="absolute inset-0 rounded-[40px] pointer-events-none z-20" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.06)" }} />
 
           {/* Dynamic Island */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[90px] h-[28px] bg-black rounded-full z-20 flex items-center justify-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-gray-800 ring-1 ring-gray-700" />
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[90px] h-[28px] bg-void rounded-full z-20 flex items-center justify-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-seam ring-1 ring-seam" />
           </div>
 
           {/* Status bar */}
           <div className="absolute top-0 left-0 right-0 z-10 px-6 pt-[14px] flex items-center justify-between">
-            <span className="text-[10px] font-semibold text-white/80">9:41</span>
+            <span className="text-[10px] font-semibold text-foreground/80">9:41</span>
             <div className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 text-foreground/80" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
               </svg>
-              <svg className="w-4 h-3 text-white/80" fill="currentColor" viewBox="0 0 24 16">
+              <svg className="w-4 h-3 text-foreground/80" fill="currentColor" viewBox="0 0 24 16">
                 <rect x="0" y="2" width="4" height="12" rx="1" opacity="0.4" />
                 <rect x="5.5" y="1" width="4" height="13" rx="1" opacity="0.6" />
                 <rect x="11" y="0" width="4" height="14" rx="1" opacity="0.8" />
                 <rect x="16.5" y="0" width="4" height="14" rx="1" />
               </svg>
-              <div className="w-6 h-3 rounded-sm border border-white/60 relative ml-0.5">
-                <div className="absolute inset-[1.5px] rounded-[1px] bg-white/80" style={{ width: "65%" }} />
+              <div className="w-6 h-3 border border-white/60 relative ml-0.5">
+                <div className="absolute inset-[1.5px] rounded-[1px] bg-background/80" style={{ width: "65%" }} />
               </div>
             </div>
           </div>
@@ -155,24 +155,24 @@ export default function VideoVisual() {
                   <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 p-[1.5px]">
                     <div className="w-full h-full rounded-full bg-gray-300" />
                   </div>
-                  <span className="text-[11px] font-semibold text-white">thereadyconsult</span>
-                  <button className="text-[9px] font-semibold text-white border border-white/40 rounded px-2 py-0.5 ml-1">Follow</button>
+                  <span className="text-[11px] font-semibold text-foreground">thereadyconsult</span>
+                  <button className="text-[9px] font-semibold text-foreground border border-white/40 px-2 py-0.5 ml-1">Follow</button>
                 </div>
-                <p className="text-[10px] text-white/80 leading-relaxed">Your brand deserves better content 🎥</p>
+                <p className="text-[10px] text-foreground/80 leading-relaxed">Your brand deserves better content 🎥</p>
               </div>
 
               {/* Audio bar */}
               <div className="flex items-center gap-2 mb-2">
-                <svg className="w-3 h-3 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 text-foreground/60" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
                 </svg>
-                <div className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full w-2/5 bg-white/60 rounded-full" />
+                <div className="flex-1 h-[2px] bg-background/20 rounded-full overflow-hidden">
+                  <div className="h-full w-2/5 bg-background/60 rounded-full" />
                 </div>
               </div>
 
               {/* Home indicator */}
-              <div className="w-28 h-1 bg-white/30 rounded-full mx-auto" />
+              <div className="w-28 h-1 bg-background/30 rounded-full mx-auto" />
             </div>
           </div>
 
@@ -184,14 +184,14 @@ export default function VideoVisual() {
               { path: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8", count: "312", filled: false },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center">
-                <svg className="w-6 h-6 text-white drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-foreground drop-" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.path} />
                 </svg>
-                <span className="text-[9px] text-white font-medium mt-1 drop-shadow-md">{item.count}</span>
+                <span className="text-[9px] text-foreground font-medium mt-1 drop-">{item.count}</span>
               </div>
             ))}
             {/* Album cover */}
-            <div className="w-7 h-7 rounded-md bg-gradient-to-br from-gray-600 to-gray-800 border-2 border-white/20 shadow-lg" />
+            <div className="w-7 h-7 bg-gradient-to-br from-gray-600 to-gray-800 border-2 border-white/20 " />
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@ export default function VideoVisual() {
 
         {/* Accounts Reached — bar chart */}
         <div
-          className="flex-1 rounded-2xl bg-white p-3.5 flex flex-col transition-all duration-800"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -220,7 +220,7 @@ export default function VideoVisual() {
             <span className="text-[8px] text-gray-400">vs last 30 days</span>
           </div>
           <div className="flex-1 flex gap-1.5">
-            <div className="flex flex-col justify-between text-[7px] text-gray-300 py-0.5">
+            <div className="flex flex-col justify-between text-[7px] text-gray-400 py-0.5">
               <span>150K</span>
               <span>100K</span>
               <span>50K</span>
@@ -236,7 +236,7 @@ export default function VideoVisual() {
                 {[8, 12, 10, 18, 15, 24, 20, 32, 28, 40, 35, 48, 44, 56, 52, 65, 60, 75, 72, 85, 80, 92, 88, 97].map((h, i) => (
                   <div
                     key={i}
-                    className="flex-1 rounded-t-sm transition-all ease-out"
+                    className="flex-1 transition-all ease-out"
                     style={{
                       height: visible ? `${h}%` : "0%",
                       background: i >= 18 ? "#635bff" : i >= 12 ? "#818cf8" : "#e0e0ee",
@@ -250,14 +250,14 @@ export default function VideoVisual() {
           </div>
           <div className="flex justify-between mt-1 pl-6">
             {["Mon", "Wed", "Fri", "Sun"].map((d) => (
-              <span key={d} className="text-[7px] text-gray-300">{d}</span>
+              <span key={d} className="text-[7px] text-gray-400">{d}</span>
             ))}
           </div>
         </div>
 
         {/* Engagement Rate — line chart with constant animation */}
         <div
-          className="flex-1 rounded-2xl bg-white p-3.5 flex flex-col transition-all duration-800"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-800"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -271,16 +271,16 @@ export default function VideoVisual() {
           </div>
           <div className="flex items-center gap-3 mb-2">
             <div className="flex items-center gap-1">
-              <span className="w-2 h-[2px] bg-blue rounded inline-block" />
+              <span className="w-2 h-[2px] bg-blue inline-block" />
               <span className="text-[7px] text-gray-400">This month</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="w-2 h-[2px] bg-blue/30 rounded inline-block" />
+              <span className="w-2 h-[2px] bg-blue/30 inline-block" />
               <span className="text-[7px] text-gray-400">Last month</span>
             </div>
           </div>
           <div className="flex-1 flex gap-1.5">
-            <div className="flex flex-col justify-between text-[7px] text-gray-300 py-0.5">
+            <div className="flex flex-col justify-between text-[7px] text-gray-400 py-0.5">
               <span>12%</span>
               <span>8%</span>
               <span>4%</span>
@@ -332,7 +332,7 @@ export default function VideoVisual() {
           </div>
           <div className="flex justify-between mt-1 pl-6">
             {["Week 1", "Week 2", "Week 3", "Week 4"].map((w) => (
-              <span key={w} className="text-[7px] text-gray-300">{w}</span>
+              <span key={w} className="text-[7px] text-gray-400">{w}</span>
             ))}
           </div>
         </div>

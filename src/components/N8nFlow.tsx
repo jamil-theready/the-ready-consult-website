@@ -76,9 +76,9 @@ export default function N8nFlow() {
   }, []);
 
   return (
-    <div className="w-full h-full rounded-2xl bg-[#f9f9f8] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
+    <div className="w-full h-full bg-[#16110A] overflow-hidden flex flex-col" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(0,0,0,0.08)" }}>
       {/* Top bar */}
-      <div className="flex items-center gap-3 px-4 py-2.5 border-b border-gray-200 bg-white">
+      <div className="flex items-center gap-3 px-4 py-2.5 border-b border-gray-200 bg-slab">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
           <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
@@ -95,7 +95,7 @@ export default function N8nFlow() {
           </div>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-6 h-6 rounded bg-gray-100 flex items-center justify-center">
+          <div className="w-6 h-6 bg-gray-100 flex items-center justify-center">
             <svg className="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
             </svg>
@@ -131,14 +131,14 @@ export default function N8nFlow() {
               <g key={`${conn.from}-${conn.to}`}>
                 <path
                   d={`M ${fromX} ${fromY} C ${midX} ${fromY}, ${midX} ${toY}, ${toX} ${toY}`}
-                  stroke={isActive ? "#1F514C" : "#d4d4d4"}
+                  stroke={isActive ? "var(--amber)" : "#d4d4d4"}
                   strokeWidth={isActive ? 2 : 1.5}
                   fill="none"
                   style={{ transition: "stroke 0.4s ease, stroke-width 0.4s ease" }}
                 />
                 {/* Animated dot */}
                 {isCurrent && (
-                  <circle r="4" fill="#1F514C">
+                  <circle r="4" fill="var(--amber)">
                     <animateMotion
                       dur="0.8s"
                       repeatCount="indefinite"
@@ -171,7 +171,7 @@ export default function N8nFlow() {
                   width={70}
                   height={50}
                   rx={10}
-                  fill="white"
+                  fill="#16110A"
                   stroke={isActive ? node.color : "#e0e0e0"}
                   strokeWidth={isActive ? 2 : 1}
                   style={{ transition: "stroke 0.3s ease" }}
@@ -186,7 +186,7 @@ export default function N8nFlow() {
                 />
                 <g
                   transform={`translate(${node.x + 12}, ${node.y + 10}) scale(0.65)`}
-                  fill={isActive ? "white" : "#999"}
+                  fill={isActive ? "#16110A" : "#999"}
                   style={{ transition: "fill 0.3s ease" }}
                 >
                   <NodeIcon type={node.icon} />
@@ -197,7 +197,7 @@ export default function N8nFlow() {
                   y={node.y + 40}
                   textAnchor="middle"
                   className="text-[8px] font-semibold"
-                  fill={isActive ? "#0a2540" : "#aaa"}
+                  fill={isActive ? "var(--foreground)" : "#aaa"}
                   style={{ transition: "fill 0.3s ease" }}
                 >
                   {node.label}
@@ -218,9 +218,9 @@ export default function N8nFlow() {
         </div>
 
         {/* Mini map hint */}
-        <div className="absolute bottom-3 right-4 w-16 h-10 rounded border border-gray-200 bg-white/80 overflow-hidden">
+        <div className="absolute bottom-3 right-4 w-16 h-10 border border-gray-200 bg-slab/80 overflow-hidden">
           <div className="w-full h-full flex items-center justify-center">
-            <div className="w-10 h-5 border border-teal/30 rounded-sm" />
+            <div className="w-10 h-5 border border-teal/30 " />
           </div>
         </div>
       </div>

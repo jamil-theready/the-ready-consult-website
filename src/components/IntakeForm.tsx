@@ -127,9 +127,9 @@ export default function IntakeForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8 sm:p-10 text-center">
+      <div className="border border-gray-200 bg-gray-50 p-8 sm:p-10 text-center">
         <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-cyan">
-          <svg viewBox="0 0 24 24" className="h-6 w-6 text-white" fill="none" stroke="currentColor" strokeWidth="3">
+          <svg viewBox="0 0 24 24" className="h-6 w-6 text-foreground" fill="none" stroke="currentColor" strokeWidth="3">
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
@@ -180,7 +180,7 @@ export default function IntakeForm() {
           {NEEDS.map((n) => (
             <label
               key={n.v}
-              className={`flex cursor-pointer gap-3 rounded-lg border px-4 py-3 transition-colors ${
+              className={`flex cursor-pointer gap-3 border px-4 py-3 transition-colors ${
                 need === n.v ? "border-cyan bg-red-50" : "border-gray-200 bg-gray-50 hover:border-gray-300"
               }`}
             >
@@ -204,7 +204,7 @@ export default function IntakeForm() {
             <label
               key={m}
               className={`cursor-pointer rounded-full border px-5 py-2.5 text-[14px] font-semibold transition-colors ${
-                how === m ? "border-cyan bg-cyan text-white" : "border-gray-200 bg-white text-navy hover:border-gray-400"
+                how === m ? "border-cyan bg-cyan text-foreground" : "border-gray-200 bg-slab text-navy hover:border-gray-400"
               }`}
             >
               <input type="radio" name="how" value={m} checked={how === m} onChange={() => setHow(m)} className="sr-only" />
@@ -226,13 +226,13 @@ export default function IntakeForm() {
       </div>
 
       {error && (
-        <p role="alert" className="rounded-lg bg-red-50 px-4 py-3 text-[14px] font-medium text-cyan">{error}</p>
+        <p role="alert" className="bg-red-50 px-4 py-3 text-[14px] font-medium text-cyan">{error}</p>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-cyan px-8 py-4 text-[15px] font-semibold text-white transition-colors hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-full bg-cyan px-8 py-4 text-[15px] font-semibold text-foreground transition-colors hover:opacity-90 disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send — get my free review"}
       </button>

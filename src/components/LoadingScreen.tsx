@@ -56,28 +56,27 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
 
   return (
     <div
-      className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center"
       style={{
         opacity: phase === "fadeout" ? 0 : 1,
         transition: "opacity 0.8s ease",
       }}
     >
-      <svg width={80} height={80} viewBox="0 0 80 80" fill="none">
+      <svg width={80} height={80} viewBox="0 0 80 80" fill="none" style={{ overflow: "visible" }}>
         {Array.from({ length: 9 }).map((_, i) => {
           const cx = (i % 3) * gap + pad + sq / 2;
           const cy = Math.floor(i / 3) * gap + pad + sq / 2;
           return (
             <circle
               key={i}
+              className={opacities[i] > 0.5 ? "lit" : "unlit"}
               cx={cx}
               cy={cy}
               r={r}
-              fill="#dc2626"
-              opacity={opacities[i]}
               style={{
                 transition: isLogo
-                  ? "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-                  : "opacity 0.12s ease",
+                ? "fill 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+                : "fill 0.12s ease, filter 0.12s ease",
               }}
             />
           );

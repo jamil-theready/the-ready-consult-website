@@ -47,7 +47,7 @@ export default function TableOfContents({ headings, relatedPost }: Props) {
               className="group block"
             >
               {relatedPost.image && (
-                <div className="aspect-[16/10] rounded-lg overflow-hidden mb-3">
+                <div className="aspect-[16/10] overflow-hidden mb-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={relatedPost.image}

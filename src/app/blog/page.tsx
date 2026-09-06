@@ -45,7 +45,6 @@ export default function BlogIndex() {
         {/* FEATURED — magazine cover, asymmetric */}
         {posts.length === 0 ? (
           <section className={`${CONTAINER} py-24 text-center`}>
-            <p className="text-[11px] tracking-[0.24em] uppercase text-gray-400 mb-4">In the works</p>
             <h2 className="text-3xl font-semibold text-navy">More dispatches coming shortly.</h2>
           </section>
         ) : featured ? (
@@ -53,9 +52,6 @@ export default function BlogIndex() {
             <Link href={`/blog/${featured.slug}`} className="group block">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 <div className="lg:col-span-7 order-2 lg:order-1">
-                  <p className="text-[11px] tracking-[0.24em] uppercase text-cyan font-semibold mb-6">
-                    Latest dispatch{featured.category ? ` · ${featured.category}` : ""}
-                  </p>
                   <h1 className="text-[clamp(2.75rem,5.5vw,4.75rem)] font-semibold text-navy leading-[0.98] tracking-[-0.03em] group-hover:text-cyan transition-colors">
                     {featured.title}
                   </h1>

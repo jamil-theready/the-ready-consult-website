@@ -10,7 +10,7 @@ export default function BlockTimeline({ milestones }: { milestones: Milestone[] 
             <time className="text-xs uppercase tracking-wide text-gray-400">{m.date}</time>
             <h3 className="text-lg font-semibold text-navy">{m.title}</h3>
             <p className="text-gray-700">{m.desc}</p>
-            {m.media && <img src={m.media.src} alt={m.media.alt} className="mt-3 w-full rounded-lg" />}
+            {m.media && <img src={m.media.src} alt={m.media.alt} className="mt-3 w-full " />}
           </li>
         ))}
       </ol>

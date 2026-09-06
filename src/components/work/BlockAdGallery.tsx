@@ -6,8 +6,8 @@ export default function BlockAdGallery({ ads, note }: { ads: Media[]; note?: str
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {ads.map((m, i) =>
           m.kind === "video"
-            ? <video key={i} src={m.src} controls playsInline className="w-full rounded-lg" />
-            : <img key={i} src={m.src} alt={m.alt} className="w-full rounded-lg" />
+            ? <video key={i} src={m.src} controls playsInline className="w-full " />
+            : <img key={i} src={m.src} alt={m.alt} className="w-full " />
         )}
       </div>
       {note && <p className="mt-4 text-sm text-gray-500">{note}</p>}
