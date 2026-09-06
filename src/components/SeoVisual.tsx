@@ -173,14 +173,14 @@ export default function SeoVisual() {
 
         {/* Gmail */}
         <div
-          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-1000"
+          className="flex-1 bg-background p-3.5 flex flex-col transition-all duration-1000 rounded-[12px]"
           style={{ opacity: visibleEmails > 0 ? 1 : 0, transform: visibleEmails > 0 ? "translateY(0)" : "translateY(12px)" }}
         >
           <div className="flex items-center gap-2.5 mb-3">
             <div className="relative">
               {/* Gmail logo */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none">
-                <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="#fff"/>
+                <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="var(--foreground)"/>
                 <path d="M2 6v12h4V10l6 4.5L18 10v8h4V6L12 13 2 6z" fill="#EA4335"/>
                 <path d="M2 6v12h4V10l6 4.5" fill="#4285F4"/>
                 <path d="M22 6v12h-4V10l-6 4.5" fill="#34A853"/>
@@ -199,7 +199,7 @@ export default function SeoVisual() {
             {emails.map((e, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 px-2.5 py-2 border-b border-gray-50 last:border-b-0 transition-all duration-600"
+                className="flex items-center gap-2 px-2.5 py-2 border-b border-gray-50 last:border-b-0 transition-all duration-600 rounded-[12px]"
                 style={{
                   opacity: i < visibleEmails ? 1 : 0,
                   transform: i < visibleEmails ? "translateX(0)" : "translateX(20px)",

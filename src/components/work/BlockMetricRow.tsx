@@ -29,7 +29,7 @@ export default function BlockMetricRow({ stats }: { stats: Metric[] }) {
     return () => obs.disconnect();
   }, []);
   return (
-    <section ref={ref} className="bg-gray-50 my-16 sm:my-24 py-16 sm:py-24">
+    <section ref={ref} className="bg-gray-50 my-16 sm:my-24 py-16 sm:py-24 rounded-[12px]">
       <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-14 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
         {stats.map((m, i) => (
           <div key={i} className="pt-14 first:pt-0 sm:pt-0">

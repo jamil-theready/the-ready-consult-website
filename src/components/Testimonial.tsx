@@ -58,7 +58,7 @@ export default function Testimonial() {
           {tickerItems.map((t, i) => (
             <div
               key={i}
-              className="shrink-0 w-[260px] sm:w-[320px] border border-white/10 bg-slab/[0.04] p-4 sm:p-5"
+              className="shrink-0 w-[260px] sm:w-[320px] border border-white/10 bg-slab/[0.04] p-4 sm:p-5 rounded-[12px]"
             >
               <p className="text-foreground/60 text-sm leading-relaxed mb-4">
                 &ldquo;{t.text}&rdquo;

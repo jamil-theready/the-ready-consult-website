@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://calendly.com/thereadyconsult/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[14px] px-8 py-3.5 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6"
+              className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[14px] px-8 py-3.5 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6 rounded-[6px]"
             >
               <span className="absolute inset-0 cta-shimmer" />
               <svg className="w-4.5 h-4.5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">

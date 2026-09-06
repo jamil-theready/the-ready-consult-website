@@ -127,7 +127,7 @@ export default function IntakeForm() {
 
   if (status === "sent") {
     return (
-      <div className="border border-gray-200 bg-gray-50 p-8 sm:p-10 text-center">
+      <div className="border border-gray-200 bg-gray-50 p-8 sm:p-10 text-center rounded-[12px]">
         <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-cyan">
           <svg viewBox="0 0 24 24" className="h-6 w-6 text-foreground" fill="none" stroke="currentColor" strokeWidth="3">
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -182,7 +182,7 @@ export default function IntakeForm() {
               key={n.v}
               className={`flex cursor-pointer gap-3 border px-4 py-3 transition-colors ${
                 need === n.v ? "border-cyan bg-red-50" : "border-gray-200 bg-gray-50 hover:border-gray-300"
-              }`}
+              } rounded-[12px]`}
             >
               <input
                 type="radio" name="need" value={n.v} checked={need === n.v}

@@ -84,7 +84,7 @@ export default function MetaAdsVisual() {
           </div>
           <svg className="w-4 h-4" viewBox="0 0 36 36" fill="none">
             <path d="M18 1c9.4 0 17 7.6 17 17s-7.6 17-17 17S1 27.4 1 18 8.6 1 18 1z" fill="#1877F2" />
-            <path d="M25 18.1c0-3.9-3.1-7-7-7s-7 3.1-7 7c0 3.5 2.6 6.5 6 7v-4.9h-1.8v-2.1H17v-1.6c0-1.8 1-2.8 2.7-2.8.8 0 1.6.1 1.6.1v1.8h-.9c-.9 0-1.2.6-1.2 1.1v1.4h2l-.3 2.1h-1.7V25c3.4-.5 6-3.5 6-7z" fill="#fff" />
+            <path d="M25 18.1c0-3.9-3.1-7-7-7s-7 3.1-7 7c0 3.5 2.6 6.5 6 7v-4.9h-1.8v-2.1H17v-1.6c0-1.8 1-2.8 2.7-2.8.8 0 1.6.1 1.6.1v1.8h-.9c-.9 0-1.2.6-1.2 1.1v1.4h2l-.3 2.1h-1.7V25c3.4-.5 6-3.5 6-7z" fill="var(--foreground)" />
           </svg>
         </div>
         <div className="h-32 bg-gradient-to-br from-navy/90 to-teal/80 flex items-center justify-center relative overflow-hidden">
@@ -96,14 +96,14 @@ export default function MetaAdsVisual() {
           <p className="text-[9px] text-gray-400 uppercase tracking-wide mb-1">yourbusiness.com</p>
           <div className="flex items-center justify-between">
             <p className="text-[10px] font-semibold text-gray-800">Get Your Free Quote Today</p>
-            <div className="bg-gray-100 text-gray-700 text-[9px] font-semibold px-3 py-1.5 shrink-0">Learn More</div>
+            <div className="bg-gray-100 text-gray-700 text-[9px] font-semibold px-3 py-1.5 shrink-0 rounded-[12px]">Learn More</div>
           </div>
         </div>
       </div>
 
       {/* Ads Manager metrics strip */}
       <div
-        className="bg-background px-4 py-3 flex items-center justify-between transition-all duration-1000"
+        className="bg-background px-4 py-3 flex items-center justify-between transition-all duration-1000 rounded-[12px]"
         style={{
           opacity: showMetrics ? 1 : 0,
           transform: showMetrics ? "translateY(0)" : "translateY(12px)",

@@ -87,7 +87,7 @@ export default function CaseStudyStats() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-background py-16 sm:py-24 lg:py-36 overflow-hidden">
+    <section ref={ref} className="bg-background py-16 sm:py-24 lg:py-36 overflow-hidden rounded-[12px]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Heading */}
         <div className="max-w-2xl mb-10 sm:mb-16">
@@ -139,7 +139,7 @@ function StatCard({
 
   return (
     <div
-      className="relative border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group"
+      className="relative border border-gray-200 p-4 sm:p-6 cursor-pointer overflow-hidden group rounded-[12px]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",

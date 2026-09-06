@@ -107,7 +107,7 @@ export default async function AuthorPage({
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-3.5 hover:bg-cyan transition-colors"
+                  className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-3.5 hover:bg-cyan transition-colors rounded-[6px]"
                 >
                   Book a Call with {author.name.split(" ")[0]}
                   <span aria-hidden="true">→</span>
@@ -122,7 +122,7 @@ export default async function AuthorPage({
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-gray-300 text-navy text-[15px] font-semibold px-6 py-3.5 hover:border-cyan hover:text-cyan transition-colors"
+                      className="inline-flex items-center gap-2 border border-gray-300 text-navy text-[15px] font-semibold px-6 py-3.5 hover:border-cyan hover:text-cyan transition-colors rounded-[6px]"
                     >
                       {label}
                     </a>
@@ -138,7 +138,7 @@ export default async function AuthorPage({
                   {author.knowsAbout.map((topic) => (
                     <li
                       key={topic}
-                      className="text-sm text-navy bg-gray-50 px-3 py-1.5 border border-gray-200"
+                      className="text-sm text-navy bg-gray-50 px-3 py-1.5 border border-gray-200 rounded-[12px]"
                     >
                       {topic}
                     </li>

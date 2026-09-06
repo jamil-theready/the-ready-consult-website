@@ -42,7 +42,7 @@ export default function ContactPage() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-4 hover:bg-cyan transition-colors"
+                className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-4 hover:bg-cyan transition-colors rounded-[6px]"
               >
                 Book a Call
                 <span aria-hidden="true">→</span>

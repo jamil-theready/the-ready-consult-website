@@ -74,7 +74,7 @@ export default function StartPage() {
                 ))}
               </ol>
 
-              <div className="mt-12 bg-gray-50 p-6">
+              <div className="mt-12 bg-gray-50 p-6 rounded-[12px]">
                 <p className="text-[15px] leading-relaxed text-gray-600">
                   <span className="font-semibold text-navy">We work with trades.</span> Masonry,
                   concrete, hardscape, pools, landscaping, painting. If you run the crew and answer
