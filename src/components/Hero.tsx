@@ -132,7 +132,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="hero-stage mt-14 sm:mt-16 lg:mt-6 w-full" data-sc-parallax="-0.7">
+        <div className="hero-stage mt-14 sm:mt-16 lg:mt-6 w-full" data-sc-parallax="-0.28">
           <div className="hidden lg:block hero-stage__scale">
             <HeroVisual />
           </div>

@@ -85,9 +85,14 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var t=localStorage.getItem('trc-theme');" +
-              "if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}" +
-              "document.documentElement.dataset.theme=t;}" +
+              // Dark only, for now. Light mode is BUILT — every token is in
+              // globals.css and ThemeToggle still works — but the scroll-craft
+              // engine writes --sc-canvas inline from the dark drift targets
+              // and mixes its scrims from it, so a light page renders dark
+              // scrims over dark ink (214 of 227 text nodes failed contrast).
+              // Re-enabling light means re-initialising the engine per theme.
+              "(function(){try{document.documentElement.dataset.theme='dark';" +
+              "localStorage.setItem('trc-theme','dark');}" +
               "catch(e){document.documentElement.dataset.theme='dark';}})();",
           }}
         />

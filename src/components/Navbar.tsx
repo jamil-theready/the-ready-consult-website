@@ -1,6 +1,5 @@
 "use client";
 
-import ThemeToggle from "./ThemeToggle";
 
 import { useState, useEffect } from "react";
 
@@ -95,7 +94,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           {/* Desktop CTA — hidden in hero */}
           <a
             href="/contact"
