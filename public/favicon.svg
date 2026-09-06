@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="7" fill="white"/>
-  <circle cx="7" cy="7" r="3" fill="#dc2626"/>
-  <circle cx="16" cy="7" r="3" fill="#dc2626"/>
-  <circle cx="25" cy="7" r="3" fill="#dc2626"/>
-  <circle cx="7" cy="16" r="3" fill="#dc2626"/>
-  <circle cx="16" cy="16" r="3" fill="#dc2626"/>
-  <circle cx="25" cy="16" r="3" fill="#dc2626" opacity="0.2"/>
-  <circle cx="7" cy="25" r="3" fill="#dc2626"/>
-  <circle cx="16" cy="25" r="3" fill="#dc2626" opacity="0.2"/>
-  <circle cx="25" cy="25" r="3" fill="#dc2626"/>
+  <!-- TRC / Wallace. Dark ground, the 3x3 R: 7 lit, 2 unlit.
+       No bloom: a drop-shadow is invisible at 16px and only muddies the dots,
+       so the lit cells are solid warm white and the unlit ones stay present
+       as dark discs rather than holes. -->
+  <rect width="32" height="32" rx="7" fill="#080603"/>
+  <g fill="#F7F0E2">
+    <circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="24" cy="8" r="3"/>
+    <circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/>
+    <circle cx="8" cy="24" r="3"/><circle cx="24" cy="24" r="3"/>
+  </g>
+  <g fill="#3E3426">
+    <circle cx="24" cy="16" r="3"/><circle cx="16" cy="24" r="3"/>
+  </g>
 </svg>

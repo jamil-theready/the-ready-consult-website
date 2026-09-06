@@ -77,7 +77,7 @@ export default function WebsiteVisual() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
           </svg>
           <span className="text-[10px] text-gray-500">
-            {showSite ? "yoursite.com" : "localhost:3000"}
+            {showSite ? "goldengunitepools.com" : "localhost:3000"}
           </span>
         </div>
       </div>
@@ -102,122 +102,77 @@ export default function WebsiteVisual() {
           </div>
         </div>
 
-        {/* Site — Wedge-style SaaS */}
-        <div className="absolute inset-0 flex flex-col bg-background" style={{ opacity: showSite ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
-          {/* Navbar */}
-          <div className="px-5 py-2.5 flex items-center justify-between border-b border-gray-100 rounded-[12px]" style={show(1)}>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-5 h-5 bg-[#3b2fc9] flex items-center justify-center">
-                  <svg className="w-3 h-3 text-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <span className="text-[11px] font-bold text-gray-900">Wedge</span>
-              </div>
-              {["Features", "Pricing", "Blog", "About", "Contact"].map((l) => (
-                <span key={l} className="text-[8px] text-gray-400">{l}</span>
-              ))}
-            </div>
-            <div className="flex items-center gap-2.5">
-              <span className="text-[8px] text-gray-500">Log in</span>
-              <div className="bg-[#3b2fc9] text-foreground text-[7px] font-semibold px-2.5 py-1 rounded-full">Get started →</div>
+        {/* The example site is Golden Gunite Pools — a real TRC build, not an
+            invented brand. Its palette is the CLIENT's, deliberately outside the
+            TRC amber (design rule 28: colour comes from the client's real
+            assets), so these values are literals rather than tokens.
+            gold #9C8430 · cream #F2EDE4 · ink #151515 · 2px radius · Lato. */}
+        <div className="absolute inset-0 flex flex-col" style={{ background: "#F2EDE4", opacity: showSite ? 1 : 0, transition: "opacity 0.6s ease 0.2s" }}>
+          {/* utility bar */}
+          <div className="flex items-center justify-between px-4 py-1.5" style={{ ...show(1), background: "#151515" }}>
+            <span className="text-[6px] tracking-[0.14em]" style={{ color: "#C9BFA8" }}>
+              SERVING SACRAMENTO, ROSEVILLE &amp; FOLSOM
+            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-[6px]" style={{ color: "#C9BFA8" }}>goldengunitepools@gmail.com</span>
+              <span className="text-[6px]" style={{ color: "#C9BFA8" }}>916-349-6558</span>
             </div>
           </div>
 
-          {/* Hero — centered */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6 text-center bg-gradient-to-b from-[#f4f3ff] to-white">
-            <h2
-              className="text-[22px] font-bold text-gray-900 leading-tight mb-2.5 tracking-tight"
-              style={show(2)}
-            >
-              Stonework built<br />to last in Sacramento
-            </h2>
-            <p
-              className="text-[9px] text-gray-400 leading-relaxed max-w-[260px] mb-4"
-              style={show(3)}
-            >
-              Patios, retaining walls and driveways. Licensed, insured, and booking work across the Sacramento area.
-            </p>
-            <div className="flex gap-2" style={show(4)}>
-              <div className="bg-[#3b2fc9] text-foreground text-[8px] font-semibold px-4 py-2 rounded-full">Get started →</div>
-              <div className="border border-gray-200 text-gray-600 text-[8px] font-medium px-4 py-2 rounded-full">Learn more →</div>
+          {/* header */}
+          <div className="flex items-center justify-between gap-2 px-3 py-2" style={show(2)}>
+            <div className="flex items-center gap-1.5 min-w-0">
+              <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
+                   style={{ border: "1.5px solid #9C8430" }}>
+                <span className="text-[3px] font-bold tracking-tight" style={{ color: "#9C8430" }}>GG</span>
+              </div>
+              <span className="text-[6px] font-semibold tracking-[0.08em] truncate" style={{ color: "#151515" }}>
+                GOLDEN GUNITE POOLS
+              </span>
             </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {["SERVICES", "AREAS", "ABOUT", "BLOG", "CONTACT"].map((l) => (
+                <span key={l} className="text-[4px] tracking-[0.1em]" style={{ color: "#151515" }}>{l}</span>
+              ))}
+              <span className="text-[4px] font-medium tracking-[0.1em] px-1.5 py-1"
+                    style={{ background: "#9C8430", color: "#151515", borderRadius: "2px" }}>
+                REQUEST A QUOTE
+              </span>
+            </div>
+          </div>
 
-            {/* Dashboard cards row */}
-            <div className="flex gap-2.5 mt-6 w-full px-2" style={show(5)}>
-              {/* Card 1 — avatars */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(6)}>
-                <div className="flex -space-x-2 mb-2">
-                  {["#e9d5ff", "#bfdbfe", "#fde68a", "#bbf7d0", "#fecaca"].map((c, i) => (
-                    <div key={i} className="w-6 h-6 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
-                  ))}
-                </div>
-                <p className="text-[7px] text-gray-400">Active team members</p>
-              </div>
+          {/* hero: photography under a dark scrim, copy bottom-left */}
+          <div className="flex-1 relative overflow-hidden" style={show(3)}>
+            <div className="absolute inset-0" style={{
+              background:
+                "linear-gradient(180deg, rgba(21,21,21,.72) 0%, rgba(21,21,21,.45) 45%, rgba(21,21,21,.85) 100%)," +
+                "radial-gradient(120% 90% at 70% 40%, #4a5a52 0%, #2b3630 55%, #1d2521 100%)",
+            }} />
+            {/* watermark, as on the real site */}
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[15px] font-bold tracking-[0.12em] select-none"
+                  style={{ color: "#9C8430", opacity: 0.16 }}>GOLDEN</span>
 
-              {/* Card 2 — progress */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(7)}>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-4 h-4 bg-[#3b2fc9]/10 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-[#3b2fc9]" />
-                  </div>
-                  <span className="text-[8px] text-gray-700">Finance reporting</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-[#3b2fc9] transition-all duration-1000" style={{ width: step >= 7 ? "84%" : "0%" }} />
-                  </div>
-                  <span className="text-[7px] text-gray-400">84%</span>
-                </div>
-                <div className="flex items-center gap-2 mt-2">
-                  <div className="w-4 h-4 bg-green/10 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-green" />
-                  </div>
-                  <span className="text-[8px] text-gray-700">Business proposal</span>
-                </div>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-green transition-all duration-1000 delay-200" style={{ width: step >= 7 ? "62%" : "0%" }} />
-                  </div>
-                  <span className="text-[7px] text-gray-400">62%</span>
-                </div>
-              </div>
-
-              {/* Card 3 — team list */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(8, 0.1)}>
-                {[
-                  { name: "Freddy", role: "Marketing", color: "#e9d5ff" },
-                  { name: "Iliana", role: "Design", color: "#bfdbfe" },
-                ].map((p) => (
-                  <div key={p.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-b-0 rounded-[12px]">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-5 h-5 rounded-full" style={{ backgroundColor: p.color }} />
-                      <span className="text-[8px] font-medium text-gray-700">{p.name}</span>
-                    </div>
-                    <span className="text-[7px] text-gray-400">{p.role}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Card 4 — expense categories */}
-              <div className="flex-1 bg-slab border border-gray-100 p-3  rounded-[12px]" style={showScale(9, 0.2)}>
-                <span className="text-[8px] font-semibold text-gray-700 block mb-2">Expense categories</span>
-                <div className="flex gap-1 mb-2">
-                  {[60, 25, 15].map((w, i) => (
-                    <div
-                      key={i}
-                      className="h-2 rounded-full transition-all duration-700"
-                      style={{
-                        width: step >= 9 ? `${w}%` : "0%",
-                        backgroundColor: i === 0 ? "#3b2fc9" : i === 1 ? "#818cf8" : "#c4b5fd",
-                        transitionDelay: `${0.3 + i * 0.1}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-                <div className="flex gap-2 text-[6px] text-gray-400">
-                  <span>Payroll 60%</span>
-                  <span>Tools 25%</span>
-                  <span>Other 15%</span>
+            <div className="absolute inset-0 flex flex-col justify-between p-4">
+              <span className="text-[6px] tracking-[0.28em] mt-6" style={{ ...show(4), color: "#E8E2D4" }}>
+                GUNITE CONSTRUCTION
+              </span>
+              <div style={show(5)}>
+                <p className="text-[11px] font-medium leading-snug max-w-[230px]" style={{ color: "#F4F1E8" }}>
+                  Gunite pools built and repaired in Sacramento.
+                </p>
+                <p className="text-[7px] leading-relaxed max-w-[240px] mt-1.5" style={{ color: "#D8D2C4" }}>
+                  Steel, gunite, tile and stone, in that order. Structural pool shells,
+                  raised spas and custom water features across the Sacramento area.
+                </p>
+                <div className="flex gap-2 mt-2.5" style={show(6)}>
+                  <span className="text-[6px] font-medium tracking-[0.1em] px-3 py-1.5"
+                        style={{ background: "#9C8430", color: "#151515", borderRadius: "2px" }}>
+                    REQUEST A QUOTE
+                  </span>
+                  <span className="text-[6px] font-medium tracking-[0.1em] px-3 py-1.5"
+                        style={{ border: "1px solid rgba(244,241,232,.5)", color: "#F4F1E8", borderRadius: "2px" }}>
+                    916-349-6558
+                  </span>
                 </div>
               </div>
             </div>
