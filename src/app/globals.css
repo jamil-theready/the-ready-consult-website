@@ -132,8 +132,23 @@
 }
 
 @theme inline {
+  /* ⚠️ A token that is NOT listed here does not exist as a Tailwind class.
+     void / slab / seam / dust / amber / glow / alarm were all missing, so
+     every `bg-void`, `bg-slab`, `border-seam` in this repo silently resolved
+     to nothing — and it LOOKED fine only because the dark ground showed
+     through the transparent element. The footer was the tell: `to-void`
+     interpolated to rgba(0,0,0,0). Add the token here whenever you add one
+     to :root, or the class is dead on arrival. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-void: var(--void);
+  --color-slab: var(--slab);
+  --color-seam: var(--seam);
+  --color-dust: var(--dust);
+  --color-amber: var(--amber);
+  --color-glow: var(--glow);
+  --color-unlit: var(--unlit);
+  --color-alarm: var(--alarm);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
   --color-teal-light: var(--teal-light);
@@ -150,6 +165,8 @@
   --color-gray-400: var(--gray-400);
   --color-gray-500: var(--gray-500);
   --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-gray-800: var(--gray-800);
   --color-gray-900: var(--gray-900);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-inter);
