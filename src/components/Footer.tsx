@@ -5,7 +5,7 @@ import LogoAnimation from "./LogoAnimation";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white to-[#f5f5f3]">
+    <footer className="bg-gradient-to-b from-background to-void border-t border-seam">
       {/* CTA banner */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
         <div className="flex flex-col sm:flex-row items-start justify-between gap-8">

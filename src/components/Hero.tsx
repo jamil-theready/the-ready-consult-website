@@ -1,7 +1,6 @@
 "use client";
 
 import HeroVisual from "./HeroVisual";
-import HeroDiorama from "./HeroDiorama";
 import RotatingWord from "./RotatingWord";
 
 // Entrance is driven by the scroll-craft engine (data-sc-in / data-sc-stagger),
@@ -16,82 +15,10 @@ export default function Hero() {
       data-sc-in
       data-sc-stagger="70"
     >
-      {/* n8n-style workflow lines */}
-      <svg
-        className="absolute -inset-y-[18%] inset-x-0 w-full h-[136%] pointer-events-none"
-        viewBox="0 0 1440 900"
-        preserveAspectRatio="xMidYMid slice"
-        style={{ opacity: 0.06 }}
-        data-sc-parallax="2.4"
-        aria-hidden="true"
-      >
-        {/* Nodes */}
-        {[
-          { x: 80, y: 120 }, { x: 250, y: 80 }, { x: 440, y: 150 },
-          { x: 650, y: 60 }, { x: 860, y: 130 }, { x: 1060, y: 70 },
-          { x: 1250, y: 140 }, { x: 1380, y: 90 },
-          { x: 60, y: 380 }, { x: 200, y: 450 }, { x: 400, y: 350 },
-          { x: 1100, y: 400 }, { x: 1300, y: 350 }, { x: 1400, y: 450 },
-          { x: 100, y: 650 }, { x: 300, y: 720 }, { x: 500, y: 680 },
-          { x: 950, y: 700 }, { x: 1150, y: 750 }, { x: 1350, y: 680 },
-          { x: 120, y: 850 }, { x: 380, y: 830 },
-          { x: 1050, y: 850 }, { x: 1320, y: 820 },
-        ].map((n, i) => (
-          <g key={i}>
-            <rect x={n.x} y={n.y} width="40" height="28" rx="8" fill="none" stroke="currentColor" strokeWidth="1.2">
-              <animate attributeName="opacity" values="0.3;0.8;0.3" dur={`${4 + (i % 3)}s`} begin={`${i * 0.4}s`} repeatCount="indefinite" />
-            </rect>
-            <circle cx={n.x + 20} cy={n.y + 14} r="4" fill="currentColor" opacity="0.4">
-              <animate attributeName="opacity" values="0.2;0.6;0.2" dur={`${4 + (i % 3)}s`} begin={`${i * 0.4}s`} repeatCount="indefinite" />
-            </circle>
-          </g>
-        ))}
-        {/* Bezier connections */}
-        {[
-          "M 120 134 C 180 134 190 94 250 94",
-          "M 290 94 C 360 94 370 164 440 164",
-          "M 480 164 C 560 164 570 74 650 74",
-          "M 690 74 C 770 74 780 144 860 144",
-          "M 900 144 C 980 144 990 84 1060 84",
-          "M 1100 84 C 1170 84 1180 154 1250 154",
-          "M 1290 154 C 1340 154 1350 104 1380 104",
-          "M 100 394 C 150 394 150 464 200 464",
-          "M 240 464 C 320 464 320 364 400 364",
-          "M 1140 414 C 1220 414 1220 364 1300 364",
-          "M 1340 364 C 1370 364 1370 464 1400 464",
-          "M 140 664 C 220 664 220 734 300 734",
-          "M 340 734 C 420 734 420 694 500 694",
-          "M 990 714 C 1070 714 1070 764 1150 764",
-          "M 1190 764 C 1270 764 1270 694 1350 694",
-          "M 160 864 C 270 864 270 844 380 844",
-          "M 1090 864 C 1200 864 1200 834 1320 834",
-        ].map((d, i) => (
-          <path key={i} d={d} fill="none" stroke="currentColor" strokeWidth="1.2">
-            <animate attributeName="opacity" values="0.15;0.5;0.15" dur={`${5 + (i % 4)}s`} begin={`${i * 0.3}s`} repeatCount="indefinite" />
-          </path>
-        ))}
-        {/* Traveling dots */}
-        {[
-          "M 120 134 C 180 134 190 94 250 94 C 360 94 370 164 440 164 C 560 164 570 74 650 74 C 770 74 780 144 860 144",
-          "M 860 144 C 980 144 990 84 1060 84 C 1170 84 1180 154 1250 154 C 1340 154 1350 104 1380 104",
-          "M 140 664 C 220 664 220 734 300 734 C 420 734 420 694 500 694",
-          "M 990 714 C 1070 714 1070 764 1150 764 C 1270 764 1270 694 1350 694",
-        ].map((d, i) => (
-          <circle key={`dot-${i}`} r="3" fill="currentColor" opacity="0.5">
-            <animateMotion dur={`${8 + i * 2}s`} repeatCount="indefinite" path={d} />
-          </circle>
-        ))}
-        {/* Connector dots on nodes */}
-        {[
-          { x: 80, y: 134 }, { x: 120, y: 134 }, { x: 250, y: 94 }, { x: 290, y: 94 },
-          { x: 440, y: 164 }, { x: 480, y: 164 }, { x: 650, y: 74 }, { x: 690, y: 74 },
-          { x: 860, y: 144 }, { x: 900, y: 144 }, { x: 1060, y: 84 }, { x: 1100, y: 84 },
-        ].map((c, i) => (
-          <circle key={`conn-${i}`} cx={c.x} cy={c.y} r="2.5" fill="currentColor" opacity="0.3" />
-        ))}
-      </svg>
-
-      <HeroDiorama />
+      {/* The faint workflow graphic and the HeroDiorama town both lived here.
+          Removed 2026-09-06: the hero sits on the bare ground now. Both are
+          still in the tree (HeroDiorama.tsx, and the .hd rules in globals.css)
+          so either can be put back by re-adding one line. */}
 
       <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-28 pb-0 flex-1 flex flex-col justify-start items-center text-center">
         <h1
@@ -132,7 +59,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="hero-stage mt-14 sm:mt-16 lg:mt-6 w-full" data-sc-parallax="-0.28">
+        <div className="hero-stage mt-24 sm:mt-28 lg:mt-32 w-full" data-sc-parallax="-0.28">
           <div className="hidden lg:block hero-stage__scale">
             <HeroVisual />
           </div>
