@@ -166,9 +166,21 @@ export default function HeroVisual() {
 
           {/* hero: the attic, and their wave motif */}
           <div className="flex-1 relative overflow-hidden">
+            {/* The client's own hero frame, pulled from their live site
+                (images/hero/video-poster.jpg). It was a radial gradient before,
+                which read as a blur rather than a room. */}
+            <div className="absolute inset-0" style={{
+              backgroundImage: "url('/images/work/hs-attic.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center 42%",
+            }} />
+            {/* Scrim weighted to the BOTTOM, where the copy sits, and left open
+                across the middle so the photograph still reads as a photograph
+                (design rule A16.4 — a flat wash makes real footage look like a
+                solid colour). */}
             <div className="absolute inset-0" style={{
               background:
-                "radial-gradient(120% 100% at 62% 55%, rgba(214,150,96,.30) 0%, rgba(40,32,26,.92) 58%, #1A1512 100%)",
+                "linear-gradient(180deg, rgba(18,14,10,.30) 0%, rgba(18,14,10,.10) 40%, rgba(18,14,10,.72) 78%, rgba(18,14,10,.90) 100%)",
             }} />
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
               {[0, 1, 2, 3].map((i) => (
