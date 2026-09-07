@@ -17,12 +17,14 @@ import { useEffect, useRef, useState } from "react";
      orange #F26A21 · ink #26292D · paper #FFFFFF
    --------------------------------------------------------------------------- */
 
-const ACTS = 3;
-const HOLD = [2600, 3400, 3200];
+const ACTS = 4;
+const HOLD = [3600, 2400, 3400, 3200];
+const QUERY = "landscaper near me";
 
 export default function HeroVisual() {
   const ref = useRef<HTMLDivElement>(null);
   const [act, setAct] = useState(0);
+  const [typed, setTyped] = useState(0);
 
   // Starts on mount, NOT on intersection. An IntersectionObserver gate here
   // never fired and left the story frozen on act one — the same way the
@@ -35,15 +37,77 @@ export default function HeroVisual() {
     return () => clearTimeout(t);
   }, [act]);
 
+  // Act one types the query out. It resets whenever the loop comes back round
+  // so the second pass is not a line of text that is already finished.
+  useEffect(() => {
+    if (act !== 0) return;
+    if (typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTyped(QUERY.length);
+      return;
+    }
+    setTyped(0);
+    // The counter lives OUT here and the interval is cleared from the callback,
+    // never from inside the state updater. Updaters must be pure: doing the
+    // clearInterval in there froze the typing at "land" and stalled the whole
+    // act loop with it.
+    let n = 0;
+    const id = setInterval(() => {
+      n += 1;
+      setTyped(n);
+      if (n >= QUERY.length) clearInterval(id);
+    }, 95);
+    return () => clearInterval(id);
+  }, [act]);
+
   // the camera. Act 2 pushes in toward the address bar, act 3 eases back out
   // so the lead card has room to land.
   const cam =
-    act === 0 ? "scale(1) translate3d(0,0,0)"
-    : act === 1 ? "scale(1.18) translate3d(0,-6%,0)"
+    act <= 1 ? "scale(1) translate3d(0,0,0)"
+    : act === 2 ? "scale(1.18) translate3d(0,-6%,0)"
     : "scale(1.06) translate3d(0,-2%,0)";
 
   return (
     <div ref={ref} className="relative w-full h-full overflow-hidden select-none">
+      {/* ── ACT 1 — the close-up. Someone typing the query that starts the
+             whole chain. Deliberately oversized: at hero scale this is the
+             only text a visitor can read without leaning in, so it carries
+             the idea on its own. Sits above every other layer and clears out
+             once the site appears. ── */}
+      <div className="absolute inset-0 z-30 flex items-center justify-center px-6"
+           style={{
+             background: "#0D0A05",
+             opacity: act === 0 ? 1 : 0,
+             pointerEvents: "none",
+             transition: "opacity 700ms ease",
+           }}>
+        <div className="w-full max-w-[680px]">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
+                  style={{ background: "#10a37f", color: "#fff" }}>AI</span>
+            <span className="text-[15px] font-medium" style={{ color: "#BCAC8C" }}>ChatGPT</span>
+          </div>
+
+          {/* the input, blown up */}
+          <div className="flex items-center gap-3 rounded-2xl px-6 py-5"
+               style={{ background: "#16110A", border: "1px solid #2C2417" }}>
+            <span className="font-medium leading-none whitespace-nowrap"
+                  style={{ color: "#F7F0E2", fontSize: "clamp(26px, 3.4vw, 44px)", letterSpacing: "-0.02em" }}>
+              {QUERY.slice(0, typed)}
+              <span aria-hidden="true"
+                    style={{ display: "inline-block", width: "3px", height: "1em",
+                             marginLeft: "4px", verticalAlign: "-0.12em",
+                             background: "var(--amber)",
+                             animation: "hv-caret 1s steps(1) infinite" }} />
+            </span>
+          </div>
+
+          <p className="mt-5 text-[14px]" style={{ color: "#9A8A6C" }}>
+            This is how work starts now.
+          </p>
+        </div>
+      </div>
+
       {/* ── the browser, and the camera that moves on it ── */}
       <div
         className="absolute inset-0 flex items-center justify-center"
@@ -133,8 +197,8 @@ export default function HeroVisual() {
       <div className="absolute inset-0 flex items-center justify-center px-4 pointer-events-none text-left">
       <div className="w-[74%] max-w-[430px]"
            style={{
-             opacity: act >= 1 ? 1 : 0,
-             transform: `scale(${act >= 1 ? 1 : 0.94})`,
+             opacity: act >= 2 ? 1 : 0,
+             transform: `scale(${act >= 2 ? 1 : 0.94})`,
              transition: "opacity 620ms ease, transform 700ms cubic-bezier(.22,1,.36,1)",
            }}>
         <div className="overflow-hidden"
@@ -174,8 +238,8 @@ export default function HeroVisual() {
       {/* ── ACT 3 — the lead ── */}
       <div className="absolute right-3 bottom-3 w-[60%] max-w-[300px] text-left"
            style={{
-             opacity: act === 2 ? 1 : 0,
-             transform: `translateY(${act === 2 ? 0 : 16}px)`,
+             opacity: act === 3 ? 1 : 0,
+             transform: `translateY(${act === 3 ? 0 : 16}px)`,
              transition: "opacity 520ms ease, transform 620ms cubic-bezier(.22,1,.36,1)",
              pointerEvents: "none",
            }}>
@@ -198,7 +262,7 @@ export default function HeroVisual() {
 
       {/* act indicator — three seams, the active one lit */}
       <div className="absolute left-1/2 bottom-2 -translate-x-1/2 flex gap-1.5" aria-hidden="true">
-        {[0, 1, 2].map((i) => (
+        {[0, 1, 2, 3].map((i) => (
           <span key={i} className="h-[2px] rounded-full"
                 style={{ width: i === act ? 18 : 8,
                          background: i === act ? "var(--amber)" : "var(--seam)",
