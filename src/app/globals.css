@@ -868,3 +868,10 @@ html [data-sc-stagger] > * { opacity: 1; }
 /* the rotating trade sits INSIDE the h1; a transparent text-fill on the parent
    would swallow its amber, so it takes its own fill back. */
 .rw, .t-display .rw { -webkit-text-fill-color: var(--sc-accent); }
+
+/* The caret in the hero close-up. steps(1) so it blinks rather than fades — a
+   fading caret reads as a glow, not a cursor. */
+@keyframes hv-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  [style*="hv-caret"] { animation: none !important; }
+}
