@@ -14,7 +14,17 @@ export default function FAQ() {
     <section id="faq" className="sc-section faq" data-sc-act="pin" data-sc-span="1.6" data-sc-drift="#050302">
       <div data-sc-stage className="faq__stage">
         <div className="faq__inner">
-          <h2 className="faq__title">Common questions</h2>
+          <div className="faq__aside">
+            <h2 className="faq__title">Questions, before you commit.</h2>
+            <p className="faq__lede">
+              If yours is not here, ask it. You will get a straight answer from the
+              person who would do the work, not a sales call.
+            </p>
+            <div className="faq__actions">
+              <a href="/contact" className="cta-btn">Sign up &rarr;</a>
+              <a href="tel:+19169122080" className="faq__phone">Talk it through</a>
+            </div>
+          </div>
 
           <div className="faq__list">
             {FAQS.map((f, i) => (

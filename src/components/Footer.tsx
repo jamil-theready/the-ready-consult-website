@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
 
       {/* Footer links */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 pt-12 pb-20 sm:pb-24">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="flex items-center gap-2.5">
             <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
@@ -93,11 +93,43 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-gray-300/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] text-gray-400">&copy; {new Date().getFullYear()} The Ready Consult. All rights reserved.</p>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
+        {/* Bottom bar.
+            Only handles that actually exist are linked. TRC has no brand
+            Instagram or Facebook on file, so none is invented here — an icon
+            pointing at a dead profile is worse than no icon. Shawn's LinkedIn
+            is deliberately absent (out 2026-06-23). */}
+        <div className="mt-12 pt-6 border-t border-seam flex flex-col sm:flex-row items-center justify-between gap-5">
+          <p className="text-[11px] text-gray-400 order-3 sm:order-1">
+            &copy; {new Date().getFullYear()} The Ready Consult. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-2 order-1 sm:order-2">
+            <a href="https://www.linkedin.com/in/jamilgonzales/" target="_blank" rel="noopener noreferrer"
+               aria-label="The Ready Consult on LinkedIn"
+               className="w-9 h-9 flex items-center justify-center border border-seam rounded-[8px] text-gray-400 hover:text-amber hover:border-amber transition-colors">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.6 8.75 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.57-2.33 3.2V21H9z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/jamilgonzales" target="_blank" rel="noopener noreferrer"
+               aria-label="The Ready Consult on X"
+               className="w-9 h-9 flex items-center justify-center border border-seam rounded-[8px] text-gray-400 hover:text-amber hover:border-amber transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.01 4.13H5.05z"/>
+              </svg>
+            </a>
+            <a href="mailto:team@thereadyconsult.com"
+               aria-label="Email The Ready Consult"
+               className="w-9 h-9 flex items-center justify-center border border-seam rounded-[8px] text-gray-400 hover:text-amber hover:border-amber transition-colors">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                <rect x="2.5" y="5" width="19" height="14" rx="2" />
+                <path d="m3 6.5 9 6 9-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-1.5 order-2 sm:order-3">
+            <span className="w-2 h-2 rounded-full bg-glow animate-pulse" />
             <span className="text-[11px] text-gray-400">All systems operational</span>
           </div>
         </div>
