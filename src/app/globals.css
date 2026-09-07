@@ -446,10 +446,10 @@ html { scroll-behavior: smooth; }
 .faq__inner { max-width: 1160px; margin: 0 auto; padding: 88px 24px 40px; width: 100%; flex: 1 1 auto;
   display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   gap: 72px; align-items: start; align-content: center; }
-/* The ask sits on the left and stays put while the list on the right does the
-   moving. Sticky so a long accordion cannot leave the CTA stranded above the
-   fold on the way past. */
-.faq__aside { position: sticky; top: 22vh; }
+/* Both columns start on the same line. This was `position: sticky; top: 22vh`,
+   which pushed the ask a fifth of the viewport BELOW the first question and
+   read as a broken grid rather than a deliberate offset. */
+.faq__aside { align-self: start; }
 .faq__title { font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.022em;
   color: var(--sc-ink); margin: 0 0 14px; text-wrap: balance; }
 .faq__lede { font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin: 0 0 24px; max-width: 34ch; }
@@ -484,19 +484,10 @@ html { scroll-behavior: smooth; }
 .faq__a > div { overflow: hidden; }
 .faq__a p { font-size: 14px; line-height: 1.65; color: var(--sc-ink-soft); padding-bottom: 18px; margin: 0; }
 
-.faq__close { margin-top: 40px; display: flex; align-items: center; justify-content: space-between;
-  gap: 20px; flex-wrap: wrap; padding: 24px 26px; border-radius: 16px;
-  background: var(--slab); border: 1px solid var(--sc-hairline); }
-.faq__closeh { font-size: 16px; font-weight: 600; color: var(--sc-ink); margin: 0; }
-.faq__cta { display: inline-block; padding: 13px 26px; border-radius: 12px; text-decoration: none;
-  font-size: 14px; font-weight: 600; background: var(--sc-accent); color: var(--sc-accent-ink);
-  transition: background .3s var(--trc-ease); }
-/* No hover state on the FAQ CTA — Jamil's call, 2026-09-04. */
 
 @media (max-width: 640px) {
   .faq__inner { padding: 72px 20px 32px; }
-  .faq__close { flex-direction: column; align-items: flex-start; }
-}
+  }
 
 /* The tab mockups reveal themselves on intersection. Under reduced motion the
    engine hands the rail back as a horizontal scroll region, so a mockup the
