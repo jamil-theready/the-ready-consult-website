@@ -595,7 +595,15 @@ html { scroll-behavior: smooth; }
   position: relative; display: inline-block; vertical-align: baseline;
   white-space: nowrap; color: var(--sc-accent);
   -webkit-text-fill-color: var(--sc-accent);
-  transition: width 460ms var(--trc-ease);
+  /* NO width transition. Animating the slot's width dragged the incoming word
+     horizontally as the slot grew, which is why a new trade appeared to come
+     in from the LEFT — the rw-in keyframe was already vertical-only. The width
+     now snaps at the swap instant while the word rises, so the motion reads as
+     purely bottom-up.
+     Declared as `none`, not merely deleted: something upstream computes
+     `transition: all` on this span, so dropping the width line left width
+     animating anyway and the sideways drag came straight back. */
+  transition: none;
 }
 .rw__in {
   display: inline-block;

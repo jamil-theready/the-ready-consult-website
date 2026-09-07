@@ -65,13 +65,12 @@ export default function Navbar() {
 
   return (
     <>
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      dark
-        ? "bg-[#0d0a0a]/65 backdrop-blur-2xl backdrop-saturate-150"
-        : "bg-slab/65 backdrop-blur-2xl backdrop-saturate-150 "
-    }`}>
+    {/* No ground and no blur: the bar is just a positioning shell. Once you
+        leave the hero the mark and the links step aside and only the CTA
+        stays, so there is nothing left for a backdrop to sit behind. */}
+    <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className={`flex items-center gap-2.5 transition-colors duration-500 ${dark ? "text-foreground" : "text-navy"}`}>
+        <a href="#" className={`flex items-center gap-2.5 transition-all duration-500 ${dark ? "text-foreground" : "text-navy"} ${inHero ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
           <svg width="26" height="26" viewBox="0 0 66 66" fill="none" className="overflow-visible">
             {/* White is the light SOURCE, never type. Amber is what the air does to it. */}
             <circle className="lit"   cx="10.5" cy="10.5" r="8"/>
@@ -87,7 +86,7 @@ export default function Navbar() {
           <span className="font-semibold text-[16px] tracking-tight">The Ready</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className={`hidden md:flex items-center gap-8 transition-all duration-500 ${inHero ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
           {links.map((l) => (
             <a key={l.href} href={l.href} className={`text-[14px] transition-colors duration-500 ${dark ? "text-foreground/60 hover:text-foreground" : "text-gray-600 hover:text-navy"}`}>{l.label}</a>
           ))}
