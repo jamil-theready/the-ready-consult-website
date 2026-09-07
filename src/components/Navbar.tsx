@@ -93,7 +93,13 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        {/* Pulled into the corner and set down off the top edge. It aligns from
+            the TOP rather than the nav's centre line, and the negative right
+            margin eats into the gutter so it sits closer to the true corner.
+            ⚠️ Position with margins, never transform: the CTA already uses
+            translate-y for its hero reveal, and a second transform on the same
+            element would fight it. */}
+        <div className="flex items-start gap-3 self-start mt-5 -mr-3">
           {/* Desktop CTA — hidden in hero */}
           <a
             href="/contact"
