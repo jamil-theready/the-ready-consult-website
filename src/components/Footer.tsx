@@ -44,19 +44,30 @@ export default function Footer() {
       {/* Footer links */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 pt-12 pb-20 sm:pb-24">
         <div className="flex flex-col md:flex-row justify-between gap-12">
-          <div className="flex items-center gap-2.5">
-            <svg width="22" height="22" viewBox="0 0 66 66" fill="none">
-              <circle cx="10.5" cy="10.5" r="8" fill="var(--amber)"/>
-              <circle cx="32.5" cy="10.5" r="8" fill="var(--amber)"/>
-              <circle cx="54.5" cy="10.5" r="8" fill="var(--amber)"/>
-              <circle cx="10.5" cy="32.5" r="8" fill="var(--amber)"/>
-              <circle cx="32.5" cy="32.5" r="8" fill="var(--amber)"/>
-              <circle cx="54.5" cy="32.5" r="8" fill="var(--amber)" opacity="0.2"/>
-              <circle cx="10.5" cy="54.5" r="8" fill="var(--amber)"/>
-              <circle cx="32.5" cy="54.5" r="8" fill="var(--amber)" opacity="0.2"/>
-              <circle cx="54.5" cy="54.5" r="8" fill="var(--amber)"/>
-            </svg>
-            <span className="font-semibold text-navy text-[16px] tracking-tight">The Ready</span>
+          {/* The brand block was a 22px mark and a wordmark and nothing else, so
+              justify-between stranded the link columns against the right edge
+              with half the row empty. It now carries a line of copy and holds
+              its side. The mark uses .lit/.unlit like everywhere else — this
+              one was still drawing unlit cells as opacity="0.2". */}
+          <div className="max-w-[300px]">
+            <div className="flex items-center gap-2.5">
+              <svg width="22" height="22" viewBox="0 0 66 66" fill="none" className="overflow-visible">
+                <circle className="lit"   cx="10.5" cy="10.5" r="8"/>
+                <circle className="lit"   cx="32.5" cy="10.5" r="8"/>
+                <circle className="lit"   cx="54.5" cy="10.5" r="8"/>
+                <circle className="lit"   cx="10.5" cy="32.5" r="8"/>
+                <circle className="lit"   cx="32.5" cy="32.5" r="8"/>
+                <circle className="unlit" cx="54.5" cy="32.5" r="8"/>
+                <circle className="lit"   cx="10.5" cy="54.5" r="8"/>
+                <circle className="unlit" cx="32.5" cy="54.5" r="8"/>
+                <circle className="lit"   cx="54.5" cy="54.5" r="8"/>
+              </svg>
+              <span className="font-semibold text-navy text-[16px] tracking-tight">The Ready</span>
+            </div>
+            <p className="mt-3 text-[12px] leading-relaxed text-gray-400">
+              Websites, Google profiles and SEO for construction and landscaping
+              companies across Northern California.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-24">

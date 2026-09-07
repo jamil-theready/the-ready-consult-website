@@ -49,12 +49,6 @@ export default function FAQ() {
             ))}
           </div>
 
-          <div className="faq__close">
-            <h3 className="faq__closeh">Still have a question?</h3>
-            <a className="faq__cta" href="/start" data-sc-magnet="0.22">
-              Reach out
-            </a>
-          </div>
         </div>
 
         <Footer />
