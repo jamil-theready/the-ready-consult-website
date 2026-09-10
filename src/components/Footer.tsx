@@ -144,6 +144,11 @@ export default function Footer() {
             <span className="text-[11px] text-gray-400">All systems operational</span>
           </div>
         </div>
+        <nav aria-label="Legal" className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-gray-400">
+          <a href="/privacy" className="hover:text-navy transition-colors">Privacy</a>
+          <a href="/terms" className="hover:text-navy transition-colors">Terms</a>
+          <a href="/data-deletion" className="hover:text-navy transition-colors">Data deletion</a>
+        </nav>
       </div>
     </footer>
   );
