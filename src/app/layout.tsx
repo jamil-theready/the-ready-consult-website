@@ -76,15 +76,23 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${robotoMono.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         {/*
-          Set the white site theme before first paint. The staged subscription
-          story and the rest of the homepage need one continuous canvas.
+          Sets the theme BEFORE first paint. It has to be blocking and inline —
+          anything deferred, or anything reading localStorage from a React
+          effect, renders one theme then swaps after paint, which IS the flash.
+          Falls back to the OS preference, then to dark if storage throws.
         */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{document.documentElement.dataset.theme='light';" +
-              "localStorage.setItem('trc-theme','light');}" +
-              "catch(e){document.documentElement.dataset.theme='light';}})();",
+              // Dark only, for now. Light mode is BUILT — every token is in
+              // globals.css and ThemeToggle still works — but the scroll-craft
+              // engine writes --sc-canvas inline from the dark drift targets
+              // and mixes its scrims from it, so a light page renders dark
+              // scrims over dark ink (214 of 227 text nodes failed contrast).
+              // Re-enabling light means re-initialising the engine per theme.
+              "(function(){try{document.documentElement.dataset.theme='dark';" +
+              "localStorage.setItem('trc-theme','dark');}" +
+              "catch(e){document.documentElement.dataset.theme='dark';}})();",
           }}
         />
       </head>
