@@ -11,22 +11,20 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-start justify-between gap-8">
           <div>
             <h2 className="t-h2 text-navy max-w-lg">
-              Websites, Google profiles and SEO for construction and landscaping companies.
+              Your website. Built in one day. Improved every month.
             </h2>
             <p className="text-gray-400 text-lg mt-2 max-w-md">
-              Try The Ready Consult for your next project.
+              $103/month. No minimum term. Construction starts after confirmed onboarding.
             </p>
             <a
-              href="https://calendly.com/thereadyconsult/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[14px] px-8 py-3.5 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6 rounded-[12px]"
             >
               <span className="absolute inset-0 cta-shimmer" />
               <svg className="w-4.5 h-4.5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span className="relative z-10">Book a Call</span>
+              <span className="relative z-10">Get my website</span>
             </a>
           </div>
 
@@ -65,8 +63,7 @@ export default function Footer() {
               <span className="font-semibold text-navy text-[16px] tracking-tight">The Ready</span>
             </div>
             <p className="mt-3 text-[12px] leading-relaxed text-gray-400">
-              Websites, Google profiles and SEO for construction and landscaping
-              companies across Northern California.
+              Managed websites and monthly SEO for small businesses serving local customers.
             </p>
           </div>
 
@@ -74,8 +71,8 @@ export default function Footer() {
             <div>
               <p className="text-[12px] font-semibold text-navy mb-4">Services</p>
               <div className="space-y-3">
-                {["Websites", "SEO", "Video", "AI Automations", "Meta Ads"].map((l) => (
-                  <a key={l} href="#services" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{l}</a>
+                {["Websites", "Monthly SEO", "Hosting", "Lead alerts", "Dashboard"].map((l) => (
+                  <a key={l} href="/#services" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{l}</a>
                 ))}
               </div>
             </div>
@@ -83,11 +80,11 @@ export default function Footer() {
               <p className="text-[12px] font-semibold text-navy mb-4">Company</p>
               <div className="space-y-3">
                 {[
-                  { l: "Pricing", h: "#pricing" },
-                  { l: "Process", h: "#how-it-works" },
+                  { l: "Pricing", h: "/#pricing" },
+                  { l: "Process", h: "/#how-it-works" },
                   { l: "Work", h: "/work" },
-                  { l: "Team", h: "#team" },
-                  { l: "FAQ", h: "#faq" },
+                  { l: "Get started", h: "/contact" },
+                  { l: "FAQ", h: "/#faq" },
                 ].map((i) => (
                   <a key={i.l} href={i.h} className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{i.l}</a>
                 ))}
@@ -96,9 +93,9 @@ export default function Footer() {
             <div>
               <p className="text-[12px] font-semibold text-navy mb-4">Connect</p>
               <div className="space-y-3">
-                <a href="mailto:team@thereadyconsult.com" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Email</a>
+                <a href="mailto:jamil@thereadyconsult.com" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Email</a>
                 <a href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Book a Call</a>
-                <a href="#contact" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Contact</a>
+                <a href="/contact" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Contact</a>
               </div>
             </div>
           </div>
@@ -129,7 +126,7 @@ export default function Footer() {
                 <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.01 4.13H5.05z"/>
               </svg>
             </a>
-            <a href="mailto:team@thereadyconsult.com"
+            <a href="mailto:jamil@thereadyconsult.com"
                aria-label="Email The Ready Consult"
                className="w-9 h-9 flex items-center justify-center border border-seam rounded-[8px] text-gray-400 hover:text-amber hover:border-amber transition-colors">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
@@ -141,7 +138,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-1.5 order-2 sm:order-3">
             <span className="w-2 h-2 rounded-full bg-glow animate-pulse" />
-            <span className="text-[11px] text-gray-400">All systems operational</span>
+            <span className="text-[11px] text-gray-400">Month to month. No minimum.</span>
           </div>
         </div>
         <nav aria-label="Legal" className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-gray-400">

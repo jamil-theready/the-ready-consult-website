@@ -4,7 +4,8 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "Services", href: "/#services" },
+  { label: "What you get", href: "/#services" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Process", href: "/#how-it-works" },
   { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
@@ -107,7 +108,7 @@ export default function Navbar() {
             } cta-btn rounded-[12px]`}
           >
             <span className="absolute inset-0 cta-shimmer" />
-            <span className="relative z-10">Sign up &rarr;</span>
+            <span className="relative z-10">Get my website &rarr;</span>
           </a>
           <button
             onClick={() => setOpen(!open)}
@@ -152,7 +153,7 @@ export default function Navbar() {
             className="cta-btn relative block text-center font-medium text-[14px] px-6 py-4 overflow-hidden rounded-[12px]"
           >
             <span className="absolute inset-0 cta-shimmer" />
-            <span className="relative z-10">Sign up &rarr;</span>
+            <span className="relative z-10">Get my website &rarr;</span>
           </a>
         </div>
       </div>
@@ -169,7 +170,7 @@ export default function Navbar() {
           style={{ boxShadow: "0 10px 40px -8px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.2)" }}
         >
           <span className="absolute inset-0 cta-shimmer" />
-          <span className="relative z-10">Sign up &rarr;</span>
+          <span className="relative z-10">Get my website &rarr;</span>
         </a>
       </div>
     </>

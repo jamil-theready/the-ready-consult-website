@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import SeoVisual from "./SeoVisual";
 import WebsiteVisual from "./WebsiteVisual";
-import MetaAdsVisual from "./MetaAdsVisual";
+
 import N8nFlow from "./N8nFlow";
 
 type Tab = {
@@ -20,30 +20,30 @@ type Tab = {
 const TABS: Tab[] = [
   {
     n: "01",
-    name: "Diagnosis",
-    line: "See what your customers see.",
-    body: "We search your trade in your area and show you what comes up, where you sit, and where the calls are leaking.",
+    name: "Research",
+    line: "Find your opportunity.",
+    body: "We look at your services, local searches, competitors, and current website to agree what your new site needs to do.",
     visual: <SeoVisual />,
   },
   {
     n: "02",
     name: "Build",
-    line: "A site that books jobs.",
-    body: "Website and Google Business Profile. Photos of your work, the areas you cover, and a tap to call button on every screen.",
+    line: "Your website. Built in one day.",
+    body: "After confirmed onboarding, we construct your agreed website within one business day. Clear services, real photos, and an easy way for customers to contact you. Launch follows your approval and domain connection.",
     visual: <WebsiteVisual />,
   },
   {
     n: "03",
-    name: "Get Found",
-    line: "Come up first, every month.",
-    body: "Monthly SEO so you show up for people searching your trade nearby. Video for social. Google and Meta ads when you want more.",
-    visual: <MetaAdsVisual />,
+    name: "Monthly SEO",
+    line: "Your SEO. Handled every month.",
+    body: "We review performance and improve your pages, content, and technical SEO each month. The goal is to help more local customers find your business over time.",
+    visual: <SeoVisual />,
   },
   {
     n: "04",
-    name: "Follow Up",
-    line: "No estimate goes cold.",
-    body: "Every call and form is logged and followed up automatically. Your dashboard shows what is bringing work in.",
+    name: "Lead alerts",
+    line: "A new lead? You will know.",
+    body: "New website inquiries go straight to your WhatsApp with the customer details and message, so you can follow up. Your dashboard shows traffic and inquiries.",
     visual: <N8nFlow />,
   },
 ];

@@ -29,8 +29,7 @@ export default function ThankYouPage() {
               Got it. We&apos;ll be in touch.
             </h1>
             <p className="t-lead mt-8">
-              Someone reads every one of these — usually the same day, always within one
-              business day.
+              We will follow up to confirm fit and scope, then send your subscription and onboarding details. Your inquiry has not started a paid subscription or the one-day build clock.
             </p>
 
             <div className="mt-12 border-t border-gray-200 pt-10">
@@ -44,8 +43,8 @@ export default function ThankYouPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-cyan font-semibold hover:underline underline-offset-4">
-                    Read the blog &rarr;
+                  <Link href="/terms" className="text-cyan font-semibold hover:underline underline-offset-4">
+                    Review the subscription terms &rarr;
                   </Link>
                 </li>
                 <li>

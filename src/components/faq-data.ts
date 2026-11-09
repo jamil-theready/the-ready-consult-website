@@ -1,28 +1,11 @@
-// Written for construction and landscaping contractors. Every question the old
-// set asked was aimed at a different buyer.
 export const FAQS = [
-  {
-    q: "How fast can my site be live?",
-    a: "Most sites go live in about two weeks, once we have your photos and the areas you cover.",
-  },
-  {
-    q: "Do I own the website?",
-    a: "Yes. The site is yours. We build it, host it and keep it updated while you are with us.",
-  },
-  {
-    q: "What if I already have a website?",
-    a: "We look at what you have first. Sometimes we fix it. Sometimes a rebuild gets you further for the same money.",
-  },
-  {
-    q: "Do you work with my trade?",
-    a: "We work with construction and landscaping companies. Masonry, concrete, hardscape, pools, insulation, painting and landscaping.",
-  },
-  {
-    q: "How do I know it is working?",
-    a: "You get a dashboard showing calls, forms and where you rank. No reports to read, just the numbers.",
-  },
-  {
-    q: "Is there a contract?",
-    a: "No long term lock in. It is month to month, and the site stays live as long as you are with us.",
-  },
+  { q: "What does $103/month include?", a: "Your agreed business website, hosting, maintenance, monthly website and SEO improvements, website lead alerts on WhatsApp, and a dashboard showing traffic, inquiries, and progress. Domain registration is separate. Custom features outside the agreed scope are quoted before work begins." },
+  { q: "When does the one-day build start?", a: "We construct your agreed website within one business day after we confirm your onboarding is complete: required materials, access, scope, and payment are ready. Business days are Monday to Friday, excluding public holidays; we confirm the deadline in writing. You receive the website for review. Public launch follows your approval, any agreed revisions, and domain connection." },
+  { q: "Do I own the website?", a: "This is a managed website subscription. You receive use of the website while subscribed; source-code transfer and website handover are not included. Your domain, business accounts, supplied materials, and lead records remain yours. Existing signed agreements keep their agreed ownership terms." },
+  { q: "Is there a minimum term? How do I cancel?", a: "There is no minimum term. The subscription renews monthly until canceled. Email jamil@thereadyconsult.com before your next renewal to cancel. Your website and monthly services remain active through the period already paid for, then stop. Cancellation does not include a website transfer. See the subscription terms for billing and suspension details." },
+  { q: "What happens if a payment fails?", a: "We contact you with a payment notice and a suspension date so you can resolve it. If payment remains overdue after that date, the website and monthly services may be suspended. Suspension does not transfer ownership of the website or mean your domain is taken away." },
+  { q: "What happens each month?", a: "We review your website performance and make website and SEO improvements based on your services and available search data. This can include page updates, technical fixes, and content improvements. Work is prioritized to your agreed scope rather than a fixed number of new articles." },
+  { q: "Will I get more leads?", a: "The goal is to help more local customers find and contact your business. You can track genuine website inquiries and search progress. Rankings, lead volume, sales, and the time SEO takes are not guaranteed; results depend on demand, competition, and your follow-up." },
+  { q: "Do you work with my kind of business?", a: "We work with small businesses serving local customers, including local services and home services. We confirm fit and the website scope before you subscribe. Online stores, custom apps, and complex integrations need a separate scope." },
+  { q: "What if I already have a website?", a: "We review it first and agree whether to improve it or build a replacement. We do not change ownership of your existing website or accounts without a separate agreement." },
 ];

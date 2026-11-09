@@ -22,19 +22,18 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
-  title: "The Ready Consult | Websites and SEO for Contractors",
-  description:
-    "We build websites and Google Business Profiles for construction and landscaping companies, then keep you showing up so the calls keep coming.",
+  title: "Websites Built in One Day | The Ready Consult",
+  description: "Your website built in one business day after confirmed onboarding, with monthly SEO and lead alerts. $103/month. No minimum term.",
   keywords:
-    "contractor website, masonry marketing, landscaping SEO, Google Business Profile, local SEO for contractors, construction lead generation",
+    "small business website, local services website, home service website, monthly SEO, website subscription",
   metadataBase: new URL("https://www.thereadyconsult.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "The Ready Consult | Websites and SEO for Contractors",
+    title: "Websites Built in One Day | The Ready Consult",
     description:
-      "Websites, Google Business Profiles and SEO for construction and landscaping companies.",
+      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103/month. No minimum term.",
     url: "https://www.thereadyconsult.com",
     siteName: "The Ready Consult",
     type: "website",
@@ -44,15 +43,15 @@ export const metadata: Metadata = {
         url: "https://www.thereadyconsult.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "The Ready Consult, websites and SEO for contractors",
+        alt: "The Ready Consult, websites and monthly SEO for small businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Ready Consult | Websites and SEO for Contractors",
+    title: "Websites Built in One Day | The Ready Consult",
     description:
-      "Websites, Google Business Profiles and SEO for construction and landscaping companies.",
+      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103/month. No minimum term.",
     images: ["https://www.thereadyconsult.com/og-image.png"],
   },
   robots: {

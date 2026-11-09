@@ -15,8 +15,8 @@ const buildLogs = [
   "Quote request form",
   "Optimizing assets...",
   "Running lighthouse audit...",
-  "✓ Performance: 100",
-  "✓ SEO: 99",
+  "✓ Mobile checks complete",
+  "✓ Metadata checks complete",
   "✓ Build complete — deploying...",
   "✓ Live → yoursite.com",
 ];

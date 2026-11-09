@@ -15,11 +15,16 @@ const TRADES = [
   "Stucco / plaster",
   "Fencing / decks",
   "Roofing",
-  "Other trade",
+  "Cleaning / other home services",
+  "Professional / local services",
+  "Health / beauty / wellness",
+  "Restaurant / hospitality",
+  "Retail / local shop",
+  "Other small business",
 ];
 
 const NEEDS = [
-  { v: "leads", t: "More jobs / more customers", s: "Ready to spend on getting the phone to ring" },
+  { v: "leads", t: "More jobs / more customers", s: "Help local customers find and contact my business" },
   { v: "website", t: "I need a website", s: "Don't have one, or the one I have is bad" },
   { v: "notfound", t: "I have a website but nobody calls", s: "It exists, it just isn't working" },
   { v: "question", t: "Just have a question", s: "Not looking to hire anyone right now" },
@@ -81,7 +86,7 @@ export default function IntakeForm() {
     const missing: string[] = [];
     if (!get("name")) missing.push("your name");
     if (!get("biz")) missing.push("business name");
-    if (!get("trade")) missing.push("your trade");
+    if (!get("trade")) missing.push("your business type");
     if (!get("city")) missing.push("city");
     if (!get("phone")) missing.push("phone");
     if (!need) missing.push("what you need");
@@ -107,7 +112,7 @@ export default function IntakeForm() {
       setStatus("error");
       setError(
         "This form isn't taking messages right now. Book a call at " +
-          "calendly.com/thereadyconsult/30min or email team@thereadyconsult.com — " +
+          "calendly.com/thereadyconsult/30min or email jamil@thereadyconsult.com — " +
           "both reach us straight away."
       );
       return;
@@ -149,7 +154,7 @@ export default function IntakeForm() {
       setStatus("error");
       setError(
         err instanceof Error
-          ? `${err.message} — or just text us at (916) 555-0100.`
+          ? `${err.message} — or email jamil@thereadyconsult.com.`
           : "Something went wrong. Please try again."
       );
     }
@@ -165,8 +170,7 @@ export default function IntakeForm() {
         </div>
         <h2 className="text-2xl font-semibold tracking-[-0.02em] text-navy">Got it.</h2>
         <p className="mx-auto mt-3 max-w-md leading-relaxed text-gray-600">
-          We&rsquo;re pulling up your Google listing now. You&rsquo;ll get a short video showing
-          what&rsquo;s costing you calls — on {how.toLowerCase()}, within a few hours. No charge.
+          We will follow up on {how.toLowerCase()} to confirm your website scope and send the next steps. This inquiry does not activate a paid subscription.
         </p>
       </div>
     );
@@ -189,7 +193,7 @@ export default function IntakeForm() {
         <div>
           <label className={LABEL} htmlFor="trade">What kind of work do you do?</label>
           <select id="trade" name="trade" className={INPUT} defaultValue="">
-            <option value="" disabled>Select your trade…</option>
+            <option value="" disabled>Select your business type…</option>
             {TRADES.map((t) => <option key={t}>{t}</option>)}
           </select>
         </div>
@@ -264,12 +268,11 @@ export default function IntakeForm() {
         disabled={status === "sending"}
         className="w-full rounded-full bg-cyan px-8 py-4 text-[15px] font-semibold text-foreground transition-colors hover:opacity-90 disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Send — get my free review"}
+        {status === "sending" ? "Sending…" : "Send my website inquiry"}
       </button>
 
       <p className="text-[12px] leading-relaxed text-gray-400">
-        By submitting, you agree we can contact you by WhatsApp, text or phone about your business.
-        We never share your information.
+        By submitting, you agree we can respond through your selected contact method about this inquiry. Submitting does not charge you, start a subscription, or complete onboarding. <a href="/privacy" className="underline">Privacy</a> · <a href="/terms" className="underline">Subscription terms</a>.
       </p>
     </form>
   );

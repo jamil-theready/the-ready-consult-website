@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServicesTabs from "@/components/ServicesTabs";
-import Mission from "@/components/Mission";
+import OfferTimeline from "@/components/OfferTimeline";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import { FAQS } from "@/components/faq-data";
@@ -17,7 +17,7 @@ const jsonLd = {
   "@type": "ProfessionalService",
   name: "The Ready Consult",
   description:
-    "Websites, Google Business Profiles, SEO and lead follow up for construction and landscaping companies.",
+    "Managed websites and monthly SEO for small businesses serving local customers. $103 per month, no minimum term.",
   url: "https://www.thereadyconsult.com",
   email: "jamil@thereadyconsult.com",
   sameAs: [
@@ -25,12 +25,10 @@ const jsonLd = {
     "https://github.com/The-Ready-Collective",
   ],
   serviceType: [
-    "Website design for contractors",
+    "Small business website subscriptions",
     "Local SEO",
     "Google Business Profile management",
-    "Google Ads",
-    "Meta Ads",
-    "Lead follow up automation",
+    "Website lead notifications",
   ],
   areaServed: "United States",
   founder: [{ "@type": "Person", name: "Jamil Gonzales" }],
@@ -63,10 +61,17 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <Mission />
+        <OfferTimeline />
         <ServicesTabs />
         <Pricing />
         <FAQ />
+        <section className="offer-final sc-section" data-sc-act="flow">
+          <h2>Ready for your next customer?</h2>
+          <p>Your website. Built in one day. Improved every month.</p>
+          <a className="plan__cta" href="/contact">Get my website &rarr;</a>
+          <p>$103/month. No minimum term. One-business-day construction starts after confirmed onboarding.</p>
+          <nav aria-label="Legal"><a href="/terms">Subscription terms</a><a href="/privacy">Privacy</a><a href="/data-deletion">Data deletion</a></nav>
+        </section>
       </main>
       <ScrollToTop />
     </>

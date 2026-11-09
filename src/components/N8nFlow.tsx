@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 // Labelled the way a contractor would describe their own follow up, not the way
 // the tools are named. Clearbit, OpenAI and HubSpot mean nothing on a job site.
 const nodes = [
-  { id: "trigger", x: 40, y: 180, label: "New lead", sub: "Call or form", color: "#9b59b6", icon: "webhook" },
+  { id: "trigger", x: 40, y: 180, label: "New lead", sub: "Website form", color: "#9b59b6", icon: "webhook" },
   { id: "enrich", x: 220, y: 100, label: "Logged", sub: "Your dashboard", color: "#e67e22", icon: "data" },
-  { id: "ai", x: 220, y: 260, label: "Text back", sub: "Within a minute", color: "#10a37f", icon: "ai" },
-  { id: "router", x: 420, y: 180, label: "Did they reply?", sub: "Check", color: "#3498db", icon: "split" },
-  { id: "hot", x: 600, y: 100, label: "Book estimate", sub: "Straight to your calendar", color: "#e74c3c", icon: "slack" },
-  { id: "warm", x: 600, y: 260, label: "Follow up", sub: "Day two and day five", color: "#2ecc71", icon: "email" },
-  { id: "crm", x: 780, y: 180, label: "Job won", sub: "Marked in your dashboard", color: "#ff7a59", icon: "crm" },
+  { id: "ai", x: 220, y: 260, label: "Owner alert", sub: "WhatsApp notification", color: "#10a37f", icon: "ai" },
+  { id: "router", x: 420, y: 180, label: "Lead details", sub: "Contact information", color: "#3498db", icon: "split" },
+  { id: "hot", x: 600, y: 100, label: "Their name", sub: "Who contacted you", color: "#e74c3c", icon: "slack" },
+  { id: "warm", x: 600, y: 260, label: "Message", sub: "What they need", color: "#2ecc71", icon: "email" },
+  { id: "crm", x: 780, y: 180, label: "Follow up", sub: "Your next step", color: "#ff7a59", icon: "crm" },
 ];
 
 const connections = [
@@ -88,10 +88,10 @@ export default function N8nFlow() {
           <svg className="w-4 h-4 text-[#ff6d5a]" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
           </svg>
-          <span className="text-xs font-semibold text-gray-600">Lead follow up</span>
+          <span className="text-xs font-semibold text-gray-600">Website lead alerts</span>
           <div className="flex items-center gap-1 ml-2 bg-green/10 px-2 py-0.5 rounded-full">
             <div className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
-            <span className="text-[10px] font-medium text-green">Active</span>
+            <span className="text-[10px] font-medium text-green">Illustration</span>
           </div>
         </div>
         <div className="flex items-center gap-1.5">
@@ -212,9 +212,9 @@ export default function N8nFlow() {
 
         {/* Execution counter */}
         <div className="absolute bottom-3 left-4 flex items-center gap-4 text-[10px] text-gray-400">
-          <span>Leads handled: <strong className="text-navy">every one</strong></span>
-          <span>Reply time: <strong className="text-green">under a minute</strong></span>
-          <span>Your effort: <strong className="text-navy">none</strong></span>
+          <span>New website inquiry → owner notification</span>
+          <span><strong className="text-green">You follow up</strong></span>
+          <span>Their details and message</span>
         </div>
 
         {/* Mini map hint */}
