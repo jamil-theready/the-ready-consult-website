@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServicesTabs from "@/components/ServicesTabs";
+import SubscriptionStory from "@/components/SubscriptionStory";
 import OfferTimeline from "@/components/OfferTimeline";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -61,8 +61,8 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <SubscriptionStory />
         <OfferTimeline />
-        <ServicesTabs />
         <Pricing />
         <FAQ />
         <section className="offer-final sc-section" data-sc-act="flow">
