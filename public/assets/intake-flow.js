@@ -38,6 +38,7 @@
         <section class="intake-step" data-step="4" hidden>
           <label class="visually-hidden" for="intake-message">Tell us more about your business (optional)</label><textarea id="intake-message" name="message" maxlength="4000" rows="4" placeholder="For example: residential roof repairs and new roof installations in Austin, Round Rock, and Cedar Park."></textarea>
           <p class="intake-note">Submitting sends an inquiry, not a charge. On the next screen, you can book a call or choose secure checkout.</p>
+          <div class="intake-challenge" aria-label="Form security check"></div>
         </section>
         <label class="intake-trap" aria-hidden="true">Leave this blank<input name="companyFax" tabindex="-1" autocomplete="off"></label>
       </div>
@@ -55,6 +56,32 @@
   let sending = false;
   let submissionId = '';
   let submissionFingerprint = '';
+  let challengeScript;
+  let challengeWidget;
+  async function formSecurityToken() {
+    if (!window.turnstile) {
+      challengeScript ??= new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = () => { challengeScript = null; reject(Error('Security check unavailable')); };
+        document.head.append(script);
+      });
+      await challengeScript;
+    }
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => reject(Error('Security check timed out')), 90000);
+      const complete = action => value => { clearTimeout(timeout); action(value); };
+      if (challengeWidget !== undefined) window.turnstile.remove(challengeWidget);
+      challengeWidget = window.turnstile.render(form.querySelector('.intake-challenge'), {
+        sitekey: '0x4AAAAAAF7X5L8R8oIPdQvo', action: 'intake', theme: 'light',
+        appearance: 'interaction-only', 'response-field': false,
+        callback: complete(resolve), 'error-callback': complete(() => reject(Error('Security check failed'))),
+        'expired-callback': complete(() => reject(Error('Security check expired'))),
+      });
+    });
+  }
 
   function showError(message, field) {
     error.textContent = message;
@@ -148,9 +175,15 @@
     submit.textContent = 'Sending…';
     clearError();
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify({access_key: 'ceeca694-d4b0-4e82-ba31-26508257f8d6', from_name: 'The Ready Consult', name: `${firstName} ${lastName}`, email, business: businessName, phone: number, contact_via: preferredContact, website: websiteUrl, requested_domain: requestedDomain, message: lead.message, subject: `TRC website inquiry — ${submissionId}`, trc_intake: JSON.stringify({version: 1, submissionId, lead})}), signal: AbortSignal.timeout(20000)});
+      const turnstileToken = await formSecurityToken();
+      const response = await fetch('https://trc-sales-hub.jamil-3d5.workers.dev/v1/intake', {method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify({submissionId, firstName, lastName, name: `${firstName} ${lastName}`, email, business: businessName, phone: number, contactPreference: preferredContact.toLowerCase(), whatsappConsent: preferredContact === 'WHATSAPP', hasWebsite, websiteUrl, requestedDomain, message: lead.message, companyFax: '', turnstileToken}), signal: AbortSignal.timeout(20000)});
       const result = await response.json();
-      if (!response.ok || result.success !== true) throw Error('Delivery was not confirmed.');
+      if (!response.ok || result.accepted !== true || result.submissionId !== submissionId) throw Error('Delivery was not confirmed.');
+      const bookingLink = new URL('https://calendly.com/thereadyconsult/30min');
+      bookingLink.searchParams.set('name', `${firstName} ${lastName}`);
+      bookingLink.searchParams.set('email', email);
+      bookingLink.searchParams.set('utm_content', submissionId);
+      options.querySelector('.call-link').href = bookingLink.href;
       const checkout = new URL('https://buy.stripe.com/cNi4gyfXj3o9dnxdK75EY0o');
       checkout.searchParams.set('prefilled_email', email);
       checkout.searchParams.set('client_reference_id', submissionId);
