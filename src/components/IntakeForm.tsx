@@ -119,7 +119,7 @@ export default function IntakeForm({onExit}: {onExit: () => void}) {
     </section>
     {error && <p role="alert" className="rounded-lg bg-red-50 p-4 text-sm text-navy">{error}</p>}
     <div className="intake-actions flex justify-between gap-3 pt-8">
-      {step < 4 ? <button type="button" onClick={next} className="ml-auto w-40 rounded-full bg-navy px-8 py-4 text-[15px] font-semibold text-white">Next</button> : <button type="submit" disabled={sending || Boolean(BRIDGE && !token)} className="ml-auto w-auto min-w-[220px] rounded-full bg-navy px-8 py-4 text-[15px] font-semibold text-white disabled:opacity-60">{sending ? 'Sending…' : 'Continue to your options'}</button>}
+      {step < 4 ? <button key="next" type="button" onClick={next} className="ml-auto w-40 rounded-full bg-navy px-8 py-4 text-[15px] font-semibold text-white">Next</button> : <button key="submit" type="submit" disabled={sending || Boolean(BRIDGE && !token)} className="ml-auto w-auto min-w-[220px] rounded-full bg-navy px-8 py-4 text-[15px] font-semibold text-white disabled:opacity-60">{sending ? 'Sending…' : 'Continue to your options'}</button>}
     </div>
   </form>;
 }
