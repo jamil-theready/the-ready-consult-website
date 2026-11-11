@@ -48,7 +48,13 @@ closeSignup.type='button';closeSignup.className='cta-form-close';closeSignup.tex
 signupShell.prepend(closeSignup);bottomPanel.append(signupShell);signupSection.remove();
 const checkoutCard=document.createElement('div');
 checkoutCard.className='signup-flow-card';checkoutCard.hidden=true;
-checkoutCard.innerHTML='<h2>How would you like to continue?</h2><p>Your details were sent to The Ready Consult. Start now, or book a call if you want to talk it through first.</p><div class="flow-price">$103.30 <span>/ month · renews monthly</span></div><p>Includes your agreed website, hosting, monthly SEO improvements, lead alerts, and reporting. No minimum term. Domain registration is separate.</p><a class="checkout-link" href="#" rel="noopener">Start subscription · secure Stripe checkout →</a><a class="call-link" href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer">Book a call first</a><p class="flow-small">Stripe will collect payment if you choose to subscribe. We start the one-business-day build after payment and the materials, access, and scope are confirmed. Booking a call does not charge you.</p><button class="checkout-back" type="button">← Back to the page</button>';
+checkoutCard.innerHTML=`<button class="checkout-back" type="button">← Back</button>
+  <h2 class="visually-hidden">Choose how to continue</h2>
+  <div class="next-choices">
+    <a class="call-link" href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 15h3"/></svg><span>Book a call</span></a>
+    <span class="choice-divider" aria-hidden="true"></span>
+    <div class="start-choice"><span>Get started now</span><a class="checkout-link" href="#" rel="noopener">Start subscription</a></div>
+  </div>`;
 bottomPanel.append(checkoutCard);checkoutCard.querySelector('h2').tabIndex=-1;
 function openSignup(){checkoutCard.hidden=true;signupShell.hidden=false;bottomPanel.classList.add('form-open');document.body.classList.add('signup-open');bottomCta.scrollIntoView({behavior:'smooth',block:'start'});}
 function hideSignup(){bottomPanel.classList.remove('form-open');document.body.classList.remove('signup-open');signupShell.hidden=true;checkoutCard.hidden=true;bottomCta.scrollIntoView({behavior:'smooth',block:'start'});}

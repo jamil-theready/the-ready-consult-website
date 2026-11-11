@@ -21,8 +21,8 @@
         </section>
         <section class="intake-step" data-step="2" hidden>
           <fieldset class="intake-channel"><legend class="visually-hidden">Preferred contact method</legend>
-            <label class="channel-option selected"><input type="radio" name="preferredContact" value="WHATSAPP" checked><span class="channel-icon"><img src="/assets/whatsapp-icon.svg" alt=""></span><span><strong>WhatsApp</strong><small>Message me on WhatsApp</small></span></label>
-            <label class="channel-option"><input type="radio" name="preferredContact" value="EMAIL"><span class="channel-icon"><img src="/assets/gmail-icon.svg" alt=""></span><span><strong>Email</strong><small>Send me an email</small></span></label>
+            <label class="channel-option selected"><input type="radio" name="preferredContact" value="WHATSAPP" checked><span class="channel-icon"><img src="/assets/whatsapp-icon.svg" alt=""></span><span><span class="channel-title">WhatsApp</span><small>Message me on WhatsApp</small></span></label>
+            <label class="channel-option"><input type="radio" name="preferredContact" value="EMAIL"><span class="channel-icon"><img src="/assets/gmail-icon.svg" alt=""></span><span><span class="channel-title">Email</span><small>Send me an email</small></span></label>
           </fieldset>
           <div class="intake-phone"><label>Your WhatsApp number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 202 555 0142" maxlength="40" required></label><p>Include your country code. We check the number format before messaging you.</p></div>
         </section>

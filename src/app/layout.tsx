@@ -79,14 +79,12 @@ export default function RootLayout({
           Sets the theme BEFORE first paint. It has to be blocking and inline —
           anything deferred, or anything reading localStorage from a React
           effect, renders one theme then swaps after paint, which IS the flash.
-          The homepage uses the light subscription design; older routes keep
-          their existing theme until they are redesigned.
+          Keep the white site canvas from the first paint on every route.
         */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var theme=location.pathname==='/'?'light':'dark';" +
-              "document.documentElement.dataset.theme=theme;})();",
+              "document.documentElement.dataset.theme='light';",
           }}
         />
       </head>

@@ -93,9 +93,9 @@
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --void:       #E9DFCC;
-  --background: #F4EDE1;
-  --slab:       #FBF7ED;
+  --void:       #FFFFFF;
+  --background: #FFFFFF;
+  --slab:       #FFFFFF;
   --seam:       #DDD0B8;
 
   --foreground: #1A130A;
@@ -119,8 +119,8 @@
   --pink:       #855508;
   --orange:     #855508;
 
-  --gray-50:  #FAF6EC;
-  --gray-100: #F2EADC;
+  --gray-50:  #FFFFFF;
+  --gray-100: #F7F8FA;
   --gray-200: #E3D8C4;
   --gray-300: #CDBFA6;
   --gray-400: #6B5E4B;
@@ -688,12 +688,10 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 :root[data-theme="light"] body::before {
-  background:
-    radial-gradient(120vw 90vh at 8% 4%,  rgba(133,85,8,.07), transparent 62%),
-    radial-gradient(80vw 70vh at 96% 78%, rgba(133,85,8,.04), transparent 60%);
+  background: none;
 }
 /* noise on a light ground darkens instead of lifting, so it needs far less */
-:root[data-theme="light"] body::after { opacity: .028; }
+:root[data-theme="light"] body::after { opacity: 0; }
 
 /* SEAM — the only line work in the brand. Structure, never decoration. */
 .seam { height: 1px; background: var(--seam); border: 0; }
