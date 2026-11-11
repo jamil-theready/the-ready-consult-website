@@ -126,7 +126,7 @@ export default async function BlogPostPage({
                 <>
                   <span>
                     By{" "}
-                    <Link href="/contact" className="text-navy hover:text-cyan transition-colors underline underline-offset-4 decoration-cyan/30 hover:decoration-cyan">
+                    <Link href="/#signup" className="text-navy hover:text-cyan transition-colors underline underline-offset-4 decoration-cyan/30 hover:decoration-cyan">
                       {post.author}
                     </Link>
                   </span>

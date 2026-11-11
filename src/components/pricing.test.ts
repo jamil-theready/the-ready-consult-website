@@ -6,8 +6,8 @@ describe("public subscription offer", () => {
   it("offers one monthly plan without an acquisition upsell", () => {
     expect(PLANS).toHaveLength(1);
     expect(PLANS[0].name).toBe("Ready System");
-    expect(PLANS[0].price).toBe("$103");
-    expect(PLANS[0].href).toBe("/contact");
+    expect(PLANS[0].price).toBe("$103.30");
+    expect(PLANS[0].href).toBe("/#signup");
   });
   it("discloses website access and cancellation beside the offer", () => {
     expect(OFFER.commitment).toContain("No minimum term");

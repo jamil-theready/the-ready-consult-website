@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   title: "Websites Built in One Day | The Ready Consult",
-  description: "Your website built in one business day after confirmed onboarding, with monthly SEO and lead alerts. $103/month. No minimum term.",
+  description: "Your website built in one business day after confirmed onboarding, with monthly SEO and lead alerts. $103.30/month. No minimum term.",
   keywords:
     "small business website, local services website, home service website, monthly SEO, website subscription",
   metadataBase: new URL("https://www.thereadyconsult.com"),
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Websites Built in One Day | The Ready Consult",
     description:
-      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103/month. No minimum term.",
+      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103.30/month. No minimum term.",
     url: "https://www.thereadyconsult.com",
     siteName: "The Ready Consult",
     type: "website",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Websites Built in One Day | The Ready Consult",
     description:
-      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103/month. No minimum term.",
+      "Your website built in one business day after confirmed onboarding, with monthly SEO. $103.30/month. No minimum term.",
     images: ["https://www.thereadyconsult.com/og-image.png"],
   },
   robots: {

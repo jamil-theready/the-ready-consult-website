@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServicesTabs from "@/components/ServicesTabs";
@@ -11,13 +11,14 @@ import { FAQS } from "@/components/faq-data";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollCraft from "@/components/ScrollCraft";
+import IntakeForm from "@/components/IntakeForm";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "The Ready Consult",
   description:
-    "Managed websites and monthly SEO for small businesses serving local customers. $103 per month, no minimum term.",
+    "Managed websites and monthly SEO for small businesses serving local customers. $103.30 per month, no minimum term.",
   url: "https://www.thereadyconsult.com",
   email: "jamil@thereadyconsult.com",
   sameAs: [
@@ -49,7 +50,9 @@ const faqJsonLd = {
 
 export default function Home() {
   const [ready, setReady] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const handleLoadingComplete = useCallback(() => setReady(true), []);
+  useEffect(() => {if (window.location.hash === '#signup') setShowForm(true); const onHash=()=>{if(window.location.hash==='#signup')setShowForm(true);};window.addEventListener('hashchange',onHash);return()=>window.removeEventListener('hashchange',onHash);},[]);
 
   return (
     <>
@@ -65,12 +68,8 @@ export default function Home() {
         <ServicesTabs />
         <Pricing />
         <FAQ />
-        <section className="offer-final sc-section" data-sc-act="flow">
-          <h2>Ready for your next customer?</h2>
-          <p>Your website. Built in one day. Improved every month.</p>
-          <a className="plan__cta" href="/contact">Get my website &rarr;</a>
-          <p>$103/month. No minimum term. One-business-day construction starts after confirmed onboarding.</p>
-          <nav aria-label="Legal"><a href="/terms">Subscription terms</a><a href="/privacy">Privacy</a><a href="/data-deletion">Data deletion</a></nav>
+        <section id="signup" className={`offer-final sc-section ${showForm?'offer-final--form':''}`} data-sc-act="flow">
+          {!showForm ? <><h2>Ready for your next customer?</h2><p>Your website. Built in one day. Improved every month.</p><button className="plan__cta" type="button" onClick={()=>setShowForm(true)}>Get my website &rarr;</button></> : <div className="offer-final__form"><IntakeForm onExit={()=>setShowForm(false)} /></div>}
         </section>
       </main>
       <ScrollToTop />

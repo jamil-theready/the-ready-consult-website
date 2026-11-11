@@ -36,7 +36,7 @@ export default function Pricing() {
                 {p.cta}
               </a>
               <p className="plan__terms">{OFFER.subscriptionSummary} <a href="/terms">Read the subscription terms</a>.</p>
-              <p className="plan__terms">Start with an inquiry. This form does not charge you or activate a subscription.</p>
+              <p className="plan__terms">Send your details first. You can then subscribe or book a call.</p>
             </div>
           ))}
         </div>

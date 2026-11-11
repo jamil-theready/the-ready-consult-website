@@ -18,7 +18,7 @@ export default function FAQ() {
               person who would do the work, not a sales call.
             </p>
             <div className="faq__actions">
-              <a href="/contact" className="cta-btn">Get my website &rarr;</a>
+              <a href="/#signup" className="cta-btn">Get my website &rarr;</a>
               <a href="tel:+19169122080" className="faq__phone">Talk it through</a>
             </div>
           </div>

@@ -14,10 +14,10 @@ export default function Footer() {
               Your website. Built in one day. Improved every month.
             </h2>
             <p className="text-gray-400 text-lg mt-2 max-w-md">
-              $103/month. No minimum term. Construction starts after confirmed onboarding.
+              $103.30/month. No minimum term. Construction starts after confirmed onboarding.
             </p>
             <a
-              href="/contact"
+              href="/#signup"
               className="cta-btn relative inline-flex items-center gap-2.5 text-foreground font-semibold text-[14px] px-8 py-3.5 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 overflow-hidden mt-6 rounded-[12px]"
             >
               <span className="absolute inset-0 cta-shimmer" />
@@ -83,7 +83,7 @@ export default function Footer() {
                   { l: "Pricing", h: "/#pricing" },
                   { l: "Process", h: "/#how-it-works" },
                   { l: "Work", h: "/work" },
-                  { l: "Get started", h: "/contact" },
+                  { l: "Get started", h: "/#signup" },
                   { l: "FAQ", h: "/#faq" },
                 ].map((i) => (
                   <a key={i.l} href={i.h} className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{i.l}</a>
@@ -94,8 +94,7 @@ export default function Footer() {
               <p className="text-[12px] font-semibold text-navy mb-4">Connect</p>
               <div className="space-y-3">
                 <a href="mailto:jamil@thereadyconsult.com" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Email</a>
-                <a href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Book a Call</a>
-                <a href="/contact" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Contact</a>
+                <a href="/#signup" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">Get started</a>
               </div>
             </div>
           </div>

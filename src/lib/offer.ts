@@ -1,6 +1,6 @@
 export const OFFER = {
   name: "Ready System",
-  price: "$103",
+  price: "$103.30",
   period: "per month",
   commitment: "Month to month. No minimum term.",
   headline: "Your website. Built in one day. Improved every month.",
@@ -8,7 +8,7 @@ export const OFFER = {
   buildCondition: "Within one business day after we confirm your onboarding is complete. Launch follows your approval and domain connection.",
   subscriptionSummary: "Your paid subscription keeps your website online and monthly services running. Cancel before your next renewal; service ends at the end of your paid period. Website handover is not included.",
   cta: "Get my website",
-  href: "/contact",
+  href: "/#signup",
   features: [
     "Your website, built or improved",
     "Hosting and maintenance",

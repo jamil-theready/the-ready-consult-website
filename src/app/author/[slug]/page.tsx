@@ -106,7 +106,7 @@ export default async function AuthorPage({
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href="/#signup"
                   className="inline-flex items-center gap-2 bg-void text-foreground text-[15px] font-semibold px-7 py-3.5 hover:bg-cyan transition-colors rounded-[6px]"
                 >
                   Book a Call with {author.name.split(" ")[0]}
