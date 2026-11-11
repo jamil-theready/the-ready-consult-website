@@ -68,4 +68,4 @@ function replay(){clearTimeout(timer);document.getElementById('lead-count').text
 const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){document.querySelector('.showcase').classList.add('in-view');timer=setTimeout(showLead,1700);observer.disconnect()}},{threshold:.15});observer.observe(document.querySelector('.dash'));
 document.querySelectorAll('[data-plan]').forEach(button=>button.addEventListener('click',openSignup));
 
-const intakeScript = document.createElement('script'); intakeScript.src = '/assets/intake-flow.js'; document.body.appendChild(intakeScript);
+const intakeScript = document.createElement('script'); intakeScript.src = '/assets/intake-flow.js?v=20261111-intake'; document.body.appendChild(intakeScript);

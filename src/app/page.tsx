@@ -27,6 +27,6 @@ export default function Home() {
     <style dangerouslySetInnerHTML={{ __html: css }} />
     <link rel="stylesheet" href="/assets/intake-flow.css" />
     <div id="main-content" dangerouslySetInnerHTML={{ __html: body }} />
-    <Script src="/assets/light-home.js" strategy="afterInteractive" />
+    <Script src="/assets/light-home.js?v=20261111-intake" strategy="afterInteractive" />
   </>;
 }
