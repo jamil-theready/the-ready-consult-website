@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 
 export const metadata: Metadata = {
   title: 'Websites and Monthly SEO for Contractors | The Ready Consult',
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
+const scriptVersion = createHash('sha256').update(readFileSync(join(process.cwd(), 'public/assets/light-home.js'))).digest('hex').slice(0, 12);
+
 const page = readFileSync(join(process.cwd(), 'site/light-home.html'), 'utf8');
 const css = page.split('<style>')[1]?.split('</style>')[0];
 const body = page.split('<body>')[1]?.split('<script src="/assets/light-home.js"></script>')[0];
@@ -27,6 +30,6 @@ export default function Home() {
     <style dangerouslySetInnerHTML={{ __html: css }} />
     <link rel="stylesheet" href="/assets/intake-flow.css" />
     <div id="main-content" dangerouslySetInnerHTML={{ __html: body }} />
-    <Script src="/assets/light-home.js?v=20261111-intake" strategy="afterInteractive" />
+    <Script src={`/assets/light-home.js?v=${scriptVersion}`} strategy="afterInteractive" />
   </>;
 }
