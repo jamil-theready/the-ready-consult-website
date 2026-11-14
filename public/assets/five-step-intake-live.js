@@ -13,6 +13,7 @@
       `Domain ownership: ${states[text('hasDomain')] || 'Not sure'}`,
       answers.hasDomain === 'YES' && text('ownedDomain') ? `Owned domain: ${text('ownedDomain')}` : '',
       `Google Business listing: ${states[text('hasGoogleBusinessProfile')] || 'Not sure'}`,
+      ['CALL', 'SUBSCRIBE'].includes(answers.signupIntent) ? `Requested next step: ${answers.signupIntent === 'CALL' ? 'Book a consultation' : 'Start subscription'}` : '',
     ].filter(Boolean).join('\n');
     if (message.length > 4000) throw Error('Please shorten your business details slightly.');
     let websiteUrl = '';

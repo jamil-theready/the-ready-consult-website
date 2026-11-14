@@ -3,8 +3,11 @@
   const dialog = document.querySelector('#four-intake-dialog');
   const shell = dialog?.querySelector('.cta-form-shell');
   const options = dialog?.querySelector('.signup-flow-card');
+  const booking = dialog?.querySelector('.signup-booking');
+  const checkout = dialog?.querySelector('.signup-checkout');
   if (!shell || !options) return;
   const live = dialog.dataset.intakeMode === 'live';
+  const lifecycle = new AbortController();
 
   const choices = (name, selected = 'UNSURE') => ['YES', 'NO', 'UNSURE'].map(value => `
     <label class="website-pill${value === selected ? ' selected' : ''}">
@@ -75,6 +78,49 @@
   let preparingPhone = false;
   let phonePicker;
   let phoneReady;
+  let selectedIntent = 'CALL';
+  let acceptedAnswers;
+  let acceptedResult;
+
+  function showView(view) {
+    dialog.dataset.view = view;
+    shell.hidden = view !== 'form';
+    options.hidden = view !== 'choices';
+    booking.hidden = view !== 'booking';
+    checkout.hidden = view !== 'checkout';
+    dialog.querySelector('.four-preview-note').hidden = view === 'booking';
+    if (view !== 'booking') window.trcCalendly?.cleanup();
+  }
+  function startForm(intent) {
+    selectedIntent = intent;
+    showView('form');
+    showStep(1);
+  }
+  async function showBooking() {
+    showView('booking');
+    const title = booking.querySelector('h2');
+    title.textContent = 'Choose a time to talk.';
+    booking.querySelector('.booking-intro').textContent = 'Your details are already filled in. Choose a time and confirm.';
+    title.focus({ preventScroll: true });
+    const status = booking.querySelector('.booking-status');
+    status.hidden = false;
+    if (!live) { status.textContent = 'Calendar booking is available on the live website.'; return; }
+    status.textContent = 'Loading available times…';
+    try {
+      const details = window.trcCalendly.details(acceptedAnswers, acceptedResult.bookingUrl);
+      booking.querySelector('.booking-fallback').href = details.fallbackUrl;
+      await window.trcCalendly.mount(booking.querySelector('.booking-host'), acceptedAnswers, acceptedResult.bookingUrl, () => {
+        title.textContent = 'You’re booked.';
+        booking.querySelector('.booking-intro').textContent = 'Check your email for your calendar invitation and meeting link.';
+      });
+    } catch (failure) { status.textContent = failure.message || 'Use the booking link below to choose a time.'; }
+  }
+  options.querySelector('.call-link').addEventListener('click', () => startForm('CALL'), { signal: lifecycle.signal });
+  options.querySelector('.start-link').addEventListener('click', () => startForm('SUBSCRIBE'), { signal: lifecycle.signal });
+  [booking.querySelector('.booking-back'), checkout.querySelector('.payment-back')].forEach(button => button.addEventListener('click', () => {
+    showView('form');
+    showStep(totalSteps);
+  }, { signal: lifecycle.signal }));
 
   async function ensurePhonePicker() {
     if (step !== totalSteps || form.elements.preferredContact.value !== 'WHATSAPP') return null;
@@ -219,7 +265,7 @@
   });
   form.querySelector('.intake-back').addEventListener('click', () => {
     if (sending) return;
-    if (step === 1) shell.querySelector('.cta-form-close').click();
+    if (step === 1) { showView('choices'); options.querySelector('h2').focus({ preventScroll: true }); }
     else showStep(step - 1);
   });
   function advance() {
@@ -241,6 +287,7 @@
     }
     if (!currentValid()) return;
     const answers = Object.fromEntries(new FormData(form));
+    answers.signupIntent = selectedIntent;
     if (answers.preferredContact === 'WHATSAPP') answers.phone = internationalPhone();
     if (answers.companyFax) { showError('Please email jamil@thereadyconsult.com to continue.'); return; }
     if (form.elements.hasDomain.value === 'YES' && websiteDomain()) answers.ownedDomain = websiteDomain();
@@ -254,8 +301,9 @@
         if (typeof window.trcIntakeTransport !== 'function') throw Error('The form is temporarily unavailable. Please try again.');
         const result = await window.trcIntakeTransport(answers, form.querySelector('.intake-challenge'));
         if (result.accepted !== true) throw Error('We could not confirm delivery. Please try again.');
-        options.querySelector('.call-link').href = result.bookingUrl;
-        options.querySelector('.checkout-link').href = result.checkoutUrl;
+        acceptedAnswers = answers;
+        acceptedResult = result;
+        checkout.querySelector('.checkout-link').href = result.checkoutUrl;
       } catch (failure) {
         showError(failure.message || 'We could not confirm delivery. Please try again; your details are still here.');
         return;
@@ -268,22 +316,22 @@
       // Keep preview answers only in this open page. No live transport is called.
       form.previewAnswers = answers;
     }
-    shell.hidden = true;
-    options.hidden = false;
-    options.scrollTop = 0;
-    options.querySelector('h2').focus({ preventScroll: true });
+    if (selectedIntent === 'CALL') await showBooking();
+    else { showView('checkout'); checkout.querySelector('h2').focus({ preventScroll: true }); }
   });
   window.trcIntakeCleanup = () => {
+    lifecycle.abort();
     phonePicker?.destroy();
+    window.trcCalendly?.cleanup();
     bodyObserver.disconnect();
     const placeholder = document.createElement('form');
     placeholder.id = 'signup-form';
     form.replaceWith(placeholder);
     shell.querySelector('.cta-form-close').hidden = false;
-    shell.hidden = false;
-    options.hidden = true;
+    showView('choices');
   };
   showStep(1, false);
+  showView('choices');
   heading.setAttribute('aria-live', 'polite');
-  if (dialog.open) heading.focus({ preventScroll: true });
+  if (dialog.open) options.querySelector('h2').focus({ preventScroll: true });
 })();

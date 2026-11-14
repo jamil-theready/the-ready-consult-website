@@ -100,3 +100,19 @@ body.four-intake-open .four-header{position:fixed;inset:0 0 auto;z-index:1;width
 .four-intake-dialog .next-choice .call-link:hover{background:#292c32;color:#fff;border-color:#fff}
 @media(max-width:650px){.four-intake-dialog #intake-form{grid-template-rows:24px 164px minmax(0,1fr) 56px 64px}.four-intake-dialog #intake-form .intake-heading{font-size:clamp(34px,8.8vw,40px)}.four-intake-dialog #intake-form .intake-question legend{font-size:20px}.four-intake-dialog #intake-form label:not(.channel-option):not(.website-pill):not(.intake-trap){font-size:18px}.four-intake-dialog #intake-form .website-pill{font-size:16px}.four-intake-dialog .next-choice h3{min-height:66px;font-size:clamp(19px,5vw,23px)}}
 @media(max-width:650px) and (min-height:561px) and (max-height:760px){.four-intake-dialog #intake-form{grid-template-rows:24px 148px minmax(0,1fr) 40px 56px}}
+.four-intake-dialog .next-choice h3{flex:1;display:block;margin-bottom:32px;min-height:0}
+.four-intake-dialog .signup-booking,.four-intake-dialog .signup-checkout{width:min(100%,820px);margin:0 auto;color:#f5f6f8}
+.four-intake-dialog .signup-booking{flex:1;min-height:0;display:grid;grid-template-rows:24px auto auto auto minmax(250px,1fr) auto;gap:12px;width:100%;max-width:1100px}
+.four-intake-dialog .booking-back,.four-intake-dialog .payment-back{justify-self:start;width:auto;margin:0;padding:0;border:0;background:transparent;color:#cdd1d8;font:inherit;font-size:14px;line-height:24px;cursor:pointer}
+.four-intake-dialog .signup-booking h2{margin:12px 0 0;font-size:clamp(28px,3.4vw,40px);font-weight:550;letter-spacing:-.035em;line-height:1.12;outline:none}
+.four-intake-dialog .booking-intro,.four-intake-dialog .booking-status{margin:0;font-size:15px;line-height:1.5;color:#c4c9d3}
+.four-intake-dialog .booking-host{grid-row:5;min-height:0;width:100%;overflow:hidden;border-radius:16px}
+.four-intake-dialog .booking-host iframe{width:100%;height:100%;min-width:0;border:0;border-radius:16px;color-scheme:normal}
+.four-intake-dialog .booking-fallback{grid-row:6;justify-self:start;color:#d9dce2;font-size:12px;line-height:20px;text-underline-offset:3px}
+.four-intake-dialog .signup-checkout{flex:1;min-height:0;overflow:auto}
+.four-intake-dialog .signup-checkout h2{margin:64px 0 24px;font-size:clamp(34px,4.8vw,54px);font-weight:550;letter-spacing:-.04em;line-height:1.08;outline:none}
+.four-intake-dialog .signup-checkout p{max-width:520px;margin:0 0 36px;font-size:18px;line-height:1.5;color:#c4c9d3}
+.four-intake-dialog .signup-checkout .choice-button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:15px 28px;border:0;border-radius:999px;background:#f5f6f8;color:#17191d;font:inherit;text-decoration:none}
+.four-intake-dialog .signup-checkout small{display:block;margin-top:16px;color:#b0b7c1}
+.four-intake-dialog[data-view=booking] .four-intake-panel{padding:24px 28px!important}
+@media(max-width:650px){.four-intake-dialog[data-view=booking] .four-intake-panel{padding:20px 12px!important}.four-intake-dialog .signup-booking{gap:10px;grid-template-rows:24px auto auto auto minmax(220px,1fr) auto}.four-intake-dialog .signup-booking h2{font-size:28px}.four-intake-dialog .booking-intro{font-size:14px}.four-intake-dialog .booking-host{border-radius:12px}.four-intake-dialog .signup-checkout h2{margin-top:40px}.four-intake-dialog .signup-checkout p{font-size:17px}}

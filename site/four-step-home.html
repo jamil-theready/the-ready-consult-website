@@ -685,28 +685,42 @@ body{margin:0;background:#fff;color:#111}
 <dialog id="four-intake-dialog" class="four-intake-dialog" aria-label="Get started with The Ready Consult">
   <div class="four-intake-glow" aria-hidden="true"></div>
   <div class="bottom-cta-panel four-intake-panel form-open">
-    <div class="cta-form-shell">
+    <div class="cta-form-shell" hidden>
       <button class="cta-form-close" type="button">← Back</button>
       <form id="signup-form"></form>
     </div>
-    <div class="signup-flow-card" hidden>
+    <div class="signup-flow-card">
       <button class="checkout-back" type="button">← Back</button>
-      <h2 class="signup-choice-heading" tabindex="-1">How would you like to get started?</h2>
+      <h2 class="signup-choice-heading" tabindex="-1">Let’s get you started.</h2>
       <div class="next-choices">
         <section class="next-choice" aria-labelledby="four-choice-call">
           <svg class="choice-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M8 15h3"/></svg>
-          <h3 id="four-choice-call">Book a call</h3>
-          <a class="call-link choice-button" href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+          <h3 id="four-choice-call">Want more information on how we can help?</h3>
+          <button class="call-link choice-button" type="button">Book a call</button>
         </section>
         <span class="choice-divider" aria-hidden="true"></span>
         <section class="next-choice" aria-labelledby="four-choice-start">
           <svg class="choice-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8l4 4-4 4"/></svg>
-          <h3 id="four-choice-start">Get my website now</h3>
-          <button class="checkout-link choice-button" type="button" disabled>Start subscription</button>
-          <small>Checkout is disabled in this preview.</small>
+          <h3 id="four-choice-start">I’m ready.<br>Sign me up.</h3>
+          <button class="start-link choice-button" type="button">Get started</button>
         </section>
       </div>
     </div>
+    <section class="signup-booking" aria-labelledby="intake-booking-heading" hidden>
+      <button class="booking-back" type="button">← Back</button>
+      <h2 id="intake-booking-heading" tabindex="-1">Choose a time to talk.</h2>
+      <p class="booking-intro">Your details are already filled in. Choose a time and confirm.</p>
+      <p class="booking-status" role="status">Loading available times…</p>
+      <div class="booking-host"></div>
+      <a class="booking-fallback" href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer">Open the calendar in a new tab ↗</a>
+    </section>
+    <section class="signup-checkout" aria-labelledby="intake-checkout-heading" hidden>
+      <button class="payment-back" type="button">← Back</button>
+      <h2 id="intake-checkout-heading" tabindex="-1">You’re ready to go.</h2>
+      <p>Continue to secure checkout to start your website subscription.</p>
+      <button class="checkout-link choice-button" type="button" disabled>Start subscription</button>
+      <small>Checkout is disabled in this preview.</small>
+    </section>
     <p class="four-preview-note">Design preview · Your details stay in this browser. Nothing is submitted or charged.</p>
   </div>
 </dialog>

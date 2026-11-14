@@ -32,7 +32,7 @@ const body = rawBody
   .replace('<button class="checkout-link choice-button" type="button" disabled>Start subscription</button>', '<a class="checkout-link choice-button" href="#" rel="noopener">Start subscription</a>')
   .replace('<small>Checkout is disabled in this preview.</small>', '')
   .replace('Design preview · Your details stay in this browser. Nothing is submitted or charged.', 'Submitting sends an inquiry, not a charge. Choose a call or secure checkout next.');
-const runtime = [read('public/assets/five-step-intake-live.js'), read('public/assets/four-step-page.js'), read('site/four-step-intake.js')].join('\n;\n');
+const runtime = [read('public/assets/five-step-intake-live.js'), read('public/assets/intake-calendly.js'), read('public/assets/four-step-page.js'), read('site/four-step-intake.js')].join('\n;\n');
 const runtimeVersion = createHash('sha256').update(runtime).digest('hex').slice(0, 12);
 const runtimeRegistration = `
 window.trcHomeRuntimeVersion = ${JSON.stringify(runtimeVersion)};

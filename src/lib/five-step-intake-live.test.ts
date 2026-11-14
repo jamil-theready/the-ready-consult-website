@@ -103,6 +103,14 @@ describe('five-step homepage live intake transport', () => {
     expect(test.payload()).toMatchObject({ contactPreference: 'email', phone: '', whatsappConsent: false });
   });
 
+  it('stores the selected next step inside the existing CRM details contract', async () => {
+    const test = setup();
+    await test.send({ ...input, signupIntent: 'CALL' } as typeof input);
+    expect(test.payload().message).toContain('Requested next step: Book a consultation');
+    await test.send({ ...input, signupIntent: 'SUBSCRIBE' } as typeof input);
+    expect(test.payload(1).message).toContain('Requested next step: Start subscription');
+  });
+
   it('retries ambiguous requests with the same UUID, including after page reload', async () => {
     const values = new Map<string, string>();
     const uncertain = setup({ values, reply: async () => { throw Error('network interrupted'); } });

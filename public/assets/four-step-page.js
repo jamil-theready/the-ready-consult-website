@@ -95,7 +95,7 @@
         contentMotion.cancel();
       };
     }
-    const heading = dialog.querySelector(shell.hidden ? '.signup-choice-heading' : '.intake-heading');
+    const heading = dialog.querySelector(dialog.dataset.view === 'booking' ? '.signup-booking h2' : dialog.dataset.view === 'checkout' ? '.signup-checkout h2' : shell.hidden ? '.signup-choice-heading' : '.intake-heading');
     heading?.setAttribute('tabindex', '-1');
     heading?.focus({ preventScroll: true });
   }
