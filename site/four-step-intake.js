@@ -35,17 +35,18 @@
           <label>What areas do you serve?<input name="serviceAreas" maxlength="500" placeholder="For example: Sacramento, Roseville, and Elk Grove." required></label>
         </section>
         <section class="intake-step intake-setup" data-step="3" hidden>
-          <div class="intake-setup-question">
-            <fieldset class="intake-question"><legend>Do you already have a website?</legend><div class="intake-pills">${choices('hasWebsite', 'NO')}</div></fieldset>
+          <p class="intake-setup-position">Question 1 of 3</p>
+          <div class="intake-setup-question" data-setup="0">
+            <fieldset class="intake-question"><legend class="visually-hidden">Do you already have a website?</legend><span class="intake-example intake-example-spacer" aria-hidden="true"></span><div class="intake-pills">${choices('hasWebsite', 'NO')}</div></fieldset>
             <div class="intake-url intake-followup" hidden><label>Your website address <span>(optional)</span><input name="websiteUrl" autocomplete="url" placeholder="yourbusiness.com" maxlength="500" disabled></label></div>
           </div>
-          <div class="intake-setup-question">
-            <fieldset class="intake-question"><legend>Do you own a domain?</legend><div class="intake-pills">${choices('hasDomain')}</div></fieldset>
+          <div class="intake-setup-question" data-setup="1" hidden>
+            <fieldset class="intake-question"><legend class="visually-hidden">Do you own a website domain?</legend><span class="intake-example">For example, www.mybusiness.com</span><div class="intake-pills">${choices('hasDomain')}</div></fieldset>
             <div class="intake-owned-domain intake-followup" hidden><label>Your domain <span>(optional)</span><input name="ownedDomain" autocomplete="url" placeholder="yourbusiness.com" maxlength="253" disabled></label></div>
             <p class="intake-domain-summary" hidden></p>
           </div>
-          <div class="intake-setup-question">
-            <fieldset class="intake-question"><legend>Do you have a Google Maps business listing?</legend><div class="intake-pills">${choices('hasGoogleBusinessProfile')}</div></fieldset>
+          <div class="intake-setup-question" data-setup="2" hidden>
+            <fieldset class="intake-question"><legend class="visually-hidden">Do you have a Google Maps listing?</legend><span class="intake-example intake-example-spacer" aria-hidden="true"></span><div class="intake-pills">${choices('hasGoogleBusinessProfile')}</div></fieldset>
             <div class="intake-google-url intake-followup" hidden><label>Your Google Maps listing link <span>(optional)</span><input name="googleBusinessProfileUrl" autocomplete="url" placeholder="Paste your listing link, if you have it." maxlength="1000" disabled></label></div>
           </div>
         </section>
@@ -54,7 +55,7 @@
             <label class="channel-option selected"><input type="radio" name="preferredContact" value="WHATSAPP" checked><span class="channel-icon"><img src="/assets/whatsapp-icon.svg" alt=""></span><span><span class="channel-title">WhatsApp</span><small>Message me on WhatsApp</small></span></label>
             <label class="channel-option"><input type="radio" name="preferredContact" value="EMAIL"><span class="channel-icon"><img src="/assets/gmail-icon.svg" alt=""></span><span><span class="channel-title">Email</span><small>Send me an email</small></span></label>
           </fieldset>
-          <div class="intake-phone"><label>Your WhatsApp number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 202 555 0142" maxlength="40" required></label><p>Include your country code. We check the number format before messaging you.</p></div>
+          <div class="intake-phone"><label>Your WhatsApp number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 202 555 0142" maxlength="40" required></label><p>Choose your country, then enter your WhatsApp number. Search by country or calling code.</p></div>
           <p class="intake-contact-email" hidden></p>
           <div class="intake-challenge" aria-label="Form security check"></div>
         </section>
@@ -73,7 +74,50 @@
   const scrollHint = form.querySelector('.intake-scroll-hint');
   const headings = ['Your details.', 'Your business.', 'What do you already have?', 'How should we reach you?'];
   let step = 1;
+  let setupIndex = 0;
   let sending = false;
+  let preparingPhone = false;
+  let phonePicker;
+  let phoneReady;
+  const setupTitles = ['Do you already have a website?', 'Do you own a website domain?', 'Do you have a Google Maps listing?'];
+
+  async function ensurePhonePicker() {
+    if (step !== 4 || form.elements.preferredContact.value !== 'WHATSAPP') return null;
+    if (phonePicker) { await phonePicker.promise; return phonePicker; }
+    phoneReady ??= (async () => {
+      if (!window.intlTelInput) {
+        window.trcPhoneLibraryPromise ??= new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          const fail = () => { clearTimeout(timer); script.remove(); window.trcPhoneLibraryPromise = null; reject(Error('Phone picker unavailable')); };
+          const timer = setTimeout(fail, 10000);
+          script.src = '/assets/vendor/intl-tel-input-29.5.11/intlTelInputWithUtils.min.js';
+          script.onload = () => { if (typeof window.intlTelInput !== 'function') { fail(); return; } clearTimeout(timer); resolve(); };
+          script.onerror = fail;
+          document.head.append(script);
+        });
+        await window.trcPhoneLibraryPromise;
+      }
+      if (!form.isConnected || step !== 4 || form.elements.preferredContact.value !== 'WHATSAPP') { phoneReady = null; return null; }
+      phonePicker = window.intlTelInput(form.elements.phone, {
+        initialCountry: 'us', countryOrder: ['us', 'ca', 'gb', 'es', 'ma', 'mx'],
+        separateDialCode: true, countrySearch: true, countrySelectorMode: 'AUTO', strictMode: false,
+        placeholderNumberPolicy: 'AGGRESSIVE',
+        dropdownParent: dialog, fullscreenParent: dialog,
+      });
+      form.elements.phone.addEventListener('countrychange', clearError);
+      await phonePicker.promise;
+      form.querySelector('.intake-phone p').textContent = 'Choose your country, then enter your WhatsApp number. Search by country or calling code.';
+      return phonePicker;
+    })().catch(() => {
+      phoneReady = null;
+      if (form.isConnected) form.querySelector('.intake-phone p').textContent = 'Enter your full WhatsApp number, including + and the country code, for example +1 202 555 0142.';
+      return null;
+    });
+    return phoneReady;
+  }
+  function internationalPhone() {
+    return phonePicker?.getNumber() || form.elements.phone.value.replace(/[ ().-]/g, '');
+  }
 
   function updateScrollHint() { scrollHint.hidden = !error.hidden || body.scrollHeight - body.scrollTop - body.clientHeight < 8; }
   function clearError() { error.hidden = true; error.textContent = ''; updateScrollHint(); }
@@ -118,14 +162,18 @@
     const email = form.querySelector('.intake-contact-email');
     email.hidden = whatsapp;
     email.textContent = `We’ll email you at ${form.elements.email.value.trim()}.`;
+    if (step === 4 && whatsapp) ensurePhonePicker();
     requestAnimationFrame(updateScrollHint);
   }
-  function showStep(number, focus = true) {
+  function showStep(number, focus = true, question = 0) {
     step = Math.max(1, Math.min(4, number));
+    setupIndex = question;
     clearError();
-    heading.textContent = headings[step - 1];
-    body.setAttribute('aria-label', headings[step - 1]);
+    heading.textContent = step === 3 ? setupTitles[setupIndex] : headings[step - 1];
+    body.setAttribute('aria-label', heading.textContent);
     form.querySelectorAll('.intake-step').forEach(section => { section.hidden = Number(section.dataset.step) !== step; });
+    form.querySelectorAll('[data-setup]').forEach(section => { section.hidden = Number(section.dataset.setup) !== setupIndex; });
+    form.querySelector('.intake-setup-position').textContent = `Question ${setupIndex + 1} of 3`;
     form.querySelector('.intake-count').textContent = `${String(step).padStart(2, '0')} / 04`;
     form.querySelector('.intake-progress').setAttribute('aria-label', `Step ${step} of 4`);
     form.querySelectorAll('.intake-bars i').forEach((bar, index) => bar.classList.toggle('active', index < step));
@@ -137,7 +185,7 @@
     if (focus) heading.focus({ preventScroll: true });
   }
   function currentValid() {
-    const section = form.querySelector(`[data-step="${step}"]`);
+    const section = form.querySelector(step === 3 ? `[data-setup="${setupIndex}"]` : `[data-step="${step}"]`);
     for (const field of section.querySelectorAll('input:not(:disabled), textarea:not(:disabled)')) {
       if (field.type === 'radio') continue;
       if ((field.required && !field.value.trim()) || !field.checkValidity()) {
@@ -149,22 +197,22 @@
       showError('Enter a valid email address.', form.elements.email); return false;
     }
     if (step === 3) {
-      if (form.elements.hasWebsite.value === 'YES' && form.elements.websiteUrl.value.trim() && !websiteDomain()) {
+      if (setupIndex === 0 && form.elements.hasWebsite.value === 'YES' && form.elements.websiteUrl.value.trim() && !websiteDomain()) {
         showError('Enter a website address such as yourbusiness.com.', form.elements.websiteUrl); return false;
       }
       const domain = form.elements.ownedDomain;
-      if (!domain.disabled && domain.value.trim() && !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(domain.value.trim())) {
+      if (setupIndex === 1 && !domain.disabled && domain.value.trim() && !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(domain.value.trim())) {
         showError('Enter a domain such as yourbusiness.com, or leave it blank.', domain); return false;
       }
       const listing = form.elements.googleBusinessProfileUrl;
-      if (!listing.disabled && listing.value.trim()) {
+      if (setupIndex === 2 && !listing.disabled && listing.value.trim()) {
         try {
           const url = new URL(listing.value.includes('://') ? listing.value : `https://${listing.value}`);
           if (!['http:', 'https:'].includes(url.protocol) || !url.hostname.includes('.') || url.username || url.password) throw Error();
         } catch { showError('Enter a full listing link, or leave it blank.', listing); return false; }
       }
     }
-    if (step === 4 && form.elements.preferredContact.value === 'WHATSAPP' && !/^\+[1-9]\d{7,14}$/.test(form.elements.phone.value.replace(/[ ().-]/g, ''))) {
+    if (step === 4 && form.elements.preferredContact.value === 'WHATSAPP' && !/^\+[1-9]\d{7,14}$/.test(internationalPhone())) {
       showError('Include your country code, for example +1 202 555 0142.', form.elements.phone); return false;
     }
     return true;
@@ -189,15 +237,31 @@
   form.querySelector('.intake-back').addEventListener('click', () => {
     if (sending) return;
     if (step === 1) shell.querySelector('.cta-form-close').click();
+    else if (step === 3 && setupIndex > 0) showStep(3, true, setupIndex - 1);
+    else if (step === 4) showStep(3, true, 2);
     else showStep(step - 1);
   });
-  next.addEventListener('click', () => { if (!sending && currentValid()) showStep(step + 1); });
+  function advance() {
+    if (!sending && currentValid()) {
+      if (step === 3 && setupIndex < 2) showStep(3, true, setupIndex + 1);
+      else showStep(step + 1);
+    }
+  }
+  next.addEventListener('click', advance);
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (sending) return;
-    if (step < 4) { if (currentValid()) showStep(step + 1); return; }
+    if (sending || preparingPhone) return;
+    if (step < 4) { advance(); return; }
+    if (form.elements.preferredContact.value === 'WHATSAPP') {
+      preparingPhone = true;
+      submit.disabled = true;
+      try { await ensurePhonePicker(); }
+      finally { preparingPhone = false; submit.disabled = false; }
+      if (!form.isConnected || step !== 4) return;
+    }
     if (!currentValid()) return;
     const answers = Object.fromEntries(new FormData(form));
+    if (answers.preferredContact === 'WHATSAPP') answers.phone = internationalPhone();
     if (answers.companyFax) { showError('Please email jamil@thereadyconsult.com to continue.'); return; }
     if (form.elements.hasDomain.value === 'YES' && websiteDomain()) answers.ownedDomain = websiteDomain();
     if (live) {
@@ -230,6 +294,7 @@
     options.querySelector('h2').focus({ preventScroll: true });
   });
   window.trcIntakeCleanup = () => {
+    phonePicker?.destroy();
     bodyObserver.disconnect();
     const placeholder = document.createElement('form');
     placeholder.id = 'signup-form';
