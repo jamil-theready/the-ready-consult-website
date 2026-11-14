@@ -12,8 +12,7 @@
       `Areas served: ${text('serviceAreas')}`,
       `Domain ownership: ${states[text('hasDomain')] || 'Not sure'}`,
       answers.hasDomain === 'YES' && text('ownedDomain') ? `Owned domain: ${text('ownedDomain')}` : '',
-      `Google Maps business listing: ${states[text('hasGoogleBusinessProfile')] || 'Not sure'}`,
-      answers.hasGoogleBusinessProfile === 'YES' && text('googleBusinessProfileUrl') ? `Google Maps listing URL: ${text('googleBusinessProfileUrl')}` : '',
+      `Google Business listing: ${states[text('hasGoogleBusinessProfile')] || 'Not sure'}`,
     ].filter(Boolean).join('\n');
     if (message.length > 4000) throw Error('Please shorten your business details slightly.');
     let websiteUrl = '';

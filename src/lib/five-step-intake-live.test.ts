@@ -75,8 +75,7 @@ describe('five-step homepage live intake transport', () => {
     });
     expect(test.payload().message).toBe([
       'Services offered: Roof repair and installation', 'Areas served: Sacramento and Roseville',
-      'Domain ownership: Yes', 'Owned domain: oakline.example', 'Google Maps business listing: Yes',
-      'Google Maps listing URL: https://maps.app.goo.gl/example',
+      'Domain ownership: Yes', 'Owned domain: oakline.example', 'Google Business listing: Yes',
     ].join('\n'));
     expect(test.render.mock.calls[0][1]).toMatchObject({ action: 'intake', theme: 'dark' });
   });
@@ -93,7 +92,7 @@ describe('five-step homepage live intake transport', () => {
     await test.send({ ...input, hasWebsite: 'UNSURE', hasDomain: 'NO', hasGoogleBusinessProfile: 'UNSURE' });
     expect(test.payload()).toMatchObject({ hasWebsite: '', websiteUrl: '', requestedDomain: '' });
     expect(test.payload().message).toContain('Domain ownership: No');
-    expect(test.payload().message).toContain('Google Maps business listing: Not sure');
+    expect(test.payload().message).toContain('Google Business listing: Not sure');
     expect(test.payload().message).not.toContain('Owned domain:');
     expect(test.payload().message).not.toContain('Google Maps listing URL:');
   });

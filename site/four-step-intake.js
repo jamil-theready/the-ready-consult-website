@@ -17,9 +17,9 @@
     <form id="intake-form" class="signup-form intake-flow" novalidate>
       <div class="intake-top">
         <button type="button" class="intake-back">← Back</button>
-        <div class="intake-progress" aria-label="Step 1 of 4">
-          <span class="intake-count">01 / 04</span>
-          <span class="intake-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="intake-progress" aria-label="Step 1 of 6">
+          <span class="intake-count">01 / 06</span>
+          <span class="intake-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
         </div>
       </div>
       <h2 class="intake-heading" tabindex="-1">Your details.</h2>
@@ -35,22 +35,18 @@
           <label>What areas do you serve?<input name="serviceAreas" maxlength="500" placeholder="For example: Sacramento, Roseville, and Elk Grove." required></label>
         </section>
         <section class="intake-step intake-setup" data-step="3" hidden>
-          <p class="intake-setup-position">Question 1 of 3</p>
-          <div class="intake-setup-question" data-setup="0">
             <fieldset class="intake-question"><legend class="visually-hidden">Do you already have a website?</legend><span class="intake-example intake-example-spacer" aria-hidden="true"></span><div class="intake-pills">${choices('hasWebsite', 'NO')}</div></fieldset>
             <div class="intake-url intake-followup" hidden><label>Your website address <span>(optional)</span><input name="websiteUrl" autocomplete="url" placeholder="yourbusiness.com" maxlength="500" disabled></label></div>
-          </div>
-          <div class="intake-setup-question" data-setup="1" hidden>
+        </section>
+        <section class="intake-step intake-setup" data-step="4" hidden>
             <fieldset class="intake-question"><legend class="visually-hidden">Do you own a website domain?</legend><span class="intake-example">For example, www.mybusiness.com</span><div class="intake-pills">${choices('hasDomain')}</div></fieldset>
             <div class="intake-owned-domain intake-followup" hidden><label>Your domain <span>(optional)</span><input name="ownedDomain" autocomplete="url" placeholder="yourbusiness.com" maxlength="253" disabled></label></div>
             <p class="intake-domain-summary" hidden></p>
-          </div>
-          <div class="intake-setup-question" data-setup="2" hidden>
-            <fieldset class="intake-question"><legend class="visually-hidden">Do you have a Google Maps listing?</legend><span class="intake-example intake-example-spacer" aria-hidden="true"></span><div class="intake-pills">${choices('hasGoogleBusinessProfile')}</div></fieldset>
-            <div class="intake-google-url intake-followup" hidden><label>Your Google Maps listing link <span>(optional)</span><input name="googleBusinessProfileUrl" autocomplete="url" placeholder="Paste your listing link, if you have it." maxlength="1000" disabled></label></div>
-          </div>
         </section>
-        <section class="intake-step" data-step="4" hidden>
+        <section class="intake-step intake-setup" data-step="5" hidden>
+            <fieldset class="intake-question"><legend class="visually-hidden">Do you have a Google Business listing?</legend><span class="intake-example intake-example-spacer" aria-hidden="true"></span><div class="intake-pills">${choices('hasGoogleBusinessProfile')}</div></fieldset>
+        </section>
+        <section class="intake-step" data-step="6" hidden>
           <fieldset class="intake-channel"><legend class="visually-hidden">Preferred contact method</legend>
             <label class="channel-option selected"><input type="radio" name="preferredContact" value="WHATSAPP" checked><span class="channel-icon"><img src="/assets/whatsapp-icon.svg" alt=""></span><span><span class="channel-title">WhatsApp</span><small>Message me on WhatsApp</small></span></label>
             <label class="channel-option"><input type="radio" name="preferredContact" value="EMAIL"><span class="channel-icon"><img src="/assets/gmail-icon.svg" alt=""></span><span><span class="channel-title">Email</span><small>Send me an email</small></span></label>
@@ -72,17 +68,16 @@
   const submit = form.querySelector('.intake-submit');
   const error = form.querySelector('.intake-error');
   const scrollHint = form.querySelector('.intake-scroll-hint');
-  const headings = ['Your details.', 'Your business.', 'What do you already have?', 'How should we reach you?'];
+  const headings = ['Your details.', 'Your business.', 'Do you already have a website?', 'Do you own a website domain?', 'Do you have a Google Business listing?', 'How should we reach you?'];
+  const totalSteps = headings.length;
   let step = 1;
-  let setupIndex = 0;
   let sending = false;
   let preparingPhone = false;
   let phonePicker;
   let phoneReady;
-  const setupTitles = ['Do you already have a website?', 'Do you own a website domain?', 'Do you have a Google Maps listing?'];
 
   async function ensurePhonePicker() {
-    if (step !== 4 || form.elements.preferredContact.value !== 'WHATSAPP') return null;
+    if (step !== totalSteps || form.elements.preferredContact.value !== 'WHATSAPP') return null;
     if (phonePicker) { await phonePicker.promise; return phonePicker; }
     phoneReady ??= (async () => {
       if (!window.intlTelInput) {
@@ -97,7 +92,7 @@
         });
         await window.trcPhoneLibraryPromise;
       }
-      if (!form.isConnected || step !== 4 || form.elements.preferredContact.value !== 'WHATSAPP') { phoneReady = null; return null; }
+      if (!form.isConnected || step !== totalSteps || form.elements.preferredContact.value !== 'WHATSAPP') { phoneReady = null; return null; }
       phonePicker = window.intlTelInput(form.elements.phone, {
         initialCountry: 'us', countryOrder: ['us', 'ca', 'gb', 'es', 'ma', 'mx'],
         separateDialCode: true, countrySearch: true, countrySelectorMode: 'AUTO', strictMode: false,
@@ -149,9 +144,6 @@
     const summary = form.querySelector('.intake-domain-summary');
     summary.hidden = !reusedDomain;
     summary.textContent = reusedDomain ? `Domain: ${reusedDomain} · from your website address` : '';
-    const google = form.elements.hasGoogleBusinessProfile.value === 'YES';
-    form.querySelector('.intake-google-url').hidden = !google;
-    form.elements.googleBusinessProfileUrl.disabled = !google;
     requestAnimationFrame(updateScrollHint);
   }
   function syncContact() {
@@ -162,30 +154,27 @@
     const email = form.querySelector('.intake-contact-email');
     email.hidden = whatsapp;
     email.textContent = `We’ll email you at ${form.elements.email.value.trim()}.`;
-    if (step === 4 && whatsapp) ensurePhonePicker();
+    if (step === totalSteps && whatsapp) ensurePhonePicker();
     requestAnimationFrame(updateScrollHint);
   }
-  function showStep(number, focus = true, question = 0) {
-    step = Math.max(1, Math.min(4, number));
-    setupIndex = question;
+  function showStep(number, focus = true) {
+    step = Math.max(1, Math.min(totalSteps, number));
     clearError();
-    heading.textContent = step === 3 ? setupTitles[setupIndex] : headings[step - 1];
+    heading.textContent = headings[step - 1];
     body.setAttribute('aria-label', heading.textContent);
     form.querySelectorAll('.intake-step').forEach(section => { section.hidden = Number(section.dataset.step) !== step; });
-    form.querySelectorAll('[data-setup]').forEach(section => { section.hidden = Number(section.dataset.setup) !== setupIndex; });
-    form.querySelector('.intake-setup-position').textContent = `Question ${setupIndex + 1} of 3`;
-    form.querySelector('.intake-count').textContent = `${String(step).padStart(2, '0')} / 04`;
-    form.querySelector('.intake-progress').setAttribute('aria-label', `Step ${step} of 4`);
+    form.querySelector('.intake-count').textContent = `${String(step).padStart(2, '0')} / ${String(totalSteps).padStart(2, '0')}`;
+    form.querySelector('.intake-progress').setAttribute('aria-label', `Step ${step} of ${totalSteps}`);
     form.querySelectorAll('.intake-bars i').forEach((bar, index) => bar.classList.toggle('active', index < step));
-    next.hidden = step === 4;
-    submit.hidden = step !== 4;
+    next.hidden = step === totalSteps;
+    submit.hidden = step !== totalSteps;
     syncSetup();
     syncContact();
     body.scrollTop = 0;
     if (focus) heading.focus({ preventScroll: true });
   }
   function currentValid() {
-    const section = form.querySelector(step === 3 ? `[data-setup="${setupIndex}"]` : `[data-step="${step}"]`);
+    const section = form.querySelector(`[data-step="${step}"]`);
     for (const field of section.querySelectorAll('input:not(:disabled), textarea:not(:disabled)')) {
       if (field.type === 'radio') continue;
       if ((field.required && !field.value.trim()) || !field.checkValidity()) {
@@ -196,23 +185,17 @@
     if (step === 1 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements.email.value.trim())) {
       showError('Enter a valid email address.', form.elements.email); return false;
     }
-    if (step === 3) {
-      if (setupIndex === 0 && form.elements.hasWebsite.value === 'YES' && form.elements.websiteUrl.value.trim() && !websiteDomain()) {
+    if (step === 3 || step === 4) {
+      if (step === 3 && form.elements.hasWebsite.value === 'YES' && form.elements.websiteUrl.value.trim() && !websiteDomain()) {
         showError('Enter a website address such as yourbusiness.com.', form.elements.websiteUrl); return false;
       }
       const domain = form.elements.ownedDomain;
-      if (setupIndex === 1 && !domain.disabled && domain.value.trim() && !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(domain.value.trim())) {
+      if (step === 4 && !domain.disabled && domain.value.trim() && !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(domain.value.trim())) {
         showError('Enter a domain such as yourbusiness.com, or leave it blank.', domain); return false;
       }
-      const listing = form.elements.googleBusinessProfileUrl;
-      if (setupIndex === 2 && !listing.disabled && listing.value.trim()) {
-        try {
-          const url = new URL(listing.value.includes('://') ? listing.value : `https://${listing.value}`);
-          if (!['http:', 'https:'].includes(url.protocol) || !url.hostname.includes('.') || url.username || url.password) throw Error();
-        } catch { showError('Enter a full listing link, or leave it blank.', listing); return false; }
-      }
+
     }
-    if (step === 4 && form.elements.preferredContact.value === 'WHATSAPP' && !/^\+[1-9]\d{7,14}$/.test(internationalPhone())) {
+    if (step === totalSteps && form.elements.preferredContact.value === 'WHATSAPP' && !/^\+[1-9]\d{7,14}$/.test(internationalPhone())) {
       showError('Include your country code, for example +1 202 555 0142.', form.elements.phone); return false;
     }
     return true;
@@ -237,27 +220,24 @@
   form.querySelector('.intake-back').addEventListener('click', () => {
     if (sending) return;
     if (step === 1) shell.querySelector('.cta-form-close').click();
-    else if (step === 3 && setupIndex > 0) showStep(3, true, setupIndex - 1);
-    else if (step === 4) showStep(3, true, 2);
     else showStep(step - 1);
   });
   function advance() {
     if (!sending && currentValid()) {
-      if (step === 3 && setupIndex < 2) showStep(3, true, setupIndex + 1);
-      else showStep(step + 1);
+      showStep(step + 1);
     }
   }
   next.addEventListener('click', advance);
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending || preparingPhone) return;
-    if (step < 4) { advance(); return; }
+    if (step < totalSteps) { advance(); return; }
     if (form.elements.preferredContact.value === 'WHATSAPP') {
       preparingPhone = true;
       submit.disabled = true;
       try { await ensurePhonePicker(); }
       finally { preparingPhone = false; submit.disabled = false; }
-      if (!form.isConnected || step !== 4) return;
+      if (!form.isConnected || step !== totalSteps) return;
     }
     if (!currentValid()) return;
     const answers = Object.fromEntries(new FormData(form));
