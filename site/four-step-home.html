@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/assets/intake-flow.css">
+<link rel="preload" href="/assets/trc-inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<title>A website and monthly SEO. One subscription. | The Ready Consult</title>
+<meta name="description" content="Tell us about your business. Get a new website, monthly SEO and reporting, and website lead alerts in one $103.30 monthly subscription.">
+<style>
+@font-face{font-family:Inter;src:url('/assets/trc-inter-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+:root{--four-accent:#b67a1c;--four-gold:#e9a63c;--four-glow:#ffd07b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#111}
+.four-step-page{overflow:hidden;background:#fff;color:#161719;font-family:Inter,Arial,Helvetica,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.four-step-page a{color:inherit;text-decoration:none}
+.four-step-page button,.four-step-page input{font:inherit}
+.four-step-page svg{display:block}
+.four-header{display:flex;align-items:center;justify-content:space-between;gap:28px;max-width:1440px;margin:auto;padding:28px 6.25%;font-size:14px}
+.four-brand{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-size:20px;font-weight:400;letter-spacing:-.04em}
+.four-mark{display:grid;grid-template-columns:repeat(3,5px);gap:3px;flex:none}
+.four-mark i{width:5px;height:5px;border-radius:50%;background:#111}
+.four-mark i:nth-child(6),.four-mark i:nth-child(8){opacity:.15}
+.four-nav{display:flex;align-items:center;gap:30px}
+.four-nav a{padding:8px 0;color:#444}
+.four-nav a:hover{color:#111}
+.four-nav a:focus-visible,.four-brand:focus-visible,.four-cta:focus-visible{outline:2px solid #111;outline-offset:7px}
+.four-journey{max-width:1440px;margin:auto;padding:0 6.25%}
+.four-section{position:relative;padding:102px 0 92px;scroll-margin-top:32px}
+.four-section+.four-section{padding-top:126px}
+.four-section-number{display:block;width:auto;margin:0 0 22px;color:#7a7a7d;font-size:15px;font-weight:400;line-height:1;letter-spacing:.025em;font-variant-numeric:tabular-nums}
+.four-section-number svg{width:100%;height:auto;fill:currentColor}
+.four-emphasis{color:#a76c15;background:linear-gradient(115deg,#956218 5%,#bc8328 45%,#b77a1c 72%,#996012 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 12px #e9a63c1c)}
+.four-title{max-width:1160px;margin:0 0 64px;font-size:clamp(62px,7.75vw,112px);font-weight:700;line-height:1.015;letter-spacing:-.06em;text-wrap:balance}
+.four-title-price{display:block;white-space:nowrap}
+.four-figure{position:relative;margin:0;isolation:isolate}
+.four-figure figcaption{margin-top:24px;color:#858589;font-size:12px;line-height:1.5;letter-spacing:-.01em}
+.four-business{height:clamp(614px,56vw,796px);padding-top:48px}
+.four-browser{position:absolute;left:13%;right:0;top:48px;overflow:hidden;border:1px solid #e6e6e9;border-radius:22px;background:#fff;box-shadow:0 34px 75px -30px #2020302b,0 5px 14px #20203008;transform:perspective(1400px) rotateY(-2deg);transform-origin:center}
+.four-browser-bar{display:flex;align-items:center;gap:7px;height:43px;padding:0 17px;border-bottom:1px solid #ededf0;background:#fff}
+.four-browser-bar i{width:6px;height:6px;border-radius:50%;background:#d5d5d8}
+.four-browser-bar span{flex:1;text-align:center;padding-right:30px;color:#606067;font-size:11px;letter-spacing:-.015em}
+.four-browser video{display:block;width:100%;height:auto;aspect-ratio:1280/734;object-fit:cover;background:#fafafa}
+.four-video-poster{display:none;width:100%;height:auto;aspect-ratio:1280/734;object-fit:cover}
+.four-business-brief{position:absolute;z-index:2;left:0;top:0;width:282px;padding:24px;background:#fff;border:1px solid #ededf0;border-radius:18px;box-shadow:0 22px 50px -15px #20203025;animation:four-brief-arrive 8s ease-in-out infinite}
+.four-business-brief>svg{width:25px;height:25px;margin-bottom:22px;color:#222}
+.four-business-brief h3{margin:0 0 20px;font-size:20px;font-weight:600;line-height:1.15;letter-spacing:-.04em}
+.four-brief-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #f0f0f2;color:#606067;font-size:12px;line-height:1.3}
+.four-brief-row svg{width:15px;height:15px;flex:none;color:#1b7e4e}
+.four-brief-status{display:flex;align-items:center;gap:7px;margin-top:18px;color:#25252a;font-size:13px;font-weight:500;line-height:1.4}
+.four-brief-status i{width:5px;height:5px;background:#222;border-radius:50%;box-shadow:0 0 0 4px #f3f3f5}
+.four-build-path{position:absolute;z-index:3;top:244px;left:233px;width:198px;height:95px;overflow:visible;pointer-events:none}
+.four-build-path path{fill:none;stroke:#c4c4ca;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:4 6}
+.four-build-path circle{fill:#111;filter:drop-shadow(0 0 4px #0002);offset-path:path('M 5 5 C 118 5 75 82 190 82');animation:four-path-travel 4.2s ease-in-out infinite}
+.four-business figcaption{position:absolute;left:13%;bottom:0}
+.four-seo{padding:40px;border:1px solid #ededf0;border-radius:28px;background:#fff;box-shadow:0 25px 65px -35px #20203020}
+.four-seo-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:25px;border-bottom:1px solid #ededf0;color:#76767e;font-size:12px}
+.four-seo-identity{display:flex;align-items:center;gap:10px;color:#17171b;font-size:14px;font-weight:500}
+.four-seo-identity svg{width:21px;height:21px;color:#5d5d65}
+.four-seo-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin:34px 0 18px}
+.four-seo-heading h3{margin:0;font-size:29px;font-weight:500;letter-spacing:-.045em}
+.four-seo-heading span{color:#909096;font-size:11px}
+.four-search-chart{width:100%;height:256px;overflow:visible}
+.four-search-chart .four-chart-grid{fill:none;stroke:#ededf0;stroke-width:1}
+.four-search-chart .four-chart-area{fill:url(#four-seo-area);opacity:.6}
+.four-search-chart .four-chart-line{fill:none;stroke:#17171b;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:four-line-draw 8s cubic-bezier(.3,.05,.25,1) infinite}
+.four-chart-end{fill:#17171b;animation:four-chart-point 8s ease infinite}
+.four-chart-labels{display:flex;justify-content:space-between;margin-top:8px;color:#909096;font-size:11px}
+.four-seo-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:35px;padding-top:26px;border-top:1px solid #ededf0}
+.four-seo-process>div{display:flex;align-items:center;gap:10px;color:#53535b;font-size:13px;line-height:1.35}
+.four-process-check{display:grid;place-items:center;width:24px;height:24px;flex:none;border:1px solid #e1e1e6;border-radius:50%;color:#17171b;background:#fff;animation:four-check-pulse 8s ease-in-out infinite}
+.four-process-check svg{width:12px;height:12px}
+.four-seo-process>div:nth-child(2) .four-process-check{animation-delay:.8s}
+.four-seo-process>div:nth-child(3) .four-process-check{animation-delay:1.6s}
+.four-seo figcaption{margin-top:24px}
+.four-subscription{display:flex;flex-direction:column;align-items:center;padding:36px 0 38px}
+.four-subscription-core{display:flex;align-items:center;gap:14px;padding:22px 30px;border:1px solid #e4e4e9;border-radius:18px;background:#fff;box-shadow:0 16px 42px -18px #20203028;font-size:19px;font-weight:500;letter-spacing:-.035em;white-space:nowrap}
+.four-subscription-core .four-mark{grid-template-columns:repeat(3,4px);gap:3px}
+.four-subscription-core .four-mark i{width:4px;height:4px}
+.four-network-stem{height:66px;width:1px;background:#dcdce1}
+.four-network-nodes{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;width:100%;padding-top:42px}
+.four-network-nodes:before{content:'';position:absolute;top:0;left:12.5%;right:12.5%;height:1px;background:#dcdce1}
+.four-inclusion{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;min-height:76px;padding:18px 12px;background:#fff;border:1px solid #e4e4e9;border-radius:999px;text-align:center;font-size:14px;font-weight:400;line-height:1.35;letter-spacing:-.02em;box-shadow:0 12px 32px -20px #20203015}
+.four-inclusion:before{content:'';position:absolute;top:-43px;left:50%;width:1px;height:42px;background:#dcdce1}
+.four-inclusion svg{width:21px;height:21px;flex:none;color:#404047}
+.four-inclusion:after{content:'';position:absolute;top:-3px;left:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:#111;animation:four-node-pulse 6s ease-in-out infinite}
+.four-inclusion:nth-child(2):after{animation-delay:.5s}.four-inclusion:nth-child(3):after{animation-delay:1s}.four-inclusion:nth-child(4):after{animation-delay:1.5s}
+.four-subscription figcaption{margin-top:48px;text-align:center;color:#73737c;font-size:13px;letter-spacing:-.015em}
+.four-leads{display:flex;align-items:center;justify-content:center;min-height:620px;padding:22px 0}
+.four-lead-phone{position:relative;width:294px;height:572px;flex:none;border:8px solid #222327;border-radius:49px;background:#f6f7f8;box-shadow:0 0 0 2px #97979d,0 32px 65px -28px #20203045;overflow:hidden}
+.four-lead-phone:before{content:'';position:absolute;z-index:3;left:50%;top:12px;width:96px;height:27px;border-radius:999px;transform:translateX(-50%);background:#161619}
+.four-phone-status{display:flex;justify-content:space-between;align-items:center;padding:20px 18px 0;font-size:11px;font-weight:600;line-height:1;color:#17171b}
+.four-phone-status>span:last-child{font-size:8px;letter-spacing:.1em}
+.four-phone-clock{margin-top:42px;color:#34343b;font-size:57px;font-weight:500;letter-spacing:-.07em;text-align:center;line-height:1}
+.four-phone-day{margin:10px 0 30px;text-align:center;color:#7c7c85;font-size:11px}
+.four-notifications{position:relative;margin:0 10px;height:334px}
+.four-notification{position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:29px minmax(0,1fr);gap:9px;padding:13px 10px;border:1px solid #ececf0;border-radius:18px;background:#fffffff2;box-shadow:0 8px 22px #2020300d;animation:four-lead-arrive 10s cubic-bezier(.2,.7,.25,1) infinite;opacity:0;transform:translateY(-18px) scale(.98)}
+.four-notification:nth-child(2){animation-delay:2s}.four-notification:nth-child(3){animation-delay:4s}
+.four-notification>img{display:block;width:29px;height:29px;object-fit:contain}
+.four-notification-meta{display:flex;align-items:center;justify-content:space-between;gap:4px;color:#83838c;font-size:8px;line-height:1.25}
+.four-notification-meta span:first-child{font-weight:500;letter-spacing:.03em}
+.four-notification strong{display:block;margin:5px 0 4px;color:#19191e;font-size:12px;font-weight:600;line-height:1.3;letter-spacing:-.02em}
+.four-notification p{margin:0;color:#5d5d67;font-size:10px;line-height:1.45}
+.four-phone-home{position:absolute;bottom:9px;left:50%;width:96px;height:4px;border-radius:20px;background:#26262b;transform:translateX(-50%)}
+.four-lead-orbit{position:absolute;z-index:-1;left:50%;top:50%;width:520px;height:520px;border:1px solid #f2f2f5;border-radius:50%;transform:translate(-50%,-50%)}
+.four-lead-orbit:after{content:'';position:absolute;inset:42px;border:1px solid #f5f5f7;border-radius:50%}
+.four-leads figcaption{position:absolute;bottom:-13px;left:0;right:0;text-align:center}
+.four-final-action{display:flex;justify-content:flex-start;margin:-30px 0 76px}
+.four-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:60px;min-height:106px;min-width:420px;padding:26px 38px;border:1px solid #161719;border-radius:999px;background:#161719;color:#fff!important;font-size:36px;font-weight:500;line-height:1;letter-spacing:-.035em}
+.four-cta svg{width:34px;height:34px;flex:none;animation:four-cta-arrow 2.4s ease-in-out infinite}
+.four-cta:hover{background:#303034;border-color:#303034}
+#four-step-intake-root{margin-top:64px}
+#four-step-intake-root:empty{margin-top:0}
+@keyframes four-brief-arrive{0%,100%{transform:translateY(0)}45%,65%{transform:translateY(-6px)}}
+@keyframes four-path-travel{0%,15%{offset-distance:0%;opacity:0}25%{opacity:1}75%{offset-distance:100%;opacity:1}85%,100%{offset-distance:100%;opacity:0}}
+@keyframes four-line-draw{0%,9%{stroke-dashoffset:1400;opacity:.4}62%,90%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.3}}
+@keyframes four-chart-point{0%,53%{opacity:0}64%,90%{opacity:1}100%{opacity:0}}
+@keyframes four-check-pulse{0%,15%,88%,100%{background:#fff;border-color:#e1e1e6;transform:scale(1)}38%,65%{background:#f4f5f6;border-color:#a7a7ae;transform:scale(1.04)}}
+@keyframes four-node-pulse{0%,15%,90%,100%{box-shadow:0 0 0 0 #1110}40%,60%{box-shadow:0 0 0 6px #1111110d}}
+@keyframes four-lead-arrive{0%{opacity:0;transform:translateY(-18px) scale(.98)}8%,18%{opacity:1;transform:translateY(0) scale(1)}28%,38%{opacity:1;transform:translateY(100px) scale(.98)}48%,62%{opacity:.8;transform:translateY(200px) scale(.96)}73%,100%{opacity:0;transform:translateY(270px) scale(.93)}}
+@keyframes four-cta-arrow{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media(min-width:1600px){.four-header,.four-journey{max-width:1500px}.four-title{font-size:112px}}
+@media(max-width:1000px){.four-header{padding:24px 5%}.four-journey{padding:0 5%}.four-section{padding-top:88px;padding-bottom:72px}.four-section+.four-section{padding-top:100px}.four-title{font-size:clamp(54px,8.5vw,82px);margin-bottom:52px}.four-business{height:clamp(560px,65vw,640px)}.four-browser{top:58px;left:9%}.four-business-brief{width:245px;padding:20px}.four-build-path{left:200px;top:227px;width:170px}.four-business figcaption{left:9%;bottom:8px}.four-network-nodes{gap:14px}.four-inclusion{gap:7px;padding:16px 9px;font-size:12px}.four-inclusion svg{width:18px;height:18px}.four-seo{padding:30px}}
+@media(max-width:720px){.four-header{padding:23px 6%;gap:20px}.four-brand{font-size:18px;gap:10px}.four-mark{grid-template-columns:repeat(3,4px);gap:3px}.four-mark i{width:4px;height:4px}.four-nav{gap:19px;font-size:12px}.four-nav a:first-child,.four-nav a:nth-child(2){display:none}.four-journey{padding:0 6%}.four-section{padding:75px 0 60px;scroll-margin-top:24px}.four-section+.four-section{padding-top:84px}.four-section-number{margin-bottom:22px;font-size:13px}.four-title{font-size:clamp(44px,12.5vw,73px);line-height:1.035;letter-spacing:-.06em;margin-bottom:44px;text-wrap:balance}.four-title-price{white-space:normal}.four-business{height:max(492px,calc(50.5vw + 292px));padding-top:0}.four-business-brief{width:210px;top:0;padding:18px;border-radius:16px}.four-business-brief>svg{width:22px;height:22px;margin-bottom:15px}.four-business-brief h3{margin-bottom:15px;font-size:18px}.four-brief-row{padding:9px 0;font-size:10px}.four-brief-status{font-size:14px;font-weight:500;line-height:1.35;margin-top:13px}.four-browser{left:4%;right:-4%;top:203px;transform:none;border-radius:15px;box-shadow:0 24px 42px -22px #20203030}.four-browser-bar{height:39px;padding:0 12px;gap:4px}.four-browser-bar i{width:4px;height:4px}.four-browser-bar span{font-size:14px;font-weight:500;color:#222;padding-right:18px}.four-build-path{left:183px;top:123px;width:125px;height:80px;transform:rotate(8deg)}.four-business figcaption{left:4%;bottom:0;margin:0;font-size:10px}.four-seo{padding:21px 18px;border-radius:20px}.four-seo-top{padding-bottom:18px;font-size:9px;gap:10px}.four-seo-identity{font-size:11px;gap:7px}.four-seo-identity svg{width:17px;height:17px}.four-seo-heading{margin:27px 0 16px;gap:10px}.four-seo-heading h3{font-size:21px}.four-seo-heading span{font-size:8px}.four-search-chart{height:168px}.four-chart-labels{font-size:9px}.four-seo-process{gap:9px;margin-top:26px;padding-top:20px}.four-seo-process>div{align-items:flex-start;gap:6px;font-size:9px}.four-process-check{width:18px;height:18px}.four-process-check svg{width:9px;height:9px}.four-seo figcaption{margin-top:20px;font-size:9px}.four-subscription{padding:20px 0 24px}.four-subscription-core{gap:11px;padding:19px 24px;font-size:17px;border-radius:16px}.four-network-stem{height:42px}.four-network-nodes{grid-template-columns:1fr;gap:24px;padding-top:0;width:min(100%,300px)}.four-network-nodes:before{display:none}.four-inclusion{min-height:61px;padding:16px 20px;font-size:14px;gap:12px}.four-inclusion:before{top:-25px;height:24px}.four-inclusion:first-child:before{display:none}.four-inclusion svg{width:20px;height:20px}.four-subscription figcaption{font-size:10px;line-height:1.65;margin-top:30px}.four-leads{min-height:576px;padding:12px 0}.four-lead-phone{width:270px;height:532px;border-width:7px;border-radius:45px}.four-phone-clock{margin-top:37px;font-size:53px}.four-phone-day{margin-bottom:26px}.four-notification{padding:12px 9px;grid-template-columns:27px minmax(0,1fr);gap:7px}.four-notification>img{width:27px;height:27px}.four-notification strong{font-size:11px}.four-notification p{font-size:9px}.four-notification-meta{font-size:7px}.four-lead-orbit{width:380px;height:380px}.four-leads figcaption{font-size:10px;bottom:-12px}.four-final-action{margin-top:41px}.four-cta{min-height:53px;font-size:14px;padding:16px 24px}.four-section:last-child{padding-bottom:72px}#four-step-intake-root{margin-top:48px}}
+@media(max-width:370px){.four-header{padding-left:5%;padding-right:5%}.four-journey{padding-left:5%;padding-right:5%}.four-title{font-size:43px}.four-business{height:460px}.four-business-brief{width:194px;padding:16px}.four-browser{top:190px}.four-build-path{left:166px;top:115px;width:110px}.four-seo{padding-left:15px;padding-right:15px}.four-seo-process{gap:5px}.four-seo-process>div{font-size:8px}.four-lead-phone{width:250px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.four-step-page *,.four-step-page *:before,.four-step-page *:after{animation:none!important;transition:none!important}.four-browser video{display:none}.four-browser .four-video-poster{display:block}.four-chart-line{stroke-dashoffset:0!important}.four-chart-end{opacity:1!important}.four-build-path circle{display:none}.four-notification{position:relative;opacity:1;transform:none;margin-bottom:8px}.four-notifications{height:auto}.four-notification:nth-child(2),.four-notification:nth-child(3){opacity:.85}}
+
+/* Business information becomes a website. */
+.four-business-map{padding:0}
+.four-business-scene{position:relative;display:grid;grid-template-columns:minmax(170px,.29fr) minmax(0,1fr) minmax(170px,.29fr);align-items:center;gap:44px;min-height:530px;padding:22px 0}
+.four-business-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:-1}
+.four-business-scene .four-business-wires-mobile{display:none}
+.four-business-wire-base use{fill:none;stroke:#dcdfe2;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.four-business-wire-pulse use{fill:none;stroke:var(--four-accent,#526784);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:2 98;stroke-dashoffset:100;vector-effect:non-scaling-stroke;animation:four-business-flow 4.2s cubic-bezier(.35,.1,.35,1) infinite}
+.four-business-wire-pulse use:nth-child(2){animation-delay:-1.4s}.four-business-wire-pulse use:nth-child(3){animation-delay:-2.8s}.four-business-wire-pulse use:nth-child(4){animation-delay:-.7s}.four-business-wire-pulse use:nth-child(5){animation-delay:-2.1s}.four-business-wire-pulse use:nth-child(6){animation-delay:-3.5s}
+.four-business-inputs{display:grid;gap:40px;position:relative;z-index:2}
+.four-business-detail{padding:18px 16px;min-height:111px;border:1px solid #eceef0;background:#fff;border-radius:16px;box-shadow:0 8px 32px -12px #202c3a16;animation:four-business-card-breathe 8.4s ease-in-out infinite}
+.four-business-detail:nth-child(2){animation-delay:-2.8s}.four-business-detail:nth-child(3){animation-delay:-5.6s}.four-business-inputs-right .four-business-detail{animation-delay:-1.4s}.four-business-inputs-right .four-business-detail:nth-child(2){animation-delay:-4.2s}.four-business-inputs-right .four-business-detail:nth-child(3){animation-delay:-7s}
+.four-business-detail-label{display:flex;align-items:center;gap:7px;margin-bottom:12px;color:#666d76;font-size:11px;line-height:1.3;letter-spacing:-.01em}
+.four-business-detail-label svg,.four-business-detail-label img{flex:none;width:17px;height:17px;color:#444c54;object-fit:contain}
+.four-business-detail strong{display:block;color:#181b1e;font-size:13px;font-weight:500;line-height:1.45;letter-spacing:-.02em;overflow-wrap:anywhere}
+.four-business-detail-note{display:block;margin-top:5px;color:#72757b;font-size:10px;line-height:1.4;letter-spacing:-.01em}
+.four-business-detail .four-business-review-stars{font-size:17px;letter-spacing:.14em;font-weight:400;line-height:1.1}
+.four-business-website{position:relative;overflow:hidden;border:1px solid #e7e9ec;border-radius:20px;background:#fff;box-shadow:0 35px 70px -32px #29334240,0 8px 24px -10px #29334218}
+.four-business-browser-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px;padding:0 14px;background:#fff}
+.four-business-browser-bar>span:nth-child(2){color:#555d65;text-align:center;font-size:11px;line-height:1.3;letter-spacing:-.02em}
+.four-business-browser-dots{display:flex;gap:4px;flex:none}.four-business-browser-dots i{width:5px;height:5px;background:#d8dcdf;border-radius:50%}
+.four-business-browser-bar>svg{width:13px;height:13px;color:#8a9198;flex:none}
+.four-business-website-media{padding:0 5px;background:#fff}
+.four-business-website video,.four-business-static{display:block;width:100%;aspect-ratio:1280/734;object-fit:cover;height:auto;border-radius:8px}
+.four-business-static{display:none}
+.four-business-built{display:flex;align-items:center;justify-content:center;gap:7px;padding:17px 12px;color:#20262b;font-size:13px;font-weight:500;line-height:1.35;letter-spacing:-.02em}
+.four-business-built-check{display:grid;place-items:center;flex:none;width:17px;height:17px;color:#317851;border-radius:50%;background:#edf6f0}
+.four-business-built-check svg{width:11px;height:11px}
+.four-business-map figcaption{position:static;margin-top:22px;text-align:center;font-size:11px;line-height:1.5}
+@keyframes four-business-flow{0%,12%{stroke-dashoffset:100;opacity:0}18%{opacity:1}82%{opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes four-business-card-breathe{0%,100%{transform:translateY(0);box-shadow:0 8px 32px -12px #202c3a16}45%,55%{transform:translateY(-3px);box-shadow:0 12px 36px -12px #202c3a22}}
+@media(min-width:1500px){.four-business-scene{gap:52px}}
+@media(max-width:1100px) and (min-width:901px){.four-business-scene{grid-template-columns:166px minmax(0,1fr) 166px;gap:24px;min-height:490px}.four-business-inputs{gap:30px}.four-business-detail{padding:16px 12px}.four-business-detail strong{font-size:12px}.four-business-detail-label{font-size:10px;gap:5px}.four-business-detail-label svg,.four-business-detail-label img{width:15px;height:15px}.four-business-browser-bar>span:nth-child(2){font-size:10px}}
+@media(max-width:900px){.four-business-scene{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 18px;padding:0;min-height:0}.four-business-inputs{display:contents}.four-business-detail{min-height:112px;padding:17px 16px;border-radius:15px}.four-business-detail strong{font-size:14px;line-height:1.4}.four-business-detail-label{font-size:12px;margin-bottom:10px}.four-business-detail-note{font-size:11px}.four-business-inputs-left .four-business-detail:nth-child(1){order:1}.four-business-inputs-left .four-business-detail:nth-child(2){order:2}.four-business-inputs-left .four-business-detail:nth-child(3){order:3}.four-business-inputs-right .four-business-detail:nth-child(1){order:4}.four-business-inputs-right .four-business-detail:nth-child(2){order:5}.four-business-inputs-right .four-business-detail:nth-child(3){order:6}.four-business-website{order:7;grid-column:1/-1;width:100%;margin-top:62px;border-radius:18px}.four-business-scene .four-business-wires-desktop{display:none}.four-business-scene .four-business-wires-mobile{display:block;left:0;top:0;width:100%;height:460px}.four-business-map figcaption{margin-top:24px}.four-business-browser-bar{min-height:43px;padding:0 15px}.four-business-browser-bar>span:nth-child(2){font-size:13px}.four-business-built{padding:18px 12px;font-size:14px}}
+@media(max-width:480px){.four-business-scene{gap:14px 12px}.four-business-detail{min-height:113px;padding:15px 12px}.four-business-detail-label{font-size:11px;gap:5px;min-height:16px;margin-bottom:9px}.four-business-detail-label svg,.four-business-detail-label img{width:15px;height:15px}.four-business-detail strong{font-size:12px;line-height:1.45}.four-business-detail-note{font-size:10px;line-height:1.45}.four-business-detail .four-business-review-stars{font-size:17px;letter-spacing:.1em}.four-business-website{margin-top:52px;border-radius:15px}.four-business-scene .four-business-wires-mobile{height:440px}.four-business-browser-bar{padding:0 10px;gap:6px}.four-business-browser-bar>span:nth-child(2){font-size:11px}.four-business-built{font-size:13px}.four-business-map figcaption{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.four-business-wire-pulse{display:none}.four-business-website video{display:none}.four-business-website .four-business-static{display:block}.four-business-detail{animation:none;transform:none}}
+
+@property --four-impressions{syntax:"<integer>";inherits:false;initial-value:3680}
+@property --four-seo-score{syntax:"<integer>";inherits:false;initial-value:100}
+.four-analytics{--four-analytics-ink:var(--four-accent,#526784);color:#161719}
+.four-analytics-shell{padding:34px 38px 38px;border:1px solid #ededee;border-radius:26px;background:#fff;box-shadow:0 28px 80px -46px #1c25342e}
+.four-analytics-top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-bottom:26px;border-bottom:1px solid #ededee}
+.four-analytics-domain{display:flex;align-items:center;gap:12px;font-size:17px;letter-spacing:-.025em}
+.four-analytics-domain img{width:21px;height:21px;flex:none}
+.four-analytics-example{font-size:12px;color:#72757b;white-space:nowrap}
+.four-analytics-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(250px,1fr);gap:40px;padding-top:34px}
+.four-analytics-performance{min-width:0}
+.four-analytics-chart-head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.four-analytics-label{display:block;color:#737780;font-size:13px;line-height:1.4;letter-spacing:-.01em}
+.four-analytics-count{display:block;margin-top:8px;font-size:48px;font-weight:500;line-height:1;letter-spacing:-.065em;min-width:142px}
+.four-analytics-count span{--four-impressions:3680;animation:four-analytics-count-up 12s ease-in-out infinite;counter-reset:four-impressions var(--four-impressions)}
+.four-analytics-count span:after{content:counter(four-impressions)}
+.four-analytics-trend{display:flex;align-items:center;gap:5px;color:var(--four-analytics-ink);font-size:11px;white-space:nowrap}
+.four-analytics-trend svg{width:14px;height:14px}
+.four-analytics-plot{position:relative;padding-left:27px;margin-top:29px;color:var(--four-analytics-ink)}
+.four-analytics-plot>svg{width:100%;height:194px;overflow:visible}
+.four-analytics-axis{position:absolute;top:4px;bottom:13px;left:0;display:flex;flex-direction:column;justify-content:space-between;color:#72757b;font-size:10px}
+.four-analytics-gridline{fill:none;stroke:#eceef0;stroke-width:1;vector-effect:non-scaling-stroke}
+.four-analytics-line{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.four-analytics-area{fill:url(#four-analytics-fill)}
+.four-analytics-end{fill:currentColor}
+.four-analytics-reveal{animation:four-analytics-plot-reveal 12s cubic-bezier(.28,.05,.25,1) infinite}
+.four-analytics-dates{display:flex;justify-content:space-between;margin:9px 0 0 27px;color:#72757b;font-size:10px}
+.four-analytics-inquiry{position:relative;margin-top:30px;padding:18px 20px;background:#f8f9fa;border:1px solid #eff0f1;border-radius:15px;overflow:hidden}
+.four-analytics-inquiry-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;font-size:12px;font-weight:500}
+.four-analytics-sent{display:inline-flex;align-items:center;gap:4px;color:#27845f;font-size:10px;animation:four-analytics-sent 12s ease-in-out infinite}
+.four-analytics-sent svg{width:12px;height:12px}
+.four-analytics-form-row{display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px;margin-top:9px;color:#72757b;font-size:11px;line-height:1.5}
+.four-analytics-typed{display:block;width:max-content;max-width:100%;overflow:hidden;white-space:nowrap;color:#383d44;clip-path:inset(0 0 0 0);animation:four-analytics-type 12s steps(22,end) infinite}
+.four-analytics-type-message{animation-name:four-analytics-type-message}
+.four-analytics-submit{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-top:14px;color:#3a3d43;font-size:10px;opacity:.5;animation:four-analytics-send 12s ease-in-out infinite}
+.four-analytics-submit svg{width:12px;height:12px}
+.four-analytics-health{display:flex;flex-direction:column;align-items:center;border-left:1px solid #ededee;padding-left:36px;min-width:0}
+.four-analytics-health>.four-analytics-label{align-self:flex-start}
+.four-analytics-gauge{position:relative;width:min(100%,220px);aspect-ratio:1;margin:13px 0 22px;color:var(--four-analytics-ink)}
+.four-analytics-gauge>svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.four-analytics-gauge circle{fill:none;stroke-width:7}
+.four-analytics-gauge-track{stroke:#eef1f0}
+.four-analytics-gauge-fill{stroke:currentColor;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;animation:four-analytics-gauge-fill 12s cubic-bezier(.3,.1,.2,1) infinite}
+.four-analytics-gauge-value{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.four-analytics-gauge-value strong{--four-seo-score:100;counter-reset:four-score var(--four-seo-score);animation:four-analytics-score-up 12s ease-in-out infinite;color:#17191c;font-size:61px;font-weight:500;line-height:1;letter-spacing:-.07em}
+.four-analytics-gauge-value strong:after{content:counter(four-score)}
+.four-analytics-gauge-value>span{font-size:12px;color:#72757b}
+.four-analytics-checks{width:100%;display:grid;gap:18px}
+.four-analytics-checks>div{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;color:#727780;font-size:11px}
+.four-analytics-checks strong{color:#333840;font-size:11px;font-weight:500}
+.four-analytics-checks>div:after,.four-analytics-checks i{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:4px;background:#eef0f1}
+.four-analytics-checks i{right:auto;z-index:1;width:calc(var(--four-bar)*100%);background:var(--four-analytics-ink);opacity:.65;transform-origin:left;animation:four-analytics-bars 12s ease-in-out infinite}
+.four-analytics-checks>div:nth-child(2) i{animation-delay:.25s}.four-analytics-checks>div:nth-child(3) i{animation-delay:.5s}
+.four-analytics-report{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:auto;padding-top:25px;color:#898d94;font-size:10px;white-space:nowrap}
+.four-analytics-report svg{width:16px;height:16px;flex:none}
+.four-analytics figcaption{font-size:11px;color:#93969b;margin-top:22px}
+@keyframes four-analytics-count-up{0%,8%{--four-impressions:1240}68%,91%{--four-impressions:3680}100%{--four-impressions:1240}}
+@keyframes four-analytics-score-up{0%,8%{--four-seo-score:62}68%,91%{--four-seo-score:100}100%{--four-seo-score:62}}
+@keyframes four-analytics-gauge-fill{0%,8%{stroke-dashoffset:38;opacity:.6}68%,91%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:38;opacity:.6}}
+@keyframes four-analytics-plot-reveal{0%,8%{width:30%;opacity:.5}68%,91%{width:100%;opacity:1}98%{width:100%;opacity:0}100%{width:30%;opacity:0}}
+@keyframes four-analytics-bars{0%,8%{transform:scaleX(.6)}68%,91%{transform:scaleX(1)}100%{transform:scaleX(.6)}}
+@keyframes four-analytics-type{0%,14%{clip-path:inset(0 100% 0 0)}32%,89%{clip-path:inset(0 0 0 0)}98%,100%{clip-path:inset(0 100% 0 0)}}
+@keyframes four-analytics-type-message{0%,33%{clip-path:inset(0 100% 0 0)}58%,89%{clip-path:inset(0 0 0 0)}98%,100%{clip-path:inset(0 100% 0 0)}}
+@keyframes four-analytics-sent{0%,62%{opacity:0;transform:translateY(4px)}69%,89%{opacity:1;transform:translateY(0)}98%,100%{opacity:0;transform:translateY(0)}}
+@keyframes four-analytics-send{0%,58%{opacity:.35}64%,69%{opacity:1;transform:translateX(2px)}75%,89%{opacity:.4;transform:translateX(0)}100%{opacity:.35}}
+@media(max-width:1000px){.four-analytics-shell{padding:28px}.four-analytics-grid{gap:26px;grid-template-columns:minmax(0,1.6fr) minmax(215px,1fr)}.four-analytics-health{padding-left:25px}.four-analytics-count{font-size:42px}.four-analytics-gauge{width:190px}.four-analytics-trend{font-size:10px}.four-analytics-report{font-size:9px}}
+@media(max-width:720px){.four-analytics-shell{padding:24px 20px;border-radius:20px}.four-analytics-top{padding-bottom:21px;gap:8px}.four-analytics-domain{font-size:13px;gap:8px}.four-analytics-domain img{width:18px;height:18px}.four-analytics-example{font-size:9px}.four-analytics-grid{grid-template-columns:1fr;gap:29px;padding-top:27px}.four-analytics-label{font-size:12px}.four-analytics-count{font-size:45px}.four-analytics-chart-head{gap:10px}.four-analytics-trend{font-size:9px;gap:2px}.four-analytics-trend svg{width:12px;height:12px}.four-analytics-plot{margin-top:24px;padding-left:23px}.four-analytics-plot>svg{height:172px}.four-analytics-axis{font-size:9px}.four-analytics-dates{margin-left:23px;font-size:9px}.four-analytics-inquiry{margin-top:23px;padding:17px 15px;border-radius:12px}.four-analytics-inquiry-head{font-size:12px}.four-analytics-form-row{grid-template-columns:53px minmax(0,1fr);font-size:11px;gap:8px}.four-analytics-health{display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,1.2fr);gap:12px 20px;align-items:center;padding:26px 0 0;border-left:0;border-top:1px solid #ededee}.four-analytics-health>.four-analytics-label{grid-column:1/-1}.four-analytics-gauge{width:100%;max-width:165px;margin:0}.four-analytics-gauge circle{stroke-width:8}.four-analytics-gauge-value{gap:4px}.four-analytics-gauge-value strong{font-size:42px}.four-analytics-gauge-value>span{font-size:10px}.four-analytics-checks{gap:16px}.four-analytics-checks>div{font-size:10px;padding-bottom:10px}.four-analytics-checks strong{font-size:10px}.four-analytics-report{grid-column:1/-1;font-size:10px;padding-top:10px;margin:0;white-space:normal}.four-analytics figcaption{font-size:10px;margin-top:18px;line-height:1.6}}
+@media(max-width:370px){.four-analytics-shell{padding:22px 16px}.four-analytics-example{font-size:8px}.four-analytics-domain{font-size:12px}.four-analytics-trend{max-width:90px;white-space:normal}.four-analytics-health{gap:12px}.four-analytics-gauge-value strong{font-size:36px}.four-analytics-form-row{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.four-analytics *, .four-analytics *:before,.four-analytics *:after{animation:none!important}.four-analytics-count span{--four-impressions:3680}.four-analytics-gauge-value strong{--four-seo-score:100}.four-analytics-reveal{width:100%;opacity:1}.four-analytics-gauge-fill{stroke-dashoffset:0;opacity:1}.four-analytics-typed{clip-path:none}.four-analytics-sent{opacity:1;transform:none}.four-analytics-checks i{transform:scaleX(1)}}
+
+.four-example-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-top:1px solid #f1f2f3;font-size:12px;font-weight:600;letter-spacing:-.03em}.four-example-nav>span:last-child{font-size:9px;color:#72757b;font-weight:400}.four-business-website-media{position:relative;padding:0;margin:0 5px;overflow:hidden;border-radius:8px}.four-business-website-media:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0009,transparent 90%);pointer-events:none}.four-business-website video,.four-business-static{aspect-ratio:1280/800;object-fit:cover}.four-example-copy{position:absolute;z-index:1;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:7%;color:#fff}.four-example-copy>span:first-child{font-size:10px;letter-spacing:-.01em;color:#fff}.four-example-copy>strong{margin:13px 0 20px;font-size:clamp(25px,3.1vw,45px);font-weight:600;line-height:1.03;letter-spacing:-.055em}.four-example-button{display:flex;align-items:center;gap:20px;background:#fff;color:#161719;border-radius:6px;padding:10px 13px;font-size:10px;font-weight:500}.four-example-button>span{font-size:13px}
+@media(max-width:720px){.four-final-action{margin:-18px 0 52px}.four-cta{min-width:0;width:min(100%,420px);min-height:86px;padding:24px 28px;font-size:28px;gap:25px}.four-cta svg{width:28px;height:28px}.four-section-number{width:51px}.four-example-copy>strong{font-size:clamp(28px,6.5vw,45px)}.four-example-copy>span:first-child{font-size:9px}.four-example-button{padding:9px 11px;font-size:9px}.four-example-nav{padding:14px;font-size:11px}.four-example-nav>span:last-child{font-size:8px}}
+
+/* Static business nodes sit in front of the website; only the connections move. */
+.four-business-v3{--b3-amber:#e9a63c;--b3-soft:#ffd07b;padding:0}
+.four-business-v3-scene{position:relative;min-height:clamp(700px,64vw,850px);isolation:isolate}
+.four-business-v3-scene:before{content:'';position:absolute;left:17%;right:17%;top:23%;bottom:13%;border-radius:50%;background:radial-gradient(ellipse,#e9a63c12,transparent 70%);filter:blur(40px);pointer-events:none;z-index:-1}
+.four-business-v3 .four-business-website{position:absolute;z-index:0;left:14%;top:86px;width:72%;box-shadow:0 35px 80px -35px #27241e3b,0 0 36px -20px #e9a63c40}
+.four-business-v3 .four-example-copy{padding-left:18%;padding-right:14%}
+.four-business-v3 .four-example-nav{padding-left:18%;padding-right:16%}
+.four-business-v3-node{position:absolute;z-index:3;width:21%;padding:20px;border:1px solid #e8e8e6;background:#fff;border-radius:19px;box-shadow:0 16px 38px -22px #191b1f3b,0 0 18px -14px #e9a63c65;transform:none;animation:none}
+.four-business-v3-label{display:flex;align-items:center;gap:9px;margin-bottom:15px;font-size:12px;line-height:1.35;letter-spacing:-.02em;color:#62666c}
+.four-business-v3-label>img{width:26px;height:26px;object-fit:contain;flex:none}
+.four-business-v3-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#fff5e4;color:#bd7a1d;flex:none}
+.four-business-v3-icon svg{width:18px;height:18px}
+.four-business-v3-node>strong{display:block;color:#1c2025;font-size:15px;line-height:1.45;letter-spacing:-.025em;font-weight:500;overflow-wrap:anywhere}
+.four-business-v3-note{display:block;margin-top:8px;font-size:11px;line-height:1.5;color:#72757b;letter-spacing:-.01em}
+.four-business-v3-services{top:0;left:0;width:23%}
+.four-business-v3-service-list{height:168px;overflow:hidden;position:relative;mask-image:linear-gradient(#000 65%,transparent);-webkit-mask-image:linear-gradient(#000 65%,transparent)}
+.four-business-v3-service-list ul{margin:0;padding:0;list-style:none}
+.four-business-v3-service-list li{position:relative;margin:0 0 13px;padding-left:15px;color:#32363b;font-size:13px;line-height:1.4;letter-spacing:-.015em}
+.four-business-v3-service-list li:before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;left:0;top:.55em;background:var(--b3-amber)}
+.four-business-v3-areas{left:1%;top:300px;width:24%;padding:18px}
+.four-business-v3-areas .four-business-v3-label{margin-bottom:8px}
+.four-business-v3-areas>strong{font-size:14px;margin-bottom:14px}
+.four-business-v3-map{height:148px;width:100%;position:relative;overflow:hidden;border-radius:11px;border:1px solid #e5e5e3;background:#f1f3f0}
+.four-business-v3-map iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+.four-business-v3-map-radius{position:absolute;left:50%;top:48%;width:96px;height:96px;transform:translate(-50%,-50%);border:1.5px solid #de9e33aa;background:#e9a63c26;border-radius:50%;pointer-events:none}
+.four-business-v3-map-pin{position:absolute;left:50%;top:48%;width:18px;height:24px;color:#c78623;transform:translate(-50%,-90%);filter:drop-shadow(0 2px 2px #0002);pointer-events:none}
+.four-business-v3-email{left:4%;bottom:6px;width:24%}
+.four-business-v3-reviews{right:0;top:40px;width:23%}
+.four-business-v3-review-head{display:flex;align-items:center;gap:11px;font-size:12px;color:#62666c;line-height:1.35;letter-spacing:-.02em}
+.four-business-v3-review-head img{width:32px;height:32px;flex:none}
+.four-business-v3-node>.four-business-v3-stars{margin-top:17px;font-size:26px;line-height:1;letter-spacing:.09em;color:#e9a63c;font-weight:400}
+.four-business-v3-reviews blockquote{margin:14px 0 0;font-size:14px;line-height:1.5;letter-spacing:-.02em;color:#30343a}
+.four-business-v3-reviews .four-business-v3-note{font-size:10px}
+.four-business-v3-phone{right:1%;top:355px;width:22%}
+.four-business-v3-trust{right:3%;bottom:20px;width:23%}
+.four-business-v3-scene .four-business-v3-mobile-wires{display:none}
+.four-business-v3-wires,.four-business-v3-mobile-wires{position:absolute;z-index:1;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.four-business-v3-wire-base use{fill:none;stroke:#e9a63c5c;stroke-width:1.15;vector-effect:non-scaling-stroke}
+.four-business-v3-wire-pulse use{fill:none;stroke:var(--b3-amber);stroke-width:2.7;stroke-linecap:round;stroke-dasharray:2 98;stroke-dashoffset:100;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 3px #ffd07b55);animation:four-business-v3-flow 4.8s ease-in-out infinite}
+.four-business-v3-wire-pulse use:nth-child(2){animation-delay:-1.6s}.four-business-v3-wire-pulse use:nth-child(3){animation-delay:-3.2s}.four-business-v3-wire-pulse use:nth-child(4){animation-delay:-.8s}.four-business-v3-wire-pulse use:nth-child(5){animation-delay:-2.4s}.four-business-v3-wire-pulse use:nth-child(6){animation-delay:-4s}
+.four-business-v3 figcaption{margin-top:27px;text-align:center;font-size:11px;color:#72757b;line-height:1.5}
+@keyframes four-business-v3-flow{0%,10%{stroke-dashoffset:100;opacity:0}20%{opacity:1}82%{opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
+@media(max-width:1100px) and (min-width:901px){.four-business-v3-scene{min-height:725px}.four-business-v3-node{padding:16px}.four-business-v3-services{width:24%}.four-business-v3-label{font-size:11px;gap:6px}.four-business-v3-service-list li{font-size:12px}.four-business-v3-areas{top:290px;width:26%}.four-business-v3-areas>strong{font-size:12px}.four-business-v3-map{height:125px}.four-business-v3-email{left:2%;width:27%}.four-business-v3-reviews{width:24%}.four-business-v3-phone{top:340px;width:24%}.four-business-v3-trust{width:25%}.four-business-v3-node>strong{font-size:13px}.four-business-v3-note{font-size:10px}.four-business-v3-node>.four-business-v3-stars{font-size:22px}.four-business-v3-reviews blockquote{font-size:13px}.four-business-v3 .four-business-website{top:120px}}
+@media(max-width:900px){.four-business-v3-scene{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;min-height:0;isolation:isolate}.four-business-v3-node{position:relative;inset:auto;width:auto!important;min-width:0;padding:20px;border-radius:17px;box-shadow:0 10px 32px -20px #20242a35;z-index:3}.four-business-v3-services{order:1}.four-business-v3-areas{order:2}.four-business-v3-reviews{order:3}.four-business-v3-trust{order:4}.four-business-v3-email{order:5}.four-business-v3-phone{order:6}.four-business-v3 .four-business-website{position:relative;inset:auto;width:100%;grid-column:1/-1;order:7;margin-top:-36px;padding-top:24px;z-index:1}.four-business-v3 .four-example-copy{padding-left:9%;padding-right:9%}.four-business-v3 .four-example-nav{padding-left:18px;padding-right:18px}.four-business-v3-label{font-size:12px;gap:8px}.four-business-v3-service-list{height:172px}.four-business-v3-service-list li{font-size:13px}.four-business-v3-areas>strong{font-size:13px}.four-business-v3-map{height:132px}.four-business-v3-map-radius{width:88px;height:88px}.four-business-v3-scene .four-business-v3-wires{display:none}.four-business-v3-scene .four-business-v3-mobile-wires{display:block;z-index:0}.four-business-v3-node>.four-business-v3-stars{font-size:26px}.four-business-v3-phone,.four-business-v3-email{padding-bottom:26px}.four-business-v3 .four-business-browser-bar{min-height:42px}.four-business-v3 .four-business-browser-bar>span:nth-child(2){font-size:12px}.four-business-v3-scene:before{inset:30% 5% 0;filter:blur(30px)}.four-business-v3 figcaption{font-size:10px;margin-top:22px}}
+@media(max-width:480px){.four-business-v3-scene{gap:12px}.four-business-v3-node{padding:14px;border-radius:15px}.four-business-v3-label{font-size:10px;gap:6px;margin-bottom:12px}.four-business-v3-icon{width:24px;height:24px;border-radius:7px}.four-business-v3-icon svg{width:16px;height:16px}.four-business-v3-label>img{width:23px;height:23px}.four-business-v3-service-list{height:162px}.four-business-v3-service-list li{font-size:11px;line-height:1.45;padding-left:12px;margin-bottom:13px}.four-business-v3-node>strong{font-size:12px}.four-business-v3-areas>strong{font-size:11px;margin-bottom:10px}.four-business-v3-map{height:125px;border-radius:8px}.four-business-v3-map-radius{width:76px;height:76px}.four-business-v3-map-pin{width:16px;height:21px}.four-business-v3-note{font-size:10px}.four-business-v3-review-head{gap:7px;font-size:11px}.four-business-v3-review-head img{width:26px;height:26px}.four-business-v3-node>.four-business-v3-stars{font-size:21px;letter-spacing:.025em;margin-top:15px}.four-business-v3-reviews blockquote{font-size:11px;line-height:1.5}.four-business-v3-reviews .four-business-v3-note{font-size:9px}.four-business-v3-trust>strong{font-size:15px}.four-business-v3 .four-business-website{margin-top:-30px;padding-top:22px}.four-business-v3 .four-business-browser-bar>span:nth-child(2){font-size:11px}.four-business-v3-phone,.four-business-v3-email{padding-bottom:23px}}
+@media(prefers-reduced-motion:reduce){.four-business-v3-wire-pulse{display:none}.four-business-v3 .four-business-website video{display:none}.four-business-v3 .four-business-static{display:block}}
+
+@property --four-seo3-impressions{syntax:"<integer>";inherits:false;initial-value:3680}
+@property --four-seo3-score{syntax:"<integer>";inherits:false;initial-value:100}
+.four-seo3{--four-seo3-ink:var(--four-accent,#526784);color:#161719}
+.four-seo3-shell{padding:34px 38px 38px;border:1px solid #ededee;border-radius:26px;background:#fff;box-shadow:0 28px 80px -46px #1c25342e}
+.four-seo3-top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-bottom:26px;border-bottom:1px solid #ededee}
+.four-seo3-domain{display:flex;align-items:center;gap:12px;font-size:17px;letter-spacing:-.025em}
+.four-seo3-domain img{width:21px;height:21px;flex:none}
+.four-seo3-example{font-size:12px;color:#878a90;white-space:nowrap}
+.four-seo3-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(250px,1fr);gap:40px;padding-top:34px}
+.four-seo3-performance{min-width:0}
+.four-seo3-chart-head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.four-seo3-label{display:block;color:#737780;font-size:13px;line-height:1.4;letter-spacing:-.01em}
+.four-seo3-count{display:block;margin-top:8px;font-size:48px;font-weight:500;line-height:1;letter-spacing:-.065em;min-width:142px}
+.four-seo3-count span{--four-seo3-impressions:3680;animation:four-seo3-count-up 12s ease-in-out infinite;counter-reset:four-impressions var(--four-seo3-impressions)}
+.four-seo3-count span:after{content:counter(four-impressions)}
+.four-seo3-trend{display:flex;align-items:center;gap:5px;color:var(--four-seo3-ink);font-size:11px;white-space:nowrap}
+.four-seo3-trend svg{width:14px;height:14px}
+.four-seo3-plot{position:relative;padding-left:27px;margin-top:29px;color:var(--four-seo3-ink)}
+.four-seo3-plot>svg{width:100%;height:194px;overflow:visible}
+.four-seo3-axis{position:absolute;top:4px;bottom:13px;left:0;display:flex;flex-direction:column;justify-content:space-between;color:#a2a5ab;font-size:10px}
+.four-seo3-gridline{fill:none;stroke:#eceef0;stroke-width:1;vector-effect:non-scaling-stroke}
+.four-seo3-line{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.four-seo3-area{fill:url(#four-seo3-fill)}
+.four-seo3-end{fill:currentColor}
+.four-seo3-reveal{animation:four-seo3-plot-reveal 12s cubic-bezier(.28,.05,.25,1) infinite}
+.four-seo3-dates{display:flex;justify-content:space-between;margin:9px 0 0 27px;color:#a0a3a9;font-size:10px}
+.four-seo3-inquiry{position:relative;margin-top:30px;padding:18px 20px;background:#f8f9fa;border:1px solid #eff0f1;border-radius:15px;overflow:hidden}
+.four-seo3-inquiry-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;font-size:12px;font-weight:500}
+.four-seo3-sent{display:inline-flex;align-items:center;gap:4px;color:#27845f;font-size:10px;animation:four-seo3-sent 12s ease-in-out infinite}
+.four-seo3-sent svg{width:12px;height:12px}
+.four-seo3-form-row{display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px;margin-top:9px;color:#8c9097;font-size:11px;line-height:1.5}
+.four-seo3-typed{display:block;width:max-content;max-width:100%;overflow:hidden;white-space:nowrap;color:#383d44;clip-path:inset(0 0 0 0);animation:four-seo3-type 12s steps(22,end) infinite}
+.four-seo3-type-message{animation-name:four-seo3-type-message}
+.four-seo3-submit{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-top:14px;color:#3a3d43;font-size:10px;opacity:.5;animation:four-seo3-send 12s ease-in-out infinite}
+.four-seo3-submit svg{width:12px;height:12px}
+.four-seo3-health{display:flex;flex-direction:column;align-items:center;border-left:1px solid #ededee;padding-left:36px;min-width:0}
+.four-seo3-health>.four-seo3-label{align-self:flex-start}
+.four-seo3-gauge{position:relative;width:min(100%,220px);aspect-ratio:1;margin:13px 0 22px;color:var(--four-seo3-ink)}
+.four-seo3-gauge>svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.four-seo3-gauge circle{fill:none;stroke-width:7}
+.four-seo3-gauge-track{stroke:#eef1f0}
+.four-seo3-gauge-fill{stroke:currentColor;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;animation:four-seo3-gauge-fill 12s cubic-bezier(.3,.1,.2,1) infinite}
+.four-seo3-gauge-value{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.four-seo3-gauge-value strong{--four-seo3-score:100;counter-reset:four-score var(--four-seo3-score);animation:four-seo3-score-up 12s ease-in-out infinite;color:#17191c;font-size:61px;font-weight:500;line-height:1;letter-spacing:-.07em}
+.four-seo3-gauge-value strong:after{content:counter(four-score)}
+.four-seo3-gauge-value>span{font-size:12px;color:#82878e}
+.four-seo3-checks{width:100%;display:grid;gap:18px}
+.four-seo3-checks>div{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;color:#727780;font-size:11px}
+.four-seo3-checks strong{color:#333840;font-size:11px;font-weight:500}
+.four-seo3-checks>div:after,.four-seo3-checks i{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:4px;background:#eef0f1}
+.four-seo3-checks i{right:auto;z-index:1;width:calc(var(--four-bar)*100%);background:var(--four-seo3-ink);opacity:.65;transform-origin:left;animation:four-seo3-bars 12s ease-in-out infinite}
+.four-seo3-checks>div:nth-child(2) i{animation-delay:.25s}.four-seo3-checks>div:nth-child(3) i{animation-delay:.5s}
+.four-seo3-report{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:auto;padding-top:25px;color:#898d94;font-size:10px;white-space:nowrap}
+.four-seo3-report svg{width:16px;height:16px;flex:none}
+.four-seo3 figcaption{font-size:11px;color:#93969b;margin-top:22px}
+@keyframes four-seo3-count-up{0%,8%{--four-seo3-impressions:1240}68%,91%{--four-seo3-impressions:3680}100%{--four-seo3-impressions:1240}}
+@keyframes four-seo3-score-up{0%,8%{--four-seo3-score:62}68%,91%{--four-seo3-score:100}100%{--four-seo3-score:62}}
+@keyframes four-seo3-gauge-fill{0%,8%{stroke-dashoffset:38;opacity:.6}68%,91%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:38;opacity:.6}}
+@keyframes four-seo3-plot-reveal{0%,8%{width:30%;opacity:.5}68%,91%{width:100%;opacity:1}98%{width:100%;opacity:0}100%{width:30%;opacity:0}}
+@keyframes four-seo3-bars{0%,8%{transform:scaleX(.6)}68%,91%{transform:scaleX(1)}100%{transform:scaleX(.6)}}
+@keyframes four-seo3-type{0%,14%{clip-path:inset(0 100% 0 0)}32%,89%{clip-path:inset(0 0 0 0)}98%,100%{clip-path:inset(0 100% 0 0)}}
+@keyframes four-seo3-type-message{0%,33%{clip-path:inset(0 100% 0 0)}58%,89%{clip-path:inset(0 0 0 0)}98%,100%{clip-path:inset(0 100% 0 0)}}
+@keyframes four-seo3-sent{0%,62%{opacity:0;transform:translateY(4px)}69%,89%{opacity:1;transform:translateY(0)}98%,100%{opacity:0;transform:translateY(0)}}
+@keyframes four-seo3-send{0%,58%{opacity:.35}64%,69%{opacity:1;transform:translateX(2px)}75%,89%{opacity:.4;transform:translateX(0)}100%{opacity:.35}}
+@media(max-width:1000px){.four-seo3-shell{padding:28px}.four-seo3-grid{gap:26px;grid-template-columns:minmax(0,1.6fr) minmax(215px,1fr)}.four-seo3-health{padding-left:25px}.four-seo3-count{font-size:42px}.four-seo3-gauge{width:190px}.four-seo3-trend{font-size:10px}.four-seo3-report{font-size:9px}}
+@media(max-width:720px){.four-seo3-shell{padding:24px 20px;border-radius:20px}.four-seo3-top{padding-bottom:21px;gap:8px}.four-seo3-domain{font-size:13px;gap:8px}.four-seo3-domain img{width:18px;height:18px}.four-seo3-example{font-size:9px}.four-seo3-grid{grid-template-columns:1fr;gap:29px;padding-top:27px}.four-seo3-label{font-size:12px}.four-seo3-count{font-size:45px}.four-seo3-chart-head{gap:10px}.four-seo3-trend{font-size:9px;gap:2px}.four-seo3-trend svg{width:12px;height:12px}.four-seo3-plot{margin-top:24px;padding-left:23px}.four-seo3-plot>svg{height:172px}.four-seo3-axis{font-size:9px}.four-seo3-dates{margin-left:23px;font-size:9px}.four-seo3-inquiry{margin-top:23px;padding:17px 15px;border-radius:12px}.four-seo3-inquiry-head{font-size:12px}.four-seo3-form-row{grid-template-columns:53px minmax(0,1fr);font-size:11px;gap:8px}.four-seo3-health{display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,1.2fr);gap:12px 20px;align-items:center;padding:26px 0 0;border-left:0;border-top:1px solid #ededee}.four-seo3-health>.four-seo3-label{grid-column:1/-1}.four-seo3-gauge{width:100%;max-width:165px;margin:0}.four-seo3-gauge circle{stroke-width:8}.four-seo3-gauge-value{gap:4px}.four-seo3-gauge-value strong{font-size:42px}.four-seo3-gauge-value>span{font-size:10px}.four-seo3-checks{gap:16px}.four-seo3-checks>div{font-size:10px;padding-bottom:10px}.four-seo3-checks strong{font-size:10px}.four-seo3-report{grid-column:1/-1;font-size:10px;padding-top:10px;margin:0;white-space:normal}.four-seo3 figcaption{font-size:10px;margin-top:18px;line-height:1.6}}
+@media(max-width:370px){.four-seo3-shell{padding:22px 16px}.four-seo3-example{font-size:8px}.four-seo3-domain{font-size:12px}.four-seo3-trend{max-width:90px;white-space:normal}.four-seo3-health{gap:12px}.four-seo3-gauge-value strong{font-size:36px}.four-seo3-form-row{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.four-seo3 *, .four-seo3 *:before,.four-seo3 *:after{animation:none!important}.four-seo3-count span{--four-seo3-impressions:3680}.four-seo3-gauge-value strong{--four-seo3-score:100}.four-seo3-reveal{width:100%;opacity:1}.four-seo3-gauge-fill{stroke-dashoffset:0;opacity:1}.four-seo3-typed{clip-path:none}.four-seo3-sent{opacity:1;transform:none}.four-seo3-checks i{transform:scaleX(1)}}
+
+/* More recognizable reporting colors, restrained gold lighting. */
+.four-seo3{--four-seo3-ink:#4285f4}
+.four-seo3-shell{background:radial-gradient(ellipse at 100% 100%,#ffd07b16,transparent 47%),#fff;box-shadow:0 28px 80px -46px #1c25342e,0 14px 55px -44px #e9a63c40}
+.four-seo3-domain{font-size:16px;font-weight:500}
+.four-seo3-metrics{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px;margin-bottom:27px}
+.four-seo3-metric{min-width:0;padding:19px 15px;border-radius:13px;background:#f7f9fc;border:1px solid #e7edf6;color:#445d7e}
+.four-seo3-metric>span{display:block;font-size:10px;line-height:1.4;white-space:nowrap}
+.four-seo3-metric strong{display:block;margin:10px 0 7px;font-size:30px;font-weight:500;line-height:1;letter-spacing:-.05em;min-width:0}
+.four-seo3-metric small{display:block;font-size:9px;line-height:1.4;opacity:.7;white-space:nowrap}
+.four-seo3-metric-blue{background:#eef5ff;border-color:#dce9ff;color:#2665c9}
+.four-seo3-metric-purple{background:#f3effc;border-color:#e9e0fa;color:#7550b5}
+.four-seo3-metric-gold{background:#fff8e9;border-color:#f8e9c9;color:#91661e}
+.four-seo3-metric-gold strong{text-shadow:0 0 20px #e9a63c20}
+.four-seo3-plot{margin-top:19px}
+.four-seo3-plot>svg{height:180px}
+.four-seo3-chart-head .four-seo3-label{font-size:12px;color:#646d79}
+.four-seo3-trend{font-size:10px;color:#4285f4}
+.four-seo3-health{padding-top:5px}
+.four-seo3-gauge{color:#34a853;margin-top:21px}
+.four-seo3-gauge-track{stroke:#eef5ef}
+.four-seo3-gauge-fill{filter:drop-shadow(0 0 6px #34a85312)}
+.four-seo3-checks i{background:#34a853;opacity:.8}
+.four-seo3-report{color:#967238;gap:7px;padding-top:31px}
+.four-seo3-report svg{color:#d39a37;filter:drop-shadow(0 0 5px #ffd07b88)}
+@media(max-width:1000px){.four-seo3-metrics{gap:7px}.four-seo3-metric{padding:16px 11px}.four-seo3-metric>span{font-size:9px}.four-seo3-metric strong{font-size:26px}.four-seo3-metric small{font-size:8px}.four-seo3-domain{font-size:14px}.four-seo3-example{font-size:10px}}
+@media(max-width:720px){.four-seo3-domain{font-size:12px;gap:7px}.four-seo3-example{font-size:8px}.four-seo3-metrics{gap:7px;grid-template-columns:1.2fr 1fr 1fr;margin-bottom:24px}.four-seo3-metric{padding:14px 10px;border-radius:10px}.four-seo3-metric>span{font-size:8px;white-space:normal}.four-seo3-metric strong{font-size:25px;margin:9px 0 0}.four-seo3-metric small{display:none}.four-seo3-plot>svg{height:170px}.four-seo3-chart-head .four-seo3-label{font-size:11px}.four-seo3-trend{font-size:8px}.four-seo3-gauge{margin-top:0}.four-seo3-report{padding-top:11px}}
+@media(max-width:370px){.four-seo3-domain{font-size:11px}.four-seo3-example{max-width:60px;text-align:right;white-space:normal;line-height:1.4}.four-seo3-metrics{gap:5px}.four-seo3-metric{padding:13px 8px}.four-seo3-metric strong{font-size:23px}}
+
+.four-sub3{display:flex;flex-direction:column;align-items:center;padding:20px 0 18px}
+.four-sub3-core{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:17px;min-height:89px;padding:24px 32px;border:1px solid #161719;border-radius:20px;background:#161719;color:#fff!important;box-shadow:0 20px 44px -27px #0008,0 7px 28px -22px #e9a63c65;font-size:24px;font-weight:500;letter-spacing:-.035em;line-height:1.2;white-space:nowrap;transition:background .2s}
+.four-sub3-core .four-mark{grid-template-columns:repeat(3,4px);gap:3px}
+.four-sub3-core .four-mark i{width:4px;height:4px;background:#fff}
+.four-sub3-core>svg{width:19px;height:19px;margin-left:12px;opacity:.72}
+.four-sub3-core:hover{background:#2c2d2f}
+.four-sub3-core:focus-visible{outline:3px solid #e9a63c;outline-offset:6px}
+.four-sub3-stem{position:relative;width:1px;height:67px;background:linear-gradient(#b7bdc6,#e7eaf0)}
+.four-sub3-stem i{position:absolute;left:-2px;top:0;width:5px;height:5px;background:#e9a63c;border-radius:50%;box-shadow:0 0 9px #e9a63c55;animation:four-sub3-stem-flow 5s ease-in-out infinite}
+.four-sub3-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px;width:100%;padding-top:36px}
+.four-sub3-grid:before{content:'';position:absolute;left:12.5%;right:12.5%;top:0;height:1px;background:#e0e4e9}
+.four-sub3-card{position:relative;min-width:0;padding:17px 17px 23px;border:1px solid #e9ecf0;border-radius:20px;background:#fff;box-shadow:0 13px 34px -24px #26313e30;text-align:left}
+.four-sub3-card:before{content:'';position:absolute;top:-37px;left:50%;height:36px;width:1px;background:#e0e4e9}
+.four-sub3-card:after{content:'';position:absolute;left:calc(50% - 3px);top:-3px;width:6px;height:6px;border-radius:50%;background:#d5a050;box-shadow:0 0 8px #e9a63c20}
+.four-sub3-card h3{margin:22px 0 7px;font-size:17px;font-weight:500;letter-spacing:-.035em;line-height:1.3}
+.four-sub3-card>p{margin:0;color:#80858c;font-size:11px;line-height:1.5;letter-spacing:-.01em}
+.four-sub3-scene{position:relative;display:grid;place-items:center;height:174px;overflow:hidden;border-radius:12px}
+.four-sub3-website-scene{background:#eef4fa}
+.four-sub3-mini-browser{position:relative;overflow:hidden;width:90%;height:136px;border:1px solid #dae3ed;border-radius:7px;background:#fff;box-shadow:0 6px 17px -9px #334b6550}
+.four-sub3-chrome{display:flex;align-items:center;gap:3px;height:21px;padding:0 7px;background:#fff;border-bottom:1px solid #edf0f3}
+.four-sub3-chrome>i{height:3px;width:3px;flex:none;border-radius:50%;background:#bfc9d6}
+.four-sub3-chrome>span{flex:1;padding-right:10px;text-align:center;font-size:6px;letter-spacing:0;color:#a3aab3}
+.four-sub3-mini-site{position:relative;padding:13px 11px}
+.four-sub3-site-logo{display:block;width:18px;height:4px;background:#647a96;border-radius:2px;animation:four-sub3-site-build 7s ease infinite}
+.four-sub3-site-nav{position:absolute;right:12px;top:13px;width:27px;height:3px;background:#e3e8ee;animation:four-sub3-site-build 7s ease .25s infinite}
+.four-sub3-mini-site>strong{display:block;margin-top:14px;font-size:13px;line-height:1.1;font-weight:600;letter-spacing:-.05em;color:#273f59;animation:four-sub3-site-build 7s ease .55s infinite}
+.four-sub3-site-copy{width:51%;height:3px;margin-top:8px;background:#d6dfe8;box-shadow:0 6px #e5eaf0;animation:four-sub3-site-build 7s ease .8s infinite}
+.four-sub3-site-button{width:30px;height:9px;margin-top:14px;border-radius:3px;background:#536f90;animation:four-sub3-site-build 7s ease 1.05s infinite}
+.four-sub3-site-photo{position:absolute;right:11px;top:35px;display:grid;place-items:center;width:34%;height:65px;border-radius:5px;background:linear-gradient(145deg,#c9d9e9,#e7eef4);color:#6d89a3;animation:four-sub3-site-build 7s ease 1.3s infinite}
+.four-sub3-site-photo svg{width:33px;height:33px}
+.four-sub3-build-progress{position:absolute;bottom:8px;left:32%;right:32%;height:2px;border-radius:3px;background:#d6e1ed;overflow:hidden}
+.four-sub3-build-progress i{display:block;width:100%;height:100%;background:#6784a6;transform-origin:left;animation:four-sub3-build-progress 7s ease infinite}
+.four-sub3-seo-scene{background:#f5f3fb}
+.four-sub3-mini-chart{width:77%;padding:13px 11px 10px;border:1px solid #e4e0f2;border-radius:9px;background:#fff;box-shadow:0 7px 17px -13px #63577960;transform:translate(-6px,-6px)}
+.four-sub3-mini-chart>span{display:flex;align-items:center;gap:5px;color:#7b748a;font-size:7px;line-height:1.3}
+.four-sub3-mini-chart img{width:10px;height:10px}
+.four-sub3-mini-chart>svg{width:100%;height:74px;margin-top:10px;overflow:visible}
+.four-sub3-chart-grid{fill:none;stroke:#efedf5;stroke-width:1}
+.four-sub3-chart-line{fill:none;stroke:#8070b1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:0;animation:four-sub3-chart-draw 7s ease infinite}
+.four-sub3-mini-report{position:absolute;right:12%;bottom:17px;width:45px;height:58px;padding:8px;border:1px solid #ecd8b4;border-radius:6px;background:#fffaf0;box-shadow:0 4px 12px -8px #c5935040;animation:four-sub3-report 7s ease infinite}
+.four-sub3-mini-report>svg{width:16px;height:16px;color:#bd8a38;margin-bottom:6px}
+.four-sub3-mini-report>span{display:block;width:100%;height:2px;background:#e5d6bb;margin:4px 0;transform-origin:left;animation:four-sub3-report-lines 7s ease infinite}
+.four-sub3-mini-report>span:nth-child(3){width:75%;animation-delay:.3s}.four-sub3-mini-report>span:nth-child(4){width:85%;animation-delay:.6s}
+.four-sub3-host-scene{background:#f1f6f4;padding-bottom:16px}
+.four-sub3-server{width:79%;padding:6px;border:1px solid #d8e3de;border-radius:10px;background:#fff;box-shadow:0 9px 23px -15px #38594d50}
+.four-sub3-server>div{display:flex;align-items:center;gap:4px;height:29px;padding:0 9px;margin:5px 0;background:#edf2f0;border:1px solid #e2eae6;border-radius:5px}
+.four-sub3-server>div>span{width:32px;height:3px;background:#b6c4bc;border-radius:3px;box-shadow:0 5px #ced8d2}
+.four-sub3-server i{width:4px;height:4px;flex:none;margin-left:auto;background:#34a853;border-radius:50%;box-shadow:0 0 5px #34a85355;animation:four-sub3-led 2s ease-in-out infinite}
+.four-sub3-server b{width:3px;height:3px;background:#8eae9b;border-radius:50%;animation:four-sub3-led 2s ease-in-out -.8s infinite}
+.four-sub3-server>div:nth-child(2) i{animation-delay:-.6s}.four-sub3-server>div:nth-child(3) i{animation-delay:-1.3s}
+.four-sub3-server-status{position:absolute;bottom:12px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:5px;color:#749180;font-size:8px;line-height:1.3}
+.four-sub3-server-status>i{width:4px;height:4px;border-radius:50%;background:#34a853}
+.four-sub3-alert-scene{display:block;background:#eef7f1}
+.four-sub3-alert{position:absolute;left:8%;right:8%;top:28px;display:grid;grid-template-columns:23px minmax(0,1fr);align-items:start;gap:6px;padding:11px 9px;border:1px solid #e3eee7;border-radius:11px;background:#fff;box-shadow:0 7px 18px -13px #345f4450;animation:four-sub3-alert-in 7s cubic-bezier(.2,.7,.25,1) infinite}
+.four-sub3-alert-second{top:75px;animation-delay:2.7s}
+.four-sub3-alert>img{width:23px;height:23px;object-fit:contain}
+.four-sub3-alert>div{min-width:0}
+.four-sub3-alert span{display:flex;justify-content:space-between;gap:4px;color:#8d9b92;font-size:5px;line-height:1.2;letter-spacing:.02em}
+.four-sub3-alert span i{font-style:normal;letter-spacing:0}
+.four-sub3-alert strong{display:block;margin:5px 0 4px;color:#30463a;font-size:8px;letter-spacing:-.02em;line-height:1.3;font-weight:500}
+.four-sub3-alert p{margin:0;color:#809086;font-size:7px;line-height:1.4;letter-spacing:-.01em}
+.four-sub3 figcaption{margin-top:34px;color:#878c93;font-size:11px;line-height:1.5;text-align:center}
+@keyframes four-sub3-stem-flow{0%,15%{transform:translateY(0);opacity:0}24%{opacity:1}84%{opacity:1}96%,100%{transform:translateY(64px);opacity:0}}
+@keyframes four-sub3-site-build{0%,8%{opacity:.1;clip-path:inset(0 100% 0 0)}30%,82%{opacity:1;clip-path:inset(0 0 0 0)}95%,100%{opacity:.1;clip-path:inset(0 100% 0 0)}}
+@keyframes four-sub3-build-progress{0%,8%{transform:scaleX(0);opacity:1}55%,78%{transform:scaleX(1);opacity:1}88%,100%{transform:scaleX(1);opacity:0}}
+@keyframes four-sub3-chart-draw{0%,8%{stroke-dashoffset:100;opacity:.3}59%,86%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes four-sub3-report{0%,25%{opacity:.35}55%,86%{opacity:1}100%{opacity:.35}}
+@keyframes four-sub3-report-lines{0%,25%{transform:scaleX(.2)}60%,86%{transform:scaleX(1)}100%{transform:scaleX(.2)}}
+@keyframes four-sub3-led{0%,100%{opacity:.35;box-shadow:0 0 0 #34a85300}50%{opacity:1;box-shadow:0 0 6px #34a85365}}
+@keyframes four-sub3-alert-in{0%,3%{opacity:0;transform:translateY(12px) scale(.97)}15%,60%{opacity:1;transform:translateY(0) scale(1)}77%,100%{opacity:0;transform:translateY(-14px) scale(.97)}}
+@media(max-width:1100px){.four-sub3-grid{gap:13px}.four-sub3-card{padding:13px 13px 20px;border-radius:17px}.four-sub3-card h3{font-size:15px;margin-top:19px}.four-sub3-card>p{font-size:10px}.four-sub3-scene{height:156px}.four-sub3-mini-browser{height:127px}.four-sub3-mini-site{padding:11px 9px}.four-sub3-mini-site>strong{font-size:11px}.four-sub3-site-photo{height:57px}.four-sub3-alert{grid-template-columns:19px minmax(0,1fr);gap:5px;padding:10px 7px;left:6%;right:6%}.four-sub3-alert>img{width:19px;height:19px}.four-sub3-alert strong{font-size:7px}.four-sub3-alert p{font-size:6px}.four-sub3-alert span{font-size:4.5px}.four-sub3-mini-report{right:9%}}
+@media(max-width:800px){.four-sub3-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:23px 18px;padding-top:32px}.four-sub3-grid:before{left:25%;right:25%}.four-sub3-card:before{top:-33px;height:32px}.four-sub3-card:nth-child(n+3):before{top:-24px;height:23px}.four-sub3-card{padding:17px 17px 22px}.four-sub3-card h3{font-size:17px}.four-sub3-card>p{font-size:11px}.four-sub3-scene{height:175px}.four-sub3-mini-browser{max-width:240px;height:139px}.four-sub3-mini-site>strong{font-size:14px}.four-sub3-alert{grid-template-columns:25px minmax(0,1fr);gap:8px;padding:13px 11px;left:9%;right:9%}.four-sub3-alert>img{width:25px;height:25px}.four-sub3-alert strong{font-size:9px}.four-sub3-alert p{font-size:8px}.four-sub3-alert span{font-size:6px}.four-sub3-alert-second{top:81px}.four-sub3-mini-chart{max-width:210px}.four-sub3-mini-report{right:16%}}
+@media(max-width:480px){.four-sub3{padding-top:10px}.four-sub3-core{min-height:74px;max-width:100%;padding:22px 24px;gap:12px;border-radius:17px;font-size:20px}.four-sub3-core>svg{width:17px;height:17px;margin-left:4px}.four-sub3-stem{height:48px}.four-sub3-grid{gap:21px 12px;padding-top:26px}.four-sub3-grid:before{left:25%;right:25%}.four-sub3-card:before{top:-27px;height:26px}.four-sub3-card:nth-child(n+3):before{top:-22px;height:21px}.four-sub3-card{padding:10px 10px 18px;border-radius:15px}.four-sub3-scene{height:132px;border-radius:9px}.four-sub3-card h3{font-size:14px;line-height:1.3;margin-top:17px;margin-bottom:6px;letter-spacing:-.03em}.four-sub3-card>p{font-size:9px;line-height:1.5}.four-sub3-mini-browser{height:105px;width:91%;border-radius:5px}.four-sub3-chrome{height:16px;padding:0 5px;gap:2px}.four-sub3-chrome>i{width:2px;height:2px}.four-sub3-chrome>span{font-size:4px;padding-right:7px}.four-sub3-mini-site{padding:9px 7px}.four-sub3-site-logo{width:14px;height:3px}.four-sub3-site-nav{width:18px;height:2px;right:8px;top:9px}.four-sub3-mini-site>strong{font-size:10px;margin-top:11px}.four-sub3-site-photo{right:7px;top:26px;height:51px}.four-sub3-site-photo svg{width:26px;height:26px}.four-sub3-site-copy{height:2px;margin-top:6px;box-shadow:0 4px #e5eaf0}.four-sub3-site-button{width:23px;height:7px;margin-top:10px}.four-sub3-build-progress{bottom:6px;height:1.5px}.four-sub3-mini-chart{width:80%;padding:10px 8px 7px;transform:translate(-3px,-5px);border-radius:7px}.four-sub3-mini-chart>span{font-size:5px;gap:4px}.four-sub3-mini-chart img{width:8px;height:8px}.four-sub3-mini-chart>svg{height:57px;margin-top:7px}.four-sub3-mini-report{width:35px;height:47px;padding:6px;right:10%;bottom:10px;border-radius:5px}.four-sub3-mini-report>svg{width:13px;height:13px;margin-bottom:4px}.four-sub3-mini-report>span{margin:3px 0;height:1.5px}.four-sub3-server{width:83%;padding:4px;border-radius:8px}.four-sub3-server>div{height:23px;padding:0 6px;margin:4px 0}.four-sub3-server>div>span{width:23px;height:2px;box-shadow:0 4px #ced8d2}.four-sub3-server i{width:3px;height:3px}.four-sub3-server b{width:2px;height:2px}.four-sub3-server-status{font-size:6px;bottom:9px;gap:4px}.four-sub3-server-status>i{width:3px;height:3px}.four-sub3-alert{grid-template-columns:20px minmax(0,1fr);left:5%;right:5%;top:22px;gap:5px;padding:10px 7px;border-radius:8px}.four-sub3-alert-second{top:65px}.four-sub3-alert>img{width:20px;height:20px}.four-sub3-alert span{font-size:4px;gap:2px}.four-sub3-alert strong{font-size:6.5px;margin:4px 0 3px;line-height:1.35}.four-sub3-alert p{font-size:6px;line-height:1.3}.four-sub3 figcaption{font-size:10px;margin-top:27px;line-height:1.6}}
+@media(max-width:360px){.four-sub3-core{font-size:18px;padding-left:21px;padding-right:21px}.four-sub3-card h3{font-size:13px}.four-sub3-card>p{font-size:8px}.four-sub3-scene{height:122px}.four-sub3-alert{grid-template-columns:17px minmax(0,1fr);gap:4px;padding:9px 5px}.four-sub3-alert>img{width:17px;height:17px}.four-sub3-alert strong{font-size:6px}.four-sub3-alert p{font-size:5px}}
+@media(prefers-reduced-motion:reduce){.four-sub3 *, .four-sub3 *:before,.four-sub3 *:after{animation:none!important;transition:none!important}.four-sub3-stem i{display:none}.four-sub3-mini-site>*{opacity:1;clip-path:none}.four-sub3-build-progress i{transform:scaleX(1)}.four-sub3-chart-line{stroke-dashoffset:0;opacity:1}.four-sub3-mini-report{opacity:1}.four-sub3-mini-report>span{transform:scaleX(1)}.four-sub3-alert{opacity:1;transform:none}.four-sub3-alert-second{top:83px}.four-sub3-server i,.four-sub3-server b{opacity:1}}
+
+
+.four-business-v3-icon{background:linear-gradient(145deg,#fff8ea,#fff0d8);box-shadow:0 0 18px #e9a63c10}.four-business-v3-phone .four-business-v3-icon{background:linear-gradient(145deg,#50cf6a,#2aa551);color:#fff;box-shadow:0 3px 14px #2aa5511b}.four-sub3-website-scene{background:radial-gradient(ellipse at 50% 0,#dceafd,transparent 75%),#f4f8fc}.four-sub3-host-scene{background:radial-gradient(ellipse at 50% 0,#deeee5,transparent 75%),#f4f8f5}.four-sub3-alert-scene{background:radial-gradient(ellipse at 50% 0,#dcf0e2,transparent 75%),#f3faf5}
+</style>
+<link rel="stylesheet" href="/assets/four-step-polish.css">
+<link rel="stylesheet" href="/assets/four-step-intake.css?v=trc-intake-sequence-20261114-6">
+<link rel="stylesheet" href="/assets/five-step-sections.css">
+<link rel="stylesheet" href="/assets/five-step-motion.css">
+<script src="/assets/four-step-page.js?v=trc-edge-gold-20261114-4" defer></script>
+<script src="/assets/four-step-intake-preview.js?v=trc-intake-sequence-20261114-6" defer></script>
+</head>
+<body>
+<div class="four-step-page">
+  <header class="four-header">
+    <a class="four-brand" href="#business" aria-label="The Ready Consult"><span class="four-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>The Ready</span></a>
+    <nav class="four-nav" aria-label="Main navigation"><a href="#website">Website</a><a href="#seo">SEO</a><a href="#pricing">Pricing</a><a href="https://www.thereadyconsult.com/blog">Blog</a></nav>
+  </header>
+  <main class="four-journey">
+    <section class="four-section" id="business" aria-labelledby="four-business-title">
+      <span class="four-section-number" aria-label="Step 1">01</span>
+      <h1 class="four-title" id="four-business-title"><span class="four-emphasis">Tell us</span> about<br>your business.</h1>
+      <figure class="four-figure four-business-v3 four-business-v5" aria-label="An example local home-service business, with its services, Sacramento service area and contact details">
+        <div class="four-business-v5-scene">
+<svg class="four-business-v5-wires" viewBox="0 0 1200 850" preserveAspectRatio="none" aria-hidden="true"><defs><path id="b5-wire-email" pathLength="100" d="M220 145H300Q340 145 340 190V240Q340 270 380 270"/><path id="b5-wire-map" pathLength="100" d="M240 420H370"/><path id="b5-wire-reviews" pathLength="100" d="M980 170H920Q880 170 880 215V245Q880 275 840 275"/><path id="b5-wire-phone" pathLength="100" d="M980 420H850"/><path id="b5-wire-trust" pathLength="100" d="M980 630H920Q880 630 880 590V540Q880 510 840 510"/><path id="b5-wire-services" pathLength="100" d="M600 720V590"/></defs><g class="four-business-v3-wire-base"><use href="#b5-wire-email"/><use href="#b5-wire-map"/><use href="#b5-wire-reviews"/><use href="#b5-wire-phone"/><use href="#b5-wire-trust"/><use href="#b5-wire-services"/></g><g class="four-business-v3-wire-pulse"><use href="#b5-wire-email"/><use href="#b5-wire-map"/><use href="#b5-wire-reviews"/><use href="#b5-wire-phone"/><use href="#b5-wire-trust"/><use href="#b5-wire-services"/></g></svg>
+<div class="four-business-v5-business"><svg class="four-business-v5-art" viewBox="0 0 720 520" fill="none" role="img" aria-label="An Oakline service van outside a local insulation and home repair workshop, with a technician sealing an attic wall">
+  <defs>
+    <linearGradient id="b5-wall" x1="200" y1="175" x2="500" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9edf0"/></linearGradient>
+    <linearGradient id="b5-side" x1="540" y1="200" x2="590" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#e4e9ed"/><stop offset="1" stop-color="#ced6de"/></linearGradient>
+    <linearGradient id="b5-roof" x1="250" y1="45" x2="390" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#737d88"/><stop offset="1" stop-color="#353e49"/></linearGradient>
+    <linearGradient id="b5-interior" x1="260" y1="210" x2="470" y2="380" gradientUnits="userSpaceOnUse"><stop stop-color="#f4e5cb"/><stop offset="1" stop-color="#e1d5c4"/></linearGradient>
+    <linearGradient id="b5-van" x1="100" y1="330" x2="350" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9edf1"/></linearGradient>
+    <linearGradient id="b5-glass" x1="345" y1="330" x2="400" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#c4d5df"/><stop offset="1" stop-color="#738998"/></linearGradient>
+    <linearGradient id="b5-insulation" x1="270" y1="240" x2="307" y2="320" gradientUnits="userSpaceOnUse"><stop stop-color="#f7ddb1"/><stop offset="1" stop-color="#deb878"/></linearGradient>
+    <radialGradient id="b5-ground"><stop stop-color="#b7bec8" stop-opacity=".22"/><stop offset="1" stop-color="#b7bec8" stop-opacity="0"/></radialGradient>
+    <filter id="b5-soft-shadow" x="-30%" y="-40%" width="170%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <ellipse cx="365" cy="443" rx="289" ry="47" fill="url(#b5-ground)"/>
+  <ellipse cx="364" cy="412" rx="218" ry="17" fill="#5b6673" opacity=".10" filter="url(#b5-soft-shadow)"/>
+  <!-- An ordinary, recognizable local-service workshop. -->
+  <path d="m525 190 58-31v230l-58 31V190Z" fill="url(#b5-side)"/>
+  <path d="M187 188h338v232H187V188Z" fill="url(#b5-wall)" stroke="#dfe4e9" stroke-width="1.5"/>
+  <path d="m157 192 197-145 206 143-35 12L354 79 184 202l-27-10Z" fill="url(#b5-roof)"/>
+  <path d="m354 47 60-29 185 141-39 31L354 47Z" fill="#8c96a0"/>
+  <path d="m184 202 170-123 171 123H184Z" fill="#f2f4f6"/>
+  <path d="m160 193 194-144 206 143" stroke="#89939d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M194 418h330" stroke="#d4dbe2" stroke-width="7"/>
+  <path d="M210 225h264v187H210V225Z" fill="url(#b5-interior)" stroke="#cdd4db" stroke-width="3"/>
+  <path d="M211 225h263v15H211z" fill="#f7f8f9"/>
+  <path d="M212 241h260" stroke="#c9c1b6" stroke-width="2"/>
+  <path d="M241 242v160m45-160v160m45-160v160m45-160v160m45-160v160" stroke="#c8bca9" stroke-width="5"/>
+  <g class="four-business-v5-insulation"><rect x="248" y="250" width="30" height="137" rx="4" fill="url(#b5-insulation)"/><rect x="293" y="250" width="30" height="137" rx="4" fill="url(#b5-insulation)"/><rect x="338" y="250" width="30" height="137" rx="4" fill="url(#b5-insulation)"/></g>
+  <path d="M253 255c11 16 2 31 15 46m-13 12c12 12 0 31 14 49m31-106c10 17 1 32 15 49m-13 9c12 16 1 29 14 50m29-110c10 15 1 31 14 48m-12 11c10 14 1 31 14 49" stroke="#cba368" stroke-opacity=".32" stroke-width="2" stroke-linecap="round"/>
+  <path class="four-business-v5-seal-line" pathLength="100" d="M377 247v140" stroke="#f7fafc" stroke-width="4" stroke-linecap="round"/>
+  <rect x="313" y="128" width="82" height="51" rx="6" fill="#dde4e9" stroke="#c4ced7" stroke-width="2"/>
+  <rect class="four-business-v5-house-light" x="319" y="134" width="70" height="39" rx="3" fill="#ffe6b5"/>
+  <path d="M354 132v44m-38-22h76" stroke="#f9fafb" stroke-width="4"/>
+  <rect x="245" y="193" width="196" height="24" rx="6" fill="#fff" stroke="#e5e8eb"/>
+  <text x="343" y="209" text-anchor="middle" fill="#4b5660" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="600" letter-spacing="1.1">OAKLINE · LOCAL SERVICE</text>
+  <rect x="489" y="231" width="23" height="63" rx="4" fill="#a5b8c6" stroke="#d3dce3" stroke-width="3"/>
+  <path d="M500 232v62" stroke="#eef2f5" stroke-width="3"/>
+  <rect x="493" y="315" width="15" height="43" rx="2" fill="#d9e0e6"/>
+  <!-- A technician works on the insulation instead of a generic tech animation. -->
+  <g>
+    <path d="m403 352-7 48m26-47 7 47" stroke="#485765" stroke-width="14" stroke-linecap="round"/>
+    <path d="M391 302q22-12 44 0l-4 55h-36l-4-55Z" fill="#6c7f8d"/>
+    <path d="M401 300v54m22-54v54" stroke="#e9af52" stroke-width="4"/>
+    <circle cx="413" cy="281" r="15" fill="#d7b18c"/>
+    <path d="M396 279c0-14 7-21 17-21s17 7 17 21h-34Z" fill="#e9ae4c"/><path d="M394 279h38" stroke="#c58c2c" stroke-width="4" stroke-linecap="round"/>
+    <path d="m432 307 12 30" stroke="#c7a27e" stroke-width="11" stroke-linecap="round"/>
+    <g class="four-business-v5-worker-arm"><path d="m394 308-12-18-8-19" stroke="#d4ad86" stroke-width="11" stroke-linecap="round"/><path d="m374 273 3-14" stroke="#758592" stroke-width="7" stroke-linecap="round"/><path d="m376 259 3-13" stroke="#edf2f5" stroke-width="3" stroke-linecap="round"/></g>
+    <path d="M386 402h15m24 0h16" stroke="#36434f" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <!-- A real-business style branded service van. -->
+  <ellipse cx="256" cy="449" rx="182" ry="18" fill="#5d6671" opacity=".13" filter="url(#b5-soft-shadow)"/>
+  <path d="M87 333h235q21 0 35 17l45 48v39H78v-87q0-17 9-17Z" fill="url(#b5-van)" stroke="#d6dde4" stroke-width="1.5"/>
+  <path d="M318 334h13q17 0 30 16l43 49v38h-86V334Z" fill="#dfe5ea"/>
+  <path d="M328 347h10q9 0 19 12l24 29h-53v-41Z" fill="url(#b5-glass)"/>
+  <path d="M323 337v94" stroke="#c2ccd5" stroke-width="1.5"/>
+  <path d="M79 408h321v14H79z" fill="#e9ad50"/>
+  <path d="M88 335h224" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <rect x="99" y="349" width="192" height="48" rx="3" fill="#f8f9fa"/>
+  <text x="116" y="373" fill="#4a5661" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="600" letter-spacing="-.6">Oakline</text>
+  <text x="117" y="389" fill="#7b858d" font-family="Arial,Helvetica,sans-serif" font-size="9.5" letter-spacing=".8">INSULATION &amp; REPAIRS</text>
+  <path d="M107 359v28" stroke="#e9ad50" stroke-width="3" stroke-linecap="round"/>
+  <rect x="332" y="399" width="16" height="4" rx="2" fill="#a9b4bf"/>
+  <rect x="386" y="397" width="13" height="9" rx="3" fill="#fff3ce"/>
+  <rect class="four-business-v5-van-light" x="389" y="396" width="13" height="11" rx="4" fill="#ffdf8f"/>
+  <rect x="76" y="431" width="326" height="8" rx="4" fill="#b4bec8"/>
+  <circle cx="145" cy="437" r="26" fill="#4a5560"/><circle cx="145" cy="437" r="15" fill="#dde4e9"/><circle cx="145" cy="437" r="7" fill="#9daab6"/>
+  <circle cx="348" cy="437" r="26" fill="#4a5560"/><circle cx="348" cy="437" r="15" fill="#dde4e9"/><circle cx="348" cy="437" r="7" fill="#9daab6"/>
+  <path d="M135 437h20m-10-10v20m193-10h20m-10-10v20" stroke="#c5cfd7" stroke-width="2" stroke-linecap="round"/>
+  <!-- Small, grounded landscaping keeps the scene physical. -->
+  <rect x="545" y="376" width="32" height="39" rx="5" fill="#d4dcd9"/><path d="M560 379v-38m0 15-12-12m12 1 12-14" stroke="#9aada4" stroke-width="5" stroke-linecap="round"/><circle cx="548" cy="337" r="13" fill="#b4c6bc"/><circle cx="572" cy="329" r="15" fill="#a7bbb0"/><circle cx="560" cy="321" r="14" fill="#bfd0c6"/>
+</svg>
+<span class="four-business-v5-name">Oakline Insulation &amp; Repairs<span>A local service business.</span></span></div>
+<div class="four-business-v3-node four-business-v3-areas">
+            <span class="four-business-v3-label"><span class="four-business-v3-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Areas you serve</span>
+            <strong>Sacramento, California</strong>
+            <div class="four-business-v3-map"><iframe title="Google map centered on Sacramento, California" src="https://www.google.com/maps?ll=38.5816,-121.4944&amp;z=10&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1" aria-hidden="true"></iframe><span class="four-business-v3-map-radius" aria-hidden="true"></span><span class="four-map-location-pulse" aria-hidden="true"></span><span class="four-map-marker" aria-hidden="true"><span class="four-map-pin-lift"><svg class="four-map-marker-art" viewBox="0 0 34 42"><defs><linearGradient id="four-map-marker-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4c66e"/><stop offset="1" stop-color="#cc922e"/></linearGradient></defs><path d="M17 41c-3-5-14-15-14-24a14 14 0 1 1 28 0c0 9-11 19-14 24Z" fill="white" stroke="#e5e0d8" stroke-width=".7"/><circle cx="17" cy="17" r="10.8" fill="url(#four-map-marker-gold)"/><path d="m11 17 6-5 6 5m-10-1v7h8v-7m-6 7v-5h4v5" fill="none" stroke="white" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <span class="four-business-v3-note">Sacramento + nearby towns</span>
+          </div>
+<div class="four-business-v3-node four-business-v3-email"><span class="four-business-v3-label"><img src="/assets/gmail-icon.svg" width="28" height="28" alt="Gmail">Your email</span><strong>hello@example.com</strong><span class="four-business-v3-note">An inbox for new inquiries.</span></div>
+<div class="four-business-v3-node four-business-v3-reviews"><span class="four-business-v3-review-head"><img src="/assets/google-g.svg" width="32" height="32" alt="Google"><span>Google reviews</span></span><strong class="four-business-v3-stars" aria-label="Five example stars">★★★★★</strong><blockquote>“On time. Clean work.<br>A warmer home.”</blockquote><span class="four-business-v3-note">An example customer review.</span></div>
+<div class="four-business-v3-node four-business-v3-phone"><span class="four-business-v3-label"><span class="four-business-v3-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2c0 9 7 16 16 16a2 2 0 0 0 2-2v-3l-5-2-2 3a13 13 0 0 1-7-7l3-2-2-5Z"/></svg></span>Your phone</span><strong>(916) 555-0148</strong><span class="four-business-v3-note">Ready for the next call.</span></div>
+<div class="four-business-v3-node four-business-v3-trust"><span class="four-business-v3-label"><span class="four-business-v3-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"/><path d="m8 12 3 3 5-6"/></svg></span>Why choose you?</span><strong>Local. Reliable.<br>Experienced.</strong></div>
+<div class="four-business-v3-node four-business-v3-services"><span class="four-business-v3-label"><span class="four-business-v3-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6a5 5 0 0 0-6 6L3 17a2.8 2.8 0 0 0 4 4l5-5a5 5 0 0 0 6-6l-3 3-4-4 3-3Z"/></svg></span>Services you offer</span><div class="four-business-v3-service-list"><ul><li>Attic repairs</li><li>Air sealing</li><li>Insulation removal</li><li>Wall insulation</li><li>Crawl-space insulation</li><li>Attic cleanouts</li></ul></div></div>
+        </div>
+        <figcaption>Example business and details. Map shows Sacramento; the service-area circle is illustrative.</figcaption>
+      </figure>
+    </section>
+
+    <section class="four-section" id="website" aria-labelledby="four-website-title">
+      <span class="four-section-number" aria-label="Step 2">02</span>
+      <h2 class="four-title" id="four-website-title">We <span class="four-emphasis">build</span> you a<br>beautiful website.</h2>
+      <figure class="four-figure four-website-v5" aria-label="A new website for an example insulation business, with an actual video of the work">
+        <div class="four-website-v5-stage">
+<div class="four-business-website">
+            <div class="four-business-browser-bar"><span class="four-business-browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Your business. Your new website.</span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></div>
+            <div class="four-example-nav"><span>Oakline Insulation</span><span>Services&nbsp;&nbsp; Areas&nbsp;&nbsp; Contact</span></div>
+            <div class="four-business-website-media"><video src="/assets/trc-example-business.mp4" poster="/assets/trc-example-business-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Example insulation business website with a video of attic insulation work"></video><img class="four-business-static" src="/assets/trc-example-business-poster.jpg" width="1280" height="720" alt="Attic insulation work behind an example business website"><div class="four-example-copy"><span>Attic &amp; wall insulation · Sacramento</span><strong>Comfort starts<br>at home.</strong><span class="four-example-button">Get an estimate <span aria-hidden="true">↗</span></span></div></div>
+            <div class="four-business-built"><span class="four-business-built-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>We build your new website.</div>
+          </div>
+        </div>
+        <figcaption>Example website. Built around what your business does.</figcaption>
+      </figure>
+    </section>
+
+    <section class="four-section" id="seo" aria-labelledby="four-seo-title">
+      <span class="four-section-number" aria-label="Step 3">03</span>
+      <h2 class="four-title" id="four-seo-title">Your <span class="four-emphasis">SEO.</span><br>Handled every month.</h2>
+      <figure class="four-figure four-seo3" aria-label="Example SEO dashboard with an improving search impressions chart, an SEO score gauge, and a completed website inquiry">
+        <div class="four-seo3-shell">
+          <div class="four-seo3-top"><span class="four-seo3-domain"><img src="/assets/google-g.svg" alt="Google" width="21" height="21">Google &amp; your website</span><span class="four-seo3-example">Example monthly report</span></div>
+          <div class="four-seo3-grid">
+            <div class="four-seo3-performance">
+              <div class="four-seo3-metrics">
+                <div class="four-seo3-metric four-seo3-metric-blue"><span>Total impressions</span><strong class="four-seo3-count" aria-label="Example impressions rising from 1240 to 3680"><span aria-hidden="true"></span></strong><small>Search visibility</small></div>
+                <div class="four-seo3-metric four-seo3-metric-purple"><span>Website clicks</span><strong>128</strong><small>From Google Search</small></div>
+                <div class="four-seo3-metric four-seo3-metric-gold"><span>Inquiries</span><strong>12</strong><small>From your website</small></div>
+              </div>
+              <div class="four-seo3-chart-head"><span class="four-seo3-label">Search performance</span><span class="four-seo3-trend"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 11 7-7M4 4h6v6"/></svg>Impressions over time</span></div>
+              <div class="four-seo3-plot four-seo5-plot" role="img" aria-label="Illustrative daily Google search impressions from May 1 to July 29: 3,680 total impressions, with normal daily rises and dips. The final day has 64 impressions.">
+                <div class="four-seo5-chart-key" aria-hidden="true"><i></i><span>Daily impressions</span><span>Last 90 days</span></div>
+                <div class="four-seo5-chart-body" aria-hidden="true">
+                  <div class="four-seo3-axis four-seo5-axis"><span>90</span><span>60</span><span>30</span><span>0</span></div>
+                  <svg class="four-seo5-chart" viewBox="0 0 640 210" preserveAspectRatio="none">
+                    <defs><linearGradient id="four-seo5-area-gradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4285f4" stop-opacity=".08"/><stop offset="1" stop-color="#4285f4" stop-opacity="0"/></linearGradient><clipPath id="four-seo5-chart-clip"><rect class="four-seo3-reveal" width="640" height="210"/></clipPath></defs>
+                    <path class="four-seo5-grid" d="M0 18H640M0 78H640M0 138H640M0 198H640"/>
+                    <g clip-path="url(#four-seo5-chart-clip)"><path class="four-seo5-area" d="M0 160L7.19 176L14.38 160L21.57 152L28.76 150L35.96 172L43.15 168L50.34 160L57.53 154L64.72 164L71.91 146L79.1 148L86.29 154L93.48 166L100.67 140L107.87 146L115.06 130L122.25 128L129.44 132L136.63 168L143.82 164L151.01 142L158.2 138L165.39 130L172.58 124L179.78 132L186.97 142L194.16 144L201.35 118L208.54 128L215.73 136L222.92 128L230.11 138L237.3 134L244.49 136L251.69 144L258.88 128L266.07 144L273.26 132L280.45 138L287.64 130L294.83 134L302.02 112L309.21 120L316.4 104L323.6 104L330.79 108L337.98 134L345.17 118L352.36 112L359.55 98L366.74 104L373.93 110L381.12 68L388.31 128L395.51 114L402.7 96L409.89 110L417.08 90L424.27 106L431.46 88L438.65 142L445.84 118L453.03 74L460.22 100L467.42 96L474.61 86L481.8 92L488.99 98L496.18 98L503.37 78L510.56 46L517.75 84L524.94 86L532.13 72L539.33 92L546.52 88L553.71 62L560.9 86L568.09 56L575.28 68L582.47 82L589.66 76L596.85 84L604.04 72L611.24 74L618.43 70L625.62 76L632.81 52L640 70L640 198L0 198Z"/><path class="four-seo5-line" d="M0 160L7.19 176L14.38 160L21.57 152L28.76 150L35.96 172L43.15 168L50.34 160L57.53 154L64.72 164L71.91 146L79.1 148L86.29 154L93.48 166L100.67 140L107.87 146L115.06 130L122.25 128L129.44 132L136.63 168L143.82 164L151.01 142L158.2 138L165.39 130L172.58 124L179.78 132L186.97 142L194.16 144L201.35 118L208.54 128L215.73 136L222.92 128L230.11 138L237.3 134L244.49 136L251.69 144L258.88 128L266.07 144L273.26 132L280.45 138L287.64 130L294.83 134L302.02 112L309.21 120L316.4 104L323.6 104L330.79 108L337.98 134L345.17 118L352.36 112L359.55 98L366.74 104L373.93 110L381.12 68L388.31 128L395.51 114L402.7 96L409.89 110L417.08 90L424.27 106L431.46 88L438.65 142L445.84 118L453.03 74L460.22 100L467.42 96L474.61 86L481.8 92L488.99 98L496.18 98L503.37 78L510.56 46L517.75 84L524.94 86L532.13 72L539.33 92L546.52 88L553.71 62L560.9 86L568.09 56L575.28 68L582.47 82L589.66 76L596.85 84L604.04 72L611.24 74L618.43 70L625.62 76L632.81 52L640 70"/><circle class="four-seo5-end" cx="638" cy="70" r="2.7"/></g>
+                  </svg>
+                </div>
+              </div>
+              <div class="four-seo3-dates four-seo5-dates" aria-hidden="true"><span>May 1</span><span>Jun 1</span><span>Jul 1</span><span>Jul 29</span></div>
+              <div class="four-seo3-inquiry" aria-hidden="true">
+                <div class="four-seo3-inquiry-head"><span>Website inquiry</span><span class="four-seo3-sent"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 8 3 3 7-7"/></svg>Received</span></div>
+                <div class="four-seo3-form-row"><span>Name</span><span class="four-seo3-typed four-seo3-type-name">Alex Carter</span></div>
+                <div class="four-seo3-form-row"><span>Message</span><span class="four-seo3-typed four-seo3-type-message">“Can I get an estimate?”</span></div>
+                <div class="four-seo3-submit"><span>Send request</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10m-4-4 4 4-4 4"/></svg></div>
+              </div>
+            </div>
+            <div class="four-seo3-health">
+              <span class="four-seo3-label">Website health</span>
+              <div class="four-seo3-gauge" aria-label="Illustrative SEO score: 100 out of 100"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="four-seo3-gauge-track" cx="100" cy="100" r="85"/><circle class="four-seo3-gauge-fill" cx="100" cy="100" r="85" pathLength="100"/></svg><div class="four-seo3-gauge-value"><strong aria-hidden="true"></strong><span>SEO score</span></div></div>
+              <div class="four-seo3-checks">
+                <div><span>Technical SEO</span><strong>100</strong><i style="--four-bar:.98"></i></div>
+                <div><span>Page content</span><strong>96</strong><i style="--four-bar:.94"></i></div>
+                <div><span>Local search</span><strong>94</strong><i style="--four-bar:.92"></i></div>
+              </div>
+              <div class="four-seo3-report"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="4" y="2" width="12" height="16" rx="2"/><path d="M7 6h6M7 10h6M7 14h4"/></svg>Reviewed. Improved. Reported.</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Illustrative Google Search Console data, website inquiry and SEO checks. Results vary.</figcaption>
+      </figure>
+    </section>
+
+    <section class="four-section" id="pricing" aria-labelledby="four-price-title">
+      <span class="four-section-number" aria-label="Step 4">04</span>
+      <h2 class="four-title" id="four-price-title">One <span class="four-emphasis">subscription.</span><span class="four-title-price">$103.30/month.</span></h2>
+      <figure class="four-figure four-sub3" aria-label="One subscription includes your new website, monthly SEO and reporting, hosting and maintenance, and website lead alerts">
+        <a class="four-sub3-core" href="#leads"><span class="four-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>One subscription</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3v14m-5-5 5 5 5-5"/></svg></a>
+        <div class="four-sub3-stem" aria-hidden="true"><i></i></div>
+        <div class="four-sub3-grid">
+          <div class="four-sub3-card four-sub3-website">
+            <div class="four-sub3-scene four-sub3-website-scene" aria-hidden="true"><div class="four-sub3-mini-browser"><div class="four-sub3-chrome"><i></i><i></i><i></i><span>yourbusiness.com</span></div><div class="four-sub3-mini-site"><span class="four-sub3-site-logo"></span><span class="four-sub3-site-nav"></span><strong>A great first<br>impression.</strong><div class="four-sub3-site-copy"></div><div class="four-sub3-site-button"></div><div class="four-sub3-site-photo"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.1"><path d="m6 21 14-12 14 12M10 18v16h20V18M17 34V24h7v10"/></svg></div></div></div><div class="four-sub3-build-progress"><i></i></div></div>
+            <h3>Your new website</h3><p>Built around your business.</p>
+          </div>
+          <div class="four-sub3-card four-sub3-seo">
+            <div class="four-sub3-scene four-sub3-seo-scene" aria-hidden="true"><div class="four-sub3-mini-chart"><span><img src="/assets/google-g.svg" alt="" width="12" height="12">Search performance</span><svg viewBox="0 0 160 76" preserveAspectRatio="none"><path class="four-sub3-chart-grid" d="M0 18H160M0 45H160M0 72H160"/><path class="four-sub3-chart-line" d="M3 67C17 65 22 51 37 55S57 45 70 47 89 32 102 36 120 20 133 22 145 13 157 6" pathLength="100"/></svg></div><div class="four-sub3-mini-report"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M4 1.5h5l3 3V14H4ZM9 2v3h3M6 8h4M6 10.5h4"/></svg><span></span><span></span><span></span></div></div>
+            <h3>Monthly SEO + reporting</h3><p>Improve. Measure. Repeat.</p>
+          </div>
+          <div class="four-sub3-card four-sub3-hosting">
+            <div class="four-sub3-scene four-sub3-host-scene" aria-hidden="true"><div class="four-sub3-server"><div><span></span><i></i><b></b></div><div><span></span><i></i><b></b></div><div><span></span><i></i><b></b></div></div><div class="four-sub3-server-status"><i></i>Always looked after</div></div>
+            <h3>Hosting + maintenance</h3><p>We keep your site running.</p>
+          </div>
+          <div class="four-sub3-card four-sub3-alerts">
+            <div class="four-sub3-scene four-sub3-alert-scene" aria-hidden="true"><div class="four-sub3-alert"><img src="/assets/whatsapp-icon.svg" alt="" width="23" height="23"><div><span>WHATSAPP <i>now</i></span><strong>New website inquiry</strong><p>“Can I get an estimate?”</p></div></div><div class="four-sub3-alert four-sub3-alert-second"><img src="/assets/whatsapp-icon.svg" alt="" width="23" height="23"><div><span>WHATSAPP <i>now</i></span><strong>Another new inquiry</strong><p>“Are you available?”</p></div></div></div>
+            <h3>Website lead alerts</h3><p>New inquiries, sent to you.</p>
+          </div>
+        </div>
+        <figcaption>No minimum term. Domain registration is separate. Graphics are illustrative.</figcaption>
+      </figure>
+    </section>
+
+    <section class="four-section" id="leads" aria-labelledby="four-leads-title">
+      <span class="four-section-number" aria-label="Step 5">05</span>
+      <h2 class="four-title" id="four-leads-title">Get <span class="four-emphasis">leads.</span></h2>
+      <div class="four-final-action"><a class="four-cta" href="#signup">Get started<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <figure class="four-figure four-leads" aria-label="Illustrative website inquiries arriving as WhatsApp notifications">
+        <div class="four-lead-orbit" aria-hidden="true"></div>
+        <div class="four-lead-phone">
+          <div class="four-phone-status" aria-hidden="true"><span>9:41</span><span>▮▮▮ ◖ ◔</span></div>
+          <div class="four-phone-clock" aria-hidden="true">9:41</div>
+          <div class="four-phone-day" aria-hidden="true">Your next inquiry could be here.</div>
+          <div class="four-notifications">
+            <div class="four-notification"><img src="/assets/whatsapp-icon.svg" alt=""><div><div class="four-notification-meta"><span>WHATSAPP · YOUR BUSINESS</span><span>now</span></div><strong>New website inquiry</strong><p>Alex Carter<br>“Can I get an estimate?”</p></div></div>
+            <div class="four-notification"><img src="/assets/whatsapp-icon.svg" alt=""><div><div class="four-notification-meta"><span>WHATSAPP · YOUR BUSINESS</span><span>now</span></div><strong>New website inquiry</strong><p>Jordan Lee<br>“Can you call me about a project?”</p></div></div>
+            <div class="four-notification"><img src="/assets/whatsapp-icon.svg" alt=""><div><div class="four-notification-meta"><span>WHATSAPP · YOUR BUSINESS</span><span>now</span></div><strong>New website inquiry</strong><p>Sam Rivera<br>“Are you available for a quote?”</p></div></div>
+          </div>
+          <div class="four-phone-home" aria-hidden="true"></div>
+        </div>
+        <figcaption>Illustrative notifications and contacts.</figcaption>
+      </figure>
+
+    </section>
+  </main>
+</div>
+<dialog id="four-intake-dialog" class="four-intake-dialog" aria-label="Get started with The Ready Consult">
+  <div class="four-intake-glow" aria-hidden="true"></div>
+  <div class="bottom-cta-panel four-intake-panel form-open">
+    <div class="cta-form-shell">
+      <button class="cta-form-close" type="button">← Back</button>
+      <form id="signup-form"></form>
+    </div>
+    <div class="signup-flow-card" hidden>
+      <button class="checkout-back" type="button">← Back</button>
+      <h2 class="signup-choice-heading" tabindex="-1">How would you like to get started?</h2>
+      <div class="next-choices">
+        <section class="next-choice" aria-labelledby="four-choice-call">
+          <svg class="choice-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M8 15h3"/></svg>
+          <h3 id="four-choice-call">Book a call</h3>
+          <a class="call-link choice-button" href="https://calendly.com/thereadyconsult/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        </section>
+        <span class="choice-divider" aria-hidden="true"></span>
+        <section class="next-choice" aria-labelledby="four-choice-start">
+          <svg class="choice-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8l4 4-4 4"/></svg>
+          <h3 id="four-choice-start">Get started now</h3>
+          <button class="checkout-link choice-button" type="button" disabled>Start subscription</button>
+          <small>Checkout is disabled in this preview.</small>
+        </section>
+      </div>
+    </div>
+    <p class="four-preview-note">Design preview · Your details stay in this browser. Nothing is submitted or charged.</p>
+  </div>
+</dialog>
+</body>
+</html>

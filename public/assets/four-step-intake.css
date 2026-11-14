@@ -1,0 +1,76 @@
+body.four-intake-open{overflow:hidden}
+@property --intake-glow-x{syntax:'<percentage>';inherits:false;initial-value:0%}
+@property --intake-glow-y{syntax:'<percentage>';inherits:false;initial-value:0%}
+body.four-intake-open .four-header{position:fixed;inset:0 0 auto;z-index:1;width:100%;background:#fff;border-bottom:1px solid #ededed}
+.four-intake-dialog{--intake-gutter:clamp(16px,2.5vw,48px);box-sizing:border-box;inset:var(--four-intake-top,96px) 0 var(--intake-gutter);width:calc(100% - 2 * var(--intake-gutter));height:calc(100dvh - var(--four-intake-top,96px) - var(--intake-gutter));max-width:none;max-height:calc(100dvh - var(--four-intake-top,96px) - var(--intake-gutter));margin:0 auto;padding:0;border:1px solid #ffd07b26;border-radius:30px;color:#f5f6f8;font-family:Inter,Arial,sans-serif;box-shadow:0 16px 50px #00000012;overscroll-behavior:contain;color-scheme:dark;overflow:auto}
+.four-intake-dialog::backdrop{background:linear-gradient(to bottom,transparent 0 var(--four-intake-top,96px),#fff var(--four-intake-top,96px) 100%)}
+.four-intake-dialog:not([open]){display:none}
+.four-intake-dialog [hidden]{display:none!important}
+.four-intake-dialog{--intake-radius:30px;background:linear-gradient(145deg,#191b1e,#17191d 55%,#1b1c1f);isolation:isolate}
+.four-intake-glow{position:sticky;top:0;height:0;pointer-events:none;z-index:0}
+.four-intake-glow::before{--intake-halo:clamp(32px,8vw,140px);content:'';position:absolute;inset:0 0 auto;height:calc(100dvh - var(--four-intake-top,96px) - var(--intake-gutter) - 2px);border-radius:var(--intake-radius);background:radial-gradient(ellipse clamp(190px,28vw,640px) clamp(190px,36vh,400px) at var(--intake-glow-x) var(--intake-glow-y),#e9a63c99 0%,#e9a63c38 25%,#e9a63c0d 48%,transparent 72%),radial-gradient(ellipse clamp(190px,28vw,640px) clamp(190px,36vh,400px) at calc(100% - var(--intake-glow-x)) calc(100% - var(--intake-glow-y)),#ffd07b9e 0%,#e9a63c42 25%,#e9a63c0d 48%,transparent 72%);mask-image:linear-gradient(to right,#000,transparent var(--intake-halo),transparent calc(100% - var(--intake-halo)),#000),linear-gradient(to bottom,#000,transparent var(--intake-halo),transparent calc(100% - var(--intake-halo)),#000);animation:four-intake-edge-light 32s ease-in-out infinite;animation-play-state:paused}
+.four-intake-dialog[open] .four-intake-glow::before{animation-play-state:running}
+@keyframes four-intake-edge-light{0%,100%{--intake-glow-x:0%;--intake-glow-y:0%}25%{--intake-glow-x:100%;--intake-glow-y:0%}50%{--intake-glow-x:100%;--intake-glow-y:100%}75%{--intake-glow-x:0%;--intake-glow-y:100%}}
+.four-intake-dialog .four-intake-panel{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4.5vw,56px)!important;min-height:100%!important;max-width:none;border:0;background:transparent;color:#f5f6f8}
+.four-intake-dialog .cta-form-shell{width:min(100%,820px);margin:0 auto}
+.four-intake-dialog #intake-form{position:relative;color:#f5f6f8;min-height:610px}
+.four-intake-dialog #intake-form .intake-heading{color:#f5f6f8;margin-top:52px;font-weight:550;outline:none}
+.four-intake-dialog #intake-form .intake-back,.four-intake-dialog #intake-form .intake-progress,.four-intake-dialog .checkout-back{color:#cdd1d8}
+.four-intake-dialog #intake-form .intake-bars i{background:#41454e}
+.four-intake-dialog #intake-form .intake-bars i.active{background:#e9a63c;box-shadow:0 0 9px #e9a63c20}
+.four-intake-dialog #intake-form label:not(.channel-option):not(.website-pill):not(.intake-trap){color:#d9dce2;font-weight:400}
+.four-intake-dialog #intake-form label input:not([type=radio]),.four-intake-dialog #intake-form textarea{border-color:#4b505b;background:#24272d!important;color:#f5f6f8!important;-webkit-text-fill-color:#f5f6f8!important;caret-color:#f5f6f8}
+.four-intake-dialog #intake-form label input::placeholder,.four-intake-dialog #intake-form textarea::placeholder{color:#9ca3af!important;-webkit-text-fill-color:#9ca3af!important}
+.four-intake-dialog #intake-form label input:focus,.four-intake-dialog #intake-form textarea:focus{border-color:#f5f6f8;background:#24272d!important;color:#f5f6f8!important;-webkit-text-fill-color:#f5f6f8!important}
+.four-intake-dialog #intake-form label input.is-complete:not(:focus),.four-intake-dialog #intake-form textarea.is-complete:not(:focus){border-color:#45b77f}
+.four-intake-dialog #intake-form label input:-webkit-autofill,.four-intake-dialog #intake-form label input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #24272d inset!important;-webkit-text-fill-color:#f5f6f8!important}
+.four-intake-dialog #intake-form .channel-option,.four-intake-dialog #intake-form .website-pill{background:#24272d;border-color:#4b505b;color:#f5f6f8}
+.four-intake-dialog #intake-form .channel-option.selected,.four-intake-dialog #intake-form .website-pill.selected{border-color:#45b77f;background:#213029}
+.four-intake-dialog #intake-form .channel-title{color:#f5f6f8;font-weight:400}
+.four-intake-dialog #intake-form .channel-option small,.four-intake-dialog #intake-form .intake-domain label span,.four-intake-dialog #intake-form .intake-url label span{color:#b0b7c1}
+.four-intake-dialog #intake-form .channel-icon{background:#fff}
+.four-intake-dialog #intake-form .intake-phone{background:#1d2025;border-color:#393e47}
+.four-intake-dialog #intake-form .intake-phone p,.four-intake-dialog #intake-form .intake-domain p,.four-intake-dialog #intake-form .intake-note{color:#c4c9d3}
+.four-intake-dialog #intake-form .intake-error{position:absolute;left:0;right:0;bottom:110px;margin:0;line-height:1.4;color:#ffb7a9}
+.four-intake-dialog #intake-form .intake-next,.four-intake-dialog #intake-form .intake-submit{background:#f5f6f8;color:#17191d;font-weight:500}
+.four-intake-dialog #intake-form .intake-next:hover,.four-intake-dialog #intake-form .intake-submit:hover{background:#fff}
+.four-intake-dialog button:focus-visible,.four-intake-dialog a:focus-visible{outline:2px solid #e9a63c;outline-offset:5px}
+.four-intake-dialog #intake-form .website-pill:has(input:focus-visible),.four-intake-dialog #intake-form .channel-option:has(input:focus-visible){outline:2px solid #e9a63c;outline-offset:4px}
+.four-intake-dialog .four-preview-note{width:min(100%,820px);margin:16px auto 0;color:#c4c9d3;font-size:11px;line-height:1.5}
+.four-intake-dialog .signup-flow-card{width:min(100%,820px);min-height:610px;margin:0 auto;padding:0;background:transparent;box-shadow:none}
+.four-intake-dialog .signup-choice-heading{color:#f5f6f8;outline:none}
+.four-intake-dialog .next-choice{background:transparent}
+.four-intake-dialog .choice-divider{background:#3c414a}
+.four-intake-dialog .choice-icon,.four-intake-dialog .next-choice h3{color:#f5f6f8}
+.four-intake-dialog .next-choice .choice-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;width:min(100%,190px);margin:0;padding:14px 18px;border:0;border-radius:999px;background:#f5f6f8;color:#17191d;font:inherit;font-size:15px;font-weight:500;text-decoration:none;line-height:1.3}
+.four-intake-dialog .next-choice .choice-button:disabled{opacity:.5;cursor:not-allowed}
+.four-intake-dialog .next-choice .choice-button:hover{background:#fff;color:#17191d}
+.four-intake-dialog .next-choice small{margin-top:12px;color:#c4c9d3;font-size:11px}
+/* Fixed rows reserve the same heading, questions and action positions per step. */
+.four-intake-dialog{overflow:hidden}
+.four-intake-dialog .four-intake-panel{height:100%;min-height:0!important;overflow:hidden}
+.four-intake-dialog .cta-form-shell{flex:1;min-height:0;max-height:760px}
+.four-intake-dialog #intake-form{height:100%;min-height:0;display:grid;grid-template-rows:24px 150px minmax(0,1fr) 44px 64px}
+.four-intake-dialog #intake-form .intake-heading{min-height:0;margin:0;padding-top:36px;align-self:stretch}
+.four-intake-dialog #intake-form .intake-body{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 12px 10px 0;scrollbar-width:thin;scrollbar-color:#51545b transparent}
+.four-intake-dialog #intake-form .intake-body:focus-visible{outline:1px solid #777;outline-offset:3px}
+.four-intake-dialog #intake-form .intake-business-fields{display:grid;gap:28px}
+.four-intake-dialog #intake-form .intake-business-fields textarea{min-height:120px;resize:none}
+.four-intake-dialog #intake-form .intake-setup{display:grid;gap:26px}
+.four-intake-dialog #intake-form .intake-question{margin:0;padding:0;border:0;min-width:0}
+.four-intake-dialog #intake-form .intake-question legend{padding:0;margin-bottom:13px;font-size:16px;font-weight:500;line-height:1.4;color:#f5f6f8}
+.four-intake-dialog #intake-form .intake-pills{display:flex;flex-wrap:wrap;gap:10px}
+.four-intake-dialog #intake-form .intake-followup{margin-top:18px}
+.four-intake-dialog #intake-form .intake-followup label span{font-weight:400;color:#b0b7c1}
+.four-intake-dialog #intake-form .intake-domain-summary,.four-intake-dialog #intake-form .intake-contact-email{margin:18px 0 0;color:#c4c9d3;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+.four-intake-dialog #intake-form .intake-feedback{padding-top:8px;min-height:0}
+.four-intake-dialog #intake-form .intake-scroll-hint{color:#b0b7c1;font-size:11px;line-height:18px}
+.four-intake-dialog #intake-form .intake-error{position:static;margin:0;font-size:12px;line-height:18px}
+.four-intake-dialog #intake-form .intake-actions{min-height:0;margin:0;align-items:flex-end}
+.four-intake-dialog #intake-form .intake-next,.four-intake-dialog #intake-form .intake-submit{width:160px;min-width:160px;min-height:49px;padding:15px 24px}
+.four-intake-dialog .signup-flow-card{flex:1;min-height:0;max-height:760px;overflow:auto}
+.four-intake-dialog .four-preview-note{flex:none}
+@media(prefers-reduced-motion:reduce){.four-intake-dialog[open] .four-intake-glow::before{animation:none}}
+@media(max-width:650px){.four-intake-dialog{--intake-gutter:12px;--intake-radius:24px;border-radius:24px}.four-intake-dialog .four-intake-panel{padding:26px 20px!important}.four-intake-dialog #intake-form{grid-template-rows:24px 116px minmax(0,1fr) 56px 64px;min-height:0}.four-intake-dialog #intake-form .intake-heading{margin:0;padding-top:26px}.four-intake-dialog #intake-form .intake-body{padding-right:8px}.four-intake-dialog #intake-form .intake-question legend{font-size:15px}.four-intake-dialog #intake-form .website-pill{padding:10px 15px;min-width:60px;font-size:13px}.four-intake-dialog #intake-form .website-pill.selected{padding:9px 14px}.four-intake-dialog .signup-flow-card{min-height:0}.four-intake-dialog .next-choice .choice-button{padding:12px 8px;font-size:12px}}
+@media(max-height:560px){.four-intake-dialog{overflow:auto}.four-intake-dialog .four-intake-panel{min-height:460px!important;padding-top:20px!important;padding-bottom:20px!important}.four-intake-dialog #intake-form{grid-template-rows:24px 100px minmax(0,1fr) 44px 56px}.four-intake-dialog #intake-form .intake-heading{padding-top:20px}}
+@media(max-width:650px) and (min-height:561px) and (max-height:760px){.four-intake-dialog .four-intake-panel{padding-top:20px!important;padding-bottom:20px!important}.four-intake-dialog #intake-form{grid-template-rows:24px 104px minmax(0,1fr) 40px 56px}.four-intake-dialog #intake-form .intake-heading{padding-top:22px}.four-intake-dialog #intake-form .intake-setup{gap:18px}.four-intake-dialog #intake-form .intake-question legend{margin-bottom:10px}.four-intake-dialog .four-preview-note{margin-top:12px;font-size:10px}}

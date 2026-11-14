@@ -1,0 +1,64 @@
+source root: /Users/admin/trc/worktrees/five-step-release-20261114/src
+
+Presence checks — /Users/admin/trc/worktrees/five-step-release-20261114
+(la regla es el contrato, no la ruta del archivo)
+
+  ✗ rule 2 — intro curtain component exists and is mounted in the layout
+  ✗ rule 68 — the intro animates the mark, not just an opacity fade
+  ✗ rule 80 — the intro does not start in a background tab
+  ✓ rule 4 — the intro is once per session and skips under reduced motion
+  ✗ rule 4b — the intro can be dismissed from the keyboard
+  ✗ rule 59 — the intro guarantees the scroll unlock (cleanup or failsafe timer)
+  ✓ rule 57 — a utility bar exists carrying a mailto: and a tel:
+  ✓ rule 58 — utility bar links clear the 44px tap floor
+  ✓ rule 63b — the header renders a logo component, not only a text wordmark
+  ✓ rule 63b — the logo is not still the scaffold LOGO placeholder
+  ✗ rule 64 — the header CTA is a converting action, not a tel: link
+  ✗ rule 75 — buttons come from a .btn class rather than per-instance padding
+  ~ rule 65/66 — services dropdown (no aplica: 2 servicios; la regla pide >4)
+  ✓ rule 76 — each service carries a vector glyph drawn for the trade
+  ✓ rule 77 — card hover is a wash of ground, not a lift
+  ✓ rule 29 — FAQs are an accordion with FAQPage schema
+  ✗ rule A11.1 — no dead prose-* classes (the typography plugin is not installed)
+  ✗ rule A11.1 — article bodies have real styles (.article-body defined and used)
+  ✓ rule A11.4 — articles render their own lead photograph (built HTML)
+  ✓ rule A11.5 — related content is a scroll-snap track, not a bare list
+  ✗ rule A11.6 — one closing CTA above the footer, mounted in the layout
+  ✗ rule A11.6 — the closer is silenced on /contact and /thank-you
+  ✗ rule A12.1 — mobile menu is a right-hand drawer over a dark scrim
+  ✗ rule A12.2 — the drawer is hidden with visibility, not opacity alone
+  ✓ rule A12.4 — no CTA inside the drawer (the bar sits above it)
+  ✗ rule A12.10 — mobile action-bar wiring observes actual hero geometry
+  ✗ rule A12.9 — components owning display own their breakpoints in CSS too
+  ✗ rule A12.8 — the page reserves space for the fixed bar
+  ✗ rule 7 — one shell class carries the grid; nothing rolls its own max-w + mx-auto
+  ✗ rule 54 — the H1 names the primary city
+  ✗ rule 55 — the H1 renders through the reveal component, not as a bare string
+  ✗ rule A15.2 — the H1 forces its own line break (no orphaned preposition)
+  ✗ rule A15.1 — the intro runs 2.5s or longer
+  ✗ rule A15.3 — route navigation is a transition, not a cut
+  ✗ rule 41 — no em dashes in shipped copy
+  ✓ rule 34 — no captcha sitekey — Turnstile is Web3Forms PRO and 400s every submit
+  ✓ rule A16.4 — the hero scrim does not bury the footage (weighted, not a flat wash)
+  ✓ rule A16.5 — the intro plays the footage, not a dimmed wash of it
+  ✗ rule TRC1 — footer carries the canonical TrcCredit, not hand-typed text
+  ✓ rule A16.7 — no two service/programme pages share a hero image
+  ✓ rule A15.2b — every heading is balanced (text-wrap: balance in the base layer)
+  ✓ rule A15.2b — body copy cannot end on a single-word widow (text-wrap: pretty)
+  ✓ rule A17.5 — every route emits an og:image
+  ✗ rule A17.1 — og:image is not absolute (metadataBase missing or relative)
+  ✗ rule A17.4 — og:image carries alt, type, width and height
+  ✓ rule A17.4 — twitter card is summary_large_image
+  ~ rule A17.2/A17.3 — share card file (no aplica: no resoluble localmente ())
+  ✓ rule A17.6 — the Web3Forms subject carries no domain
+  ✗ rule P8 — no Lorem / example.com left in src
+  ✓ rule A14.6 — Web3Forms key configured
+  ✗ rule A14.5 — at least three blog posts at launch
+  ✗ rule A14.4 — stock casting decision recorded in ASSETS.md
+  ✗ rule 12 — every stock slot logged in ASSETS.md
+  ✗ rule P10 — a favicon exists and is not the Next.js default
+  ✓ rule 50 — the hero media is eager, never lazy
+
+Presence checks: 22 passed, 2 n/a, 31 FAILED
+Cada fallo es una AUSENCIA, que el resto de la puerta no puede ver.
+Reglas: ~/trc/playbooks/trc-workflow/design-rules.md

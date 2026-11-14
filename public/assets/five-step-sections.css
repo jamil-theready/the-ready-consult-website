@@ -1,0 +1,89 @@
+/* Step 1 is a physical business, with fixed detail cards around it. */
+.four-business-v5 .four-business-v5-scene{position:relative;min-height:clamp(810px,68vw,940px);isolation:isolate}
+.four-business-v5-business{position:absolute;z-index:0;left:18%;top:36px;width:64%;text-align:center}
+.four-business-v5-business:before{content:'';position:absolute;z-index:-1;inset:15% 5% 2%;background:radial-gradient(ellipse,#f5eee1 0%,#faf8f4 28%,#fff 72%);border-radius:50%;pointer-events:none}
+.four-business-v5-art{display:block;width:100%;height:auto;overflow:visible}
+.four-business-v5-name{display:block;margin-top:-12px;font-size:18px;font-weight:500;line-height:1.35;letter-spacing:-.03em;color:#4b535c}
+.four-business-v5-name>span{display:block;margin-top:5px;font-size:12px;font-weight:400;color:#7b828a;letter-spacing:-.01em}
+.four-business-v5 .four-business-v3-node{position:absolute;z-index:3;animation:none;transform:none}
+.four-business-v5 .four-business-v3-node .four-business-v3-label{font-size:17px;font-weight:600;line-height:1.3;letter-spacing:-.03em;color:#30363d;gap:10px;margin-bottom:15px}
+.four-business-v5 .four-business-v3-review-head{font-size:17px;font-weight:600;line-height:1.3;letter-spacing:-.03em;color:#30363d;gap:12px}
+.four-business-v5 .four-business-v3-node>strong{font-size:15px;font-weight:500;line-height:1.45}
+.four-business-v5 .four-business-v3-node .four-business-v3-note{font-size:11px;line-height:1.5}
+.four-business-v5 .four-business-v3-email{left:2%;top:70px;bottom:auto;width:24%}
+.four-business-v5 .four-business-v3-areas{left:0;top:295px;bottom:auto;width:25%}
+.four-business-v5 .four-business-v3-areas>strong{font-size:14px;font-weight:500;margin-bottom:14px}
+.four-business-v5 .four-business-v3-areas .four-business-v3-map{height:160px}
+.four-business-v5 .four-business-v3-reviews{right:0;top:55px;bottom:auto;width:24%}
+.four-business-v5 .four-business-v3-node>.four-business-v3-stars{font-size:28px;font-weight:400;letter-spacing:.06em}
+.four-business-v5 .four-business-v3-reviews blockquote{font-size:14px;line-height:1.5}
+.four-business-v5 .four-business-v3-phone{right:1%;top:350px;bottom:auto;width:24%}
+.four-business-v5 .four-business-v3-trust{right:2%;top:565px;bottom:auto;width:24%}
+.four-business-v5 .four-business-v3-services{left:28%;right:auto;top:auto;bottom:0;width:44%;padding:24px 28px 22px;text-align:center}
+.four-business-v5 .four-business-v3-services .four-business-v3-label{justify-content:center;margin-bottom:18px}
+.four-business-v5 .four-business-v3-service-list{height:100px;mask-image:linear-gradient(#000 62%,transparent);-webkit-mask-image:linear-gradient(#000 62%,transparent)}
+.four-business-v5 .four-business-v3-service-list ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px;row-gap:0;text-align:left;margin:0 auto;max-width:420px}
+.four-business-v5 .four-business-v3-service-list li{font-size:13px;line-height:1.45;margin-bottom:15px}
+.four-business-v5-wires{position:absolute;z-index:1;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.four-business-v5 .four-business-v3-wire-pulse use{animation-duration:6.4s}
+.four-business-v5-worker-arm{transform-box:fill-box;transform-origin:90% 90%;animation:four-business-v5-repair 6.4s cubic-bezier(.45,0,.25,1) infinite}
+.four-business-v5-seal-line{stroke-dasharray:100;stroke-dashoffset:0;animation:four-business-v5-seal 6.4s cubic-bezier(.16,1,.3,1) infinite}
+.four-business-v5-house-light{opacity:.85;animation:four-business-v5-window 6.4s ease-in-out infinite}
+.four-business-v5-van-light{opacity:.5;animation:four-business-v5-headlight 6.4s ease-in-out infinite}
+.four-business-v5 figcaption{font-size:11px;line-height:1.5;margin-top:26px;color:#72757b;text-align:center}
+@keyframes four-business-v5-repair{0%,12%,70%,100%{transform:rotate(0)}29%,40%{transform:rotate(-7deg)}51%,60%{transform:rotate(-3deg)}}
+@keyframes four-business-v5-seal{0%,14%{stroke-dashoffset:100;opacity:.3}56%,86%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes four-business-v5-window{0%,100%{opacity:.75}45%,65%{opacity:1}}
+@keyframes four-business-v5-headlight{0%,62%,86%,100%{opacity:.2}68%,78%{opacity:1}}
+@media(max-width:1100px) and (min-width:901px){.four-business-v5 .four-business-v5-scene{min-height:835px}.four-business-v5-business{top:100px;left:16%;width:68%}.four-business-v5 .four-business-v3-node{padding:17px}.four-business-v5 .four-business-v3-node .four-business-v3-label,.four-business-v5 .four-business-v3-review-head{font-size:15px;gap:7px}.four-business-v5 .four-business-v3-label .four-business-v3-icon{width:24px;height:24px}.four-business-v5 .four-business-v3-node>strong{font-size:13px}.four-business-v5 .four-business-v3-areas{top:290px;width:27%}.four-business-v5 .four-business-v3-areas>strong{font-size:12px}.four-business-v5 .four-business-v3-email{left:0;width:28%;top:65px}.four-business-v5 .four-business-v3-reviews{width:26%;top:55px}.four-business-v5 .four-business-v3-phone{right:0;width:26%;top:350px}.four-business-v5 .four-business-v3-trust{right:0;top:555px;width:26%}.four-business-v5 .four-business-v3-services{width:46%;left:27%;padding:22px 22px 20px}.four-business-v5 .four-business-v3-service-list li{font-size:12px}.four-business-v5 .four-business-v3-node>.four-business-v3-stars{font-size:24px}.four-business-v5 .four-business-v3-reviews blockquote{font-size:13px}}
+@media(max-width:900px){.four-business-v5 .four-business-v5-scene{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;min-height:0}.four-business-v5-business{position:relative;inset:auto;grid-column:1/-1;order:0;width:100%;margin:0 auto 24px;max-width:640px}.four-business-v5-name{font-size:19px;margin-top:-8px}.four-business-v5-name>span{font-size:12px}.four-business-v5 .four-business-v3-node{position:relative;inset:auto;min-width:0;width:auto!important;padding:22px;z-index:3}.four-business-v5 .four-business-v3-areas{order:1}.four-business-v5 .four-business-v3-reviews{order:2}.four-business-v5 .four-business-v3-email{order:3}.four-business-v5 .four-business-v3-phone{order:4}.four-business-v5 .four-business-v3-trust{order:5;grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px}.four-business-v5 .four-business-v3-trust .four-business-v3-label{margin:0}.four-business-v5 .four-business-v3-trust>strong{font-size:14px}.four-business-v5 .four-business-v3-trust>strong br{display:none}.four-business-v5 .four-business-v3-services{order:6;grid-column:1/-1;width:100%!important;padding:25px 28px 22px}.four-business-v5 .four-business-v3-node .four-business-v3-label,.four-business-v5 .four-business-v3-review-head{font-size:16px;gap:10px}.four-business-v5 .four-business-v3-node>strong{font-size:14px}.four-business-v5 .four-business-v3-areas>strong{font-size:13px}.four-business-v5 .four-business-v3-areas .four-business-v3-map{height:160px}.four-business-v5 .four-business-v3-service-list ul{max-width:440px}.four-business-v5-wires{display:none!important}.four-business-v5 figcaption{font-size:10px;margin-top:23px}}
+@media(max-width:480px){.four-business-v5 .four-business-v5-scene{gap:12px}.four-business-v5-business{margin-bottom:22px}.four-business-v5-name{font-size:15px;margin-top:0}.four-business-v5-name>span{font-size:11px}.four-business-v5 .four-business-v3-node{padding:15px}.four-business-v5 .four-business-v3-node .four-business-v3-label,.four-business-v5 .four-business-v3-review-head{font-size:13px;line-height:1.3;gap:7px;margin-bottom:14px}.four-business-v5 .four-business-v3-label .four-business-v3-icon{width:24px;height:24px;flex:none}.four-business-v5 .four-business-v3-label>img{width:23px;height:23px}.four-business-v5 .four-business-v3-review-head img{width:25px;height:25px}.four-business-v5 .four-business-v3-node>strong{font-size:12px}.four-business-v5 .four-business-v3-areas>strong{font-size:11px;margin-bottom:12px}.four-business-v5 .four-business-v3-node .four-business-v3-note{font-size:10px}.four-business-v5 .four-business-v3-reviews blockquote{font-size:12px;line-height:1.5}.four-business-v5 .four-business-v3-node>.four-business-v3-stars{font-size:22px;letter-spacing:.02em;margin-top:18px}.four-business-v5 .four-business-v3-trust{display:block;text-align:center;padding:18px}.four-business-v5 .four-business-v3-trust .four-business-v3-label{justify-content:center;margin-bottom:9px}.four-business-v5 .four-business-v3-trust>strong{font-size:13px}.four-business-v5 .four-business-v3-services{padding:23px 20px 20px}.four-business-v5 .four-business-v3-services .four-business-v3-label{font-size:15px;margin-bottom:20px}.four-business-v5 .four-business-v3-service-list ul{column-gap:14px}.four-business-v5 .four-business-v3-service-list li{font-size:12px;line-height:1.45;padding-left:11px;margin-bottom:16px}.four-business-v5 figcaption{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.four-business-v5-worker-arm,.four-business-v5-seal-line,.four-business-v5-house-light,.four-business-v5-van-light{animation:none!important;transform:none!important;opacity:1}.four-business-v5-seal-line{stroke-dashoffset:0}.four-business-v5 .four-business-v3-wire-pulse{display:none}}
+
+/* Step 2 gives the website its own generous, unobstructed stage. */
+.four-website-v5{padding:0}
+.four-website-v5-stage{position:relative;padding:12px 24px 35px;isolation:isolate}
+.four-website-v5-stage:before{content:'';position:absolute;z-index:-1;left:10%;right:10%;top:30%;bottom:0;background:radial-gradient(ellipse,#eef1f3,transparent 70%);pointer-events:none}
+.four-website-v5 .four-business-website{position:relative;inset:auto;width:100%;max-width:1180px;margin:0 auto;padding:0;overflow:hidden;border:1px solid #e5e8eb;border-radius:25px;background:#fff;box-shadow:0 3px 8px #18232b04,0 35px 80px -40px #1c293b4a;transform:none;animation:none}
+.four-website-v5 .four-business-browser-bar{min-height:52px;padding:0 21px;border-bottom:1px solid #edf0f2}
+.four-website-v5 .four-business-browser-bar>span:nth-child(2){font-size:13px;font-weight:400;color:#6b737b}
+.four-website-v5 .four-business-browser-dots{gap:5px}.four-website-v5 .four-business-browser-dots i{width:6px;height:6px}
+.four-website-v5 .four-example-nav{padding:22px 30px;font-size:18px;font-weight:600;letter-spacing:-.035em;line-height:1.3}
+.four-website-v5 .four-example-nav>span:last-child{font-size:12px;font-weight:400;color:#77808a}
+.four-website-v5 .four-business-website-media{margin:0 8px;padding:0;border-radius:11px;overflow:hidden}
+.four-website-v5 .four-business-website video,.four-website-v5 .four-business-static{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.four-website-v5 .four-business-static{display:none}
+.four-website-v5 .four-example-copy{padding:8%;justify-content:center}
+.four-website-v5 .four-example-copy>span:first-child{font-size:14px;line-height:1.4;letter-spacing:-.015em}
+.four-website-v5 .four-example-copy>strong{font-size:clamp(34px,5.2vw,72px);font-weight:600;line-height:1.03;letter-spacing:-.055em;margin:22px 0 31px}
+.four-website-v5 .four-example-button{padding:14px 18px;font-size:13px;gap:32px;border-radius:8px}
+.four-website-v5 .four-example-button>span{font-size:17px}
+.four-website-v5 .four-business-built{padding:24px 18px;font-size:14px;gap:9px}
+.four-website-v5 .four-business-built-check{width:19px;height:19px}.four-website-v5 .four-business-built-check svg{width:12px;height:12px}
+.four-website-v5 figcaption{font-size:11px;color:#72757b;line-height:1.5;text-align:center;margin-top:14px}
+@media(max-width:900px){.four-website-v5-stage{padding:4px 0 23px}.four-website-v5 .four-business-website{border-radius:21px}.four-website-v5 .four-example-nav{padding:19px 23px;font-size:17px}.four-website-v5 .four-example-nav>span:last-child{font-size:10px}.four-website-v5 .four-business-browser-bar{min-height:45px;padding:0 17px}.four-website-v5 .four-business-browser-bar>span:nth-child(2){font-size:12px}.four-website-v5 .four-example-copy>span:first-child{font-size:12px}.four-website-v5 .four-example-copy>strong{font-size:clamp(34px,6.4vw,58px);margin:18px 0 25px}.four-website-v5 .four-example-button{padding:12px 15px;font-size:12px;gap:23px}.four-website-v5 .four-business-built{font-size:13px;padding:21px 14px}}
+@media(max-width:480px){.four-website-v5 .four-business-website{border-radius:16px}.four-website-v5 .four-business-browser-bar{min-height:39px;padding:0 12px;gap:6px}.four-website-v5 .four-business-browser-bar>span:nth-child(2){font-size:10px;line-height:1.3}.four-website-v5 .four-business-browser-dots{gap:3px}.four-website-v5 .four-business-browser-dots i{width:4px;height:4px}.four-website-v5 .four-business-browser-bar>svg{width:11px;height:11px}.four-website-v5 .four-example-nav{padding:17px 15px;font-size:13px}.four-website-v5 .four-example-nav>span:last-child{font-size:8px}.four-website-v5 .four-business-website-media{margin:0 5px;border-radius:8px}.four-website-v5 .four-example-copy{padding:8%}.four-website-v5 .four-example-copy>span:first-child{font-size:9px}.four-website-v5 .four-example-copy>strong{font-size:32px;margin:12px 0 17px;line-height:1.02}.four-website-v5 .four-example-button{font-size:10px;padding:10px 12px;gap:20px;border-radius:6px}.four-website-v5 .four-example-button>span{font-size:13px}.four-website-v5 .four-business-built{font-size:11px;padding:18px 10px;gap:6px}.four-website-v5 .four-business-built-check{width:16px;height:16px}.four-website-v5 .four-business-built-check svg{width:10px;height:10px}.four-website-v5 figcaption{font-size:10px;margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.four-website-v5 .four-business-website video{display:none}.four-website-v5 .four-business-static{display:block}.four-website-v5 .four-business-website,.four-website-v5 .four-example-copy{opacity:1;transform:none;animation:none!important}}
+
+/* Ninety daily observations, including weekends, plateaus and normal dips. */
+.four-seo5-plot{padding-left:0;margin-top:18px;color:#4285f4}
+.four-seo5-chart-key{display:flex;align-items:center;gap:6px;padding-left:29px;margin-bottom:12px;color:#89919c;font-size:10px;line-height:1.4;letter-spacing:-.01em}
+.four-seo5-chart-key>i{width:5px;height:5px;flex:none;border-radius:50%;background:#4285f4}
+.four-seo5-chart-key>span:last-child{margin-left:auto;color:#a1a7af;font-size:9px}
+.four-seo5-chart-body{position:relative;padding-left:29px;height:194px}
+.four-seo5-chart-body>.four-seo5-chart{display:block;width:100%;height:194px;overflow:visible}
+.four-seo5-axis{top:11px;bottom:8px;font-size:10px;line-height:1.2;color:#a2a8b0}
+.four-seo5-grid{fill:none;stroke:#eceff3;stroke-width:1;vector-effect:non-scaling-stroke}
+.four-seo5-line{fill:none;stroke:#4285f4;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.four-seo5-area{fill:url(#four-seo5-area-gradient)}
+.four-seo5-end{fill:#4285f4;stroke:#fff;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.four-seo5-dates{position:relative;display:block;height:15px;margin:9px 0 0 29px;color:#a1a7af;font-size:9px;line-height:1.4}
+.four-seo5-dates>span{position:absolute;top:0;white-space:nowrap}
+.four-seo5-dates>span:nth-child(1){left:0}
+.four-seo5-dates>span:nth-child(2){left:34.83%;transform:translateX(-50%)}
+.four-seo5-dates>span:nth-child(3){left:68.54%;transform:translateX(-50%)}
+.four-seo5-dates>span:nth-child(4){right:0}
+@media(max-width:720px){.four-seo5-plot{margin-top:18px}.four-seo5-chart-key{padding-left:23px;margin-bottom:10px;font-size:9px}.four-seo5-chart-key>span:last-child{font-size:8px}.four-seo5-chart-body{padding-left:23px;height:170px}.four-seo5-chart-body>.four-seo5-chart{height:170px}.four-seo5-axis{top:9px;bottom:5px;font-size:9px}.four-seo5-dates{margin-left:23px;font-size:8px;height:13px}.four-seo5-line{stroke-width:1.7}}
+@media(prefers-reduced-motion:reduce){.four-seo5-chart .four-seo3-reveal{width:100%;opacity:1;animation:none!important}}
+
+.four-seo5-chart-key,.four-seo5-chart-key>span:last-child,.four-seo5-axis,.four-seo5-dates{color:#72757b}

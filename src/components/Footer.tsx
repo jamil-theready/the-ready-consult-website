@@ -72,7 +72,7 @@ export default function Footer() {
               <p className="text-[12px] font-semibold text-navy mb-4">Services</p>
               <div className="space-y-3">
                 {["Websites", "Monthly SEO", "Hosting", "Lead alerts", "Dashboard"].map((l) => (
-                  <a key={l} href="/#services" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{l}</a>
+                  <a key={l} href="/#website" className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{l}</a>
                 ))}
               </div>
             </div>
@@ -81,10 +81,10 @@ export default function Footer() {
               <div className="space-y-3">
                 {[
                   { l: "Pricing", h: "/#pricing" },
-                  { l: "Process", h: "/#how-it-works" },
+                  { l: "Process", h: "/#business" },
                   { l: "Work", h: "/work" },
                   { l: "Get started", h: "/#signup" },
-                  { l: "FAQ", h: "/#faq" },
+                  { l: "FAQ", h: "/faq" },
                 ].map((i) => (
                   <a key={i.l} href={i.h} className="block text-[12px] text-gray-500 hover:text-navy transition-colors">{i.l}</a>
                 ))}

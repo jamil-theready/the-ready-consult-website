@@ -1,0 +1,13 @@
+.four-sub3-core{background:#161719!important;transform-origin:50% 50%;animation:five-subscription-invite 5s cubic-bezier(.2,.8,.2,1) infinite;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease}
+.four-sub3-core:hover,.four-sub3-core:focus-visible{animation:none;background:#161719!important;transform:translateY(-2px) scale(1.025);box-shadow:0 18px 44px -21px #0008,0 0 0 4px #e9a63c16}
+.four-sub3-core:active{transform:translateY(0) scale(.985)}
+.four-cta{transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease}
+.four-cta:hover,.four-cta:focus-visible{background:#161719;border-color:#161719;transform:translateY(-2px);box-shadow:0 15px 32px -20px #0008}
+.four-cta:active{transform:scale(.985)}
+.four-intake-dialog{transform-origin:50% 50%;will-change:transform,opacity}
+.four-intake-dialog[data-phase="opening"]::backdrop{animation:five-backdrop-in .36s ease both}
+.four-intake-dialog[data-phase="closing"]::backdrop{animation:five-backdrop-out .26s ease both}
+@keyframes five-subscription-invite{0%,76%,100%{transform:scale(1);box-shadow:0 20px 44px -27px #0008,0 7px 28px -22px #e9a63c65}84%{transform:scale(1.035);box-shadow:0 23px 48px -25px #0008,0 0 0 5px #e9a63c18}91%{transform:scale(1.012);box-shadow:0 21px 44px -27px #0008,0 0 0 8px #e9a63c00}}
+@keyframes five-backdrop-in{from{opacity:0}to{opacity:1}}
+@keyframes five-backdrop-out{from{opacity:1}to{opacity:0}}
+@media(prefers-reduced-motion:reduce){.four-sub3-core,.four-cta,.four-intake-dialog::backdrop{animation:none!important;transition:none!important}.four-sub3-core:hover,.four-sub3-core:focus-visible,.four-sub3-core:active,.four-cta:hover,.four-cta:focus-visible,.four-cta:active{transform:none}.four-intake-dialog{will-change:auto}}

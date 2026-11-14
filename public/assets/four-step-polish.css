@@ -1,0 +1,46 @@
+/* Quiet depth, fixed frames, and short motion that explains a state change. */
+.four-figure{--four-settle:cubic-bezier(.16,1,.3,1);--four-feedback:cubic-bezier(.2,.8,.2,1)}
+.four-business-v3-node{border-color:#e8eaed;border-radius:20px;background:#fff;box-shadow:0 2px 4px #10182005,0 18px 38px -24px #10182035;animation:none;transform:none}
+.four-business-v3-areas{border-radius:22px;background:linear-gradient(155deg,#fff,#fafbfc)}
+.four-business-v3-areas .four-business-v3-label{color:#70757d;font-weight:400;letter-spacing:-.01em}
+.four-business-v3-areas>strong{margin:0 0 14px;color:#202328;font-size:15px;font-weight:500;letter-spacing:-.03em}
+.four-business-v3-map{height:166px;border:0;border-radius:14px;background:#edf1ec;box-shadow:0 0 0 1px #20252c09,0 1px 2px #20252c05;isolation:isolate}
+.four-business-v3-map iframe{position:relative;z-index:0}
+.four-business-v3-map-radius{z-index:1;left:50%;top:48%;width:100px;height:100px;border:1px solid #bc842d73;background:radial-gradient(circle,#e9a63c17 0%,#e9a63c19 65%,#e9a63c25 100%);transform:translate(-50%,-50%);transform-origin:center}
+.four-map-location-pulse{position:absolute;z-index:1;left:50%;top:48%;width:100px;height:100px;border:1px solid #bc842d61;border-radius:50%;opacity:0;transform:translate(-50%,-50%);pointer-events:none}
+.four-map-marker{position:absolute;z-index:2;left:50%;top:48%;width:34px;height:42px;transform:translate(-50%,-100%);pointer-events:none}
+.four-map-pin-lift{display:block;width:100%;height:100%;transform-origin:50% 100%}
+.four-map-marker-art{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 2px #3c2b162b) drop-shadow(0 5px 7px #3c2b1614)}
+.four-map-ready:not(.four-map-revealed) .four-map-pin-lift{opacity:0;transform:translateY(-7px) scale(.88)}
+.four-map-ready:not(.four-map-revealed) .four-business-v3-map-radius{opacity:0;transform:translate(-50%,-50%) scale(.25)}
+.four-map-revealed .four-map-pin-lift{animation:four-map-pin-settle .56s cubic-bezier(.22,1.25,.36,1) both}
+.four-map-revealed .four-business-v3-map-radius{animation:four-map-area-reveal .65s var(--four-settle) .18s both}
+.four-map-revealed .four-map-location-pulse{animation:four-map-area-pulse 6.4s var(--four-settle) 1.1s infinite}
+.four-business-v3-areas .four-business-v3-note{margin-top:11px;font-size:11px;line-height:1.45;color:#737881}
+.four-business-v3-wire-pulse use{animation-duration:6.4s;animation-timing-function:var(--four-settle);filter:none;stroke-width:2.2}
+.four-seo3-shell,.four-sub3-card{border-color:#e9ebef;box-shadow:0 2px 4px #10182003,0 20px 50px -34px #10182029}
+.four-seo3-count span{animation-name:four-report-impressions;animation-timing-function:var(--four-settle)}
+.four-seo3-gauge-value strong{animation-name:four-report-score;animation-timing-function:var(--four-settle)}
+.four-seo3-gauge-fill{animation-name:four-report-gauge;animation-timing-function:var(--four-settle);filter:none}
+.four-seo3-reveal{animation-name:four-report-chart;animation-timing-function:var(--four-settle)}
+.four-sub3-scene{border-radius:14px;box-shadow:inset 0 0 0 1px #ffffffa6}
+.four-sub3-alert{animation:four-banner-settle 8.4s var(--four-feedback) infinite;box-shadow:0 1px 2px #173b2710,0 8px 18px -12px #173b2730}
+.four-sub3-alert-second{animation-delay:3.4s}
+.four-sub3-server i,.four-sub3-server b{animation-name:four-server-activity;animation-duration:4.8s;animation-timing-function:steps(1,end);box-shadow:0 0 4px #34a85330}
+.four-sub3-core{transition:background .18s var(--four-feedback)}
+.four-cta svg{animation:none;transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.four-cta:hover svg,.four-cta:focus-visible svg{transform:translateX(4px)}
+@keyframes four-map-pin-settle{0%{opacity:0;transform:translateY(-7px) scale(.88)}60%{opacity:1;transform:translateY(0) scale(1.025)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes four-map-area-reveal{from{opacity:0;transform:translate(-50%,-50%) scale(.25)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes four-map-area-pulse{0%,66%{opacity:0;transform:translate(-50%,-50%) scale(1)}68%{opacity:.4;transform:translate(-50%,-50%) scale(1)}86%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.18)}}
+@keyframes four-report-impressions{0%,8%{--four-seo3-impressions:1240}38%,94%{--four-seo3-impressions:3680}100%{--four-seo3-impressions:1240}}
+@keyframes four-report-score{0%,8%{--four-seo3-score:62}38%,94%{--four-seo3-score:100}100%{--four-seo3-score:62}}
+@keyframes four-report-gauge{0%,8%{stroke-dashoffset:38;opacity:.6}38%,94%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:38;opacity:.6}}
+@keyframes four-report-chart{0%,8%{width:30%;opacity:.5}38%,94%{width:100%;opacity:1}98%{width:100%;opacity:0}100%{width:30%;opacity:0}}
+@keyframes four-banner-settle{0%,6%{opacity:0;transform:translateY(10px) scale(.985)}15%,72%{opacity:1;transform:translateY(0) scale(1)}84%,100%{opacity:0;transform:translateY(-4px) scale(.995)}}
+@keyframes four-server-activity{0%,17%,25%,52%,60%,100%{opacity:.65}19%,23%,55%,58%{opacity:1}}
+@media(prefers-reduced-motion:no-preference){.four-figure:not(.four-motion-active) *,.four-figure:not(.four-motion-active) *:before,.four-figure:not(.four-motion-active) *:after{animation-play-state:paused}}
+@media(max-width:1100px) and (min-width:901px){.four-business-v3-map{height:144px}.four-business-v3-areas>strong{font-size:13px}}
+@media(max-width:900px){.four-business-v3-map{height:154px}.four-business-v3-node{box-shadow:0 2px 4px #10182004,0 16px 32px -24px #10182030}}
+@media(max-width:480px){.four-business-v3-node{border-radius:17px}.four-business-v3-areas{border-radius:18px}.four-business-v3-map{height:140px;border-radius:12px}.four-business-v3-areas>strong{font-size:11px;margin-bottom:11px}.four-business-v3-areas .four-business-v3-note{font-size:10px;margin-top:10px}.four-business-v3-map-radius,.four-map-location-pulse{width:80px;height:80px}.four-map-marker{width:28px;height:35px}.four-sub3-scene{border-radius:11px}}
+@media(prefers-reduced-motion:reduce){.four-map-revealed .four-map-pin-lift,.four-map-revealed .four-business-v3-map-radius,.four-map-revealed .four-map-location-pulse,.four-sub3-alert,.four-sub3-server i,.four-sub3-server b,.four-seo3-count span,.four-seo3-gauge-value strong,.four-seo3-gauge-fill,.four-seo3-reveal{animation:none!important}.four-map-ready .four-map-pin-lift{opacity:1;transform:none}.four-map-ready .four-business-v3-map-radius{opacity:1;transform:translate(-50%,-50%) scale(1)}.four-map-location-pulse{display:none}.four-seo3-count span{--four-seo3-impressions:3680}.four-seo3-gauge-value strong{--four-seo3-score:100}.four-seo3-gauge-fill{stroke-dashoffset:0;opacity:1}.four-seo3-reveal{width:100%;opacity:1}.four-sub3-alert{opacity:1;transform:none}}
