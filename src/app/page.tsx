@@ -24,8 +24,8 @@ const linkedCss = [...page.matchAll(/<link rel="stylesheet" href="(\/assets\/[^"
   .map(match => read(`public${match[1]}`));
 const css = `${pageCss}\n${linkedCss.join('\n')}`;
 const rawBody = page.match(/<body>([\s\S]*?)<\/body>/)?.[1];
-if (!pageCss || !rawBody || !rawBody.includes('id="pricing"') || !rawBody.includes('id="four-intake-dialog"')) {
-  throw new Error('Five-section homepage source is incomplete.');
+if (!pageCss || !rawBody || !rawBody.includes('id="hero"') || !rawBody.includes('id="pricing"') || !rawBody.includes('id="four-intake-dialog"')) {
+  throw new Error('Homepage source is incomplete: hero, presentation, or intake is missing.');
 }
 const body = rawBody
   .replace('class="four-intake-dialog"', 'class="four-intake-dialog" data-intake-mode="live"')
